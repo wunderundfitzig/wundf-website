@@ -1,0 +1,32 @@
+{
+  "name": "wundf-web-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wunderundfitzig/wundf-web-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wunderundfitzig/wundf-web-frontend/issues"
+  },
+  "homepage": "https://github.com/wunderundfitzig/wundf-web-frontend#readme",
+  "dependencies": {
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.10",
+    "next": "^8.0.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "babel-plugin-emotion": "^10.0.9"
+  }
+}
