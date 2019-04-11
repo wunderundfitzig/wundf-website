@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import colors from '../../lib/colors'
 import { Link } from '../../routes'
+
+import colors from '../../lib/colors'
+import logo from './wundfLogo.svg'
+import creatives from './creatives.svg'
+import work from './work.svg'
 
 const Header = styled.div`
   background-color: ${colors.black};
   color: white;
 `
-
-// export default () =>
-//   <Header>hey ho</Header>
 
 export default () =>
   <Header>
@@ -17,10 +18,7 @@ export default () =>
       <ul>
         <li>
           <Link href='creatives'>
-            {/* <img className='menu-img'
-              src='/assets/img/creatives.svg'
-              alt='creatives' /> */}
-            <a>creatives</a>
+            <a><img src={creatives} alt='creatives' /></a>
           </Link>
         </li>
         <li>
@@ -28,15 +26,12 @@ export default () =>
             {/* <img className='menu-logo'
               src='/assets/img/logo.svg'
               alt='wunder &amp; fitzig' /> */}
-            <a>news</a>
+            <a><img src={logo} alt='wunder & fitzig' /></a>
           </Link>
         </li>
         <li>
           <Link href='work'>
-            {/* <img className='menu-img'
-              src='/assets/img/work.svg'
-              alt='work' /> */}
-            <a>work</a>
+            <a><img src={work} alt='work' /></a>
           </Link>
         </li>
       </ul>

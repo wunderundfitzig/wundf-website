@@ -1,6 +1,8 @@
 import React from 'react'
 import App, { Container } from 'next/app'
+import { css, Global } from '@emotion/core'
 import Header from '../components/Header/Header'
+import colors from '../lib/colors'
 
 class WundfWebsite extends App {
   // static async getInitialProps({ Component, ctx }) {
@@ -18,6 +20,26 @@ class WundfWebsite extends App {
 
     return (
       <Container>
+        <Global
+          styles={css`
+            * {
+              box-sizing: border-box;
+            }
+            body {
+              color: ${colors.black};
+              font-size: 16px;
+              background: ${colors.backgroundGrey};
+              font-family: 'Noto Serif', serif;
+              font-weight: 400;
+              margin: 0;
+            }
+            a {
+              color: ${colors.blue};
+              text-decoration: none;
+              border-bottom: 1px solid $link-blue;
+            }
+        `}
+        />
         <Header />
         <Component {...pageProps} />
       </Container>
