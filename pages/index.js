@@ -7,4 +7,7 @@ const Frame = styled.div`
 `
 
 export default () =>
-  <Frame>Hello World</Frame>
+  <>
+    <Head><title>wunder & fitzig | news</title></Head>
+    <Frame>Hello World</Frame>
+  </>
