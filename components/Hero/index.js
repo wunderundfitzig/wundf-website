@@ -3,13 +3,13 @@ import { Slogan, SubSlogan, Contact, PhoneAndMail } from './blocks'
 
 export default class Hero extends Component {
   state = {
-    buzzword: this.props.buzzwords[0]
+    buzzword: this.props.buzzwords[0] + '.'
   }
 
   replaceWord = async (i = 0) => {
     const { buzzwords } = this.props
-    await this.animateTyping({ word: buzzwords[i], backwards: true })
-    await this.animateTyping({ word: buzzwords[++i] })
+    await this.animateTyping({ word: buzzwords[i] + '.', backwards: true })
+    await this.animateTyping({ word: buzzwords[++i] + '.' })
     if (i < buzzwords.length - 1) {
       this.timeoutId = setTimeout(() => { this.replaceWord(i) }, 3000)
     }

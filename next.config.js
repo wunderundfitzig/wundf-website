@@ -9,5 +9,8 @@ module.exports = {
       }
     })
     return config
+  },
+  publicRuntimeConfig: {
+    apiURL: 'http://localhost/api/'
   }
 }
