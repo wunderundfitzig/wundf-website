@@ -1,7 +1,7 @@
 import React from 'react'
 import App, { Container } from 'next/app'
 import { css, Global } from '@emotion/core'
-import Header from '../components/Header/Header'
+import Header from '../components/Header'
 import colors from '../lib/colors'
 
 class WundfWebsite extends App {
@@ -17,7 +17,6 @@ class WundfWebsite extends App {
 
   render () {
     const { Component, pageProps } = this.props
-
     return (
       <Container>
         <Global
