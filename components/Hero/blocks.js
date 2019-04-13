@@ -9,6 +9,7 @@ export const Slogan = styled.h1`
   font-weight: 400;
   margin-top: 25px;
   margin-bottom: 0;
+  color: ${colors.black};
 
   @media (min-width: ${breakpoints.m.min}px) {
     font-size: 35px;
@@ -24,10 +25,10 @@ export const Slogan = styled.h1`
   }
 
   strong {
-    font-weight: 600;
+    font-weight: bold;
     display: block;
     height: 25px;
-    color: ${colors.rosa};
+    color: ${colors.textGrey};
 
     @media (min-width: ${breakpoints.m.min}px) {
       height: 40px;
@@ -46,7 +47,7 @@ export const Contact = styled.div`
   color: ${colors.textGrey};
 
   @media (min-width: ${breakpoints.m.min}px) {
-    font-size: 14px;
+    font-size: 16px;
   }
   @media (min-width: ${breakpoints.l.min}px) {
     font-size: 17px;
@@ -54,6 +55,7 @@ export const Contact = styled.div`
 `
 
 export const PhoneAndMail = styled.p`
+  font-family: 'ETBemboLineFigures', serif;
   white-space: nowrap;
   margin: 0;
 `
