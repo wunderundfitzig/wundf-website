@@ -36,6 +36,10 @@ class WundfWebsite extends App {
               color: ${colors.blue};
               text-decoration: none;
               border-bottom: 1px solid $link-blue;
+
+              &:hover {
+                border-bottom: 1px solid;
+              }
             }
         `}
         />
