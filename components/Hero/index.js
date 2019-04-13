@@ -44,6 +44,7 @@ export default class Hero extends Component {
   }
 
   render () {
+    const { phoneNumber, mail, address, addressURL } = this.props
     const { buzzword } = this.state
 
     return <div>
@@ -55,14 +56,10 @@ export default class Hero extends Component {
 
       <Contact>
         <PhoneAndMail>
-          <span>+49 (0) 30 644 72 444 | </span>
-          <a href='mailto:info@wunderundfitzig.de'>
-            info@wunderundfitzig.de
-          </a>
+          <span>{phoneNumber} | </span>
+          <a href={`mailto:${mail}`}>{mail}</a>
         </PhoneAndMail>
-        <a href='https://goo.gl/maps/VsHnP' target='_blank'>
-          Lausitzer Straße 47 10999 Berlin
-        </a>
+        <a href={addressURL} target='_blank'>{address}</a>
       </Contact>
     </div>
   }

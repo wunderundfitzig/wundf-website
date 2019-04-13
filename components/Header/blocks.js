@@ -78,6 +78,10 @@ export const ActiveLink = styled.a`
   color: white;
   cursor: pointer;
 
+  &:hover {
+    border: 0
+  }
+
   ${props => props.active && css`
     &::after {
       content: ' ';

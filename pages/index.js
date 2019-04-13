@@ -8,15 +8,15 @@ const { publicRuntimeConfig } = getConfig()
 
 const Index = props =>
   <>
-    <Head><title>wunder & fitzig | news</title></Head>
-    <Hero buzzwords={props.buzzwords} />
+    <Head><title>wunder & fitzig</title></Head>
+    <Hero {...props.heroProps} />
   </>
 
 Index.getInitialProps = async () => {
-  const res = await fetch(publicRuntimeConfig.apiURL + 'singletons/get/buzzwords')
-  const buzzwordList = await res.json()
-  const buzzwords = buzzwordList.words.map(word => word.value)
-  return { buzzwords }
+  const res = await fetch(publicRuntimeConfig.apiURL + 'singletons/get/hero')
+  let heroProps = await res.json()
+  heroProps.buzzwords = heroProps.buzzwords.map(word => word.value)
+  return { heroProps }
 }
 
 export default Index

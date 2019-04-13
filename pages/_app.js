@@ -28,7 +28,7 @@ class WundfWebsite extends App {
               color: ${colors.black};
               font-size: 16px;
               background: ${colors.backgroundGrey};
-              font-family: 'Noto Serif', serif;
+              font-family: 'ETBembo', serif;
               font-weight: 400;
               margin: 0;
             }
