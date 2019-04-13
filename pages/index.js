@@ -1,10 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import getConfig from 'next/config'
-import fetch from 'isomorphic-unfetch'
+import { fetchSigleton, fetchCollection } from '../lib/apiHelpers'
 import Hero from '../components/Hero'
-
-const { publicRuntimeConfig } = getConfig()
 
 const Index = props =>
   <>
@@ -13,10 +10,14 @@ const Index = props =>
   </>
 
 Index.getInitialProps = async () => {
-  const res = await fetch(publicRuntimeConfig.apiURL + 'singletons/get/hero')
-  let heroProps = await res.json()
+  // get data for hero
+  let heroProps = await fetchSigleton('hero')
   heroProps.buzzwords = heroProps.buzzwords.map(word => word.value)
-  return { heroProps }
+
+  // get news
+  const newsProps = await fetchCollection('news')
+
+  return { heroProps, newsProps }
 }
 
 export default Index

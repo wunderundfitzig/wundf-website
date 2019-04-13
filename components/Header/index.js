@@ -8,14 +8,14 @@ export default () =>
   <Header>
     <Nav>
       <ul>
-        <NavListItem href='/creatives'>
-          <Image src={creatives} alt='creatives' />
+        <NavListItem href='/work'>
+          <Image src={work} alt='work' />
         </NavListItem>
         <NavListItem href='/'>
           <LogoImage src={logo} alt='wunder & fitzig' />
         </NavListItem>
-        <NavListItem href='/work'>
-          <Image src={work} alt='work' />
+        <NavListItem href='/creatives'>
+          <Image src={creatives} alt='creatives' />
         </NavListItem>
       </ul>
     </Nav>

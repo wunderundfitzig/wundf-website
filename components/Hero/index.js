@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Slogan, SubSlogan, Contact, PhoneAndMail } from './blocks'
+import { Slogan, Contact, PhoneAndMail } from './blocks'
 
 export default class Hero extends Component {
   state = {
@@ -30,7 +30,7 @@ export default class Hero extends Component {
           clearInterval(this.intervalID)
           resolve()
         }
-      }, backwards ? 50 : 150)
+      }, backwards ? 20 : 100)
     })
   }
 
@@ -52,7 +52,6 @@ export default class Hero extends Component {
         Wir gestalten
         <strong className='buzzword'> { buzzword }</strong>
       </Slogan>
-      <SubSlogan>Digital & Analog</SubSlogan>
 
       <Contact>
         <PhoneAndMail>
