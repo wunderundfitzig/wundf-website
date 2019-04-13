@@ -30,7 +30,7 @@ export default class Hero extends Component {
           clearInterval(this.intervalID)
           resolve()
         }
-      }, backwards ? 20 : 100)
+      }, backwards ? 20 : 70)
     })
   }
 

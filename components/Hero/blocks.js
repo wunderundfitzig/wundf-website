@@ -5,7 +5,7 @@ import breakpoints from '../../lib/breakpoints'
 
 export const Slogan = styled.h1`
   text-align: center;
-  font-size: 23px;
+  font-size: 30px;
   font-weight: 400;
   margin-top: 25px;
   margin-bottom: 0;
@@ -39,9 +39,9 @@ export const Slogan = styled.h1`
 `
 
 export const Contact = styled.div`
-  margin: 20px 0 20px;
+  margin: 20px 0 50px;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7em;
   color: ${colors.textGrey};
 
@@ -50,9 +50,6 @@ export const Contact = styled.div`
   }
   @media (min-width: ${breakpoints.l.min}px) {
     font-size: 17px;
-  }
-  @media (min-width: ${breakpoints.xl.min}px) {
-    margin-bottom: 50px;
   }
 `
 

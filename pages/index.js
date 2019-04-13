@@ -2,12 +2,16 @@ import React from 'react'
 import Head from 'next/head'
 import { fetchSigleton, fetchCollection } from '../lib/apiHelpers'
 import Hero from '../components/Hero'
+import News from '../components/News'
 
-const Index = props =>
-  <>
+const Index = props => {
+  const { heroProps, news } = props
+  return <>
     <Head><title>wunder & fitzig</title></Head>
-    <Hero {...props.heroProps} />
+    <Hero {...heroProps} />
+    <News news={news} />
   </>
+}
 
 Index.getInitialProps = async () => {
   // get data for hero
@@ -15,9 +19,10 @@ Index.getInitialProps = async () => {
   heroProps.buzzwords = heroProps.buzzwords.map(word => word.value)
 
   // get news
-  const newsProps = await fetchCollection('news')
+  const news = await fetchCollection('news')
+  console.log(news)
 
-  return { heroProps, newsProps }
+  return { heroProps, news }
 }
 
 export default Index
