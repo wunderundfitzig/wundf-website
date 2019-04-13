@@ -32,46 +32,46 @@ export const LinkWrapper = styled.a`
 `
 
 export const Image = styled.div`
+  position: relative;
   width: 100%;
   height: 150px;
-  background-image: url(${props => props.src});
+  background-image: url(${props => props.url});
   background-size: cover;
   background-position: center;
+  margin-bottom: 20px;
 
   @media (min-width: ${breakpoints.sm.min}px) {
     height: 200px;
+    margin-bottom: 30px;
   }
 `
 
 export const Title = styled.h1`
-  position: relative;
-  margin: -30px 0 0 10px;
-  width: 200px;
+  position: absolute;
+  bottom: -20px;
+  left: 10px;
+  width: 11em;
+  margin: 0;
   color: ${colors.black};
   text-align: right;
   font-weight: normal;
   background-color: ${colors.backgroundGrey};
-  padding: 10px 10px 0;
+  padding: 0.5em 1em 0;
   font-size: 20px;
-  z-index: 10;
 
   @media (min-width: ${breakpoints.sm.min}px) {
     font-size: 24px;
-    padding: 10px 15px 0;
-    margin-left: 20px;
-    margin-top: -35px;
-    width: 240px;
+    bottom: -30px;
+    left: 20px;
   }
 
   @media (min-width: ${breakpoints.m.min}px) {
     font-size: 27px;
-    padding: 10px 20px 0;
-    margin-top: -46px;
-    width: 250px;
   }
 `
 
 export const Content = styled.div`
+  overflow: hidden;
   padding-left: 90px;
   padding-right: 10px;
   margin-bottom: 40px;

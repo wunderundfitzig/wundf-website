@@ -21,7 +21,7 @@ export const Slogan = styled.h1`
   }
   @media (min-width: ${breakpoints.xl.min}px) {
     font-size: 49px;
-    margin-top: 50px;
+    margin-top: 40px;
   }
 
   strong {

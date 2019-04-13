@@ -6,10 +6,11 @@ export default props => {
   const { news } = props
   return <Feed>
     {news.map(item => {
-      return <LinkWrapper href={item.link.url} key={item._id}>
+      return <LinkWrapper href={item.link.url} target='_blank' key={item._id}>
         <article>
-          <Image src={getAbsoluteURL(item.image.path)} alt={item.image.meta.title} />
-          <Title>{item.title}</Title>
+          <Image url={getAbsoluteURL(item.image.path)} alt={item.image.meta.title}>
+            <Title>{item.title}</Title>
+          </Image>
           <Content>
             <p>{item.text}</p>
             <LinkLabel>{item.link.label}</LinkLabel>
