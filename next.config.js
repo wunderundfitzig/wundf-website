@@ -11,6 +11,6 @@ module.exports = {
     return config
   },
   publicRuntimeConfig: {
-    backendURL: 'http://localhost'
+    backendURL: 'https://wfspace.uber.space'
   }
 }

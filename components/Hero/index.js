@@ -11,7 +11,7 @@ export default class Hero extends Component {
     await this.animateTyping({ word: buzzwords[i] + '.', backwards: true })
     await this.animateTyping({ word: buzzwords[++i] + '.' })
     if (i < buzzwords.length - 1) {
-      this.timeoutId = setTimeout(() => { this.replaceWord(i) }, 3000)
+      this.timeoutId = setTimeout(() => { this.replaceWord(i) }, 6000)
     }
   }
 
@@ -35,7 +35,7 @@ export default class Hero extends Component {
   }
 
   componentDidMount () {
-    this.timeoutId = setTimeout(this.replaceWord, 1000)
+    this.timeoutId = setTimeout(this.replaceWord, 3000)
   }
 
   componentWillUnmount () {

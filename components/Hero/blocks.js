@@ -21,7 +21,7 @@ export const Slogan = styled.h1`
   }
   @media (min-width: ${breakpoints.xl.min}px) {
     font-size: 49px;
-    margin-top: 40px;
+    margin-top: 60px;
   }
 
   strong {
@@ -40,7 +40,7 @@ export const Slogan = styled.h1`
 `
 
 export const Contact = styled.div`
-  margin: 20px 0 50px;
+  margin: 20px 0 70px;
   text-align: center;
   font-size: 14px;
   line-height: 1.7em;
