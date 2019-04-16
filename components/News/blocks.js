@@ -19,13 +19,10 @@ export const Feed = styled.div`
   max-width: 600px;
   margin: 0 auto;
   list-style: none;
-  padding: 0 8px;
-  animation: ${fadeIn} 1s;
+  padding: 0 15px;
+  animation: ${fadeIn} 2s;
 
   @media (min-width: ${breakpoints.sm.min}px) {
-    padding: 0 12px;
-  }
-  @media (min-width: ${breakpoints.m.min}px) {
     padding: 0 20px;
   }
 `
@@ -52,17 +49,20 @@ export const Image = styled.div`
   background-image: url(${props => props.url});
   background-size: cover;
   background-position: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  background-color: ${colors.textGrey};
 
   @media (min-width: ${breakpoints.sm.min}px) {
+    margin-bottom: 40px;
+  }
+  @media (min-width: ${breakpoints.m.min}px) {
     height: 200px;
-    margin-bottom: 30px;
   }
 `
 
 export const Title = styled.h1`
   position: absolute;
-  bottom: -20px;
+  bottom: -40px;
   left: 10px;
   width: 11em;
   margin: 0;
@@ -70,12 +70,12 @@ export const Title = styled.h1`
   text-align: right;
   font-weight: normal;
   background-color: ${colors.backgroundGrey};
-  padding: 0.5em 1em 0;
+  padding: 0.3em 1em 0;
   font-size: 20px;
 
   @media (min-width: ${breakpoints.sm.min}px) {
     font-size: 24px;
-    bottom: -30px;
+    bottom: -40px;
     left: 20px;
   }
 
@@ -94,8 +94,12 @@ export const Content = styled.div`
   @media (min-width: ${breakpoints.sm.min}px) {
     padding-left: 130px;
   }
-  @media (min-width: ${breakpoints.sm.min}px) {
+  @media (min-width: ${breakpoints.m.min}px) {
     padding-left: 150px;
     padding-right: 20px;
+  }
+
+  p {
+    margin: 1em 0;
   }
 `

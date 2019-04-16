@@ -1,17 +1,19 @@
 import { Component } from 'react'
-import { Slogan, Contact, PhoneAndMail } from './blocks'
+import { Wrapper, Slogan, Buzzword, Contact, PhoneAndMail } from './blocks'
 
 export default class Hero extends Component {
   state = {
-    buzzword: this.props.buzzwords[0] + '.'
+    buzzword: this.props.buzzwords[0] + '.',
+    buzzwordVisible: false
   }
 
   replaceWord = async (i = 0) => {
+    const { buzzword } = this.state
     const { buzzwords } = this.props
-    await this.animateTyping({ word: buzzwords[i] + '.', backwards: true })
-    await this.animateTyping({ word: buzzwords[++i] + '.' })
+    await this.animateTyping({ word: buzzword + '.', backwards: true })
+    await this.animateTyping({ word: buzzwords[i] + '.' })
     if (i < buzzwords.length - 1) {
-      this.timeoutId = setTimeout(() => { this.replaceWord(i) }, 6000)
+      this.timeoutId = setTimeout(() => { this.replaceWord(++i) }, 3000)
     }
   }
 
@@ -35,7 +37,8 @@ export default class Hero extends Component {
   }
 
   componentDidMount () {
-    this.timeoutId = setTimeout(this.replaceWord, 3000)
+    this.setState({ buzzword: '', buzzwordVisible: true })
+    this.timeoutId = setTimeout(this.replaceWord, 800)
   }
 
   componentWillUnmount () {
@@ -45,12 +48,12 @@ export default class Hero extends Component {
 
   render () {
     const { phoneNumber, mail, address, addressURL } = this.props
-    const { buzzword } = this.state
+    const { buzzword, buzzwordVisible } = this.state
 
-    return <div>
+    return <Wrapper>
       <Slogan>
         Wir gestalten
-        <strong className='buzzword'> { buzzword }</strong>
+        <Buzzword visible={buzzwordVisible}>{ buzzword }</Buzzword>
       </Slogan>
 
       <Contact>
@@ -60,6 +63,6 @@ export default class Hero extends Component {
         </PhoneAndMail>
         <a href={addressURL} target='_blank'>{address}</a>
       </Contact>
-    </div>
+    </Wrapper>
   }
 }
