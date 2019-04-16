@@ -3,7 +3,7 @@ import { Wrapper, Slogan, Buzzword, Contact, PhoneAndMail } from './blocks'
 
 export default class Hero extends Component {
   state = {
-    buzzword: this.props.buzzwords[0] + '.',
+    buzzword: this.props.buzzwords[this.props.buzzwords.length - 1] + '.',
     buzzwordVisible: false
   }
 

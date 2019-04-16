@@ -20,7 +20,6 @@ Index.getInitialProps = async () => {
 
   // get news
   const news = await fetchCollection('news')
-  console.log(news)
 
   return { heroProps, news }
 }
