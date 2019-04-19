@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { throttle } from '../../lib/apiHelpers'
+import breakpoints from '../../lib/breakpoints'
 
 function getSectionIndexFrom (sectionArray) {
-  // if (this.props.isMobile) return
 
   const newSectionIndex = sectionArray
     .filter(ref => ref !== null)
@@ -21,6 +21,8 @@ export default function useSectionIndexObserver () {
 
   const scrollHandler = useRef(throttle({
     func: () => {
+      if (window.innerWidth < breakpoints.l.min) return
+
       const sectionIndex = getSectionIndexFrom(sectionRefs.current)
       setCurrentSectionIndex(sectionIndex)
     },
