@@ -11,7 +11,7 @@ const Work = ({ work }) =>
 
 Work.getInitialProps = async () => {
   // const customers = await fetchCollection('customers')
-  const work = await fetchCollection('creatives')
+  const work = await fetchCollection('work')
 
   return { work }
 }
