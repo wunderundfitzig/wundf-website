@@ -1,7 +1,7 @@
 import React from 'react'
 import { getAbsoluteURL } from '../../lib/apiHelpers'
 import useSectionIndexObserver from './useSectionIndexObserver'
-import { Wrapper, PersonImage, Content, Title, Markdown } from './blocks'
+import { Wrapper, PersonImage, Content, Title, Markdown } from './CreativesSections.blocks'
 
 const Creatives = props => {
   const { creatives } = props

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Nav, NavListItem, Image, LogoImage } from './blocks'
+import { Header, Nav, NavListItem, Image, LogoImage } from './Header.blocks'
 import logo from './wundfLogo.svg'
 import creatives from './creatives.svg'
 import work from './work.svg'

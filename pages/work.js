@@ -1,13 +1,19 @@
 import React from 'react'
 import Head from 'next/head'
-import styled from '@emotion/styled'
+import { fetchCollection } from '../lib/apiHelpers'
+import WorkOverview from '../components/WorkOverview/WorkOverview.index'
 
-const Frame = styled.div`
-  color: red;
-`
-
-export default () =>
+const Work = ({ work }) =>
   <>
     <Head><title>wunder & fitzig | work</title></Head>
-    <Frame>work</Frame>
+    <WorkOverview work={work} />
   </>
+
+Work.getInitialProps = async () => {
+  // const customers = await fetchCollection('customers')
+  const work = await fetchCollection('creatives')
+
+  return { work }
+}
+
+export default Work

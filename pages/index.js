@@ -1,8 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 import { fetchSigleton, fetchCollection } from '../lib/apiHelpers'
-import Hero from '../components/Hero'
-import News from '../components/News'
+import Hero from '../components/Hero/Hero.index'
+import News from '../components/News/News.index'
 
 const Index = props => {
   const { heroProps, news } = props

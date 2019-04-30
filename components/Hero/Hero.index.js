@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Wrapper, Slogan, Buzzword, Contact, PhoneAndMail } from './blocks'
+import { Wrapper, Slogan, Buzzword, Contact, PhoneAndMail } from './Hero.blocks'
 
 export default class Hero extends Component {
   state = {

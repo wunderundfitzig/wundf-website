@@ -1,6 +1,6 @@
 import React from 'react'
 import { getAbsoluteURL } from '../../lib/apiHelpers'
-import { Feed, Image, Title, Content, LinkWrapper, LinkLabel } from './blocks'
+import { Feed, Image, Title, Content, LinkWrapper, LinkLabel } from './News.blocks'
 
 export default props => {
   const { news } = props
