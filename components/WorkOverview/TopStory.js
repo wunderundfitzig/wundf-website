@@ -1,10 +1,11 @@
+import React from 'react'
+import { getAbsolutAssetURL } from '../../lib/apiHelpers'
+import Attribution from './Attribution'
 import styled from '@emotion/styled'
 import colors from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
 
-export const Wrapper = styled.section``
-
-export const TopStoryWrapper = styled.article`
+const Wrapper = styled.article`
   position: relative;
   width: 100%;
   min-height: 300px;
@@ -12,7 +13,7 @@ export const TopStoryWrapper = styled.article`
   overflow: hidden;
 `
 
-export const TopStoryImage = styled.figure`
+const Image = styled.figure`
   position: absolute;
   top: 0;
   left: 0;
@@ -34,7 +35,7 @@ export const TopStoryImage = styled.figure`
   }
 `
 
-export const TopStoryTitle = styled.h1`
+const Title = styled.h1`
   color: white;
   font-size: 30px;
   font-weight: 400;
@@ -44,7 +45,7 @@ export const TopStoryTitle = styled.h1`
   -o-font-smoothing: grayscale;
 `
 
-export const TopStoryTeaser = styled.p`
+const Teaser = styled.p`
   width: 80%;
   color: white;
   margin: 0;
@@ -54,26 +55,17 @@ export const TopStoryTeaser = styled.p`
   -o-font-smoothing: grayscale;
 `
 
-export const AttributionWrapper = styled.figcaption`
-  position: absolute;
-  right: 10px;
-  bottom: 5px;
-  font-size: 10px;
-  font-family: sans-serif;
-  color: white;
-  z-index: 1;
+const TopStory = ({ story }) =>
+  <Wrapper>
+    <Image
+      url={getAbsolutAssetURL(story.image.path)}
+      alt={(story.image.meta || {}).title}>
 
-  a {
-    color: white;
+      <Attribution imageMeta={story.image.meta} />
+    </Image>
 
-    &:hover {
-      border: 0;
-    }
-  }
-`
+    <Title>{story.title}</Title>
+    <Teaser>{story.teaserText}</Teaser>
+  </Wrapper>
 
-export const AttributionLicense = styled.a`
-  &::after {
-    content: ' '
-  }
-`
+export default TopStory

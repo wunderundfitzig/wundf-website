@@ -14,14 +14,14 @@ const Index = props => {
 }
 
 Index.getInitialProps = async () => {
-  // get data for hero
-  let heroProps = await fetchSigleton('hero')
-  heroProps.buzzwords = heroProps.buzzwords.map(word => word.value)
+  const [heroProps, news] = await Promise.all([
+    fetchSigleton('hero'),
+    fetchCollection('news')
+  ])
 
-  // get news
-  const news = await fetchCollection('news')
+  const buzzwords = heroProps.buzzwords.map(word => word.value)
 
-  return { heroProps, news }
+  return { heroProps: { ...heroProps, buzzwords }, news }
 }
 
 export default Index

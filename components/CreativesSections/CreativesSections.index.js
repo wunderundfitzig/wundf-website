@@ -1,5 +1,5 @@
 import React from 'react'
-import { getAbsoluteURL } from '../../lib/apiHelpers'
+import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import useSectionIndexObserver from './useSectionIndexObserver'
 import { Wrapper, PersonImage, Content, Title, Markdown } from './CreativesSections.blocks'
 
@@ -14,7 +14,7 @@ const Creatives = props => {
         ref={ref => { sectionRefs.current[idx] = ref }}>
 
         <PersonImage
-          url={getAbsoluteURL(person.image.path)}
+          url={getAbsolutAssetURL(person.image.path)}
           align={(person.image.meta || {}).align}
           active={idx === currentSectionIndex} />
         <Content>
