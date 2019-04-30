@@ -38,7 +38,7 @@ export const PersonImage = styled.figure`
 
 export const Content = styled.div`
   position: relative;
-  background-color: ${colors.backgroundGrey};
+  background-color: ${colors.beige};
   padding: 20px 25px;
   margin: -80px 0 40px 40px;
   z-index: 1;
@@ -51,6 +51,7 @@ export const Content = styled.div`
 
   @media (min-width: ${breakpoints.m.min}px) {
     margin-left: calc(100% - 400px);
+    margin-top: -150px;
     margin-bottom: 60px;
   }
 

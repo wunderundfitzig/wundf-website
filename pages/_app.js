@@ -52,7 +52,7 @@ class WundfWebsite extends App {
             body {
               color: ${colors.black};
               font-size: 16px;
-              background: ${colors.backgroundGrey};
+              background: ${colors.beige};
               font-family: 'ETBembo', serif;
               font-weight: 400;
               margin: 0;
@@ -64,7 +64,7 @@ class WundfWebsite extends App {
             a {
               color: ${colors.blue};
               text-decoration: none;
-              border-bottom: 1px solid $link-blue;
+              border-bottom: 1px solid inherit;
 
               &:hover {
                 border-bottom: 1px solid;

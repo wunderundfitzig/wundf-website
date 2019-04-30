@@ -50,7 +50,7 @@ export const Image = styled.div`
   background-size: cover;
   background-position: center;
   margin-bottom: 30px;
-  background-color: ${colors.textGrey};
+  background-color: ${colors.darkGrey};
 
   @media (min-width: ${breakpoints.sm.min}px) {
     margin-bottom: 40px;
@@ -62,15 +62,15 @@ export const Image = styled.div`
 
 export const Title = styled.h1`
   position: absolute;
-  bottom: -40px;
+  bottom: -30px;
   left: 10px;
   width: 11em;
   margin: 0;
   color: ${colors.black};
   text-align: right;
   font-weight: normal;
-  background-color: ${colors.backgroundGrey};
-  padding: 0.3em 1em 0;
+  background-color: ${colors.beige};
+  padding: 0.6em 1em 0.2em;
   font-size: 20px;
 
   @media (min-width: ${breakpoints.sm.min}px) {
@@ -89,7 +89,7 @@ export const Content = styled.div`
   padding-left: 90px;
   padding-right: 10px;
   margin-bottom: 120px;
-  color: ${colors.textGrey};
+  color: ${colors.darkGrey};
 
   @media (min-width: ${breakpoints.sm.min}px) {
     padding-left: 130px;

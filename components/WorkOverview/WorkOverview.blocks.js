@@ -8,7 +8,7 @@ export const TopStoryWrapper = styled.article`
   position: relative;
   width: 100%;
   min-height: 300px;
-  padding: 20px 30px 40px;
+  padding: 50px 30px 90px;
   overflow: hidden;
 `
 
@@ -19,7 +19,7 @@ export const TopStoryImage = styled.figure`
   width: 100%;
   height: 100%;
   margin: 0;
-  background-color: ${colors.textGrey};
+  background-color: ${colors.darkGrey};
   background-image: url(${props => props.url});
   background-size: cover;
   background-position: center;
@@ -30,22 +30,25 @@ export const TopStoryImage = styled.figure`
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to left, rgba(0,0,0, 0), rgba(0,0,0, 0.4) 20%, rgba(0,0,0, 0.8) 80%);
+    background: linear-gradient(to right, rgba(0,0,0, 0.8) 10%, rgba(0,0,0, 0.5) 50%, rgba(0,0,0, 0.1) 80%, rgba(0,0,0, 0));
   }
 `
 
 export const TopStoryTitle = styled.h1`
   color: white;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 400;
+  margin: 0 0 50px;
   -webkit-font-smoothing: grayscale;
   -moz-osx-font-smoothing: grayscale;
   -o-font-smoothing: grayscale;
 `
 
 export const TopStoryTeaser = styled.p`
-  width: 70%;
+  width: 80%;
   color: white;
+  margin: 0;
+  text-shadow: 0 0 4px black;
   -webkit-font-smoothing: grayscale;
   -moz-osx-font-smoothing: grayscale;
   -o-font-smoothing: grayscale;

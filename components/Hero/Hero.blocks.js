@@ -67,7 +67,7 @@ export const Contact = styled.div`
   text-align: center;
   font-size: 14px;
   line-height: 1.7em;
-  color: ${colors.textGrey};
+  color: ${colors.darkGrey};
 
   @media (min-width: ${breakpoints.m.min}px) {
     font-size: 16px;
