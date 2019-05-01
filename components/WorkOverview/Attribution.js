@@ -24,17 +24,16 @@ const License = styled.a`
   }
 `
 
-const Attribution = ({ imageMeta }) => {
-  if (!imageMeta) return null
-  const { license, licenseURL, attribution, attributionURL } = imageMeta
+const Attribution = ({ imageAttribution }) => {
+  const { license, licenseURL, text, sourceURL } = imageAttribution
 
   return <Wrapper>
     <License href={licenseURL} target='_blank'>
       {license}
     </License>
-    { attributionURL
-      ? <a href={attributionURL} target='_blank'>{attribution}</a>
-      : attribution
+    { sourceURL
+      ? <a href={sourceURL} target='_blank'>{text}</a>
+      : text
     }
   </Wrapper>
 }

@@ -9,7 +9,7 @@ export default props => {
     {news.map(item => {
       return <LinkWrapper href={item.link.url} target='_blank' key={item._id}>
         <article>
-          <Image url={getAbsolutAssetURL(item.image.path)} alt={(item.image.meta || {}).title}>
+          <Image url={getAbsolutAssetURL(item.image.path)} alt={item.image.title}>
             <Title>{item.title}</Title>
           </Image>
           <Content>

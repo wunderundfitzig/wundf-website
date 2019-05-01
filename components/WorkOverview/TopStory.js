@@ -57,11 +57,8 @@ const Teaser = styled.p`
 
 const TopStory = ({ story }) =>
   <Wrapper>
-    <Image
-      url={getAbsolutAssetURL(story.image.path)}
-      alt={(story.image.meta || {}).title}>
-
-      <Attribution imageMeta={story.image.meta} />
+    <Image url={getAbsolutAssetURL(story.image.path)}>
+      <Attribution imageAttribution={story.imageAttribution} />
     </Image>
 
     <Title>{story.title}</Title>
