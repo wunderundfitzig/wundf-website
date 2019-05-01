@@ -4,7 +4,6 @@ import Attribution from './Attribution'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import colors from '../../lib/colors'
-import breakpoints from '../../lib/breakpoints'
 
 const Wrapper = styled.article`
   position: relative;
@@ -36,6 +35,10 @@ const Image = styled.figure`
   }
 `
 
+const content = css`
+  max-width: 400px;
+`
+
 const whiteText = css`
   color: white;
   text-shadow: 0 0 2px black;
@@ -46,6 +49,7 @@ const whiteText = css`
 `
 
 const Title = styled.h1`
+  ${content};
   ${whiteText};
   text-shadow: none;
   font-size: 30px;
@@ -54,6 +58,7 @@ const Title = styled.h1`
 `
 
 const Teaser = styled.p`
+  ${content};
   ${whiteText};
   width: 80%;
   color: white;
@@ -61,6 +66,7 @@ const Teaser = styled.p`
 `
 
 const Link = styled.a`
+  ${content};
   ${whiteText};
   font-weight: bold;
 
