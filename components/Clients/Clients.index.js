@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import { lightGrey } from '../../lib/colors'
 
-const Wrapper = styled.section`
+const Wrapper = styled.article`
   background-color: ${lightGrey};
   padding: 25px 20px 15px;
   margin-bottom: 20px;
