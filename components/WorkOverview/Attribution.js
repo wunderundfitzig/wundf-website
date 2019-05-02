@@ -24,10 +24,10 @@ const License = styled.a`
   }
 `
 
-const Attribution = ({ imageAttribution }) => {
+const Attribution = ({ imageAttribution, className }) => {
   const { license, licenseURL, text, sourceURL } = imageAttribution
 
-  return <Wrapper>
+  return <Wrapper className={className}>
     <License href={licenseURL} target='_blank'>
       {license}
     </License>

@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
-import { textContent, link, backgroundImage } from './WorkOverview.blocks'
+import { Image, Title, Teaser, Link } from './WorkOverview.blocks'
 import Attribution from './Attribution'
 
 const whiteText = css`
@@ -22,9 +22,7 @@ const Wrapper = styled.article`
   overflow: hidden;
 `
 
-const Image = styled.figure`
-  ${backgroundImage};
-  background-image: url(${props => props.url});
+const TopImage = styled(Image)`
   position: absolute;
   top: 0;
   left: 0;
@@ -41,37 +39,33 @@ const Image = styled.figure`
   }
 `
 
-const Title = styled.h1`
-  ${textContent};
+const TopTitle = styled(Title)`
   ${whiteText};
   text-shadow: none;
   font-size: 30px;
   font-weight: 400;
-  margin: 0 0 50px;
+  margin: 0 0 40px;
 `
 
-const Teaser = styled.p`
-  ${textContent};
+const TopTeaser = styled(Teaser)`
   ${whiteText};
   width: 80%;
   color: white;
-  margin: 0 0 20px;
 `
 
-const Link = styled.a`
-  ${link};
+const TopLink = styled(Link)`
   ${whiteText};
 `
 
 const TopStory = ({ story }) =>
   <Wrapper>
-    <Image url={getAbsolutAssetURL(story.image.path)}>
+    <TopImage url={getAbsolutAssetURL(story.image.path)}>
       <Attribution imageAttribution={story.imageAttribution} />
-    </Image>
+    </TopImage>
 
-    <Title>{story.title}</Title>
-    <Teaser>{story.teaserText}</Teaser>
-    <Link>{story.linkText}</Link>
+    <TopTitle>{story.title}</TopTitle>
+    <TopTeaser>{story.teaserText}</TopTeaser>
+    <TopLink>{story.linkText}</TopLink>
   </Wrapper>
 
 export default TopStory

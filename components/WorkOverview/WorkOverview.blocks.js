@@ -3,26 +3,6 @@ import { css } from '@emotion/core'
 import { lightGrey, darkGrey } from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
 
-export const textContent = css`
-  max-width: 400px;
-`
-
-export const backgroundImage = css`
-  margin: 0;
-  background-color: ${darkGrey};
-  background-size: cover;
-  background-position: center;
-`
-
-export const link = css`
-  ${textContent};
-  font-weight: bold;
-
-  &::before {
-    content: '+ ';
-  }
-`
-
 export const Wrapper = styled.div`
   @media (min-width: ${breakpoints.l.min}px) {
     display: flex;
@@ -46,4 +26,47 @@ export const ClientsContainer = styled.section`
 
 export const StoriesContainer = styled.section`
   flex: 0 1 100%;
+`
+
+export const Story = styled.article`
+  margin-bottom: 80px;
+`
+
+export const Image = styled.figure`
+  margin: 0;
+  background-color: ${darkGrey};
+  background-size: cover;
+  background-position: center;
+  background-image: url(${props => props.url});
+  position: relative;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 0;
+`
+
+export const textContent = css`
+  max-width: 400px;
+`
+
+export const Title = styled.h1`
+  ${textContent};
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 20px;
+`
+
+export const Teaser = styled.p`
+  ${textContent};
+  margin: 0 0 20px;
+`
+
+export const Link = styled.a`
+  ${textContent};
+  font-weight: bold;
+
+  &::before {
+    content: '+ ';
+  }
 `
