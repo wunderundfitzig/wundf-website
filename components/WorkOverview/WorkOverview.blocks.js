@@ -1,6 +1,27 @@
 import styled from '@emotion/styled'
-import { lightGrey } from '../../lib/colors'
+import { css } from '@emotion/core'
+import { lightGrey, darkGrey } from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
+
+export const textContent = css`
+  max-width: 400px;
+`
+
+export const backgroundImage = css`
+  margin: 0;
+  background-color: ${darkGrey};
+  background-size: cover;
+  background-position: center;
+`
+
+export const link = css`
+  ${textContent};
+  font-weight: bold;
+
+  &::before {
+    content: '+ ';
+  }
+`
 
 export const Wrapper = styled.div`
   @media (min-width: ${breakpoints.l.min}px) {
@@ -12,7 +33,7 @@ export const Wrapper = styled.div`
 
 export const ClientsContainer = styled.section`
   background-color: ${lightGrey};
-  padding: 25px 20px 15px;
+  padding: 25px 20px 15px 30px;
   margin-bottom: 20px;
 
   @media (min-width: ${breakpoints.l.min}px) {
