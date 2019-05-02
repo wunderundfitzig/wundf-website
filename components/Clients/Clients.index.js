@@ -4,7 +4,10 @@ import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import breakpoints from '../../lib/breakpoints'
 
 const Wrapper = styled.article`
-  @media (min-width: ${breakpoints.l.min}px) {
+  max-width: 840px;
+  margin: 0 auto;
+
+  @media (min-width: ${breakpoints.xl.min}px) {
     padding-left: calc(100% - 250px)
   }
 `
@@ -15,7 +18,11 @@ const Title = styled.h1`
   font-size: 15px;
   margin: 0 0 20px;
 
-  @media (min-width: ${breakpoints.l.min}px) {
+  @media (min-width: ${breakpoints.m.min}px) {
+    margin-bottom: 5px;
+  }
+
+  @media (min-width: ${breakpoints.xl.min}px) {
     font-size: 17px;
     margin-bottom: 30px;
   }
@@ -27,7 +34,7 @@ const Logos = styled.div`
   align-items: baseline;
   justify-content: space-between;
 
-  @media (min-width: ${breakpoints.l.min}px) {
+  @media (min-width: ${breakpoints.xl.min}px) {
     display: block;
   }
 `
@@ -36,10 +43,17 @@ const Logo = styled.img`
   height: ${props => 20 * props.relativeSize}px;
   margin: 0 15px 20px 0;
 
-  @media (min-width: ${breakpoints.l.min}px) {
+  @media (min-width: ${breakpoints.sm.min}px) {
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: ${breakpoints.xl.min}px) {
     display: block;
-    height: ${props => 25 * props.relativeSize}px;
     margin: 0 0 40px 0;
+  }
+
+  @media (min-width: ${breakpoints.xl.min}px) {
+    height: ${props => 25 * props.relativeSize}px;
   }
 `
 

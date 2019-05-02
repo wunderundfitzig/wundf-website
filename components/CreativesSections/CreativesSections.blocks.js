@@ -3,20 +3,17 @@ import styled from '@emotion/styled'
 import marked from 'marked'
 import colors from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
+import { Title, BackgroundImage } from '../../lib/blocks.js'
 
 export const Wrapper = styled.article`
   max-width: 900px;
   margin: 0 auto;
 `
 
-export const PersonImage = styled.figure`
+export const PersonImage = styled(BackgroundImage)`
   width: 100%;
   height: 280px;
   margin: 0;
-  background-image: url(${props => props.url});
-  background-size: cover;
-  background-position: center;
-  background-color: ${colors.lightGrey};
 
   @media (min-width: ${breakpoints.sm.min}px) {
     height: 400px;
@@ -44,14 +41,13 @@ export const Content = styled.div`
   z-index: 1;
 
   @media (min-width: ${breakpoints.sm.min}px) {
-    margin-left: calc(100% - 350px);
-    padding: 30px 40px;
+    margin-left: 50px;
+    padding: 30px 50px 30px 40px;
     margin-top: -100px;
   }
 
   @media (min-width: ${breakpoints.m.min}px) {
-    margin-left: calc(100% - 400px);
-    margin-top: -150px;
+    padding: 45px calc(100% - 500px) 30px 60px;
     margin-bottom: 60px;
   }
 
@@ -62,8 +58,11 @@ export const Content = styled.div`
   }
 `
 
-export const Title = styled.h2`
-  margin: 0;
+export const CreativesTitle = styled(Title)`
+  margin: 0 0 10px;
+  @media (min-width: ${breakpoints.m.min}px) {
+    margin-bottom: 30px;
+  }
 `
 
 export const Markdown = ({ markdown }) =>

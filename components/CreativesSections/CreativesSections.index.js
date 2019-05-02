@@ -1,7 +1,7 @@
 import React from 'react'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import useSectionIndexObserver from './useSectionIndexObserver'
-import { Wrapper, PersonImage, Content, Title, Markdown } from './CreativesSections.blocks'
+import { Wrapper, PersonImage, Content, CreativesTitle, Markdown } from './CreativesSections.blocks'
 
 const Creatives = props => {
   const { creatives } = props
@@ -9,7 +9,7 @@ const Creatives = props => {
 
   return <Wrapper>
     {creatives.map((person, idx) =>
-      <section
+      <article
         key={idx}
         ref={ref => { sectionRefs.current[idx] = ref }}>
 
@@ -18,10 +18,10 @@ const Creatives = props => {
           align={(person.image.meta || {}).align}
           active={idx === currentSectionIndex} />
         <Content>
-          <Title>{person.name}</Title>
+          <CreativesTitle>{person.name}</CreativesTitle>
           <Markdown markdown={person.text} />
         </Content>
-      </section>
+      </article>
     )}
   </Wrapper>
 }

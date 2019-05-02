@@ -3,6 +3,8 @@ import { keyframes } from '@emotion/core'
 import colors from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
 
+export { Link } from '../../lib/blocks.js'
+
 const fadeIn = keyframes`
   0% { opacity: 0; }
   30% {

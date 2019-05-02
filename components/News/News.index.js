@@ -1,6 +1,6 @@
 import React from 'react'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
-import { Feed, Image, Title, Content, LinkWrapper, LinkLabel } from './News.blocks'
+import { Feed, Image, NewsTitle, Content, LinkWrapper, LinkLabel } from './News.blocks'
 
 export default props => {
   const { news } = props
@@ -10,7 +10,7 @@ export default props => {
       return <LinkWrapper href={item.link.url} target='_blank' key={item._id}>
         <article>
           <Image url={getAbsolutAssetURL(item.image.path)} alt={item.image.title}>
-            <Title>{item.title}</Title>
+            <NewsTitle>{item.title}</NewsTitle>
           </Image>
           <Content>
             <p>{item.text}</p>

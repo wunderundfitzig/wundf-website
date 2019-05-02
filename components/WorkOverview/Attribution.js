@@ -1,16 +1,17 @@
 import styled from '@emotion/styled'
+import { grey } from '../../lib/colors'
 
 const Wrapper = styled.figcaption`
   position: absolute;
-  right: 10px;
-  bottom: 5px;
-  font-size: 10px;
+  right: 0;
+  bottom: -14px;
+  font-size: 8px;
   font-family: sans-serif;
-  color: white;
+  color: ${grey};
   z-index: 1;
 
   a {
-    color: white;
+    color: inherit;
 
     &:hover {
       border: 0;

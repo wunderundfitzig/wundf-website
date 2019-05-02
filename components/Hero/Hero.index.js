@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Wrapper, Slogan, Buzzword, Contact, PhoneAndMail } from './Hero.blocks'
+import { Wrapper, Slogan, Buzzword, Contact, PhoneAndMail, Link } from './Hero.blocks'
 
 export default class Hero extends Component {
   state = {
@@ -59,9 +59,9 @@ export default class Hero extends Component {
       <Contact>
         <PhoneAndMail>
           <span>{phoneNumber} | </span>
-          <a href={`mailto:${mail}`}>{mail}</a>
+          <Link href={`mailto:${mail}`}>{mail}</Link>
         </PhoneAndMail>
-        <a href={addressURL} target='_blank'>{address}</a>
+        <Link href={addressURL} target='_blank'>{address}</Link>
       </Contact>
     </Wrapper>
   }

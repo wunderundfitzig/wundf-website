@@ -61,15 +61,6 @@ class WundfWebsite extends App {
                 font-size: 17px;
               }
             }
-            a {
-              color: ${colors.blue};
-              text-decoration: none;
-              border-bottom: 1px solid inherit;
-
-              &:hover {
-                border-bottom: 1px solid;
-              }
-            }
         `}
         />
         <Header />

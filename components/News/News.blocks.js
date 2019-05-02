@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
 import colors from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
+import { Title, BackgroundImage, Link } from '../../lib/blocks.js'
 
 const fadeIn = keyframes`
   0% { opacity: 0; }
@@ -27,30 +28,24 @@ export const Feed = styled.div`
   }
 `
 
-export const LinkLabel = styled.p`
+export const LinkLabel = styled(Link)`
   margin: 0;
-  color: ${colors.blue};
-
-  &::before {
-    content: '+ '
-  }
 `
+  .withComponent('p')
 
 export const LinkWrapper = styled.a`
+  text-decoration: none;
+
   &:hover ${LinkLabel} {
-    text-decoration: underline;
+    border-bottom: 1px solid inherit;
   }
 `
 
-export const Image = styled.div`
+export const Image = styled(BackgroundImage)`
   position: relative;
   width: 100%;
   height: 150px;
-  background-image: url(${props => props.url});
-  background-size: cover;
-  background-position: center;
   margin-bottom: 30px;
-  background-color: ${colors.darkGrey};
 
   @media (min-width: ${breakpoints.sm.min}px) {
     margin-bottom: 40px;
@@ -60,7 +55,7 @@ export const Image = styled.div`
   }
 `
 
-export const Title = styled.h1`
+export const NewsTitle = styled(Title)`
   position: absolute;
   bottom: -30px;
   left: 10px;

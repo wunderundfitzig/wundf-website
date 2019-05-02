@@ -3,7 +3,7 @@ import Clients from '../Clients/Clients.index'
 import StoryWithoutOverlay from './StoryWithoutOverlay'
 import StoryWithOverlay from './StoryWithOverlay'
 import TopStory from './TopStory'
-import { Wrapper, ClientsContainer, StoriesContainer } from './WorkOverview.blocks'
+import { Wrapper, ClientsContainer, StoriesContainer, OtherStories } from './WorkOverview.blocks'
 
 const WorkOverview = ({ stories, clients }) => {
   const topStory = stories[0]
@@ -16,10 +16,12 @@ const WorkOverview = ({ stories, clients }) => {
     </ClientsContainer>
     <StoriesContainer>
       <TopStory story={topStory} />
-      <StoryWithoutOverlay story={secondStory} />
-      { otherStories.map(story =>
-        <StoryWithOverlay story={story} />
-      )}
+      <OtherStories>
+        <StoryWithoutOverlay story={secondStory} />
+        { otherStories.map(story =>
+          <StoryWithOverlay story={story} />
+        )}
+      </OtherStories>
     </StoriesContainer>
   </Wrapper>
 }
