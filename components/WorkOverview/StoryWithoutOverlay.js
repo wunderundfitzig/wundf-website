@@ -9,15 +9,11 @@ const StoryWrapper = styled(Wrapper)`
   position: relative;
   box-sizing: border-box;
   width: 100%;
-  padding: 80px 30px 0 30px;
+  padding: 0 30px 0 30px;
+  min-height: 200px;
 
   @media (min-width: ${breakpoints.m.min}px) {
     padding: 0 0 0 calc(50% + 15px);
-    margin-top: 80px;
-  }
-
-  @media (min-width: ${breakpoints.xl.min}px) {
-    margin-top: 30px;
   }
 `
 

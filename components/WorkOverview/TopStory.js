@@ -25,6 +25,8 @@ const Wrapper = styled.article`
   width: 100%;
   min-height: 300px;
   padding: 50px 30px 90px;
+
+  margin-bottom: 60px;
 `
 
 const MovedAttribution = styled(Attribution)`

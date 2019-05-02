@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
 export const ClientsContainer = styled.section`
   background-color: ${lightGrey};
   padding: 25px 20px 15px 30px;
+  margin-bottom: 30px;
 
   @media (min-width: ${breakpoints.xl.min}px) {
     min-width: calc(50% - 150px);

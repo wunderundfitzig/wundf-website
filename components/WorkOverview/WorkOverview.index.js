@@ -8,7 +8,8 @@ import { Wrapper, ClientsContainer, StoriesContainer, OtherStories } from './Wor
 const WorkOverview = ({ stories, clients }) => {
   const topStory = stories[0]
   const secondStory = stories[1]
-  const otherStories = stories.slice(2)
+  const otherStories = stories.slice(2, 4)
+  const restStories = stories.slice(4)
 
   return <Wrapper>
     <ClientsContainer>
@@ -20,6 +21,9 @@ const WorkOverview = ({ stories, clients }) => {
         <StoryWithoutOverlay story={secondStory} />
         { otherStories.map(story =>
           <StoryWithOverlay story={story} />
+        )}
+        { restStories.map(story =>
+          <StoryWithoutOverlay story={story} />
         )}
       </OtherStories>
     </StoriesContainer>
