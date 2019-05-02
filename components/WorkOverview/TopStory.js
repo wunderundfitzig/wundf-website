@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
-import { Image, Title, Teaser, Link } from './WorkOverview.blocks'
+import { Image, Title, Teaser, Link } from './Story.blocks'
 import Attribution from './Attribution'
 
 const whiteText = css`

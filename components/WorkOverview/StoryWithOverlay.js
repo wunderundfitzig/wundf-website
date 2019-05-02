@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { beige } from '../../lib/colors'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
-import { Title, Teaser, Link, Image, Story } from './WorkOverview.blocks'
+import { Title, Teaser, Link, Image, Wrapper } from './Story.blocks'
 import Attribution from './Attribution'
 
 const MovedAttribution = styled(Attribution)`
@@ -16,7 +16,7 @@ const ContentContainer = styled.div`
 `
 
 const StoryWithOverlay = ({ story }) =>
-  <Story>
+  <Wrapper>
     <Image url={getAbsolutAssetURL(story.image.path)}>
       <MovedAttribution imageAttribution={story.imageAttribution} />
     </Image>
@@ -25,6 +25,6 @@ const StoryWithOverlay = ({ story }) =>
       <Teaser>{story.teaserText}</Teaser>
       <Link>{story.linkText}</Link>
     </ContentContainer>
-  </Story>
+  </Wrapper>
 
 export default StoryWithOverlay
