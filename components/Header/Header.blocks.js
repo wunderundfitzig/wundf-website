@@ -70,40 +70,42 @@ export const LogoImage = styled.img`
   }
 `
 
-export const ActiveLink = styled.a`
-  position: relative;
-  display: block;
-  height: 100%;
-  text-align: center;
-  color: white;
-  cursor: pointer;
+export const Item = styled.li`
+  a {
+    position: relative;
+    display: block;
+    height: 100%;
+    text-align: center;
+    color: white;
+    cursor: pointer;
 
-  &:hover {
-    border: 0
-  }
-
-  ${props => props.active && css`
-    &::after {
-      content: ' ';
-      position: absolute;
-      margin-left: -12px;
-      left: 50%;
-      bottom: -10px;
-      width: 0;
-      height: 0;
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
-      border-top: 10px solid ${colors.black};
-      transform-origin: top;
-      animation: ${scaleY} 0.2s;
+    &:hover {
+      border: 0
     }
-  `}
+
+    ${props => props.active && css`
+      &::after {
+        content: ' ';
+        position: absolute;
+        margin-left: -12px;
+        left: 50%;
+        bottom: -10px;
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-top: 10px solid ${colors.black};
+        transform-origin: top;
+        animation: ${scaleY} 0.2s;
+      }
+    `}
+  }
 `
 
 export const NavListItem = withRouter(({ router, children, ...props }) => {
-  return <li>
-    <Link {...props}>
-      <ActiveLink active={router.pathname === props.href}>{children}</ActiveLink>
-    </Link>
-  </li>
+  return <Item active={router.pathname === props.href}>
+    {/* next link is buggy when child is a emotion component and not a simple a tag
+        so we style the a in the sorounding "Item" */}
+    <Link {...props}><a>{children}</a></Link>
+  </Item>
 })
