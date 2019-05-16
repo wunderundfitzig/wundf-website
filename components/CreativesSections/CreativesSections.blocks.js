@@ -1,6 +1,4 @@
-import React from 'react'
 import styled from '@emotion/styled'
-import marked from 'marked'
 import colors from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
 import { Title, BackgroundImage } from '../../lib/blocks.js'
@@ -64,6 +62,3 @@ export const CreativesTitle = styled(Title)`
     margin-bottom: 30px;
   }
 `
-
-export const Markdown = ({ markdown }) =>
-  <div dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
