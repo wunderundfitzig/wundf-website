@@ -3,7 +3,8 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import breakpoints from '../../lib/breakpoints'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
-import { Image, Title, Teaser, Link } from './Story.blocks'
+import { Link } from '../../routes'
+import { Image, Title, Teaser, Link as LinkTemplate } from './Story.blocks'
 import Attribution from './Attribution'
 
 const whiteText = css`
@@ -24,13 +25,20 @@ const Wrapper = styled.article`
   position: relative;
   width: 100%;
   min-height: 300px;
-  padding: 50px 30px 90px;
+
+  > a {
+    display: block;
+    text-decoration: none;
+    padding: 50px 30px 90px;
+  }
 
   margin-bottom: 40px;
 `
 
 const MovedAttribution = styled(Attribution)`
   right: 10px;
+  bottom: 10px;
+  margin: 0;
 `
 
 const TopImage = styled(Image)`
@@ -74,20 +82,25 @@ const TopTeaser = styled(Teaser)`
   color: white;
 `
 
-const TopLink = styled(Link)`
+const TopLink = styled(LinkTemplate)`
   ${whiteText};
+  display: inline;
 `
+  .withComponent('p')
 
 const TopStory = ({ story }) =>
   <Wrapper>
-    <TopImage url={getAbsolutAssetURL(story.image.path)}>
-      <MovedAttribution imageAttribution={story.imageAttribution} />
-    </TopImage>
-    <ContentContainer>
-      <TopTitle>{story.title}</TopTitle>
-      <TopTeaser>{story.teaserText}</TopTeaser>
-      <TopLink>{story.linkText}</TopLink>
-    </ContentContainer>
+    <Link to={`story/${story.title_slug}`}>
+      <a>
+        <TopImage url={getAbsolutAssetURL(story.image.path)} />
+        <ContentContainer>
+          <TopTitle>{story.title}</TopTitle>
+          <TopTeaser>{story.teaserText}</TopTeaser>
+          <TopLink>{story.linkText}</TopLink>
+        </ContentContainer>
+      </a>
+    </Link>
+    <MovedAttribution imageAttribution={story.imageAttribution} />
   </Wrapper>
 
 export default TopStory

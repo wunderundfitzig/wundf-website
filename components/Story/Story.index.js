@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Link } from '../../routes'
 import { BackgroundImage, linkStyles } from '../../lib/blocks'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import Markdown from '../Markdown/Markdown.index'
