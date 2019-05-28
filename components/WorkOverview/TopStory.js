@@ -21,6 +21,12 @@ const whiteText = css`
   }
 `
 
+const TopLink = styled(LinkTemplate)`
+  ${whiteText};
+  display: inline;
+`
+  .withComponent('p')
+
 const Wrapper = styled.article`
   position: relative;
   width: 100%;
@@ -30,6 +36,10 @@ const Wrapper = styled.article`
     display: block;
     text-decoration: none;
     padding: 50px 30px 90px;
+
+    &:hover ${TopLink} {
+      border-bottom: 1px solid;
+    }
   }
 
   margin-bottom: 40px;
@@ -81,12 +91,6 @@ const TopTeaser = styled(Teaser)`
   width: 80%;
   color: white;
 `
-
-const TopLink = styled(LinkTemplate)`
-  ${whiteText};
-  display: inline;
-`
-  .withComponent('p')
 
 const TopStory = ({ story }) =>
   <Wrapper>

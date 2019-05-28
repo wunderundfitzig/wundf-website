@@ -3,8 +3,9 @@ import styled from '@emotion/styled'
 import breakpoints from '../../lib/breakpoints'
 import { beige } from '../../lib/colors'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
-import { Title, Teaser, Link, Image, Wrapper } from './Story.blocks'
+import { Title, Teaser, Link as LinkTemplate, Image, Wrapper } from './Story.blocks'
 import Attribution from './Attribution'
+import { Link } from '../../routes'
 
 const MovedAttribution = styled(Attribution)`
   bottom: 68px;
@@ -29,6 +30,8 @@ const ContentContainer = styled.div`
   }
 `
 
+const VisibleLink = LinkTemplate.withComponent('p')
+
 const StoryWrapper = styled(Wrapper)`
   @media (min-width: ${breakpoints.m.min}px) {
     width: calc(50% - 15px);
@@ -37,20 +40,33 @@ const StoryWrapper = styled(Wrapper)`
       ${ContentContainer} {
         margin-right: 40px;
       }
+    }
   }
+
+  > a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover ${VisibleLink} {
+      border-bottom: 1px solid;
+    }
   }
 `
 
 const StoryWithOverlay = ({ story }) =>
   <StoryWrapper>
-    <Image url={getAbsolutAssetURL(story.image.path)}>
-      <MovedAttribution imageAttribution={story.imageAttribution} />
-    </Image>
-    <ContentContainer>
-      <Title>{story.title}</Title>
-      <Teaser>{story.teaserText}</Teaser>
-      <Link>{story.linkText}</Link>
-    </ContentContainer>
+    <Link to={`story/${story.title_slug}`}>
+      <a>
+        <Image url={getAbsolutAssetURL(story.image.path)}>
+          <MovedAttribution imageAttribution={story.imageAttribution} />
+        </Image>
+        <ContentContainer>
+          <Title>{story.title}</Title>
+          <Teaser>{story.teaserText}</Teaser>
+          <VisibleLink>{story.linkText}</VisibleLink>
+        </ContentContainer>
+      </a>
+    </Link>
   </StoryWrapper>
 
 export default StoryWithOverlay

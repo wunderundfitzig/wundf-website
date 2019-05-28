@@ -2,9 +2,12 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import { lightGrey } from '../../lib/colors'
-import { Title, Teaser, Link, Image, Wrapper } from './Story.blocks'
+import { Title, Teaser, Link as LinkTemplate, Image, Wrapper } from './Story.blocks'
 import Attribution from './Attribution'
 import breakpoints from '../../lib/breakpoints'
+import { Link } from '../../routes'
+
+const VisibleLink = LinkTemplate.withComponent('p')
 
 const StoryWrapper = styled(Wrapper)`
   position: relative;
@@ -24,6 +27,15 @@ const StoryWrapper = styled(Wrapper)`
   @media (min-width: ${breakpoints.m.min}px) {
     background-color: none;
     padding: 0 0 0 calc(50% + 15px);
+  }
+
+  > a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover ${VisibleLink} {
+      border-bottom: 1px solid;
+    }
   }
 `
 
@@ -57,12 +69,16 @@ const StoryTeaser = styled(Teaser)`
 
 const StoryWithoutOverlay = ({ story }) =>
   <StoryWrapper>
-    <StoryTitle>{story.title}</StoryTitle>
-    <StoryImage url={getAbsolutAssetURL(story.image.path)}>
-      <Attribution imageAttribution={story.imageAttribution} />
-    </StoryImage>
-    <StoryTeaser>{story.teaserText}</StoryTeaser>
-    <Link>{story.linkText}</Link>
+    <Link to={`story/${story.title_slug}`}>
+      <a>
+        <StoryTitle>{story.title}</StoryTitle>
+        <StoryImage url={getAbsolutAssetURL(story.image.path)}>
+          <Attribution imageAttribution={story.imageAttribution} />
+        </StoryImage>
+        <StoryTeaser>{story.teaserText}</StoryTeaser>
+        <VisibleLink>{story.linkText}</VisibleLink>
+      </a>
+    </Link>
   </StoryWrapper>
 
 export default StoryWithoutOverlay
