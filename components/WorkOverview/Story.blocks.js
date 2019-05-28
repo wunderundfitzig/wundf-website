@@ -1,9 +1,14 @@
 import styled from '@emotion/styled'
+import breakpoints from '../../lib/breakpoints'
 import { BackgroundImage, Link as LinkTemplate } from '../../lib/blocks.js'
 export { Title } from '../../lib/blocks.js'
 
 export const Wrapper = styled.article`
-  margin-bottom: 100px;
+  margin-bottom: 80px;
+
+  @media (min-width: ${breakpoints.m.min}px) {
+    margin-bottom: 40px;
+  }
 `
 
 export const Image = styled(BackgroundImage)`

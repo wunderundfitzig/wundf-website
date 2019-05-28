@@ -1,13 +1,13 @@
 import styled from '@emotion/styled'
-import { grey } from '../../lib/colors'
 
 const Wrapper = styled.figcaption`
   position: absolute;
-  right: 0;
-  bottom: -14px;
+  right: 10px;
+  bottom: 8px;
   font-size: 8px;
   font-family: sans-serif;
-  color: ${grey};
+  color: white;
+  opacity: 0.5;
   z-index: 1;
 
   a {

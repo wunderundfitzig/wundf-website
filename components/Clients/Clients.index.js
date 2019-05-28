@@ -8,6 +8,7 @@ const Wrapper = styled.article`
   margin: 0 auto;
 
   @media (min-width: ${breakpoints.xl.min}px) {
+    margin: 0;
     padding-left: calc(100% - 250px)
   }
 `

@@ -13,12 +13,11 @@ export const Wrapper = styled.div`
 export const ClientsContainer = styled.section`
   background-color: ${lightGrey};
   padding: 25px 20px 15px 30px;
-  margin-bottom: 30px;
+  margin-bottom: 0;
 
   @media (min-width: ${breakpoints.xl.min}px) {
     min-width: calc(50% - 150px);
     min-height: 100vh;
-    margin-bottom: 0;
     margin-right: 20px;
   }
 
@@ -43,7 +42,7 @@ export const OtherStories = styled.div`
   }
 
   @media (min-width: ${breakpoints.xl.min}px) {
-    max-width: 700px;
+    max-width: 750px;
     margin: 0;
     padding-left: 0;
   }

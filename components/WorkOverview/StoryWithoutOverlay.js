@@ -18,7 +18,7 @@ const StoryWrapper = styled(Wrapper)`
 `
 
 const StoryTitle = styled(Title)`
-  margin-bottom: 1.4em;
+  margin-bottom: 0.5em;
 `
 
 const StoryImage = styled(Image)`

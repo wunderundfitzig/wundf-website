@@ -7,7 +7,8 @@ import { Title, Teaser, Link, Image, Wrapper } from './Story.blocks'
 import Attribution from './Attribution'
 
 const MovedAttribution = styled(Attribution)`
-  top: -12px;
+  bottom: 68px;
+  left: 10px;
 `
 
 const ContentContainer = styled.div`

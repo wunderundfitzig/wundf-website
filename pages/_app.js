@@ -52,14 +52,14 @@ class WundfWebsite extends App {
             }
             body {
               color: ${colors.black};
-              font-size: 16px;
+              font-size: 17px;
               background: ${colors.beige};
               font-family: 'ETBembo', serif;
               font-weight: 400;
               margin: 0;
 
               @media (min-width: ${breakpoints.sm.min}px) {
-                font-size: 17px;
+                font-size: 18px;
               }
             }
         `}
