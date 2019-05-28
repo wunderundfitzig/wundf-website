@@ -14,11 +14,11 @@ const WorkOverview = ({ stories, clients }) => {
     <Clients clients={clients} />
     <>
       <TopStory story={topStory} />
-      { otherStories.map(story =>
-        <StoryWithOverlay story={story} />
+      { otherStories.map((story, i) =>
+        <StoryWithOverlay key={i} story={story} />
       )}
-      { restStories.map(story =>
-        <StoryWithoutOverlay story={story} />
+      { restStories.map((story, i) =>
+        <StoryWithoutOverlay key={i} story={story} />
       )}
     </>
   </SplitLayout>

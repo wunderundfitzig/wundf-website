@@ -33,5 +33,5 @@ export default () => <Footer>
   <a href='https://www.github.com/wunderundfitzig/' target='_blank'>Github</a>
   <a href='https://www.facebook.com/wunderundfitzig/' target='_blank'>Facebook</a>
   <a href='https://www.instagram.com/wunderundfitzig/' target='_blank'>Instagram</a>
-  <Link><a href='/privacy'>Datenschutz / Impressum</a></Link>
+  <Link href='/privacy'><a>Datenschutz / Impressum</a></Link>
 </Footer>
