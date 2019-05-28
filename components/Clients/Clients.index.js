@@ -2,29 +2,25 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import breakpoints from '../../lib/breakpoints'
-
-const Wrapper = styled.article`
-  max-width: 840px;
-  margin: 0 auto;
-
-  @media (min-width: ${breakpoints.xl.min}px) {
-    margin: 0;
-    padding-left: calc(100% - 250px)
-  }
-`
+import { orange } from '../../lib/colors'
 
 const Title = styled.h1`
   font-style: italic;
   font-weight: normal;
-  font-size: 15px;
+  font-size: 20px;
   margin: 0 0 20px;
+  color: ${orange};
+  -webkit-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
+  -o-font-smoothing: grayscale;
 
   @media (min-width: ${breakpoints.m.min}px) {
+    margin-top: 20px;
     margin-bottom: 5px;
   }
 
   @media (min-width: ${breakpoints.xl.min}px) {
-    font-size: 17px;
+    font-size: 25px;
     margin-bottom: 30px;
   }
 `
@@ -63,7 +59,7 @@ const Spacer = styled.div`
 `
 
 const Clients = ({ clients }) => {
-  return <Wrapper>
+  return <>
     <Title>Kunden</Title>
     <Logos>
       {clients.map((client, i) =>
@@ -75,7 +71,7 @@ const Clients = ({ clients }) => {
       )}
       <Spacer />
     </Logos>
-  </Wrapper>
+  </>
 }
 
 export default Clients

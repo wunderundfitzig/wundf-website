@@ -2,19 +2,15 @@ import React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import breakpoints from '../../lib/breakpoints'
+import { whiteText } from '../../lib/blocks'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import { Link } from '../../routes'
 import { Image, Title, Teaser, Link as LinkTemplate } from './Story.blocks'
 import Attribution from './Attribution'
 
-const whiteText = css`
+const text = css`
+  ${whiteText};
   max-width: 400px;
-  color: white;
-  text-shadow: 0 0 2px black;
-  line-height: 1.2em;
-  -webkit-font-smoothing: grayscale;
-  -moz-osx-font-smoothing: grayscale;
-  -o-font-smoothing: grayscale;
 
   @media (min-width: ${breakpoints.m.min}px) {
     width: 50%;
@@ -22,7 +18,7 @@ const whiteText = css`
 `
 
 const TopLink = styled(LinkTemplate)`
-  ${whiteText};
+  ${text};
   display: inline;
 `
   .withComponent('p')
@@ -79,7 +75,7 @@ const ContentContainer = styled.div`
 `
 
 const TopTitle = styled(Title)`
-  ${whiteText};
+  ${text};
   font-size: 30px !important;
   text-shadow: none;
   font-weight: 400;
@@ -87,14 +83,14 @@ const TopTitle = styled(Title)`
 `
 
 const TopTeaser = styled(Teaser)`
-  ${whiteText};
+  ${text};
   width: 80%;
   color: white;
 `
 
 const TopStory = ({ story }) =>
   <Wrapper>
-    <Link to={`story/${story.title_slug}`}>
+    <Link to={`work/${story.title_slug}`}>
       <a>
         <TopImage url={getAbsolutAssetURL(story.image.path)} />
         <ContentContainer>

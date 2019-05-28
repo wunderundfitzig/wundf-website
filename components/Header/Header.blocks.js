@@ -102,8 +102,12 @@ export const Item = styled.li`
   }
 `
 
-export const NavListItem = withRouter(({ router, children, ...props }) => {
-  return <Item active={router.pathname === props.href}>
+export const NavListItem = withRouter(({ router, children, matchSubPages = true, ...props }) => {
+  const active = matchSubPages
+    ? router.pathname.startsWith(props.href)
+    : router.pathname === props.href
+
+  return <Item active={active}>
     {/* next link is buggy when child is a emotion component and not a simple a tag
         so we style the a in the sorounding "Item" */}
     <Link {...props}><a>{children}</a></Link>

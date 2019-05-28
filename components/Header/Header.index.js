@@ -11,7 +11,7 @@ export default () =>
         <NavListItem href='/work'>
           <Image src={work} alt='work' />
         </NavListItem>
-        <NavListItem href='/'>
+        <NavListItem href='/' matchSubPages={false}>
           <LogoImage src={logo} alt='wunder & fitzig' />
         </NavListItem>
         <NavListItem href='/creatives'>

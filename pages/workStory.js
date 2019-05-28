@@ -1,9 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
 import { fetchCollection } from '../lib/apiHelpers'
-import StoryComponent from '../components/Story/Story.index'
+import StoryComponent from '../components/StoryComponent/StoryComponent.index'
 
-const Story = props => {
+const WorkStory = props => {
   const { slug, story } = props
   return <>
     <Head><title>wunder & fitzig | {slug}</title></Head>
@@ -11,10 +11,10 @@ const Story = props => {
   </>
 }
 
-Story.getInitialProps = async (res) => {
+WorkStory.getInitialProps = async (res) => {
   const slug = res.query.storySlug
   const work = await fetchCollection('work', { filter: { title_slug: slug }, limit: 1 })
   return { slug: slug, story: work[0] }
 }
 
-export default Story
+export default WorkStory

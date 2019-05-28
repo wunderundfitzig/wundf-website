@@ -1,8 +1,9 @@
+import React from 'react'
 import styled from '@emotion/styled'
 import { lightGrey } from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   @media (min-width: ${breakpoints.xl.min}px) {
     display: flex;
     margin-top: 30px;
@@ -10,7 +11,7 @@ export const Wrapper = styled.div`
   }
 `
 
-export const ClientsContainer = styled.section`
+const LeftContainer = styled.aside`
   background-color: ${lightGrey};
   padding: 25px 20px 15px 30px;
   margin-bottom: 0;
@@ -26,11 +27,21 @@ export const ClientsContainer = styled.section`
   }
 `
 
-export const StoriesContainer = styled.section`
+const RightContainer = styled.article`
   flex: 0 1 100%;
 `
 
-export const OtherStories = styled.div`
+const LeftInner = styled.div`
+  max-width: 840px;
+  margin: 0 auto;
+
+  @media (min-width: ${breakpoints.xl.min}px) {
+    margin: 0;
+    padding-left: calc(100% - 250px)
+  }
+`
+
+export const RightInner = styled.div`
   max-width: 900px;
   margin: 0 auto;
 
@@ -42,8 +53,24 @@ export const OtherStories = styled.div`
   }
 
   @media (min-width: ${breakpoints.xl.min}px) {
-    max-width: 750px;
+    max-width: 800px;
     margin: 0;
     padding-left: 0;
   }
 `
+
+const SplitLayout = ({ children }) => {
+  const left = children[0]
+  const right = children[1]
+
+  return <Wrapper>
+    <LeftContainer>
+      <LeftInner>{left}</LeftInner>
+    </LeftContainer>
+    <RightContainer>
+      <RightInner>{right}</RightInner>
+    </RightContainer>
+  </Wrapper>
+}
+
+export default SplitLayout
