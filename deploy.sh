@@ -1,1 +1,1 @@
-rm -r out & npm run export && scp -r out/* wfweb@wfweb.uber.space:html
+rm -r out & npm run export && rsync -rv out/ wfweb@wfweb.uber.space:html

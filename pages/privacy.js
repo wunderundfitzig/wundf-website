@@ -8,7 +8,7 @@ import Markdown from '../components/Markdown/Markdown.index'
 const TextBlock = styled.div`
   max-width: 900px;
   padding: 0 30px;
-  margin: 0 auto;
+  margin: 0 auto 40px;
 
   a {
     ${linkStyles}

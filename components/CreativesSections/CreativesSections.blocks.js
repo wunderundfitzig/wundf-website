@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import colors from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
-import { Title, BackgroundImage } from '../../lib/blocks.js'
+import { Title, BackgroundImage, linkStyles } from '../../lib/blocks.js'
 
 export const Wrapper = styled.article`
   max-width: 900px;
@@ -37,6 +37,10 @@ export const Content = styled.div`
   padding: 20px 25px;
   margin: -80px 0 40px 40px;
   z-index: 1;
+
+  a {
+    ${linkStyles}
+  }
 
   @media (min-width: ${breakpoints.sm.min}px) {
     margin-left: 50px;
