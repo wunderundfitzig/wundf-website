@@ -7,7 +7,7 @@ import { orange } from '../../lib/colors'
 const Title = styled.h1`
   font-style: italic;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 18px;
   margin: 0 0 20px;
   color: ${orange};
   -webkit-font-smoothing: grayscale;
@@ -15,12 +15,11 @@ const Title = styled.h1`
   -o-font-smoothing: grayscale;
 
   @media (min-width: ${breakpoints.m.min}px) {
-    margin-top: 20px;
     margin-bottom: 5px;
   }
 
   @media (min-width: ${breakpoints.xl.min}px) {
-    font-size: 25px;
+    font-size: 22px;
     margin-bottom: 30px;
   }
 `

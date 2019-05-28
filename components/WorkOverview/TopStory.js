@@ -12,8 +12,8 @@ const text = css`
   ${whiteText};
   max-width: 400px;
 
-  @media (min-width: ${breakpoints.m.min}px) {
-    width: 50%;
+  @media (min-width: ${breakpoints.l.min}px) {
+    width: 70%;
   }
 `
 
@@ -27,11 +27,16 @@ const Wrapper = styled.article`
   position: relative;
   width: 100%;
   min-height: 300px;
+  margin-top: 30px;
+
+  @media (min-width: ${breakpoints.xl.min}px) {
+    margin-top: 0;
+  }
 
   > a {
     display: block;
     text-decoration: none;
-    padding: 50px 30px 90px;
+    padding: 120px 30px 50px;
 
     &:hover ${TopLink} {
       border-bottom: 1px solid;
@@ -42,6 +47,7 @@ const Wrapper = styled.article`
 `
 
 const MovedAttribution = styled(Attribution)`
+  position: absolute;
   right: 10px;
   bottom: 10px;
   margin: 0;
@@ -79,7 +85,7 @@ const TopTitle = styled(Title)`
   font-size: 30px !important;
   text-shadow: none;
   font-weight: 400;
-  margin: 0 0 40px;
+  margin: 0 0 30px;
 `
 
 const TopTeaser = styled(Teaser)`

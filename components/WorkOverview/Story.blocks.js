@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 import breakpoints from '../../lib/breakpoints'
 import { BackgroundImage, Link as LinkTemplate } from '../../lib/blocks.js'
 export { Title } from '../../lib/blocks.js'
@@ -11,7 +12,8 @@ export const Wrapper = styled.article`
   }
 `
 
-export const Image = styled(BackgroundImage)`
+export const imageStyles = css`
+  display: block;
   margin: 0;
   position: relative;
   width: 100%;
@@ -19,6 +21,10 @@ export const Image = styled(BackgroundImage)`
   height: calc(100vw - 70px);
   max-height: 250px;
   margin-bottom: 0;
+`
+
+export const Image = styled(BackgroundImage)`
+  ${imageStyles};
 `
 
 export const Teaser = styled.p`

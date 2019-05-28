@@ -1,9 +1,6 @@
 import styled from '@emotion/styled'
 
 const Wrapper = styled.figcaption`
-  position: absolute;
-  right: 10px;
-  bottom: 8px;
   font-size: 8px;
   font-family: sans-serif;
   color: white;
