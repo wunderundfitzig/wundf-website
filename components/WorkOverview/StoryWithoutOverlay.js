@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
+import { lightGrey } from '../../lib/colors'
 import { Title, Teaser, Link, Image, Wrapper } from './Story.blocks'
 import Attribution from './Attribution'
 import breakpoints from '../../lib/breakpoints'
@@ -12,16 +13,31 @@ const StoryWrapper = styled(Wrapper)`
   padding: 0 30px 0 30px;
   min-height: 200px;
 
+  @media (max-width: ${breakpoints.sm.max}px) {
+    &:nth-child(2n - 1) {
+      background-color: ${lightGrey};
+      padding-top: 30px;
+      padding-bottom: 40px;
+    }
+  }
+
   @media (min-width: ${breakpoints.m.min}px) {
+    background-color: none;
     padding: 0 0 0 calc(50% + 15px);
   }
 `
 
 const StoryTitle = styled(Title)`
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
+
+  @media (min-width: ${breakpoints.m.min}px) {
+    margin-top: -5px;
+    margin-bottom: 0.5em;
+  }
 `
 
 const StoryImage = styled(Image)`
+
   @media (min-width: ${breakpoints.m.min}px) {
     position: absolute;
     top: 0;
@@ -33,6 +49,10 @@ const StoryImage = styled(Image)`
 
 const StoryTeaser = styled(Teaser)`
   margin-top: 2em;
+
+  @media (min-width: ${breakpoints.m.min}px) {
+    margin-top: 0;
+  }
 `
 
 const StoryWithoutOverlay = ({ story }) =>

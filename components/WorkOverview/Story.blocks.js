@@ -4,7 +4,7 @@ import { BackgroundImage, Link as LinkTemplate } from '../../lib/blocks.js'
 export { Title } from '../../lib/blocks.js'
 
 export const Wrapper = styled.article`
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 
   @media (min-width: ${breakpoints.m.min}px) {
     margin-bottom: 40px;
@@ -14,7 +14,6 @@ export const Wrapper = styled.article`
 export const Image = styled(BackgroundImage)`
   margin: 0;
   position: relative;
-  z-index: -1;
   width: 100%;
   height: 300px;
   height: calc(100vw - 70px);

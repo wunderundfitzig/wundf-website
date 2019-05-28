@@ -12,10 +12,12 @@ const MovedAttribution = styled(Attribution)`
 `
 
 const ContentContainer = styled.div`
+  position: relative;
   padding: 30px 30px 0 30px;
   margin: -60px 40px 0 0;
   background-color: ${beige};
   min-width: 210px;
+  z-index: 1;
 
   @media (min-width: ${breakpoints.sm.min}px) {
     margin-right: calc(100% - 380px);
