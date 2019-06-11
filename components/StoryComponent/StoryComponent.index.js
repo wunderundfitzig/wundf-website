@@ -3,11 +3,14 @@ import styled from '@emotion/styled'
 import { BackgroundImage, Title, whiteText, linkStyles } from '../../lib/blocks'
 import { beige, orange } from '../../lib/colors'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
+import breakpoints from '../../lib/breakpoints'
 import SplitLayout, { LeftContainer, RightContainer } from '../SplitLayout/SplitLayout.index'
 import Markdown from '../Markdown/Markdown.index'
 
 const TOC = styled(LeftContainer)`
-  display: none;
+  @media (max-width: ${breakpoints.l.max}px) {
+    display: none;
+  }
 `
 
 const TOCTitle = styled(Title)`
@@ -60,6 +63,7 @@ const Content = styled.div`
   margin-top: -80px;
   margin-right: 100px;
   max-width: 600px;
+  min-width: 300px;
   background-color: ${beige};
   padding: 40px 60px 0 30px;
   z-index: 1;
