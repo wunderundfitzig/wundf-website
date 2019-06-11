@@ -67,7 +67,7 @@ const StoryWrapper = styled(Wrapper)`
 const StoryWithOverlay = ({ story }) =>
   <StoryWrapper>
     <MovedAttribution imageAttribution={story.imageAttribution} />
-    <Link to={`work/${story.title_slug}`}>
+    <Link to={`/work/${story.title_slug}`}>
       <a>
         <Image url={getAbsolutAssetURL(story.image.path)} />
         <ContentContainer>

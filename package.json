@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/wunderundfitzig/wundf-web-frontend#readme",
   "dependencies": {
+    "@babel/core": "^7.4.5",
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
     "express": "^4.16.4",

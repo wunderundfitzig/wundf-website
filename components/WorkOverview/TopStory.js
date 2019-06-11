@@ -96,7 +96,7 @@ const TopTeaser = styled(Teaser)`
 
 const TopStory = ({ story }) =>
   <Wrapper>
-    <Link to={`work/${story.title_slug}`}>
+    <Link to={`/work/${story.title_slug}`}>
       <a>
         <TopImage url={getAbsolutAssetURL(story.image.path)} />
         <ContentContainer>

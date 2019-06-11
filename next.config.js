@@ -1,3 +1,7 @@
+const fetch = require('isomorphic-unfetch')
+
+const BACKEND_URL = 'https://backend.wunderundfitzig.de'
+
 module.exports = {
   webpack: (config) => {
     config.module.rules.push({
@@ -10,7 +14,30 @@ module.exports = {
     })
     return config
   },
+  exportPathMap: async function (defaultPathMap) {
+    const res = await fetch(`${BACKEND_URL}/api/collections/get/work`, {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fields: { title_slug: 1 }
+      })
+    })
+
+    const stories = await res.json()
+    const storyURLS = stories.entries.reduce((obj, story) => {
+      obj[`work/${story.title_slug}`] = {
+        page: '/workStory',
+        query: { storySlug: story.title_slug }
+      }
+      return obj
+    }, {})
+
+    return {
+      ...defaultPathMap,
+      ...storyURLS
+    }
+  },
   publicRuntimeConfig: {
-    backendURL: 'https://wfspace.uber.space'
+    backendURL: BACKEND_URL
   }
 }

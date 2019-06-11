@@ -75,7 +75,7 @@ const StoryTeaser = styled(Teaser)`
 
 const StoryWithoutOverlay = ({ story }) =>
   <StoryWrapper>
-    <Link to={`work/${story.title_slug}`}>
+    <Link to={`/work/${story.title_slug}`}>
       <a>
         <StoryTitle>{story.title}</StoryTitle>
         <StoryImage url={getAbsolutAssetURL(story.image.path)}>
