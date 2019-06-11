@@ -32,6 +32,10 @@ const TopImage = styled(BackgroundImage)`
   overflow: hidden;
   padding: 200px 30px 100px;
 
+  @media (min-width: ${breakpoints.m.min}px) {
+    margin-top: 30px;
+  }
+
   &::after {
     content: '';
     position: absolute;
