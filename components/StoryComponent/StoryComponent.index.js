@@ -35,6 +35,9 @@ const TopImage = styled(BackgroundImage)`
   @media (min-width: ${breakpoints.m.min}px) {
     margin-top: 30px;
   }
+  @media (min-width: ${breakpoints.xl.min}px) {
+    margin-top: 0;
+  }
 
   &::after {
     content: '';
