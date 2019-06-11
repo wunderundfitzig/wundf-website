@@ -3,8 +3,12 @@ import styled from '@emotion/styled'
 import { BackgroundImage, Title, whiteText, linkStyles } from '../../lib/blocks'
 import { beige, orange } from '../../lib/colors'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
-import SplitLayout from '../SplitLayout/SplitLayout.index'
+import SplitLayout, { LeftContainer, RightContainer } from '../SplitLayout/SplitLayout.index'
 import Markdown from '../Markdown/Markdown.index'
+
+const TOC = styled(LeftContainer)`
+  display: none;
+`
 
 const TOCTitle = styled(Title)`
   color: ${orange};
@@ -70,13 +74,13 @@ const StoryComponent = props => {
 
   return <article>
     <SplitLayout>
-      <>
+      <TOC>
         <TOCTitle>Inhalt</TOCTitle>
         {sections.map((section, i) =>
           <TOCLink key={i} href={`#${section}`}>{section}</TOCLink>
         )}
-      </>
-      <>
+      </TOC>
+      <RightContainer>
         <TopImage url={getAbsolutAssetURL(story.image.path)}>
           <TopTitle>{story.title}</TopTitle>
         </TopImage>
@@ -93,7 +97,7 @@ const StoryComponent = props => {
             }
           })}
         </Content>
-      </>
+      </RightContainer>
     </SplitLayout>
   </article>
 }

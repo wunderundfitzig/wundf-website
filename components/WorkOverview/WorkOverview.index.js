@@ -3,7 +3,7 @@ import Clients from '../Clients/Clients.index'
 import StoryWithoutOverlay from './StoryWithoutOverlay'
 import StoryWithOverlay from './StoryWithOverlay'
 import TopStory from './TopStory'
-import SplitLayout from '../SplitLayout/SplitLayout.index'
+import SplitLayout, { LeftContainer, RightContainer } from '../SplitLayout/SplitLayout.index'
 
 const WorkOverview = ({ stories, clients }) => {
   const topStory = stories[0]
@@ -11,8 +11,10 @@ const WorkOverview = ({ stories, clients }) => {
   const restStories = stories.slice(3)
 
   return <SplitLayout>
-    <Clients clients={clients} />
-    <>
+    <LeftContainer>
+      <Clients clients={clients} />
+    </LeftContainer>
+    <RightContainer>
       <TopStory story={topStory} />
       { otherStories.map((story, i) =>
         <StoryWithOverlay key={i} story={story} />
@@ -20,7 +22,7 @@ const WorkOverview = ({ stories, clients }) => {
       { restStories.map((story, i) =>
         <StoryWithoutOverlay key={i} story={story} />
       )}
-    </>
+    </RightContainer>
   </SplitLayout>
 }
 
