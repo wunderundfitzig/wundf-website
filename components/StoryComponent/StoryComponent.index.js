@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { BackgroundImage, Title, whiteText, linkStyles } from '../../lib/blocks'
-import { beige, orange } from '../../lib/colors'
+import { darkGrey, beige, orange } from '../../lib/colors'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import breakpoints from '../../lib/breakpoints'
 import SplitLayout, { LeftContainer, RightContainer } from '../SplitLayout/SplitLayout.index'
@@ -61,19 +61,45 @@ const TopTitle = styled(Title)`
 
 const TeaserText = styled.p`
   font-style: italic;
+  font-weight: bold;
   margin-top: 0;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  padding-right: 30px;
 `
 
 const Content = styled.div`
   position: relative;
   margin-top: -80px;
   margin-right: 100px;
+  margin-bottom: 80px;
   max-width: 600px;
-  min-width: 300px;
+  min-width: calc(100vw - 30px);
   background-color: ${beige};
-  padding: 40px 60px 0 30px;
+  padding: 40px 30px 0 30px;
   z-index: 1;
+
+  @media (min-width: ${breakpoints.sm.min}px) {
+    min-width: 0;
+  }
+`
+
+const Heading = styled(Title)`
+  margin-top: 2em;
+`.withComponent('h2')
+
+const Image = styled.img`
+  display: block;
+  background-color: ${darkGrey};
+  width: calc(100% + 30px);
+  margin-bottom: 2em;
+
+  @media (min-width: ${breakpoints.sm.min}px) {
+    width: 100%;
+  }
+`
+
+const Text = styled(Markdown)`
+  text-align: justify;
 `
 
 const StoryComponent = props => {
@@ -100,11 +126,11 @@ const StoryComponent = props => {
           {story.content.map((section, i) => {
             switch (section.field.name) {
               case 'title':
-                return <h2 key={i} id={section.value}>{section.value}</h2>
+                return <Heading key={i} id={section.value}>{section.value}</Heading>
               case 'image':
-                return <img key={i} src={getAbsolutAssetURL(section.value.path)} />
+                return <Image key={i} src={getAbsolutAssetURL(section.value.path)} />
               case 'markdown':
-                return <Markdown key={i} markdown={section.value} />
+                return <Text key={i} markdown={section.value} />
             }
           })}
         </Content>

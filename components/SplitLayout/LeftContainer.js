@@ -25,7 +25,8 @@ const Inner = styled.div`
 
   @media (min-width: ${breakpoints.xl.min}px) {
     margin: 0;
-    padding-left: calc(100% - 250px)
+    padding-left: calc(100% - 250px);
+    max-width: none;
   }
 `
 
