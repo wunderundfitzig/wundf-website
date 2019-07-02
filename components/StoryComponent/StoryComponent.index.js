@@ -24,6 +24,12 @@ const TOCTitle = styled(Title)`
 
 const TOCLink = styled.a`
   ${linkStyles};
+  display: inline-block;
+  margin-bottom: 13px;
+
+  &:hover {
+    margin-bottom: 12px;
+  }
 `
 
 const TopImage = styled(BackgroundImage)`
