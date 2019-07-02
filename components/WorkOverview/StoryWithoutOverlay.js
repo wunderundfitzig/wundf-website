@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import { lightGrey } from '../../lib/colors'
 import { Title, Teaser, Link as LinkTemplate, Image, Wrapper } from './Story.blocks'
-import AttributionTemplate from './Attribution'
 import breakpoints from '../../lib/breakpoints'
 import { Link } from '../../routes'
 
@@ -59,12 +58,6 @@ const StoryImage = styled(Image)`
   }
 `
 
-const Attribution = styled(AttributionTemplate)`
-  position: absolute;
-  bottom: 8px;
-  right: 10px;
-`
-
 const StoryTeaser = styled(Teaser)`
   margin-top: 2em;
 
@@ -78,10 +71,7 @@ const StoryWithoutOverlay = ({ story }) =>
     <Link to={`/work/${story.title_slug}`}>
       <a>
         <StoryTitle>{story.title}</StoryTitle>
-        <StoryImage url={getAbsolutAssetURL(story.image.path)}>
-          {/*  this is invalid html because a is nested inside a but it works and i dont care */}
-          <Attribution imageAttribution={story.imageAttribution} />
-        </StoryImage>
+        <StoryImage url={getAbsolutAssetURL(story.image.path)} />
         <StoryTeaser>{story.teaserText}</StoryTeaser>
         <VisibleLink>{story.linkText}</VisibleLink>
       </a>

@@ -6,7 +6,6 @@ import { whiteText } from '../../lib/blocks'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import { Link } from '../../routes'
 import { Image, Title, Teaser, Link as LinkTemplate } from './Story.blocks'
-import Attribution from './Attribution'
 
 const text = css`
   ${whiteText};
@@ -44,13 +43,6 @@ const Wrapper = styled.article`
   }
 
   margin-bottom: 40px;
-`
-
-const MovedAttribution = styled(Attribution)`
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  margin: 0;
 `
 
 const TopImage = styled(Image)`
@@ -106,7 +98,6 @@ const TopStory = ({ story }) =>
         </ContentContainer>
       </a>
     </Link>
-    <MovedAttribution imageAttribution={story.imageAttribution} />
   </Wrapper>
 
 export default TopStory

@@ -4,16 +4,7 @@ import breakpoints from '../../lib/breakpoints'
 import { beige } from '../../lib/colors'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import { Title, Teaser, Link as LinkTemplate, Image, Wrapper } from './Story.blocks'
-import Attribution from './Attribution'
 import { Link } from '../../routes'
-
-const MovedAttribution = styled(Attribution)`
-  position: relative;
-  height: 0;
-  margin-bottom: -10px;
-  padding-right: 10px;
-  text-align: right;
-`
 
 const ContentContainer = styled.div`
   position: relative;
@@ -66,7 +57,6 @@ const StoryWrapper = styled(Wrapper)`
 
 const StoryWithOverlay = ({ story }) =>
   <StoryWrapper>
-    <MovedAttribution imageAttribution={story.imageAttribution} />
     <Link to={`/work/${story.title_slug}`}>
       <a>
         <Image url={getAbsolutAssetURL(story.image.path)} />
