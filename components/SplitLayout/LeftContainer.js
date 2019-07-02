@@ -9,6 +9,7 @@ const Container = styled.aside`
   margin-bottom: 0;
 
   @media (min-width: ${breakpoints.xl.min}px) {
+    flex: 1 1 0;
     min-width: calc(50% - 150px);
     min-height: 100vh;
     margin-right: 20px;
