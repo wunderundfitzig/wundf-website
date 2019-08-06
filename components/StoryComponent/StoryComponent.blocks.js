@@ -57,31 +57,46 @@ export const TopTitle = styled(Title)`
 `
 
 export const TeaserText = styled.p`
+  ${longText};
+  font-size: 18px;
   font-style: italic;
   font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 30px;
-  padding-right: 30px;
-`
-
-export const Content = styled.div`
   position: relative;
   margin-top: -80px;
   margin-right: 100px;
-  margin-bottom: 80px;
-  max-width: 600px;
-  min-width: calc(100vw - 30px);
-  background-color: ${beige};
+  margin-bottom: 30px;
   padding: 40px 30px 0 30px;
+  max-width: 600px;
+  min-width: calc(100vw - 20px);
+  background-color: ${beige};
   z-index: 1;
 
   @media (min-width: ${breakpoints.sm.min}px) {
     min-width: 0;
+    font-size: 20px;
   }
 `
 
+export const Content = styled.div`
+  padding: 0 30px 0 30px;
+  margin-bottom: 80px;
+  max-width: 600px;
+`
+
 export const Heading = styled(Title)`
-  margin-top: 2em;
+  margin-top: 3em;
+  margin-bottom: 1.5em;
+  text-align: center;
+  color: ${orange};
+  font-style: italic;
+  font-weight: normal;
+  -webkit-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
+  -o-font-smoothing: grayscale;
+
+  @media (min-width: ${breakpoints.m.min}px) {
+    text-align: left;
+  }
 `.withComponent('h2')
 
 export const Image = styled.img`
@@ -97,5 +112,4 @@ export const Image = styled.img`
 
 export const Text = styled(Markdown)`
   ${longText};
-  text-align: justify;
 `

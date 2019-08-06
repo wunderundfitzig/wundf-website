@@ -30,8 +30,8 @@ const StoryComponent = props => {
         <TopImage url={getAbsolutAssetURL(story.image.path)}>
           <TopTitle>{story.title}</TopTitle>
         </TopImage>
+        <TeaserText>{story.teaserText}</TeaserText>
         <Content>
-          <TeaserText>{story.teaserText}</TeaserText>
           {story.content.map((section, i) => {
             switch (section.field.name) {
               case 'title':
