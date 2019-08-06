@@ -3,7 +3,6 @@ import { throttle } from '../../lib/apiHelpers'
 import breakpoints from '../../lib/breakpoints'
 
 function getSectionIndexFrom (sectionArray) {
-
   const newSectionIndex = sectionArray
     .filter(ref => ref !== null)
     .reduce((sectionIndex, sectionRef, index) => {

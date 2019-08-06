@@ -1,7 +1,7 @@
 import React from 'react'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import useSectionIndexObserver from './useSectionIndexObserver'
-import Markdown from '../Markdown/Markdown.index'
+import Markdown from '../Markdown/Markdown'
 import { Wrapper, PersonImage, Content, CreativesTitle } from './CreativesSections.blocks'
 
 const Creatives = props => {

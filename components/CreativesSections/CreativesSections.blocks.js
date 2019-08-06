@@ -39,6 +39,10 @@ export const Content = styled.div`
   margin: -80px 0 40px 40px;
   z-index: 1;
 
+  h1 {
+    margin-top: 0;
+  }
+
   @media (min-width: ${breakpoints.sm.min}px) {
     margin-left: 50px;
     padding: 30px 50px 30px 40px;
