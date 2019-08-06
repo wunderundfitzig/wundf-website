@@ -1,8 +1,8 @@
 import React from 'react'
 import App, { Container } from 'next/app'
 import { css, Global } from '@emotion/core'
-import Header from '../components/Header/Header.index'
-import Footer from '../components/Footer/Footer.index'
+import Header from '../components/Header/Header'
+import Footer from '../components/Footer/Footer'
 import colors from '../lib/colors'
 import breakpoints from '../lib/breakpoints'
 

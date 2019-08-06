@@ -3,7 +3,7 @@ import Head from 'next/head'
 import styled from '@emotion/styled'
 import { fetchSigleton } from '../lib/apiHelpers'
 import { linkStyles } from '../lib/blocks'
-import Markdown from '../components/Markdown/Markdown.index'
+import Markdown from '../components/Markdown/Markdown'
 
 const TextBlock = styled.div`
   max-width: 900px;

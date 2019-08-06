@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import { fetchCollection } from '../lib/apiHelpers'
-import WorkOverview from '../components/WorkOverview/WorkOverview.index'
+import WorkOverview from '../components/WorkOverview/WorkOverview'
 
 const Work = ({ clients, stories }) =>
   <>

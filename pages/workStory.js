@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import { fetchCollection } from '../lib/apiHelpers'
-import StoryComponent from '../components/StoryComponent/StoryComponent.index'
+import StoryComponent from '../components/StoryComponent/StoryComponent'
 
 const WorkStory = props => {
   const { slug, story } = props

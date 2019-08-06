@@ -1,9 +1,9 @@
 import React from 'react'
-import Clients from '../Clients/Clients.index'
+import Clients from '../Clients/Clients'
 import StoryWithoutOverlay from './StoryWithoutOverlay'
 import StoryWithOverlay from './StoryWithOverlay'
 import TopStory from './TopStory'
-import SplitLayout, { LeftContainer, RightContainer } from '../SplitLayout/SplitLayout.index'
+import SplitLayout, { LeftContainer, RightContainer } from '../SplitLayout/SplitLayout'
 
 const WorkOverview = ({ stories, clients }) => {
   const topStory = stories[0]

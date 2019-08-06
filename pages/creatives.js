@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import { fetchCollection } from '../lib/apiHelpers'
-import CreativesSections from '../components/CreativesSections/CreativesSections.index'
+import CreativesSections from '../components/CreativesSections/CreativesSections'
 
 const Creatives = ({ creatives }) =>
   <>
