@@ -8,13 +8,18 @@ We use the export feature from [next.js](https://nextjs.org/)
 to generate static html files
 that are served from a simple apache server.
 
-There is a lsimple webhook that calls `npm run export` every time
+There is a simple webhook that calls `npm run export` every time
 the content in the backend changes.
 
 If you made changes to the code here ssh into `wfweb@wunderundfitzig.de`
-and go to `~/frontend` and run:
-
 ```
+ssh wfweb@wunderundfitzig.de
+```
+
+then run:
+
+```bash
+cd ~/frontend # go to frontend folder
 git pull
 npm install
 npm run export
