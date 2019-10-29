@@ -5,12 +5,6 @@ import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import SplitLayout, { LeftContainer, RightContainer } from '../SplitLayout/SplitLayout'
 import { TOCTitle, TOCLink, TopImage, TopTitle, Content, TeaserText, Heading, Image, Text } from './StoryComponent.blocks'
 
-export const TOC = styled(LeftContainer)`
-  @media (max-width: ${breakpoints.l.max}px) {
-    display: none;
-  }
-`
-
 const StoryComponent = props => {
   const { story } = props
 
@@ -20,18 +14,13 @@ const StoryComponent = props => {
 
   return <article>
     <SplitLayout>
-      <TOC>
-        <TOCTitle>Inhalt</TOCTitle>
-        {sections.map((section, i) =>
-          <TOCLink key={i} href={`#${section}`}>{section}</TOCLink>
-        )}
-      </TOC>
+      <LeftContainer>
+        <TopImage url={getAbsolutAssetURL(story.image.path)} />
+      </LeftContainer>
       <RightContainer>
-        <TopImage url={getAbsolutAssetURL(story.image.path)}>
-          <TopTitle>{story.title}</TopTitle>
-        </TopImage>
-        <TeaserText>{story.teaserText}</TeaserText>
         <Content>
+          <TopTitle>{story.title}</TopTitle>
+          <TeaserText>{story.teaserText}</TeaserText>
           {story.content.map((section, i) => {
             switch (section.field.name) {
               case 'title':

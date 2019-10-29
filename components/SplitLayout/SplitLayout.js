@@ -6,7 +6,7 @@ export { default as LeftContainer } from './LeftContainer'
 export { default as RightContainer } from './RightContainer'
 
 const Wrapper = styled.div`
-  @media (min-width: ${breakpoints.xl.min}px) {
+  @media (min-width: ${breakpoints.l.min}px) {
     display: flex;
     margin-top: 30px;
     width: 100%;
