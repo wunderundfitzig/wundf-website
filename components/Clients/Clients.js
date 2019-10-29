@@ -3,14 +3,14 @@ import styled from '@emotion/styled'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import breakpoints from '../../lib/breakpoints'
 import colors from '../../lib/colors'
-import { fadeIn, slideUp } from '../../lib/animations'
+import { fadeIn } from '../../lib/animations'
 
 const Title = styled.h1`
   font-style: italic;
   font-weight: normal;
   text-align: center;
   font-size: 16px;
-  margin: 0 0 30px;
+  margin: 0 0 15px;
   padding: 10px 0;
   color: ${colors.darkGrey};
   background-color: ${colors.lightGrey};
@@ -20,13 +20,15 @@ const Title = styled.h1`
   z-index: 100;
   animation: ${fadeIn} 1s;
 
-  @media (min-width: ${breakpoints.xl.min}px) {
+  @media (min-width: ${breakpoints.l.min}px) {
     font-size: 18px;
+    margin-bottom: 30px;
   }
 `
 
 const Logos = styled.div`
   max-width: 900px;
+  padding: 0 5px 0 20px;
   margin: 0 auto 40px;
   display: flex;
   flex-wrap: wrap;
