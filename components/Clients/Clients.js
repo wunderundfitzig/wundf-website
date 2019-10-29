@@ -2,37 +2,37 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import breakpoints from '../../lib/breakpoints'
-import { orange } from '../../lib/colors'
+import colors from '../../lib/colors'
+import { fadeIn, slideUp } from '../../lib/animations'
 
 const Title = styled.h1`
   font-style: italic;
   font-weight: normal;
-  font-size: 18px;
-  margin: 0 0 20px;
-  color: ${orange};
+  text-align: center;
+  font-size: 16px;
+  margin: 0 0 30px;
+  padding: 10px 0;
+  color: ${colors.darkGrey};
+  background-color: ${colors.lightGrey};
   -webkit-font-smoothing: grayscale;
   -moz-osx-font-smoothing: grayscale;
   -o-font-smoothing: grayscale;
-
-  @media (min-width: ${breakpoints.m.min}px) {
-    margin-bottom: 5px;
-  }
+  z-index: 100;
+  animation: ${fadeIn} 1s;
 
   @media (min-width: ${breakpoints.xl.min}px) {
-    font-size: 22px;
-    margin-bottom: 30px;
+    font-size: 18px;
   }
 `
 
 const Logos = styled.div`
+  max-width: 900px;
+  margin: 0 auto 40px;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-
-  @media (min-width: ${breakpoints.xl.min}px) {
-    display: block;
-  }
+  animation: ${fadeIn} 1s;
 `
 
 const Logo = styled.img`
@@ -59,7 +59,7 @@ const Spacer = styled.div`
 
 const Clients = ({ clients }) => {
   return <>
-    <Title>Kunden</Title>
+    <Title>Für wen und an was wir arbeiten:</Title>
     <Logos>
       {clients.map((client, i) =>
         <Logo

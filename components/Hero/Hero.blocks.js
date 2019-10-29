@@ -1,24 +1,14 @@
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
 import colors from '../../lib/colors'
+import { fadeIn } from '../../lib/animations'
 import breakpoints from '../../lib/breakpoints'
 
 export { Link } from '../../lib/blocks.js'
 
-const fadeIn = keyframes`
-  0% { opacity: 0; }
-  30% {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`
-
 export const Wrapper = styled.div`
   padding-top: 25px;
   padding-bottom: 50px;
-  margin-bottom: 60px;
+  margin-bottom: 0;
   background-color: ${colors.lightGrey};
   animation: ${fadeIn} 1s;
 

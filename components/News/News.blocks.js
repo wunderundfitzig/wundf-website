@@ -1,27 +1,15 @@
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
 import colors from '../../lib/colors'
+import { slideUp } from '../../lib/animations'
 import breakpoints from '../../lib/breakpoints'
 import { Title, BackgroundImage, Link } from '../../lib/blocks.js'
-
-const fadeIn = keyframes`
-  0% { opacity: 0; }
-  30% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`
 
 export const Feed = styled.div`
   max-width: 600px;
   margin: 0 auto;
   list-style: none;
   padding: 0 15px;
-  animation: ${fadeIn} 2s;
+  animation: ${slideUp} 2s;
 
   @media (min-width: ${breakpoints.sm.min}px) {
     padding: 0 20px;
