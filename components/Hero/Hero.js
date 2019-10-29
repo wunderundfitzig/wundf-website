@@ -47,7 +47,7 @@ export default class Hero extends Component {
   // }
 
   render () {
-    const { phoneNumber, mail, address, addressURL, buzzwords } = this.props
+    const { phoneNumber, mail, address, addressURL } = this.props
     // const { buzzword, buzzwordVisible } = this.state
 
     return <Wrapper>
