@@ -7,7 +7,7 @@ export { Link } from '../../lib/blocks.js'
 
 export const Wrapper = styled.div`
   padding-top: 25px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   margin-bottom: 0;
   background-color: ${colors.lightGrey};
   animation: ${fadeIn} 1s;
