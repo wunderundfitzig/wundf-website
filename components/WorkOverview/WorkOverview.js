@@ -6,7 +6,7 @@ import TopStory from './TopStory'
 import styled from '@emotion/styled'
 import breakpoints from '../../lib/breakpoints'
 
-const Wrapper = styled.div`
+const Inner = styled.div`
   max-width: 900px;
   margin: 0 auto;
 
@@ -28,15 +28,17 @@ const WorkOverview = ({ stories, clients }) => {
   const otherStories = stories.slice(1, 3)
   const restStories = stories.slice(3)
 
-  return <Wrapper>
+  return <>
     <TopStory story={topStory} />
-    { otherStories.map((story, i) =>
-      <StoryWithOverlay key={i} story={story} />
-    )}
-    { restStories.map((story, i) =>
-      <StoryWithoutOverlay key={i} story={story} />
-    )}
-  </Wrapper>
+    <Inner>
+      { otherStories.map((story, i) =>
+        <StoryWithOverlay key={i} story={story} />
+      )}
+      { restStories.map((story, i) =>
+        <StoryWithoutOverlay key={i} story={story} />
+      )}
+    </Inner>
+  </>
 }
 
 export default WorkOverview
