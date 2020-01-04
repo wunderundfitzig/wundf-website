@@ -1,89 +1,53 @@
 import React from 'react'
-import styled from '@emotion/styled'
-import { getAbsolutAssetURL } from '../../lib/apiHelpers'
-import breakpoints from '../../lib/breakpoints'
-import colors from '../../lib/colors'
-import { fadeIn } from '../../lib/animations'
+import { Wrapper, Title, Logos, Logo, Spacer } from './Clients.blocks'
+import rbbSVG from './rbb.svg'
+import heinrichboellSVG from './heinrichboell.svg'
+import eiqSVG from './eiq.svg'
+import vereinWirtschaftPNG from './vereinWirtschaft.png'
+import udkSVG from './udk.svg'
+import dcbPNG from './dcb.png'
 
-const Wrapper = styled.arcticle`
-  background-color: ${colors.lightGrey};
-  display: block;
-  overflow: hidden;
-  animation: ${fadeIn} 1s;
-  margin-bottom: 40px;
-
-  @media (min-width: ${breakpoints.l.min}px) {
-    margin-bottom: 60px;
+const clients = [
+  {
+    'name': 'Rundfunk Berlin Brandenburg',
+    'image': rbbSVG,
+    'relativeSize': '1'
+  },
+  {
+    'name': 'Heinrich B\u00f6ll Stiftung Brandenburg',
+    'image': heinrichboellSVG,
+    'relativeSize': '1'
+  },
+  {
+    'name': 'Europ\u00e4isches Institut f\u00fcr Qualit\u00e4tsjournalismus',
+    'image': eiqSVG,
+    'relativeSize': '1.9'
+  },
+  {
+    'name': 'Verein zur F\u00f6rderung der Wirtschaftskommunikation e.V.',
+    'image': vereinWirtschaftPNG,
+    'relativeSize': '1.5'
+  },
+  {
+    'name': 'Universit\u00e4t der K\u00fcnste Berlin',
+    'image': udkSVG,
+    'relativeSize': '1'
+  },
+  {
+    'name': 'Dev Crew Berlin',
+    'image': dcbPNG,
+    'relativeSize': '1.8'
   }
-`
+]
 
-const Title = styled.h1`
-  display: block;
-  font-style: italic;
-  text-align: center;
-  font-weight: normal;
-  font-size: 16px;
-  margin: 15px 0 15px;
-  padding: 0 20px;
-  color: ${colors.darkGrey};
-  -webkit-font-smoothing: grayscale;
-  -moz-osx-font-smoothing: grayscale;
-  -o-font-smoothing: grayscale;
-
-  @media (min-width: ${breakpoints.l.min}px) {
-    font-size: 18px;
-    margin: 15px auto;
-  }
-`
-
-const Logos = styled.div`
-  max-width: 1000px;
-  padding: 0 20px 0 20px;
-  margin: 0 auto 20px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  animation: ${fadeIn} 1s;
-`
-
-const Logo = styled.img`
-  height: ${props => 15 * props.relativeSize}px;
-  margin: 0 5px 20px;
-
-  @media (min-width: ${breakpoints.sm.min}px) {
-    height: ${props => 17 * props.relativeSize}px;
-    margin: 0 15px 30px;
-  }
-
-  @media (min-width: ${breakpoints.m.min}px) {
-    height: ${props => 20 * props.relativeSize}px;
-    margin: 0 15px 30px;
-  }
-
-  @media (min-width: ${breakpoints.xl.min}px) {
-    height: ${props => 25 * props.relativeSize}px;
-    display: block;
-    margin: 0 15px 40px;
-  }
-
-  @media (min-width: ${breakpoints.xl.min}px) {
-    height: ${props => 25 * props.relativeSize}px;
-  }
-`
-
-const Spacer = styled.div`
-  flex: 0 0 40%;
-`
-
-const Clients = ({ clients }) => {
+const Clients = () => {
   return <Wrapper>
     <Title>Kunden:</Title>
     <Logos>
       {clients.map((client, i) =>
         <Logo
           key={i}
-          src={getAbsolutAssetURL(client.logo.path)}
+          src={client.image}
           relativeSize={client.relativeSize}
           alt={client.name} />
       )}

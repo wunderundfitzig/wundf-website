@@ -1,30 +1,27 @@
 import React from 'react'
 import Head from 'next/head'
-import { fetchSigleton, fetchCollection } from '../lib/apiHelpers'
+import { fetchFromBackend } from '../lib/apiHelpers'
 import Hero from '../components/Hero/Hero'
 import News from '../components/News/News'
 import Clients from '../components/Clients/Clients'
 
 const Index = props => {
-  const { heroProps, clients, news } = props
+  const { news, heroProps } = props
   return <>
     <Head><title>wunder & fitzig</title></Head>
     <Hero {...heroProps} />
-    <Clients clients={clients} />
+    <Clients />
     <News news={news} />
   </>
 }
 
 Index.getInitialProps = async () => {
-  const [heroProps, clients, news] = await Promise.all([
-    fetchSigleton('hero'),
-    fetchCollection('clients'),
-    fetchCollection('news')
+  const [heroProps, news] = await Promise.all([
+    fetchFromBackend('/'),
+    fetchFromBackend('/news')
   ])
 
-  const buzzwords = heroProps.buzzwords.map(word => word.value)
-
-  return { heroProps: { ...heroProps, buzzwords }, clients, news }
+  return { news, heroProps }
 }
 
 export default Index

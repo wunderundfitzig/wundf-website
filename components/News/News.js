@@ -1,20 +1,19 @@
 import React from 'react'
-import { getAbsolutAssetURL } from '../../lib/apiHelpers'
-import { SectionTitle, Feed, Image, NewsTitle, Content, LinkWrapper, LinkLabel } from './News.blocks'
+import { Feed, Image, NewsTitle, Content, LinkWrapper, LinkLabel } from './News.blocks'
 
 export default props => {
   const { news } = props
 
   return <Feed>
     {news.map(item => {
-      return <LinkWrapper href={item.link.url} target='_blank' key={item._id}>
+      return <LinkWrapper href={item.url} target='_blank' key={item.slug}>
         <article>
-          <Image url={getAbsolutAssetURL(item.image.path)} alt={item.image.title}>
+          <Image url={item.image}>
             <NewsTitle>{item.title}</NewsTitle>
           </Image>
           <Content>
-            <p>{item.text}</p>
-            <LinkLabel>{item.link.label}</LinkLabel>
+            <p>{item.description}</p>
+            <LinkLabel>{item.linkText}</LinkLabel>
           </Content>
         </article>
       </LinkWrapper>
