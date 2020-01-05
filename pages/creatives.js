@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import { fetchCollection } from '../lib/apiHelpers'
+import { fetchFromBackend } from '../lib/apiHelpers'
 import CreativesSections from '../components/CreativesSections/CreativesSections'
 
 const Creatives = ({ creatives }) =>
@@ -10,8 +10,7 @@ const Creatives = ({ creatives }) =>
   </>
 
 Creatives.getInitialProps = async () => {
-  // get news
-  const creatives = await fetchCollection('creatives')
+  const creatives = await fetchFromBackend('/creatives')
 
   return { creatives }
 }
