@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import styled from '@emotion/styled'
-import { fetchSigleton } from '../lib/apiHelpers'
+import { fetchFromBackend } from '../lib/apiHelpers'
 import { linkStyles } from '../lib/blocks'
 import Markdown from '../components/Markdown/Markdown'
 
@@ -16,18 +16,18 @@ const TextBlock = styled.div`
 `
 
 const Privacy = props => {
-  const { markdown } = props
+  const { content } = props
   return <>
     <Head><title>wunder & fitzig | Datenschutz | Impressum</title></Head>
     <TextBlock>
-      <Markdown markdown={markdown} />
+      <Markdown markdown={content} />
     </TextBlock>
   </>
 }
 
 Privacy.getInitialProps = async () => {
-  const res = await fetchSigleton('privacy')
-  return { markdown: res.markdown }
+  const res = await fetchFromBackend('/privacy')
+  return { content: res.content }
 }
 
 export default Privacy
