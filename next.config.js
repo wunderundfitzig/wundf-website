@@ -1,6 +1,6 @@
 const fetch = require('isomorphic-unfetch')
 
-const BACKEND_URL = 'http://0.0.0.0:8080'
+const BACKEND_URL = 'https://wfback.uber.space'
 
 module.exports = {
   webpack: (config) => {
@@ -14,29 +14,23 @@ module.exports = {
     })
     return config
   },
-  // exportPathMap: async function (defaultPathMap) {
-  //   const res = await fetch(`${BACKEND_URL}/api/collections/get/work`, {
-  //     method: 'post',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({
-  //       fields: { title_slug: 1 }
-  //     })
-  //   })
+  exportPathMap: async function (defaultPathMap) {
+    const res = await fetch(`${BACKEND_URL}/work`)
 
-  //   const stories = await res.json()
-  //   const storyURLS = stories.entries.reduce((obj, story) => {
-  //     obj[`work/${story.title_slug}`] = {
-  //       page: '/workStory',
-  //       query: { storySlug: story.title_slug }
-  //     }
-  //     return obj
-  //   }, {})
+    const stories = await res.json()
+    const storyURLS = stories.reduce((obj, story) => {
+      obj[`work/${story.slug}`] = {
+        page: '/workStory',
+        query: { storySlug: story.slug }
+      }
+      return obj
+    }, {})
 
-  //   return {
-  //     ...defaultPathMap,
-  //     ...storyURLS
-  //   }
-  // },
+    return {
+      ...defaultPathMap,
+      ...storyURLS
+    }
+  },
   publicRuntimeConfig: {
     backendURL: BACKEND_URL
   }
