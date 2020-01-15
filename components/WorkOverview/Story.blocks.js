@@ -6,6 +6,7 @@ export { Title } from '../../lib/blocks.js'
 
 export const Wrapper = styled.article`
   margin-bottom: 60px;
+  width: 100%;
 
   @media (min-width: ${breakpoints.m.min}px) {
     margin-bottom: 40px;

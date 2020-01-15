@@ -1,21 +1,18 @@
 import React from 'react'
 import Head from 'next/head'
-import { fetchCollection } from '../lib/apiHelpers'
+import { fetchFromBackend } from '../lib/apiHelpers'
 import WorkOverview from '../components/WorkOverview/WorkOverview'
 
-const Work = ({ clients, stories }) =>
+const Work = ({ stories }) =>
   <>
     <Head><title>wunder & fitzig | work</title></Head>
-    <WorkOverview stories={stories} clients={clients} />
+    <WorkOverview stories={stories} />
   </>
 
 Work.getInitialProps = async () => {
-  const [clients, stories] = await Promise.all([
-    fetchCollection('clients'),
-    fetchCollection('work')
-  ])
+  const stories = await fetchFromBackend('/work')
 
-  return { stories, clients }
+  return { stories }
 }
 
 export default Work

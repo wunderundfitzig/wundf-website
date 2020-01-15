@@ -2,7 +2,6 @@ import React from 'react'
 import styled from '@emotion/styled'
 import breakpoints from '../../lib/breakpoints'
 import { beige } from '../../lib/colors'
-import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import { Title, Teaser, Link as LinkTemplate, Image, Wrapper } from './Story.blocks'
 import { Link } from '../../routes'
 
@@ -57,9 +56,9 @@ const StoryWrapper = styled(Wrapper)`
 
 const StoryWithOverlay = ({ story }) =>
   <StoryWrapper>
-    <Link to={`/work/${story.title_slug}`}>
+    <Link to={`/work/${story.slug}`}>
       <a>
-        <Image url={getAbsolutAssetURL(story.image.path)} />
+        <Image url={story.image} />
         <ContentContainer>
           <Title>{story.title}</Title>
           <Teaser>{story.teaserText}</Teaser>

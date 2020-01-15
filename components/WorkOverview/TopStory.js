@@ -2,9 +2,7 @@ import React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import breakpoints from '../../lib/breakpoints'
-import { whiteText } from '../../lib/blocks'
 import colors from '../../lib/colors'
-import { getAbsolutAssetURL } from '../../lib/apiHelpers'
 import { Link } from '../../routes'
 import { Image, Title, Teaser, Link as LinkTemplate } from './Story.blocks'
 
@@ -43,6 +41,7 @@ const Inner = styled.a`
   text-decoration: none;
   max-width: 840px;
   margin: 0 auto;
+  flex: 1 1 auto;
   cursor: pointer;
 
   &:hover ${TopLink} {
@@ -85,9 +84,9 @@ const TopTeaser = styled(Teaser)`
 
 const TopStory = ({ story }) =>
   <Wrapper>
-    <Link to={`/work/${story.title_slug}`}>
+    <Link to={`/work/${story.slug}`}>
       <Inner>
-        <TopImage url={getAbsolutAssetURL(story.image.path)} />
+        <TopImage url={story.image} />
         <ContentContainer>
           <TopTitle>{story.title}</TopTitle>
           <TopTeaser>{story.teaserText}</TopTeaser>

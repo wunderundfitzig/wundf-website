@@ -11,7 +11,7 @@ const Inner = styled.div`
 
   @media (min-width: ${breakpoints.m.min}px) {
     display: flex;
-    flex-flow: wrap;
+    flex-flow: row wrap;
     justify-content: space-between;
     padding: 0 30px;
   }
