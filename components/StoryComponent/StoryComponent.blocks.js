@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
-import { BackgroundImage, Title, longText, whiteText, linkStyles } from '../../lib/blocks'
-import { darkGrey, beige, orange } from '../../lib/colors'
+import { BackgroundImage, Title, longText } from '../../lib/blocks'
+import { darkGrey, orange } from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
 import Markdown from '../Markdown/Markdown'
+import HTML from '../HTML/HTML'
 
 export const TopImage = styled(BackgroundImage)`
   width: 100%;
@@ -41,7 +42,7 @@ export const Content = styled.div`
   padding: 0 30px;
 `
 
-export const Heading = styled(Title)`
+export const Heading2 = styled(Title)`
   margin-top: 2em;
   margin-bottom: 1.5em;
   text-align: center;
@@ -57,7 +58,22 @@ export const Heading = styled(Title)`
   }
 `.withComponent('h2')
 
-export const Image = styled.img`
+export const Heading3 = styled.h3`
+  font-weight: bold;
+  font-size: 1em;
+  color: ${darkGrey};
+  margin-top: 2em;
+  margin-bottom: 1em;
+`
+
+export const Heading = ({ level, text }) => {
+  switch (level) {
+    case 2: return <Heading2 id={text}>{text}</Heading2>
+    case 3: return <Heading3>{text}</Heading3>
+  }
+}
+
+export const ImageElem = styled.img`
   display: block;
   background-color: ${darkGrey};
   width: calc(100% + 30px);
@@ -68,6 +84,17 @@ export const Image = styled.img`
   }
 `
 
-export const Text = styled(Markdown)`
+export const Image = ({ url, alt, caption }) => {
+  return <figure>
+    <ImageElem src={url} alt={alt} />
+    <caption>{caption}</caption>
+  </figure>
+}
+
+export const StyledMarkdown = styled(Markdown)`
+  ${longText};
+`
+
+export const StyledHTML = styled(HTML)`
   ${longText};
 `

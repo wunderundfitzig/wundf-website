@@ -1,6 +1,6 @@
 import React from 'react'
 import SplitLayout, { LeftContainer, RightContainer } from '../SplitLayout/SplitLayout'
-import { TopImage, TopTitle, Content, TeaserText, Heading, Image, Text } from './StoryComponent.blocks'
+import { TopImage, TopTitle, Content, TeaserText, Heading, Image, StyledMarkdown, StyledHTML } from './StoryComponent.blocks'
 
 const StoryComponent = props => {
   const { story } = props
@@ -21,11 +21,13 @@ const StoryComponent = props => {
           {story.content.map((section, i) => {
             switch (section.type) {
               case 'heading':
-                return <Heading key={i} id={section.text}>{section.text}</Heading>
+                return <Heading key={i} level={section.level} text={section.text} />
               case 'image':
-                return <Image key={i} src={section.image} />
-              case 'text':
-                return <Text key={i} markdown={section.text} />
+                return <Image key={i} url={section.url} alt={section.alt} caption={section.caption} />
+              case 'html':
+                return <StyledHTML key={i} html={section.html} />
+              case 'markdown':
+                return <StyledMarkdown key={i} markdown={section.text} />
             }
           })}
         </Content>
