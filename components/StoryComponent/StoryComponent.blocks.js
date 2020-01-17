@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import { BackgroundImage, Title, longText } from '../../lib/blocks'
-import { darkGrey, orange } from '../../lib/colors'
+import { BackgroundImage, Title, longText, linkStyles } from '../../lib/blocks'
+import { darkGrey, grey, orange } from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
 import Markdown from '../Markdown/Markdown'
 import HTML from '../HTML/HTML'
@@ -73,22 +73,38 @@ export const Heading = ({ level, text }) => {
   }
 }
 
-export const ImageElem = styled.img`
+export const Figure = styled.figure`
   display: block;
-  background-color: ${darkGrey};
   width: calc(100% + 30px);
+  margin: 0;
   margin-bottom: 2em;
 
   @media (min-width: ${breakpoints.sm.min}px) {
     width: 100%;
   }
+
+  img {
+    width: 100%;
+    background-color: ${darkGrey};
+  }
+
+  caption {
+    width: 100%;
+    margin-top: 0.5em;
+    font-size: 0.8em;
+    color: ${grey};
+  }
+
+  a {
+    ${linkStyles};
+  }
 `
 
 export const Image = ({ url, alt, caption }) => {
-  return <figure>
-    <ImageElem src={url} alt={alt} />
-    <caption>{caption}</caption>
-  </figure>
+  return <Figure>
+    <img src={url} alt={alt} />
+    <caption dangerouslySetInnerHTML={{ __html: caption }} />
+  </Figure>
 }
 
 export const StyledMarkdown = styled(Markdown)`
