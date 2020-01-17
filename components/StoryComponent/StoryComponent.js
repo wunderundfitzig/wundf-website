@@ -27,7 +27,7 @@ const StoryComponent = props => {
               case 'html':
                 return <StyledHTML key={i} html={section.html} />
               case 'markdown':
-                return <StyledMarkdown key={i} markdown={section.text} />
+                return <StyledMarkdown key={i} markdown={section.markdown} />
             }
           })}
         </Content>
