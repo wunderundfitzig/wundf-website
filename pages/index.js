@@ -17,7 +17,7 @@ const Index = props => {
 
 Index.getInitialProps = async () => {
   const [heroProps, news] = await Promise.all([
-    fetchFromBackend('/'),
+    fetchFromBackend('/info'),
     fetchFromBackend('/news')
   ])
 
