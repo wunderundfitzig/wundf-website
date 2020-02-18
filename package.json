@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "export": "npm run build && next export -o ../html",
+    "export": "npm run build && next export -o ../tmp && mv ../tmp ../html",
     "start": "NODE_ENV=production node server.js"
   },
   "husky": {
