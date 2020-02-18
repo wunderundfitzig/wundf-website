@@ -1,6 +1,6 @@
 const fetch = require('isomorphic-unfetch')
 
-const BACKEND_URL = 'https://wfback.uber.space/'
+const BACKEND_URL = 'https://wfback.uber.space'
 
 module.exports = {
   webpack: config => {
