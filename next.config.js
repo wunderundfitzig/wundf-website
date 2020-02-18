@@ -14,22 +14,17 @@ module.exports = {
     })
     return config
   },
-  exportPathMap: async function(defaultPathMap) {
+  exportPathMap: async function() {
     const res = await fetch(`${BACKEND_URL}/work`)
 
     const stories = await res.json()
-    const storyURLS = stories.reduce((obj, story) => {
+    return stories.reduce((obj, story) => {
       obj[`work/${story.slug}`] = {
         page: '/workStory',
         query: { storySlug: story.slug }
       }
       return obj
     }, {})
-
-    return {
-      ...defaultPathMap,
-      ...storyURLS
-    }
   },
   publicRuntimeConfig: {
     backendURL: BACKEND_URL
