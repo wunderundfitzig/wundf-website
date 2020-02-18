@@ -3,7 +3,7 @@ const fetch = require('isomorphic-unfetch')
 const BACKEND_URL = 'https://wfback.uber.space'
 
 module.exports = {
-  webpack: (config) => {
+  webpack: config => {
     config.module.rules.push({
       test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
       loader: 'file-loader',
@@ -14,7 +14,7 @@ module.exports = {
     })
     return config
   },
-  exportPathMap: async function (defaultPathMap) {
+  exportPathMap: async function(defaultPathMap) {
     const res = await fetch(`${BACKEND_URL}/work`)
 
     const stories = await res.json()

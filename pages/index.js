@@ -7,12 +7,16 @@ import Clients from '../components/Clients/Clients'
 
 const Index = props => {
   const { news, heroProps } = props
-  return <>
-    <Head><title>wunder & fitzig</title></Head>
-    <Hero {...heroProps} />
-    <Clients />
-    <News news={news} />
-  </>
+  return (
+    <>
+      <Head>
+        <title>wunder & fitzig</title>
+      </Head>
+      <Hero {...heroProps} />
+      <Clients />
+      <News news={news} />
+    </>
+  )
 }
 
 Index.getInitialProps = async () => {
