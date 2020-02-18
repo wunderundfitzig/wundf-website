@@ -9,6 +9,11 @@
     "export": "npm run build && next export -o ../html",
     "start": "NODE_ENV=production node server.js"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wunderundfitzig/wundf-web-frontend.git"
@@ -37,6 +42,7 @@
     "babel-eslint": "^10.0.1",
     "babel-plugin-emotion": "^10.0.9",
     "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.10.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-jsx": "^6.0.2",
     "eslint-plugin-import": "^2.16.0",
@@ -44,6 +50,8 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-standard": "^4.0.0",
-    "file-loader": "^3.0.1"
+    "file-loader": "^3.0.1",
+    "husky": "^4.2.3",
+    "pretty-quick": "^2.0.1"
   }
 }
