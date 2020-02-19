@@ -17,7 +17,6 @@ const Story = props => {
 
 Story.getInitialProps = async res => {
   const slug = res.query.story
-  console.log('slug', slug)
   const story = await fetchFromBackend(`/work/${slug}`)
   return { slug, story }
 }
