@@ -16,20 +16,14 @@ module.exports = {
   },
   exportPathMap: async function(defaultPathMap) {
     const res = await fetch(`${BACKEND_URL}/work`)
-
     const stories = await res.json()
-    const storyURLS = stories.reduce((obj, story) => {
-      obj[`work/${story.slug}`] = {
-        page: '/workStory',
-        query: { storySlug: story.slug }
-      }
-      return obj
-    }, {})
 
-    return {
-      ...defaultPathMap,
-      ...storyURLS
-    }
+    delete defaultPathMap['/work/[story]']
+
+    return stories.reduce((obj, story) => {
+      obj[`/work/${story.slug}`] = { page: '/work/[story]' }
+      return obj
+    }, defaultPathMap)
   },
   publicRuntimeConfig: {
     backendURL: BACKEND_URL

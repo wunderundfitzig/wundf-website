@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import Link from 'next/link'
 import { linkStyles } from '../../lib/blocks'
 import { darkGrey } from '../../lib/colors'
-import { Link } from '../../routes'
 
 const Footer = styled.footer`
   display: flex;
@@ -23,15 +23,25 @@ const Footer = styled.footer`
     white-space: nowrap;
 
     &::before {
-      content: '+ '
+      content: '+ ';
     }
   }
 `
 
 // TODO maybe get this link list from the backend
-export default () => <Footer>
-  <a href='https://www.github.com/wunderundfitzig/' target='_blank'>Github</a>
-  <a href='https://www.facebook.com/wunderundfitzig/' target='_blank'>Facebook</a>
-  <a href='https://www.instagram.com/wunderundfitzig/' target='_blank'>Instagram</a>
-  <Link href='/privacy'><a>Datenschutz / Impressum</a></Link>
-</Footer>
+export default () => (
+  <Footer>
+    <a href='https://www.github.com/wunderundfitzig/' target='_blank'>
+      Github
+    </a>
+    <a href='https://www.facebook.com/wunderundfitzig/' target='_blank'>
+      Facebook
+    </a>
+    <a href='https://www.instagram.com/wunderundfitzig/' target='_blank'>
+      Instagram
+    </a>
+    <Link href='/privacy'>
+      <a>Datenschutz / Impressum</a>
+    </Link>
+  </Footer>
+)

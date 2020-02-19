@@ -1,9 +1,15 @@
 import React from 'react'
+import Link from 'next/link'
 import styled from '@emotion/styled'
 import breakpoints from '../../lib/breakpoints'
 import { beige } from '../../lib/colors'
-import { Title, Teaser, Link as LinkTemplate, Image, Wrapper } from './Story.blocks'
-import { Link } from '../../routes'
+import {
+  Title,
+  Teaser,
+  Link as LinkTemplate,
+  Image,
+  Wrapper
+} from './Story.blocks'
 
 const ContentContainer = styled.div`
   position: relative;
@@ -54,9 +60,9 @@ const StoryWrapper = styled(Wrapper)`
   }
 `
 
-const StoryWithOverlay = ({ story }) =>
+const StoryWithOverlay = ({ story }) => (
   <StoryWrapper>
-    <Link to={`/work/${story.slug}`}>
+    <Link href='work/[story]' as={`/work/${story.slug}`}>
       <a>
         <Image url={story.image} />
         <ContentContainer>
@@ -67,5 +73,6 @@ const StoryWithOverlay = ({ story }) =>
       </a>
     </Link>
   </StoryWrapper>
+)
 
 export default StoryWithOverlay

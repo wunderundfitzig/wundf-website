@@ -1,9 +1,9 @@
 import React from 'react'
+import Link from 'next/link'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import breakpoints from '../../lib/breakpoints'
 import colors from '../../lib/colors'
-import { Link } from '../../routes'
 import { Image, Title, Teaser, Link as LinkTemplate } from './Story.blocks'
 
 const text = css`
@@ -34,8 +34,7 @@ const Wrapper = styled.article`
 const TopLink = styled(LinkTemplate)`
   ${text};
   display: inline;
-`
-  .withComponent('p')
+`.withComponent('p')
 
 const Inner = styled.a`
   text-decoration: none;
@@ -82,9 +81,9 @@ const TopTeaser = styled(Teaser)`
   font-size: 0.9em;
 `
 
-const TopStory = ({ story }) =>
+const TopStory = ({ story }) => (
   <Wrapper>
-    <Link to={`/work/${story.slug}`}>
+    <Link href='/work/[story]' as={`/work/${story.slug}`}>
       <Inner>
         <TopImage url={story.image} />
         <ContentContainer>
@@ -95,5 +94,6 @@ const TopStory = ({ story }) =>
       </Inner>
     </Link>
   </Wrapper>
+)
 
 export default TopStory

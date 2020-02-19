@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
+import Link from 'next/link'
 import { css, keyframes } from '@emotion/core'
 import { withRouter } from 'next/router'
-import { Link } from '../../routes'
 
 import colors from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
@@ -80,36 +80,44 @@ export const Item = styled.li`
     cursor: pointer;
 
     &:hover {
-      border: 0
+      border: 0;
     }
 
-    ${props => props.active && css`
-      &::after {
-        content: ' ';
-        position: absolute;
-        margin-left: -12px;
-        left: 50%;
-        bottom: -10px;
-        width: 0;
-        height: 0;
-        border-left: 12px solid transparent;
-        border-right: 12px solid transparent;
-        border-top: 10px solid ${colors.black};
-        transform-origin: top;
-        animation: ${scaleY} 0.2s;
-      }
-    `}
+    ${props =>
+      props.active &&
+      css`
+        &::after {
+          content: ' ';
+          position: absolute;
+          margin-left: -12px;
+          left: 50%;
+          bottom: -10px;
+          width: 0;
+          height: 0;
+          border-left: 12px solid transparent;
+          border-right: 12px solid transparent;
+          border-top: 10px solid ${colors.black};
+          transform-origin: top;
+          animation: ${scaleY} 0.2s;
+        }
+      `}
   }
 `
 
-export const NavListItem = withRouter(({ router, children, matchSubPages = true, ...props }) => {
-  const active = matchSubPages
-    ? router.pathname.startsWith(props.href)
-    : router.pathname === props.href
+export const NavListItem = withRouter(
+  ({ router, children, matchSubPages = true, ...props }) => {
+    const active = matchSubPages
+      ? router.pathname.startsWith(props.href)
+      : router.pathname === props.href
 
-  return <Item active={active}>
-    {/* next link is buggy when child is a emotion component and not a simple a tag
+    return (
+      <Item active={active}>
+        {/* next link is buggy when child is a emotion component and not a simple a tag
         so we style the a in the sorounding "Item" */}
-    <Link {...props}><a>{children}</a></Link>
-  </Item>
-})
+        <Link {...props}>
+          <a>{children}</a>
+        </Link>
+      </Item>
+    )
+  }
+)
