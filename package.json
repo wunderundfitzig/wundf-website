@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "export": "npm run build && next export -o ../tmp && mv ../tmp ../html",
-    "exportt": "next export",
+    "export": "npm run build && next export -o ../html",
     "start": "NODE_ENV=production next start"
   },
   "husky": {
