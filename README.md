@@ -1,6 +1,6 @@
 # wundf website frontend
 
-This is a [next.js](https://nextjs.org/) page that calls a [cockpit](https://getcockpit.com/) backend.
+This is a [next.js](https://nextjs.org/) page that makes calls to an api backend.
 
 ## deploy
 
@@ -21,6 +21,6 @@ then run:
 ```bash
 cd ~/frontend # go to frontend folder
 git pull
-npm install
+npm ci
 npm run export
 ```
