@@ -62,7 +62,7 @@ const StoryWrapper = styled(Wrapper)`
 
 const StoryWithOverlay = ({ story }) => (
   <StoryWrapper>
-    <Link href='work/[story]' as={`/work/${story.slug}`}>
+    <Link href='[story]' as={`${story.slug}`}>
       <a>
         <Image url={story.image} />
         <ContentContainer>
