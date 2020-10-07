@@ -46,14 +46,14 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: "-rltgoDzvO --delete"
           SOURCE: "deploy/"
-          REMOTE_HOST: wunderundfitzig.de
+          REMOTE_HOST: wfweb.uber.space
           REMOTE_USER: wfweb
           TARGET: 'wundf-website'
         
       - name: Restart Server
         uses: appleboy/ssh-action@master
         with:
-          host: wunderundfitzig.de
+          host: wfweb.uber.space
           username: wfweb
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: supervisorctl restart wundf-website
