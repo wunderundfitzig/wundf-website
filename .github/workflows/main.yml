@@ -37,7 +37,7 @@ jobs:
         id: deployment
         with:
           token: '${{ github.token }}'
-          environment_url: 'https://www.wunderundfitzig.de/'
+          target_url: 'https://www.wunderundfitzig.de/'
           production_environment: true
           environment: uberspace
 
@@ -65,7 +65,7 @@ jobs:
         with:
           token: '${{ github.token }}'
           state: 'success'
-          environment_url: 'https://www.wunderundfitzig.de/'
+          target_url: 'https://www.wunderundfitzig.de/'
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
       - name: Update deployment status (failure)
@@ -74,5 +74,5 @@ jobs:
         with:
           token: '${{ github.token }}'
           state: 'failure'
-          environment_url: 'https://www.wunderundfitzig.de/'
+          target_url: 'https://www.wunderundfitzig.de/'
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
