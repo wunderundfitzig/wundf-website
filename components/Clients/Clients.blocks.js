@@ -45,24 +45,36 @@ export const Logos = styled.div`
   animation: ${fadeIn} 1s;
 `
 
-export const Logo = styled.img`
-  height: ${props => 15 * props.relativeSize}px;
+export const LogoLink = styled.a`
   margin: 0 5px 20px;
 
   @media (min-width: ${breakpoints.sm.min}px) {
-    height: ${props => 17 * props.relativeSize}px;
     margin: 0 15px 30px;
   }
 
   @media (min-width: ${breakpoints.m.min}px) {
-    height: ${props => 20 * props.relativeSize}px;
     margin: 0 15px 30px;
   }
 
   @media (min-width: ${breakpoints.xl.min}px) {
-    height: ${props => 25 * props.relativeSize}px;
     display: block;
     margin: 0 15px 40px;
+  }
+`
+
+export const Logo = styled.img`
+  height: ${props => 15 * props.relativeSize}px;
+
+  @media (min-width: ${breakpoints.sm.min}px) {
+    height: ${props => 17 * props.relativeSize}px;
+  }
+
+  @media (min-width: ${breakpoints.m.min}px) {
+    height: ${props => 20 * props.relativeSize}px;
+  }
+
+  @media (min-width: ${breakpoints.xl.min}px) {
+    height: ${props => 25 * props.relativeSize}px;
   }
 
   @media (min-width: ${breakpoints.xl.min}px) {
