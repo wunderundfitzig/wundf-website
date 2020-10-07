@@ -43,7 +43,7 @@ jobs:
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.1.1
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_SSH_DEPLOY_KEY }}
           ARGS: "-rltgoDzvO --delete"
           SOURCE: "deploy/"
           REMOTE_HOST: wfweb.uber.space
@@ -55,7 +55,7 @@ jobs:
         with:
           host: wfweb.uber.space
           username: wfweb
-          key: ${{ secrets.SERVER_SSH_KEY }}
+          key: ${{ secrets.PRIVATE_SSH_DEPLOY_KEY }}
           script: supervisorctl restart wundf-website
       
       - name: Update deployment status (success)
