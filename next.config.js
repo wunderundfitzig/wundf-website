@@ -14,7 +14,7 @@ module.exports = {
     })
     return config
   },
-  exportTrailingSlash: true,
+  trailingSlash: true,
   exportPathMap: async function(defaultPathMap) {
     const res = await fetch(`${BACKEND_URL}/work`)
     const stories = await res.json()

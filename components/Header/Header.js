@@ -1,11 +1,17 @@
 import React from 'react'
-import { Header, Nav, NavListItem, Image, LogoImage } from './Header.blocks'
+import {
+  Header as HeaderInner,
+  Nav,
+  NavListItem,
+  Image,
+  LogoImage
+} from './Header.blocks'
 import logo from './wundfLogo.svg'
 import creatives from './creatives.svg'
 import work from './work.svg'
 
-export default () =>
-  <Header>
+const Header = () => (
+  <HeaderInner>
     <Nav>
       <ul>
         <NavListItem href='/work'>
@@ -19,4 +25,6 @@ export default () =>
         </NavListItem>
       </ul>
     </Nav>
-  </Header>
+  </HeaderInner>
+)
+export default Header

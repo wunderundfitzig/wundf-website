@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { linkStyles } from '../../lib/blocks'
 import { darkGrey } from '../../lib/colors'
 
-const Footer = styled.footer`
+const FooterInner = styled.footer`
   display: flex;
   flex-flow: wrap;
   justify-content: center;
@@ -29,8 +29,8 @@ const Footer = styled.footer`
 `
 
 // TODO maybe get this link list from the backend
-export default () => (
-  <Footer>
+const Footer = () => (
+  <FooterInner>
     <a href='https://www.github.com/wunderundfitzig/' target='_blank'>
       Github
     </a>
@@ -43,5 +43,6 @@ export default () => (
     <Link href='/privacy'>
       <a>Datenschutz / Impressum</a>
     </Link>
-  </Footer>
+  </FooterInner>
 )
+export default Footer
