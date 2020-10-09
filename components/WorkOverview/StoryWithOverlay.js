@@ -8,7 +8,7 @@ import {
   Teaser,
   Link as LinkTemplate,
   Image,
-  Wrapper
+  Wrapper,
 } from './Story.blocks'
 
 const ContentContainer = styled.div`
@@ -62,7 +62,7 @@ const StoryWrapper = styled(Wrapper)`
 
 const StoryWithOverlay = ({ story }) => (
   <StoryWrapper>
-    <Link href='[story]' as={`${story.slug}`}>
+    <Link href='/work/[story]' as={`/work/${story.slug}`}>
       <a>
         <Image url={story.image} />
         <ContentContainer>

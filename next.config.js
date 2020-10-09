@@ -3,19 +3,18 @@ const fetch = require('isomorphic-unfetch')
 const BACKEND_URL = 'https://backend.wunderundfitzig.de'
 
 module.exports = {
-  webpack: config => {
+  webpack: (config) => {
     config.module.rules.push({
       test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
       loader: 'file-loader',
       options: {
         name: 'static/images/[name].[ext]',
-        publicPath: '/_next/'
-      }
+        publicPath: '/_next/',
+      },
     })
     return config
   },
-  trailingSlash: true,
-  exportPathMap: async function(defaultPathMap) {
+  exportPathMap: async function (defaultPathMap) {
     const res = await fetch(`${BACKEND_URL}/work`)
     const stories = await res.json()
 
@@ -27,6 +26,6 @@ module.exports = {
     }, defaultPathMap)
   },
   publicRuntimeConfig: {
-    backendURL: BACKEND_URL
-  }
+    backendURL: BACKEND_URL,
+  },
 }
