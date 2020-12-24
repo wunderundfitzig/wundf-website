@@ -1,5 +1,7 @@
-import { FunctionComponent } from 'react'
-import WundFLogo from './wundf-logo'
+import React, { FunctionComponent } from 'react'
+import WundFLogo from 'components/wundf-logo'
+import Contact from 'components/contact'
+import Clients from 'components/clients'
 
 const Hero: FunctionComponent = (props) => {
   return (
@@ -10,12 +12,18 @@ const Hero: FunctionComponent = (props) => {
         Nutzererlebnisse
       </h2>
       <WundFLogo gridArea='logo' />
+      <Contact gridArea='contact' />
+      <Clients gridArea='clients' />
+
       <style jsx>{`
         .hero {
           max-width: 700px;
           margin: 0 auto;
           display: grid;
-          grid-template-areas: 'slogan logo';
+          grid-template-areas:
+            'slogan logo'
+            'contact contact'
+            'clients clients';
           grid-template-columns: 400px 1fr;
           justify-items: end;
         }
