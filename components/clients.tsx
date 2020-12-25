@@ -58,7 +58,12 @@ const Clients: FunctionComponent<Props> = (props) => {
       <p>unter anderem für:</p>
       <div className='client-logos'>
         {clients.map((client, i) => (
-          <a key={i} href={client.url} target='_blank' rel='noopener'>
+          <a
+            key={i}
+            href={client.url}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <ClientLogo
               src={client.image}
               relativeSize={client.relativeSize}

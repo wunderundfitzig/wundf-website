@@ -5,36 +5,36 @@ interface ClientLogoProps extends ImgHTMLAttributes<HTMLImageElement> {
   relativeSize: number
 }
 const ClientLogo: FunctionComponent<ClientLogoProps> = (props) => {
-  const { relativeSize, ...rest } = props
+  const { relativeSize, alt, ...rest } = props
   return (
     <>
-      <img {...rest} />
+      <img {...rest} alt={alt} />
       <style jsx>{`
         img {
-          height: ${15 * props.relativeSize}px;
+          height: ${15 * relativeSize}px;
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
           img {
-            height: ${17 * props.relativeSize}px;
+            height: ${17 * relativeSize}px;
           }
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
           img {
-            height: ${20 * props.relativeSize}px;
+            height: ${20 * relativeSize}px;
           }
         }
 
         @media (min-width: ${breakpoints.xl.min}px) {
           img {
-            height: ${25 * props.relativeSize}px;
+            height: ${25 * relativeSize}px;
           }
         }
 
         @media (min-width: ${breakpoints.xl.min}px) {
           img {
-            height: ${25 * props.relativeSize}px;
+            height: ${25 * relativeSize}px;
           }
         }
       `}</style>

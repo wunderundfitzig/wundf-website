@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
 import Hero from '../components/hero'
 
-const Skills: NextPage = (props) => {
+const SkillsPage: NextPage = () => {
   return <Hero />
 }
 
-export default Skills
+export default SkillsPage

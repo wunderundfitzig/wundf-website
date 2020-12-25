@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from 'react'
-import colors from 'lib/colors'
 
 import WundFLogo from 'components/wundf-logo'
 import Contact from 'components/contact'
 import Clients from 'components/clients'
 import Navigation from 'components/navigation'
 
-const Hero: FunctionComponent = (props) => {
+const Hero: FunctionComponent = () => {
   return (
     <>
       <section className='hero'>

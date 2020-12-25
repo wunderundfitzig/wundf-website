@@ -12,7 +12,7 @@ const Navigation: FunctionComponent = () => {
     <nav id='main' className='navigation'>
       <ul>
         {routes.map((route) => (
-          <li>
+          <li key={route.href}>
             <NavigationItem route={route} />
           </li>
         ))}
