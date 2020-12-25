@@ -1,26 +1,26 @@
 import React, { FunctionComponent } from 'react'
-import Link from 'next/link'
 import colors from 'lib/colors'
+import NavigationItem, { Route } from 'components/navigation-item'
+
+const routes: Route[] = [
+  { href: '/work', label: 'work' },
+  { href: '/skills', label: 'skills' },
+]
 
 const Navigation: FunctionComponent = () => {
   return (
     <nav id='main' className='navigation'>
       <ul>
-        <li>
-          <Link href='/#main'>
-            <a>work</a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/work#main'>
-            <a>skills</a>
-          </Link>
-        </li>
+        {routes.map((route) => (
+          <li>
+            <NavigationItem route={route} />
+          </li>
+        ))}
       </ul>
       <style jsx>{`
         .navigation {
           background-color: ${colors.orange};
-          padding: 1em;
+          padding: 0 1em;
         }
 
         ul {
@@ -29,11 +29,6 @@ const Navigation: FunctionComponent = () => {
           padding: 0;
           display: grid;
           grid-template-columns: 1fr 1fr;
-        }
-
-        a {
-          color: white;
-          font-style: italic;
         }
       `}</style>
     </nav>
