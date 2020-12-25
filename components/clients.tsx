@@ -1,13 +1,14 @@
 import React, { FunctionComponent } from 'react'
-import ClientLogo from 'components/client-logo'
+import breakpoints from 'lib/breakpoints'
+import colors from 'lib/colors'
 
+import ClientLogo from 'components/client-logo'
 import rbbSVG from 'components/client-logos/rbb.svg'
 import heinrichboellSVG from 'components/client-logos/heinrichboell.svg'
 import eiqSVG from 'components/client-logos/eiq.svg'
 import johanniterSVG from 'components/client-logos/johanniter.svg'
 import emsSVG from 'components/client-logos/ems.svg'
 import dcbPNG from 'components/client-logos/dcb.png'
-import breakpoints from 'lib/breakpoints'
 
 const clients = [
   {
@@ -70,6 +71,8 @@ const Clients: FunctionComponent<Props> = (props) => {
       <style jsx>{`
         .clients {
           grid-area: ${props.gridArea};
+          background-color: ${colors.orange};
+          padding: 1em;
         }
 
         .client-logos {

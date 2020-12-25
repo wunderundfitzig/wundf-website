@@ -1,19 +1,25 @@
 import React, { FunctionComponent } from 'react'
+import colors from 'lib/colors'
+
 import WundFLogo from 'components/wundf-logo'
 import Contact from 'components/contact'
 import Clients from 'components/clients'
+import Navigation from 'components/navigation'
 
 const Hero: FunctionComponent = (props) => {
   return (
-    <section className='hero'>
-      <h2 className='slogan'>
-        Wir <br />
-        gestalten <br />
-        Nutzererlebnisse
-      </h2>
-      <WundFLogo gridArea='logo' />
-      <Contact gridArea='contact' />
-      <Clients gridArea='clients' />
+    <>
+      <section className='hero'>
+        <h2 className='slogan'>
+          Wir <br />
+          gestalten <br />
+          Nutzererlebnisse
+        </h2>
+        <WundFLogo gridArea='logo' />
+        <Contact gridArea='contact' />
+      </section>
+      <Clients />
+      <Navigation />
 
       <style jsx>{`
         .hero {
@@ -34,7 +40,7 @@ const Hero: FunctionComponent = (props) => {
           width: 100%;
         }
       `}</style>
-    </section>
+    </>
   )
 }
 
