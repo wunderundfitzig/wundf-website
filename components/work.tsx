@@ -1,5 +1,6 @@
 import { News } from 'lib/models/news'
 import { FunctionComponent } from 'react'
+import WorkTeaser from './work-teaser'
 
 interface Props {
   newsList: News[]
@@ -9,9 +10,18 @@ const Work: FunctionComponent<Props> = (props) => {
     <section>
       <ul>
         {props.newsList.map((news) => (
-          <li key={news.slug}>{news.title}</li>
+          <li key={news.slug}>
+            <WorkTeaser news={news} />
+          </li>
         ))}
       </ul>
+      <style jsx>{`
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+      `}</style>
     </section>
   )
 }
