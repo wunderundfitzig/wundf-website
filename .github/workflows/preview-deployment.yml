@@ -3,7 +3,7 @@ name: Deploy preview
 on:
   pull_request:
   schedule:
-    - cron: 2 14 * * *
+    - cron: 23 4 * * 1/2
 
 jobs:
   deploy-branch:
