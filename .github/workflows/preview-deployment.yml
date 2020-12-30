@@ -8,14 +8,20 @@ on:
 jobs:
   deploy-branch:
     runs-on: ubuntu-latest
+    
     steps:
+      - name: Get the current branch name
+        shell: bash
+        run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+        id: branchname
+
       - uses: chrnorm/deployment-action@releases/v1
         name: Create GitHub deployment
         id: deployment
         with:
           token: '${{ github.token }}'
           production_environment: false
-          environment: 'vercel/${{ github.ref }}'
+          environment: 'vercel/${{ steps.branchname.outputs.branch }}'
 
       - uses: actions/checkout@v2
       - name: Deploy to Vercel
