@@ -45,7 +45,6 @@ const Layout: FunctionComponent = (props) => {
         body {
           color: ${colors.black};
           font-size: 18px;
-          background: ${colors.beige};
           font-family: 'ETBembo', serif;
           font-weight: 400;
           margin: 0;
