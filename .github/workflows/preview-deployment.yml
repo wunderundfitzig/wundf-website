@@ -15,7 +15,7 @@ jobs:
         with:
           token: '${{ github.token }}'
           production_environment: false
-          environment: ${{ github.ref }}
+          environment: 'vercel/${{ github.ref }}'
 
       - uses: actions/checkout@v2
       - name: Deploy to Vercel
