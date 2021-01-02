@@ -11,7 +11,6 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
   return (
     <article className='work-item'>
       <h2>{props.news.title}</h2>
-      <div className='spacer' />
       <div className='bg-image'>
         <Image
           src={props.news.image}
@@ -33,27 +32,18 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           z-index: 0;
         }
 
-        .spacer {
-          grid-area: main;
-          width: 100%;
-          padding-bottom: 180%;
-        }
-
         h2 {
           grid-area: main;
-          font-size: 1.1em;
+          font-size: 1.2em;
           background-color: ${colors.lightGrey};
-          width: 70%;
           padding: 1em 1em 1.5em;
-          margin: 4em 0;
+          margin: 4em 2em 4em 0;
         }
 
         .bg-image {
-          position: absolute;
+          grid-area: main;
+          padding-bottom: 180%;
           width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
           z-index: -1;
         }
       `}</style>

@@ -2,6 +2,7 @@ import colors from 'lib/colors'
 import { News } from 'lib/models/news'
 import { FunctionComponent } from 'react'
 import WorkTeaser from './work-teaser'
+import WorkFeaturedTeaser from './work-featured-teaser'
 
 interface Props {
   newsList: News[]
@@ -10,11 +11,17 @@ const Work: FunctionComponent<Props> = (props) => {
   return (
     <section>
       <ul>
-        {props.newsList.map((news, idx) => (
-          <li key={news.slug} className={idx === 0 ? 'first' : undefined}>
-            <WorkTeaser news={news} />
-          </li>
-        ))}
+        {props.newsList.map((news, idx) =>
+          idx === 0 ? (
+            <li key={news.slug} className='first'>
+              <WorkFeaturedTeaser news={news} />
+            </li>
+          ) : (
+            <li key={news.slug}>
+              <WorkTeaser news={news} />
+            </li>
+          )
+        )}
       </ul>
       <style jsx>{`
         ul {
@@ -31,6 +38,7 @@ const Work: FunctionComponent<Props> = (props) => {
         }
 
         .first {
+          grid-column: span 3;
         }
       `}</style>
     </section>
