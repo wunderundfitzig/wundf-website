@@ -1,6 +1,8 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
 import { News } from 'lib/models/news'
+import breakpoints from 'lib/breakpoints'
+import colors from 'lib/colors'
 
 interface Props {
   news: News
@@ -26,34 +28,71 @@ const WorkFeaturedTeaser: FunctionComponent<Props> = (props) => {
         .work-featured-teaser {
           grid-area: ${props.gridArea};
           display: grid;
-          grid-gap: 2em;
-          grid-template-columns: 1fr 1fr 1fr;
-          grid-template-areas: 'image text text';
+          grid-gap: 1em;
+          grid-template-columns: 1fr;
+          grid-template-areas: 'main';
           align-items: start;
           width: 100%;
           position: relative;
           overflow: hidden;
           z-index: 0;
-          margin-bottom: 2em;
         }
 
         .text {
-          grid-area: text;
-          max-width: 450px;
-          padding-left: 1em;
+          grid-area: main;
+          margin: 4em 2em;
+          background-color: ${colors.beige};
+          padding: 1em;
         }
 
         h2 {
-          font-size: 1.6em;
-          margin: 0;
+          font-size: 1.2em;
         }
 
         .image {
-          grid-area: image;
+          grid-area: main;
           position: relative;
           width: 100%;
           padding-bottom: 180%;
           z-index: -1;
+        }
+
+        @media (min-width: ${breakpoints.l.min}px) {
+          .work-featured-teaser {
+            grid-gap: 1em;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 'image text';
+          }
+
+          .text {
+            grid-area: text;
+            max-width: 450px;
+          }
+
+          h2 {
+            margin: 0;
+          }
+
+          .image {
+            grid-area: image;
+          }
+        }
+
+        @media (min-width: ${breakpoints.l.min}px) {
+          .work-featured-teaser {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas: 'image text text';
+            grid-gap: 2em;
+            margin-bottom: 2em;
+          }
+
+          .text {
+            padding-left: 1em;
+          }
+
+          h2 {
+            font-size: 1.6em;
+          }
         }
       `}</style>
     </article>

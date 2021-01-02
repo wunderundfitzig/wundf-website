@@ -19,6 +19,8 @@ const Navigation: FunctionComponent = () => {
       </ul>
       <style jsx>{`
         .navigation {
+          position: relative;
+          z-index: 1;
           background-color: ${colors.orange};
           padding: 0 1em;
         }
