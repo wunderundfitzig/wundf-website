@@ -55,6 +55,11 @@ const Layout: FunctionComponent = (props) => {
             font-size: 20px;
           }
         }
+
+        a {
+          color: ${colors.blue};
+          text-decoration: none;
+        }
       `}</style>
     </>
   )

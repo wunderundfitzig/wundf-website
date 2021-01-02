@@ -1,7 +1,6 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
 import { News } from 'lib/models/news'
-import colors from 'lib/colors'
 
 interface Props {
   news: News
