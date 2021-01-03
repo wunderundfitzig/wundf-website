@@ -35,12 +35,11 @@ const Work: FunctionComponent<Props> = (props) => {
           justify-content: center;
           grid-gap: 2em;
           background-color: ${colors.beige};
-          grid-gap: 0;
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
           ul {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: minmax(0, 300px);
           }
         }
 
@@ -56,7 +55,7 @@ const Work: FunctionComponent<Props> = (props) => {
           }
         }
 
-        @media (min-width: ${breakpoints.l.min}px) {
+        @media (min-width: ${breakpoints.xl.min}px) {
           ul {
             grid-template-columns: repeat(3, minmax(0, 300px));
             grid-gap: 2em;

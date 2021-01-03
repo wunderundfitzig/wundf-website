@@ -14,6 +14,7 @@ const WorkFeaturedTeaser: FunctionComponent<Props> = (props) => {
       <div className='text'>
         <h2>{props.news.title}</h2>
         <p>{props.news.description}</p>
+        <a>{props.news.linkText}</a>
       </div>
       <div className='image'>
         <Image
@@ -31,7 +32,7 @@ const WorkFeaturedTeaser: FunctionComponent<Props> = (props) => {
           grid-gap: 1em;
           grid-template-columns: 1fr;
           grid-template-areas: 'main';
-          align-items: start;
+          align-items: end;
           width: 100%;
           position: relative;
           overflow: hidden;
@@ -40,9 +41,10 @@ const WorkFeaturedTeaser: FunctionComponent<Props> = (props) => {
 
         .text {
           grid-area: main;
-          margin: 4em 2em;
           background-color: ${colors.beige};
-          padding: 1em;
+          padding: 1em 1em 2em 1em;
+          width: calc(100% - 3em);
+          margin: 6em 0 0;
         }
 
         h2 {
@@ -51,34 +53,45 @@ const WorkFeaturedTeaser: FunctionComponent<Props> = (props) => {
 
         .image {
           grid-area: main;
+          align-self: start;
           position: relative;
           width: 100%;
           padding-bottom: 180%;
           z-index: -1;
+          margin-bottom: 10em;
         }
 
-        @media (min-width: ${breakpoints.l.min}px) {
+        @media (min-width: ${breakpoints.sm.min}px) {
           .work-featured-teaser {
-            grid-gap: 1em;
-            grid-template-columns: 1fr 1fr;
-            grid-template-areas: 'image text';
+            justify-items: center;
           }
 
           .text {
-            grid-area: text;
-            max-width: 450px;
+            width: calc(100% - 2em);
           }
+        }
 
-          h2 {
-            margin: 0;
+        @media (min-width: ${breakpoints.m.min}px) {
+          .work-featured-teaser {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 'image text';
+            align-items: start;
+            margin-bottom: 2em;
           }
 
           .image {
             grid-area: image;
+            margin: 0;
+          }
+
+          .text {
+            grid-area: text;
+            padding: 0;
+            margin: 0;
           }
         }
 
-        @media (min-width: ${breakpoints.l.min}px) {
+        @media (min-width: ${breakpoints.xl.min}px) {
           .work-featured-teaser {
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: 'image text text';
@@ -88,6 +101,7 @@ const WorkFeaturedTeaser: FunctionComponent<Props> = (props) => {
 
           .text {
             padding-left: 1em;
+            margin-top: 4em;
           }
 
           h2 {
