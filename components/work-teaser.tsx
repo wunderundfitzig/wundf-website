@@ -1,6 +1,5 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
-import css from 'styled-jsx/css'
 import { News } from 'lib/models/news'
 import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
@@ -65,10 +64,8 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
-          .work-teaser {
-            justify-items: center;
-          }
           .text {
+            justify-self: center;
             width: calc(100% - 2em);
           }
         }
