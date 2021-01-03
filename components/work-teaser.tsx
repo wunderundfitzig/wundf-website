@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
+import css from 'styled-jsx/css'
 import { News } from 'lib/models/news'
 import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
@@ -7,17 +8,18 @@ import breakpoints from 'lib/breakpoints'
 interface Props {
   news: News
   gridArea?: string
+  featured?: boolean
 }
 const WorkTeaser: FunctionComponent<Props> = (props) => {
   return (
-    <article className='work-teaser'>
+    <article className={`work-teaser ${props.featured && 'featured'}`}>
       <div className='text'>
         <h2>{props.news.title}</h2>
         <p>{props.news.description}</p>
         <a>{props.news.linkText}</a>
       </div>
 
-      <div className='bg-image'>
+      <div className='image'>
         <Image
           src={props.news.image}
           layout='fill'
@@ -28,7 +30,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
 
       <style jsx>{`
         .work-teaser {
-          grid-area: ${props.gridArea};
+          grid-area: ${props.gridArea ? props.gridArea : ''};
           display: grid;
           grid-template-areas: 'main';
           align-items: end;
@@ -52,7 +54,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           font-size: 1.2em;
         }
 
-        .bg-image {
+        .image {
           grid-area: main;
           align-self: start;
           position: relative;
@@ -68,6 +70,44 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           }
           .text {
             width: calc(100% - 2em);
+          }
+        }
+
+        @media (min-width: ${breakpoints.m.min}px) {
+          .featured.work-teaser {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 'image text';
+            align-items: start;
+            margin-bottom: 2em;
+          }
+
+          .featured .image {
+            grid-area: image;
+            margin: 0;
+          }
+
+          .featured .text {
+            grid-area: text;
+            padding: 0;
+            margin: 0;
+          }
+        }
+
+        @media (min-width: ${breakpoints.xl.min}px) {
+          .featured.work-teaser {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas: 'image text text';
+            grid-gap: 2em;
+            margin-bottom: 2em;
+          }
+
+          .featured .text {
+            padding-left: 1em;
+            margin-top: 4em;
+          }
+
+          .featured h2 {
+            font-size: 1.6em;
           }
         }
       `}</style>
