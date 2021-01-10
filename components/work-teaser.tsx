@@ -61,6 +61,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           width: 100%;
           z-index: -1;
           margin-bottom: 10em;
+          background-color: ${colors.darkGrey};
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {

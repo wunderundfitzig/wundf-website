@@ -22,14 +22,15 @@ const Navigation: FunctionComponent = () => {
           position: relative;
           z-index: 1;
           background-color: ${colors.orange};
-          padding: 0 1em;
+          padding: 1em 1em 0;
         }
 
         ul {
           list-style: none;
-          margin: 0;
+          margin: 0 auto;
           padding: 0;
           display: grid;
+          max-width: 350px;
           grid-template-columns: 1fr 1fr;
         }
       `}</style>

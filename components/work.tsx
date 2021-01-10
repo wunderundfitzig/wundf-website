@@ -31,7 +31,7 @@ const Work: FunctionComponent<Props> = (props) => {
           grid-template-areas: 'featured';
           justify-content: center;
           grid-gap: 2em;
-          background-color: ${colors.beige};
+          background-color: ${colors.darkGrey};
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {

@@ -28,13 +28,7 @@ const ClientLogo: FunctionComponent<ClientLogoProps> = (props) => {
 
         @media (min-width: ${breakpoints.xl.min}px) {
           img {
-            height: ${25 * relativeSize}px;
-          }
-        }
-
-        @media (min-width: ${breakpoints.xl.min}px) {
-          img {
-            height: ${25 * relativeSize}px;
+            height: ${22 * relativeSize}px;
           }
         }
       `}</style>

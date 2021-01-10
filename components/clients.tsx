@@ -55,7 +55,7 @@ interface Props {
 const Clients: FunctionComponent<Props> = (props) => {
   return (
     <div className='clients'>
-      <p>unter anderem für:</p>
+      <p className='client-title'>unter anderem für:</p>
       <div className='client-logos'>
         {clients.map((client, i) => (
           <a
@@ -71,43 +71,57 @@ const Clients: FunctionComponent<Props> = (props) => {
             />
           </a>
         ))}
-        <div className='spacer' />
       </div>
       <style jsx>{`
         .clients {
           grid-area: ${props.gridArea};
           background-color: ${colors.orange};
-          padding: 1em;
+          padding: 1.5em 0 0;
+        }
+
+        .client-title {
+          text-align: center;
+          font-size: 0.8em;
+          margin: 0 0 1em;
         }
 
         .client-logos {
           width: 100%;
-          padding: 0 20px 0 20px;
-          margin: 0 auto 20px;
-          display: flex;
-          flex-wrap: wrap;
+          max-width: 800px;
+          padding: 0 1.5em;
+          margin: 0 auto;
+          display: grid;
           align-items: baseline;
+          grid-template-columns: repeat(3, min-content);
+          grid-template-rows: min-content min-content;
           justify-content: space-between;
+          grid-gap: 1em;
         }
 
         a {
-          margin: 0 5px 20px;
+          width: 100%;
+          text-align: left;
         }
 
-        @media (min-width: ${breakpoints.sm.min}px) {
-          a {
-            margin: 0 15px 30px;
+        a:nth-child(3n - 1) {
+          text-align: center;
+        }
+        a:nth-child(3n) {
+          text-align: right;
+        }
+
+        @media (min-width: 650px) {
+          .client-logos {
+            grid-template-columns: repeat(6, min-content);
+            grid-template-rows: min-content;
           }
         }
 
-        @media (min-width: ${breakpoints.m.min}px) {
-          a {
-            margin: 0 15px 30px;
+        @media (min-width: ${breakpoints.xl.min}px) {
+          .client-logos {
+            padding: 0;
+            max-width: 980px;
           }
-        }
-
-        .spacer {
-          flex: 0 0 40%;
         }
       `}</style>
     </div>
