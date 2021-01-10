@@ -82,13 +82,13 @@ const Clients: FunctionComponent<Props> = (props) => {
         .client-title {
           text-align: center;
           font-size: 0.8em;
-          margin: 0 0 1em;
+          margin: 0 0 1.5rem;
         }
 
         .client-logos {
           width: 100%;
           max-width: 800px;
-          padding: 0 1.5em;
+          padding: 0 1.5em 1em;
           margin: 0 auto;
           display: grid;
           align-items: baseline;
@@ -119,7 +119,7 @@ const Clients: FunctionComponent<Props> = (props) => {
 
         @media (min-width: ${breakpoints.xl.min}px) {
           .client-logos {
-            padding: 0;
+            padding: 0 0 1em;
             max-width: 980px;
           }
         }

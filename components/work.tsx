@@ -26,12 +26,13 @@ const Work: FunctionComponent<Props> = (props) => {
           list-style: none;
           margin: 0;
           padding: 0;
+          padding-bottom: 2em;
           display: grid;
           grid-template-columns: 1fr;
           grid-template-areas: 'featured';
           justify-content: center;
           grid-gap: 2em;
-          background-color: ${colors.darkGrey};
+          background-color: ${colors.beige};
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
@@ -45,7 +46,14 @@ const Work: FunctionComponent<Props> = (props) => {
             grid-template-columns: repeat(2, minmax(0, 300px));
             grid-template-areas: 'featured featured';
             grid-gap: 1em;
-            padding: 1em;
+            padding-right: 1em;
+            padding-left: 1em;
+          }
+        }
+
+        @media (min-width: ${breakpoints.l.min}px) {
+          .work-articles {
+            grid-gap: 2em;
           }
         }
 
@@ -54,7 +62,9 @@ const Work: FunctionComponent<Props> = (props) => {
             grid-template-columns: repeat(3, minmax(0, 300px));
             grid-template-areas: 'featured featured featured';
             grid-gap: 2em;
-            padding: 2em 0;
+            padding-left: 0;
+            padding-right: 0;
+            padding-bottom: 2em;
           }
         }
       `}</style>

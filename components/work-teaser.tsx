@@ -36,7 +36,6 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           width: 100%;
           height: 100%;
           position: relative;
-          overflow: hidden;
           z-index: 0;
         }
 
@@ -65,9 +64,26 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
+          .featured.work-teaser {
+            padding-top: 2em;
+            padding-bottom: 2em;
+          }
+
+          .featured.work-teaser::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100vw;
+            height: 100%;
+            transform: translateX(-50%);
+            background-color: ${colors.blueGrey};
+            z-index: -1;
+          }
           .text {
             justify-self: center;
             width: calc(100% - 2em);
+            box-shadow: 0 0 2px -1px black;
           }
         }
 
@@ -76,7 +92,6 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             grid-template-columns: 1fr 1fr;
             grid-template-areas: 'image text';
             align-items: start;
-            margin-bottom: 2em;
           }
 
           .featured .image {
@@ -88,6 +103,21 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             grid-area: text;
             padding: 0;
             margin: 0;
+            background-color: transparent;
+            box-shadow: none;
+            color: white;
+            -moz-osx-font-smoothing: grayscale;
+          }
+
+          .featured a {
+            color: white;
+            -moz-osx-font-smoothing: grayscale;
+            text-decoration: underline;
+          }
+        }
+        @media (min-width: ${breakpoints.l.min}px) {
+          .featured.work-teaser {
+            grid-gap: 1.5em;
           }
         }
 
@@ -95,8 +125,8 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           .featured.work-teaser {
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: 'image text text';
-            grid-gap: 2em;
-            margin-bottom: 2em;
+            padding-top: 2em;
+            padding-bottom: 2em;
           }
 
           .featured .text {
