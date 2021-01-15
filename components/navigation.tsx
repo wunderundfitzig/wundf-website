@@ -21,7 +21,6 @@ const Navigation: FunctionComponent = () => {
         .navigation {
           position: relative;
           z-index: 1;
-          background-color: ${colors.orange};
           padding: 1em 1em 0;
         }
 

@@ -55,7 +55,6 @@ interface Props {
 const Clients: FunctionComponent<Props> = (props) => {
   return (
     <div className='clients'>
-      <p className='client-title'>unter anderem für:</p>
       <div className='client-logos'>
         {clients.map((client, i) => (
           <a
@@ -76,18 +75,12 @@ const Clients: FunctionComponent<Props> = (props) => {
         .clients {
           grid-area: ${props.gridArea};
           background-color: ${colors.orange};
-          padding: 1.5em 0 0;
-        }
-
-        .client-title {
-          text-align: center;
-          font-size: 0.8em;
-          margin: 0 0 1.5rem;
+          padding: 2.5em 0 2em;
         }
 
         .client-logos {
           width: 100%;
-          max-width: 800px;
+          max-width: 1030px;
           padding: 0 1.5em 1em;
           margin: 0 auto;
           display: grid;
@@ -114,13 +107,6 @@ const Clients: FunctionComponent<Props> = (props) => {
           .client-logos {
             grid-template-columns: repeat(6, min-content);
             grid-template-rows: min-content;
-          }
-        }
-
-        @media (min-width: ${breakpoints.xl.min}px) {
-          .client-logos {
-            padding: 0 0 1em;
-            max-width: 980px;
           }
         }
       `}</style>

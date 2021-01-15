@@ -31,13 +31,12 @@ const NavigationItem: FunctionComponent<Props> = (props) => {
         }
 
         a {
-          color: white;
+          color: ${colors.orange};
           font-style: italic;
           position: relative;
           display: block;
           height: 100%;
           text-align: center;
-          color: white;
           text-decoration: none;
           padding: 0.5em;
           cursor: pointer;
@@ -53,7 +52,7 @@ const NavigationItem: FunctionComponent<Props> = (props) => {
           height: 0;
           border-left: 12px solid transparent;
           border-right: 12px solid transparent;
-          border-top: 10px solid ${colors.orange};
+          border-top: 10px solid white;
           transform-origin: top;
           animation: scaleY 0.2s;
         }

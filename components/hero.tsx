@@ -15,17 +15,17 @@ const Hero: FunctionComponent = () => {
           gestalten <br />
           Nutzer
           <wbr />
-          erlebnisse
+          erlebnisse.
         </h2>
         <WundFLogo gridArea='logo' />
         <Contact gridArea='contact' />
       </section>
-      <Clients />
       <Navigation />
+      <Clients />
 
       <style jsx>{`
         .hero {
-          max-width: 800px;
+          max-width: 1030px;
           margin: 0 auto;
           padding: 1.5em;
           display: grid;
@@ -33,7 +33,7 @@ const Hero: FunctionComponent = () => {
           grid-template-areas:
             'slogan logo'
             'contact contact';
-          justify-items: center;
+          justify-items: left;
           justify-content: space-between;
         }
 
