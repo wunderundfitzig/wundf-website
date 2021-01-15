@@ -14,7 +14,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
     <article className={`work-teaser ${props.featured && 'featured'}`}>
       <div className='text'>
         <h2>{props.news.title}</h2>
-        <p>{props.news.description}</p>
+        {/* <p>{props.news.description}</p> */}
         <a>{props.news.linkText}</a>
       </div>
 
@@ -41,7 +41,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
 
         .text {
           grid-area: main;
-          background-color: ${colors.beige};
+          background-color: ${colors.lightGrey};
           padding: 1em 1em 2em 1em;
           width: calc(100% - 3em);
           margin: 6em 0 0;
@@ -56,10 +56,10 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           grid-area: main;
           align-self: start;
           position: relative;
-          padding-bottom: 180%;
+          padding-bottom: 165%;
           width: 100%;
           z-index: -1;
-          margin-bottom: 10em;
+          margin-bottom: 3em;
           background-color: ${colors.darkGrey};
         }
 
@@ -83,7 +83,6 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           .text {
             justify-self: center;
             width: calc(100% - 2em);
-            box-shadow: 0 0 2px -1px black;
           }
         }
 
@@ -131,7 +130,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
 
           .featured .text {
             padding-left: 1em;
-            margin-top: 4em;
+            margin-top: 22em;
           }
 
           .featured h2 {

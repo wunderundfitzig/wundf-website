@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react'
-import colors from 'lib/colors'
 import NavigationItem, { Route } from 'components/navigation-item'
 import breakpoints from 'lib/breakpoints'
 

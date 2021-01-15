@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react'
-import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
 
 import ClientLogo from 'components/client-logo'

@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react'
 
 import WundFLogo from 'components/wundf-logo'
 import Contact from 'components/contact'
-import Clients from 'components/clients'
 import Navigation from 'components/navigation'
 import breakpoints from 'lib/breakpoints'
 
