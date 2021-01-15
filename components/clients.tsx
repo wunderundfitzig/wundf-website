@@ -75,7 +75,7 @@ const Clients: FunctionComponent<Props> = (props) => {
         .clients {
           grid-area: ${props.gridArea};
           background-color: ${colors.orange};
-          padding: 2.5em 0 2em;
+          padding: 3.2em 0 2.5em;
         }
 
         .client-logos {

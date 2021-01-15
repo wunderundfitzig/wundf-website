@@ -12,7 +12,7 @@ const Contact: FunctionComponent<Props> = (props) => {
       <style jsx>{`
         .contact {
           grid-area: ${props.gridArea};
-          font-size: 0.8em;
+          font-size: 0.9em;
           color: ${colors.blue};
         }
       `}</style>

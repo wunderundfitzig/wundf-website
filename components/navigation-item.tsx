@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 import Link from 'next/link'
 import colors from 'lib/colors'
 import { useRouter } from 'next/dist/client/router'
+import breakpoints from 'lib/breakpoints'
 
 export interface Route {
   href: string
@@ -32,13 +33,13 @@ const NavigationItem: FunctionComponent<Props> = (props) => {
 
         a {
           color: ${colors.orange};
-          font-style: italic;
           position: relative;
           display: block;
           height: 100%;
           text-align: center;
           text-decoration: none;
-          padding: 0.5em;
+          padding: 0 0 0.4em;
+          font-size: 1.2em;
           cursor: pointer;
         }
 
@@ -55,6 +56,18 @@ const NavigationItem: FunctionComponent<Props> = (props) => {
           border-top: 10px solid white;
           transform-origin: top;
           animation: scaleY 0.2s;
+        }
+
+        @media (min-width: ${breakpoints.l.min}px) {
+          a {
+            font-size: 1.3em;
+          }
+        }
+
+        @media (min-width: ${breakpoints.xl.min}px) {
+          a {
+            font-size: 1.7em;
+          }
         }
       `}</style>
     </>

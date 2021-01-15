@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import colors from 'lib/colors'
 import NavigationItem, { Route } from 'components/navigation-item'
+import breakpoints from 'lib/breakpoints'
 
 const routes: Route[] = [
   { href: '/work', label: 'work' },
@@ -21,16 +22,32 @@ const Navigation: FunctionComponent = () => {
         .navigation {
           position: relative;
           z-index: 1;
-          padding: 1em 1em 0;
+          padding: 0 1.5em 0;
+          max-width: 1030px;
+          margin: 0 auto;
         }
 
         ul {
           list-style: none;
-          margin: 0 auto;
+          margin: 0;
           padding: 0;
           display: grid;
-          max-width: 350px;
-          grid-template-columns: 1fr 1fr;
+          justify-content: end;
+          grid-template-columns: min-content min-content;
+          grid-column-gap: 3.5em;
+        }
+
+        @media (min-width: ${breakpoints.m.min}px) {
+          ul {
+            margin: 0 1em;
+          }
+        }
+
+        @media (min-width: ${breakpoints.xl.min}px) {
+          ul {
+            justify-content: end;
+            margin: 0 auto;
+          }
         }
       `}</style>
     </nav>

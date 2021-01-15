@@ -21,13 +21,12 @@ const Hero: FunctionComponent = () => {
         <Contact gridArea='contact' />
       </section>
       <Navigation />
-      <Clients />
 
       <style jsx>{`
         .hero {
           max-width: 1030px;
           margin: 0 auto;
-          padding: 1.5em;
+          padding: 1.5em 1.5em 2em;
           display: grid;
           grid-template-columns: minmax(0, 1fr) 60px;
           grid-template-areas:
@@ -45,11 +44,15 @@ const Hero: FunctionComponent = () => {
         .slogan {
           grid-area: slogan;
           font-size: 40px;
+          margin: 1em 0 0.5em;
           overflow-wrap: break-word;
           width: 100%;
         }
 
         @media (min-width: ${breakpoints.l.min}px) {
+          .hero {
+            padding: 1.5em 1.5em 1em;
+          }
           .slogan {
             font-size: 55px;
           }
