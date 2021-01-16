@@ -18,7 +18,7 @@ const NavigationItem: FunctionComponent<Props> = (props) => {
 
   return (
     <>
-      <Link href={props.route.href}>
+      <Link href={props.route.href} scroll={false}>
         <a className={isActive ? 'active' : undefined}>{props.route.label}</a>
       </Link>
       <style jsx>{`

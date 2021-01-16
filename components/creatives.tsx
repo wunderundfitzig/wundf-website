@@ -41,12 +41,12 @@ const Creatives: FunctionComponent<Props> = (props) => {
       <style jsx>{`
         .creatives {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-template-areas: '. images';
-          justify-items: end;
+          grid-template-columns: calc(50% + 50px) 1fr;
+          grid-template-areas: 'images .';
+          justify-items: start;
           margin: 0 auto;
           overflow: visible;
-          background-color: ${colors.beige};
+          background-color: ${colors.orange};
         }
 
         .image {
@@ -58,7 +58,6 @@ const Creatives: FunctionComponent<Props> = (props) => {
 
         .content {
           position: relative;
-          background-color: ${colors.beige};
           padding: 20px 25px;
           margin: -80px 0 40px 40px;
           z-index: 1;
@@ -88,16 +87,16 @@ const Creatives: FunctionComponent<Props> = (props) => {
             position: sticky;
             top: 0;
             height: 100vh;
-            width: calc(100% + 50px);
-            margin: 0 0 0 -50px;
+            width: 100%;
+            margin: 0;
             transition: opacity 1s;
           }
 
           .content {
-            grid-column: 1 / 2;
-            margin: 70px 0 2em 0;
+            grid-column: 2 / 3;
+            margin: 2em 0;
             padding: 30px 40px 20px 1.5em;
-            max-width: 515px;
+            max-width: 465px;
             min-height: calc(100vh - 270px);
           }
         }
