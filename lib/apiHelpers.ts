@@ -17,24 +17,3 @@ export async function fetchFromBackend<T>(
     return failure(e.message)
   }
 }
-
-// export function throttle({ func, delay }) {
-//   let block = false
-//   let timeoutId
-
-//   return function () {
-//     if (timeoutId) clearTimeout(timeoutId)
-
-//     if (block) {
-//       timeoutId = setTimeout(() => {
-//         func()
-//       }, delay)
-//     } else {
-//       block = true
-//       setTimeout(() => {
-//         block = false
-//       }, delay)
-//       func()
-//     }
-//   }
-// }

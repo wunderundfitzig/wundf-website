@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { throttle } from '../../lib/apiHelpers'
-import breakpoints from '../../lib/breakpoints'
+import { throttle } from 'lodash'
+import breakpoints from 'lib/breakpoints'
 
-function getSectionIndexFrom(sectionArray) {
+function getSectionIndexFrom(sectionArray: Array<any>) {
   const newSectionIndex = sectionArray
     .filter((ref) => ref !== null)
     .reduce((sectionIndex, sectionRef, index) => {
@@ -16,18 +16,15 @@ function getSectionIndexFrom(sectionArray) {
 
 export function useSectionIndexObserver() {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0)
-  const sectionRefs = useRef([])
+  const sectionRefs = useRef<Array<any>>([])
 
   const scrollHandler = useRef(
-    throttle({
-      func: () => {
-        if (window.innerWidth < breakpoints.l.min) return
+    throttle(() => {
+      if (window.innerWidth < breakpoints.l.min) return
 
-        const sectionIndex = getSectionIndexFrom(sectionRefs.current)
-        setCurrentSectionIndex(sectionIndex)
-      },
-      delay: 100,
-    })
+      const sectionIndex = getSectionIndexFrom(sectionRefs.current)
+      setCurrentSectionIndex(sectionIndex)
+    }, 100)
   )
 
   useEffect(() => {

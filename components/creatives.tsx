@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import Image from 'next/image'
-// import useSectionIndexObserver from './useSectionIndexObserver'
+import { useSectionIndexObserver } from 'lib/useSectionIndexObserver'
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
 import { Creative } from 'lib/models/creative'
@@ -12,28 +12,28 @@ interface Props {
 
 const Creatives: FunctionComponent<Props> = (props) => {
   const { creatives } = props
-  // const { sectionRefs, currentSectionIndex } = useSectionIndexObserver()
+  const { sectionRefs, currentSectionIndex } = useSectionIndexObserver()
 
   return (
     <section className='creatives'>
       {creatives.map((person, idx) => (
-        <
-          // className='person'
-          // key={idx}
-          // ref={(ref) => {
-          //   sectionRefs.current[idx] = ref
-          // }}
-        >
-          <div className='content'>
+        <>
+          <div
+            className='content'
+            key={idx}
+            ref={(ref) => {
+              sectionRefs.current[idx] = ref
+            }}
+          >
             <h2>{person.title}</h2>
             <Markdown>{person.text}</Markdown>
           </div>
-          <div className='image'>
+          <div className={`image ${currentSectionIndex === idx && 'active'}`}>
             <Image
               src={person.image}
               layout='fill'
               objectFit='cover'
-              objectPosition='left'
+              objectPosition='center'
             />
           </div>
         </>
@@ -47,6 +47,7 @@ const Creatives: FunctionComponent<Props> = (props) => {
           margin: 0 auto;
           overflow: visible;
           background-color: ${colors.orange};
+          color: ${colors.darkBlue};
         }
 
         .image {
@@ -90,6 +91,11 @@ const Creatives: FunctionComponent<Props> = (props) => {
             width: 100%;
             margin: 0;
             transition: opacity 1s;
+            opacity: 0;
+          }
+
+          .image.active {
+            opacity: 1;
           }
 
           .content {
