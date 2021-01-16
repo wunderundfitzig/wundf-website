@@ -44,7 +44,6 @@ const Navigation: FunctionComponent = () => {
 
         @media (min-width: ${breakpoints.xl.min}px) {
           ul {
-            justify-content: end;
             margin: 0 auto;
           }
         }

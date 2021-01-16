@@ -1,6 +1,7 @@
 export const black = '#111'
 export const beige = '#f5f5f5'
 export const darkGrey = '#3C3C3C'
+export const brownGrey = '#57504b'
 export const blueGrey = '#384953'
 export const lightGrey = '#EEE'
 export const blue = '#005a77'
@@ -12,6 +13,7 @@ export default {
   black,
   beige,
   darkGrey,
+  brownGrey,
   blueGrey,
   lightGrey,
   blue,

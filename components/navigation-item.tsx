@@ -66,7 +66,7 @@ const NavigationItem: FunctionComponent<Props> = (props) => {
 
         @media (min-width: ${breakpoints.xl.min}px) {
           a {
-            font-size: 1.7em;
+            font-size: 1.3em;
           }
         }
       `}</style>

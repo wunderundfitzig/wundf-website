@@ -14,7 +14,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
     <article className={`work-teaser ${props.featured && 'featured'}`}>
       <div className='text'>
         <h2>{props.news.title}</h2>
-        {/* <p>{props.news.description}</p> */}
+        {props.featured && <p>{props.news.description}</p>}
         <a>{props.news.linkText}</a>
       </div>
 
@@ -41,35 +41,37 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
 
         .text {
           grid-area: main;
-          background-color: ${colors.lightGrey};
+          background-color: ${colors.beige};
           padding: 1em 1em 2em 1em;
           width: calc(100% - 3em);
-          margin: 6em 0 0;
+          margin: 10em 0 0;
           overflow: hidden;
         }
 
         h2 {
           font-size: 1.2em;
+          margin: 0em 0 0.5em;
         }
 
         .image {
           grid-area: main;
           align-self: start;
           position: relative;
-          padding-bottom: 165%;
+          padding-bottom: 120%;
+          margin-bottom: 4em;
           width: 100%;
           z-index: -1;
-          margin-bottom: 3em;
-          background-color: ${colors.darkGrey};
+          background-color: ${colors.brownGrey};
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
           .featured.work-teaser {
             padding-top: 2em;
-            padding-bottom: 2em;
+            padding-bottom: 3em;
           }
 
-          .featured.work-teaser::before {
+           {
+            /* .featured.work-teaser::before {
             content: '';
             position: absolute;
             top: 0;
@@ -79,16 +81,26 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             transform: translateX(-50%);
             background-color: ${colors.blueGrey};
             z-index: -1;
+          } */
           }
           .text {
             justify-self: center;
             width: calc(100% - 2em);
           }
+
+          p {
+            font-size: 0.9em;
+          }
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
+          .text {
+            width: calc(100% - 1em);
+          }
+
           .featured.work-teaser {
             grid-template-columns: 1fr 1fr;
+            grid-column-gap: 1em;
             grid-template-areas: 'image text';
             align-items: start;
           }
@@ -100,6 +112,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
 
           .featured .text {
             grid-area: text;
+            width: 100%;
             padding: 0;
             margin: 0;
             background-color: transparent;
@@ -115,8 +128,11 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           }
         }
         @media (min-width: ${breakpoints.l.min}px) {
+          .text {
+            width: calc(100% - 2em);
+          }
           .featured.work-teaser {
-            grid-gap: 1.5em;
+            grid-column-gap: 2em;
           }
         }
 
@@ -124,13 +140,17 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           .featured.work-teaser {
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: 'image text text';
+            align-items: center;
             padding-top: 2em;
             padding-bottom: 2em;
           }
 
           .featured .text {
-            padding-left: 1em;
-            margin-top: 22em;
+            margin-bottom: 1em;
+          }
+
+          p {
+            font-size: 0.95em;
           }
 
           .featured h2 {
