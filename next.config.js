@@ -15,7 +15,7 @@ module.exports = withImages({
       },
       {
         source: 'https://wunderundfitzig.de/:path*',
-        destination: '/:path*',
+        destination: 'https://www.wunderundfitzig.de/:path*',
         permanent: true,
       },
     ]
