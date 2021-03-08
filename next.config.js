@@ -13,6 +13,11 @@ module.exports = withImages({
         destination: '/work',
         permanent: true,
       },
+      {
+        source: 'https://wunderundfitzig.de/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
     ]
   },
 })
