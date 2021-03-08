@@ -25,6 +25,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const creativesResult = await fetchFromBackend('/creatives', creativesList)
   return {
     props: { creativesResult },
+    revalidate: 1,
   }
 }
 

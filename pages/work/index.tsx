@@ -29,6 +29,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const newsResult = await fetchFromBackend('/news', newsList)
   return {
     props: { newsResult },
+    revalidate: 1,
   }
 }
 

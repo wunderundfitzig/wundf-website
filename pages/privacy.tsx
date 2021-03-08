@@ -39,7 +39,7 @@ const Privacy: FunctionComponent<Props> = (props) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const textPageResult = await fetchFromBackend('/privacy', textPage)
-  return { props: { textPageResult } }
+  return { props: { textPageResult }, revalidate: 1 }
 }
 
 export default Privacy

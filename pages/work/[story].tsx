@@ -35,7 +35,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
   const slug = ctx.params?.story as string
   const storyResult = await fetchFromBackend(`/work/${slug}`, workValidator)
-  return { props: { slug, storyResult } }
+  return { props: { slug, storyResult }, revalidate: 1 }
 }
 
 export default Story
