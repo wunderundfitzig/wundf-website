@@ -5,6 +5,7 @@ import ErrorPage from 'next/error'
 import { Work, workValidator } from '../../lib/models/work'
 import { fetchFromBackend, FetchResult } from '../../lib/apiHelpers'
 import StoryComponent from '../../old-components/StoryComponent/StoryComponent'
+import Navigation from 'components/navigation'
 
 interface Props {
   slug: string
@@ -20,6 +21,8 @@ const Story: NextPage<Props> = (props) => {
       <Head>
         <title>wunder & fitzig | {slug}</title>
       </Head>
+      <Navigation />
+
       <StoryComponent story={storyResult.data} />
     </>
   )

@@ -5,6 +5,7 @@ import ErrorPage from 'next/error'
 import { fetchFromBackend, FetchResult } from '../lib/apiHelpers'
 import { TextPage, textPage } from 'lib/models/text-page'
 import Markdown from 'components/markdown'
+import Navigation from 'components/navigation'
 
 interface Props {
   textPageResult: FetchResult<TextPage>
@@ -20,6 +21,8 @@ const Privacy: FunctionComponent<Props> = (props) => {
       <Head>
         <title>wunder & fitzig | Datenschutz | Impressum</title>
       </Head>
+      <Navigation />
+
       <div className='text-block'>
         <Markdown>{content}</Markdown>
       </div>
