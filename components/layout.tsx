@@ -2,11 +2,13 @@ import { FunctionComponent } from 'react'
 
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
+import Footer from './footer'
 
 const Layout: FunctionComponent = (props) => {
   return (
     <>
       {props.children}
+      <Footer />
 
       <style jsx global>{`
         @font-face {
