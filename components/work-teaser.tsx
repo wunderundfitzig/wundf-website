@@ -15,7 +15,11 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
       <div className='text'>
         <h2>{props.news.title}</h2>
         {props.featured && <p>{props.news.description}</p>}
-        <a href={props.news.linkURL}>{props.news.linkText}</a>
+        {props.news.linkText && (
+          <a href={props.news.linkURL} target='_blank' rel='noreferrer'>
+            {props.news.linkText}
+          </a>
+        )}
       </div>
 
       <div className='image'>
