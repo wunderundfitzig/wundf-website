@@ -6,4 +6,13 @@ module.exports = withImages({
   images: {
     domains: ['backend.wunderundfitzig.de'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/work',
+        permanent: true,
+      },
+    ]
+  },
 })
