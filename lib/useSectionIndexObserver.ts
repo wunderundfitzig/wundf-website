@@ -20,7 +20,7 @@ export function useSectionIndexObserver() {
 
   const scrollHandler = useRef(
     throttle(() => {
-      if (window.innerWidth < breakpoints.l.min) return
+      // if (window.innerWidth < breakpoints.m.min) return
 
       const sectionIndex = getSectionIndexFrom(sectionRefs.current)
       setCurrentSectionIndex(sectionIndex)

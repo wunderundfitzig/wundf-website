@@ -20,7 +20,7 @@ const Navigation: FunctionComponent = () => {
       <style jsx>{`
         .navigation {
           position: relative;
-          z-index: 1;
+          z-index: 10;
           padding: 0 1.5em 0;
           max-width: 1030px;
           margin: 0 auto;
