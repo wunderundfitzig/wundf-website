@@ -1,12 +1,14 @@
 import { object, string } from 'fefe'
 
+function any(value: unknown): any {
+  return value as any
+}
+
 export const workValidator = object({
-  url: string(),
-  slug: string(),
   title: string(),
   teaserText: string(),
-  linkText: string(),
   image: string(),
+  content: any,
 })
 
 export type Work = ReturnType<typeof workValidator>

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { BackgroundImage, Title, longText, linkStyles } from '../../lib/blocks'
-import { darkGrey, grey, orange } from '../../lib/colors'
+import { darkGrey, blueGrey, orange } from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
 import Markdown from '../Markdown/Markdown'
 import HTML from '../HTML/HTML'
@@ -94,7 +94,7 @@ export const Figure = styled.figure`
     width: 100%;
     margin-top: 0.5em;
     font-size: 0.8em;
-    color: ${grey};
+    color: ${blueGrey};
   }
 
   a {

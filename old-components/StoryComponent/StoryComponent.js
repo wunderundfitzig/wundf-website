@@ -17,6 +17,8 @@ import {
 const StoryComponent = (props) => {
   const { story } = props
 
+  console.log(story)
+
   // const sections = story.content
   //   .filter(section => section.field.name === 'title')
   //   .map(section => section.value)

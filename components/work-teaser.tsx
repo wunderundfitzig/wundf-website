@@ -15,7 +15,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
       <div className='text'>
         <h2>{props.news.title}</h2>
         {props.featured && <p>{props.news.description}</p>}
-        <a>{props.news.linkText}</a>
+        <a href={props.news.linkURL}>{props.news.linkText}</a>
       </div>
 
       <div className='image'>
