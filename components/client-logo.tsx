@@ -1,40 +1,48 @@
-import { FunctionComponent, ImgHTMLAttributes } from 'react'
+import { FunctionComponent } from 'react'
+import Image from 'next/image'
 import breakpoints from 'lib/breakpoints'
 
-interface ClientLogoProps extends ImgHTMLAttributes<HTMLImageElement> {
+type ClientLogoProps = {
+  src: StaticImageData
+  alt: string
+  url: string
   relativeSize: number
+  align: 'left' | 'right' | 'center'
 }
 const ClientLogo: FunctionComponent<ClientLogoProps> = (props) => {
-  const { relativeSize, alt, ...rest } = props
+  const { relativeSize, ...rest } = props
   return (
     <>
-      <img {...rest} alt={alt} />
+      <a href={props.url} target='_blank' rel='noopener noreferrer'>
+        <Image layout='intrinsic' {...rest} />
+      </a>
       <style jsx>{`
-        img {
-          height: ${15 * relativeSize}px;
+        a {
+          width: ${20 * relativeSize}px;
+          justify-self: ${props.align};
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
-          img {
-            height: ${17 * relativeSize}px;
+          a {
+            width: ${25 * relativeSize}px;
           }
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
-          img {
-            height: ${20 * relativeSize}px;
+          a {
+            width: ${28 * relativeSize}px;
           }
         }
 
         @media (min-width: ${breakpoints.l.min}px) {
-          img {
-            height: ${22 * relativeSize}px;
+          a {
+            width: ${30 * relativeSize}px;
           }
         }
 
         @media (min-width: ${breakpoints.xl.min}px) {
-          img {
-            height: ${25 * relativeSize}px;
+          a {
+            width: ${34 * relativeSize}px;
           }
         }
       `}</style>

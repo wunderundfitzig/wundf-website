@@ -1,5 +1,4 @@
-const withImages = require('next-images')
-module.exports = withImages({
+module.exports = {
   publicRuntimeConfig: {
     backendURL: process.env.BACKEND_URL,
   },
@@ -15,4 +14,4 @@ module.exports = withImages({
       },
     ]
   },
-})
+}

@@ -13,37 +13,37 @@ const clients = [
   {
     name: 'Rundfunk Berlin Brandenburg',
     image: rbbSVG,
-    relativeSize: 1,
+    relativeSize: 1.7,
     url: 'https://www.rbb24.de/',
   },
   {
     name: 'Heinrich B\u00f6ll Stiftung Brandenburg',
     image: heinrichboellSVG,
-    relativeSize: 1,
+    relativeSize: 4.6,
     url: 'https://www.boell-brandenburg.de/de',
   },
   {
     name: 'Johanniter-Unfall-Hilfe',
     image: johanniterSVG,
-    relativeSize: 1.1,
+    relativeSize: 3.6,
     url: 'https://www.johanniter.de/johanniter-unfall-hilfe/',
   },
   {
     name: 'Europ\u00e4isches Institut f\u00fcr Qualit\u00e4tsjournalismus',
     image: eiqSVG,
-    relativeSize: 1.9,
+    relativeSize: 3,
     url: 'http://eiq-le.de/',
   },
   {
     name: 'EMS Press',
     image: emsSVG,
-    relativeSize: 1.7,
+    relativeSize: 1,
     url: 'https://ems.press/',
   },
   {
     name: 'Dev Crew Berlin',
     image: dcbPNG,
-    relativeSize: 1.8,
+    relativeSize: 2.1,
     url: 'https://dcb.ug/',
   },
 ]
@@ -56,18 +56,14 @@ const Clients: FunctionComponent<Props> = (props) => {
     <div className='clients'>
       <div className='client-logos'>
         {clients.map((client, i) => (
-          <a
+          <ClientLogo
             key={i}
-            href={client.url}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <ClientLogo
-              src={client.image}
-              relativeSize={client.relativeSize}
-              alt={client.name}
-            />
-          </a>
+            url={client.url}
+            src={client.image}
+            relativeSize={client.relativeSize}
+            alt={client.name}
+            align={i % 3 === 0 ? 'left' : i % 3 === 2 ? 'right' : 'center'}
+          />
         ))}
       </div>
       <style jsx>{`
