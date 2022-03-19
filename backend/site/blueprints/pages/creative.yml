@@ -1,0 +1,18 @@
+title: Creative
+preset: page
+pages: false
+
+options:
+  preview: false
+  changeSlug: false
+
+fields:
+  markdown_text:
+    label: Text
+    type: textarea
+
+  person_image:
+    label: Image
+    type: files
+    multiple: false
+    template: image

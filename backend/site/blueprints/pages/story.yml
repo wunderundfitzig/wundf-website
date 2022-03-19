@@ -1,0 +1,38 @@
+title: Story
+preset: page
+pages: false
+
+fields:
+
+  cover:
+    label: Image
+    type: files
+    layout: cards
+    multiple: false
+
+  teaser_text:
+    label: Teaser Text
+    buttons: false
+    type: textarea
+
+  link_text:
+    label: Link Text
+    type: text
+
+  author:
+    label: Author
+    type: users
+    multiple: false
+
+  main_content:
+    label: Content
+    type: editor
+    allowed: 
+      - h2
+      - h3
+      - paragraph
+      - kirbytext
+      - ul
+      - blockquote
+      - hr
+      - image
