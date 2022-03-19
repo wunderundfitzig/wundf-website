@@ -4,7 +4,7 @@ import colors from 'lib/colors'
 import ClientLogo from 'components/client-logo'
 import rbbSVG from 'components/client-logos/rbb.svg'
 import heinrichboellSVG from 'components/client-logos/heinrichboell.svg'
-import eiqSVG from 'components/client-logos/eiq.svg'
+import asertoSVG from 'components/client-logos/aserto.svg'
 import johanniterSVG from 'components/client-logos/johanniter.svg'
 import emsSVG from 'components/client-logos/ems.svg'
 import dcbPNG from 'components/client-logos/dcb.png'
@@ -17,10 +17,10 @@ const clients = [
     url: 'https://www.rbb24.de/',
   },
   {
-    name: 'Heinrich B\u00f6ll Stiftung Brandenburg',
-    image: heinrichboellSVG,
-    relativeSize: 4.6,
-    url: 'https://www.boell-brandenburg.de/de',
+    name: 'aserto',
+    image: asertoSVG,
+    relativeSize: 2.5,
+    url: 'https://aserto.de/',
   },
   {
     name: 'Johanniter-Unfall-Hilfe',
@@ -29,10 +29,10 @@ const clients = [
     url: 'https://www.johanniter.de/johanniter-unfall-hilfe/',
   },
   {
-    name: 'Europ\u00e4isches Institut f\u00fcr Qualit\u00e4tsjournalismus',
-    image: eiqSVG,
-    relativeSize: 3,
-    url: 'http://eiq-le.de/',
+    name: 'Heinrich B\u00f6ll Stiftung Brandenburg',
+    image: heinrichboellSVG,
+    relativeSize: 4.6,
+    url: 'https://www.boell-brandenburg.de/de',
   },
   {
     name: 'EMS Press',
@@ -79,7 +79,7 @@ const Clients: FunctionComponent<Props> = (props) => {
           padding: 0 1.5em 1em;
           margin: 0 auto;
           display: grid;
-          align-items: baseline;
+          align-items: center;
           grid-template-columns: repeat(3, min-content);
           grid-template-rows: min-content min-content;
           justify-content: space-between;
