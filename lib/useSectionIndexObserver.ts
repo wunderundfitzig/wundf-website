@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import { throttle } from 'lodash'
-import breakpoints from 'lib/breakpoints'
 
 function getSectionIndexFrom(sectionArray: Array<any>) {
   const newSectionIndex = sectionArray

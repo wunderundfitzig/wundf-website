@@ -1,4 +1,4 @@
-import marked from 'marked'
+import { marked } from 'marked'
 import { FunctionComponent } from 'react'
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 const Markdown: FunctionComponent<Props> = (props) => (
   <div
     className={props.className}
-    dangerouslySetInnerHTML={{ __html: marked(props.children) }}
+    dangerouslySetInnerHTML={{ __html: marked.parseInline(props.children) }}
   />
 )
 
