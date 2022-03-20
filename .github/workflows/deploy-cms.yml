@@ -39,7 +39,7 @@ jobs:
       #     INSTAGRAM_CLIENT_SECRET: ${{secrets.INSTAGRAM_CLIENT_SECRET}}
 
       - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v2.1.11
+        uses: easingthemes/ssh-deploy@v2.2.11
         env:
           SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_SSH_DEPLOY_KEY }}
           ARGS: "-rltgoDzvO --delete --exclude-from=backend/.deployignore"
