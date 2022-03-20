@@ -3,7 +3,6 @@ preset: page
 pages: false
 
 fields:
-
   cover:
     label: Image
     type: files
@@ -26,8 +25,8 @@ fields:
 
   main_content:
     label: Content
-    type: editor
-    allowed: 
+    type: blocks
+    fieldsets:
       - h2
       - h3
       - paragraph
