@@ -27,11 +27,16 @@ fields:
     label: Content
     type: blocks
     fieldsets:
-      - h2
-      - h3
-      - paragraph
-      - kirbytext
-      - ul
-      - blockquote
-      - hr
+      heading:
+        extends: blocks/heading
+        fields:
+          level:
+            options:
+              - h2
+              - h3
+      - text
+      - list
+      - markdown
+      - quote
+      - line
       - image
