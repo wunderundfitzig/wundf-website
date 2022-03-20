@@ -8,16 +8,11 @@ on:
 jobs:
   deploy-branch:
     runs-on: ubuntu-latest
-    
-    steps:
-      - uses: chrnorm/deployment-action@releases/v1
-        name: Create GitHub deployment
-        id: deployment
-        with:
-          token: '${{ github.token }}'
-          production_environment: false
-          environment: 'vercel/${{ github.head_ref }}'
+    environment:
+      name: "vercel/${{ github.head_ref }}"
+      url: "${{ github.head_ref }}-wundf-web.errnesto.vercel.app"
 
+    steps:
       - uses: actions/checkout@v2
       - name: Deploy to Vercel
         id: deploy-to-vercel
@@ -28,22 +23,4 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           scope: ${{ secrets.VERCEL_ORG_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          alias-domains: '{{BRANCH}}-wundf-web.errnesto.vercel.app'
-  
-      - name: Update deployment status (success)
-        if: success()
-        uses: chrnorm/deployment-status@releases/v1
-        with:
-          token: '${{ github.token }}'
-          state: 'success'
-          environment_url: ${{ steps.deploy-to-vercel.outputs.preview-url }}
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-
-      - name: Update deployment status (failure)
-        if: failure()
-        uses: chrnorm/deployment-status@releases/v1
-        with:
-          token: '${{ github.token }}'
-          state: 'failure'
-          environment_url: ${{ steps.deploy-to-vercel.outputs.preview-url }}
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          alias-domains: "{{BRANCH}}-wundf-web.errnesto.vercel.app"
