@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '9e122e3266cfa06709b3d626f64110015ac10a06',
+        'reference' => '7268269353bd69f87850bbb5987968a221cec8d1',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '9e122e3266cfa06709b3d626f64110015ac10a06',
+            'reference' => '7268269353bd69f87850bbb5987968a221cec8d1',
             'dev_requirement' => false,
         ),
         'claviska/simpleimage' => array(

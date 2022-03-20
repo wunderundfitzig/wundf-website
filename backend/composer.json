@@ -1,6 +1,6 @@
 {
     "require": {
-      "getkirby/cms": "^3.0"
+      "getkirby/cms": "^3.6"
     },
     "config": {
       "optimize-autoloader": true,
