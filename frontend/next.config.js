@@ -3,7 +3,7 @@ module.exports = {
     backendURL: process.env.BACKEND_URL,
   },
   images: {
-    domains: ['backend.wunderundfitzig.de'],
+    domains: ['cms.wunderundfitzig.de'],
   },
   async redirects() {
     return [

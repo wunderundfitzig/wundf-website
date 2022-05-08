@@ -4,35 +4,31 @@ $kirby->response()->json();
 
 $content = [];
 $tempListPart = '';
-foreach($page->main_content()->blocks() as $block):
+foreach($page->main_content()->toBlocks() as $block):
   $type = (string)$block->type();
   switch ($type) {
-    case "kirbytext":
+    case "markdown":
       $content[] = array(
         'type' => 'markdown',
-        'markdown' => (string)$block->content()
+        'markdown' => (string)$block->text()
       );
     break;
-    case "h2":
+    case "heading":
+      $level = (string)$block->level() === "h3" ? 3 : 2;
       $content[] = array(
         'type' => 'heading',
-        'level' => 2,
-        'text' => (string)$block->content()
-      );
-    break;
-    case "h3":
-      $content[] = array(
-        'type' => 'heading',
-        'level' => 3,
-        'text' => (string)$block->content()
+        'level' => $level,
+        'text' => (string)$block->text()
       );
     break;
     case "image":
+      $image = $block->image()->toFile();
+      if ($image === null) break;
       $content[] = array(
         'type' => 'image',
-        'url' => (string)$block->attrs()->src(),
-        'caption' => (string)$block->attrs()->caption(),
-        'alt' => (string)$block->attrs()->alt()
+        'url' => (string)$image->url(),
+        'caption' => (string)$block->caption(),
+        'alt' => (string)$block->alt()
       );
     break;
     case 'ul':
@@ -49,8 +45,8 @@ foreach($page->main_content()->blocks() as $block):
     break;
     default:
       $content[] = array(
-        'type' => 'html',
-        'html' => (string)$block->html()
+        'type' => "html",
+        'html' => (string)$block->text()
       );
     break;
   }

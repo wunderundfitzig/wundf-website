@@ -9,7 +9,7 @@ export async function fetchFromBackend<T>(
   validator: Validator<T>
 ): Promise<FetchResult<T>> {
   try {
-    const res = await fetch(`https://backend.wunderundfitzig.de${name}`)
+    const res = await fetch(`https://cms.wunderundfitzig.de${name}`)
     const data = await res.json()
     const validData = validator(data)
     return success(validData)

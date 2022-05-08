@@ -1,4 +1,4 @@
-name: deploy cms (backend.wunderundfitzig.de)
+name: deploy cms (cms.wunderundfitzig.de)
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: cms/production
-      url: https://backend.wunderundfitzig.de
+      url: https://cms.wunderundfitzig.de
 
     steps:
       - name: Cancel Previous Runs
