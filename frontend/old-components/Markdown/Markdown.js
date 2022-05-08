@@ -4,7 +4,7 @@ import marked from 'marked'
 const Markdown = ({ markdown, className }) => (
   <div
     className={className}
-    dangerouslySetInnerHTML={{ __html: marked(markdown) }}
+    dangerouslySetInnerHTML={{ __html: marked.parseInline(markdown) }}
   />
 )
 

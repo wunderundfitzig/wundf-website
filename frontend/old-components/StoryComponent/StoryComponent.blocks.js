@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { BackgroundImage, Title, longText, linkStyles } from '../../lib/blocks'
 import { darkGrey, blueGrey, orange } from '../../lib/colors'
 import breakpoints from '../../lib/breakpoints'
-import Markdown from '../Markdown/Markdown'
+import Markdown from '../../components/markdown'
 import HTML from '../HTML/HTML'
 
 export const TopImage = styled(BackgroundImage)`

@@ -17,8 +17,6 @@ import {
 const StoryComponent = (props) => {
   const { story } = props
 
-  console.log(story)
-
   // const sections = story.content
   //   .filter(section => section.field.name === 'title')
   //   .map(section => section.value)
@@ -55,7 +53,9 @@ const StoryComponent = (props) => {
                 case 'html':
                   return <StyledHTML key={i} html={section.html} />
                 case 'markdown':
-                  return <StyledMarkdown key={i} markdown={section.markdown} />
+                  return (
+                    <StyledMarkdown key={i}>{section.markdown}</StyledMarkdown>
+                  )
               }
             })}
           </Content>
