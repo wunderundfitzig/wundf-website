@@ -1,0 +1,42 @@
+title: Story
+preset: page
+pages: false
+
+fields:
+  cover:
+    label: Image
+    type: files
+    layout: cards
+    multiple: false
+
+  teaser_text:
+    label: Teaser Text
+    buttons: false
+    type: textarea
+
+  link_text:
+    label: Link Text
+    type: text
+
+  author:
+    label: Author
+    type: users
+    multiple: false
+
+  main_content:
+    label: Content
+    type: blocks
+    fieldsets:
+      heading:
+        extends: blocks/heading
+        fields:
+          level:
+            options:
+              - h2
+              - h3
+      - text
+      - list
+      - markdown
+      - quote
+      - line
+      - image

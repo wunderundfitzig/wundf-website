@@ -1,0 +1,27 @@
+title: News
+preset: page
+pages: false
+
+options:
+  preview: false
+  changeSlug: false
+
+fields:
+  description:
+    label: Description
+    type: textarea
+    buttons: false
+
+  link_text:
+    label: Link Text
+    type: text
+
+  link_url:
+    label: Link URL
+    type: url
+
+  news_image:
+    label: Image
+    type: files
+    multiple: false
+    template: image

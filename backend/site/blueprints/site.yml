@@ -1,0 +1,53 @@
+title: Start Panel
+unlisted: true
+update: false
+
+columns:
+  main:
+    width: 2/3
+    sections:
+      main_pages:
+        headline: Main Pages
+        type: pages
+        status: published
+        layout: cards
+        sortable: false
+        image:
+          back: black
+        template:
+          - all_news
+          - all_creatives
+          - work
+
+      content:
+        headline: Metadata
+        type: fields
+        fields:
+          page_settings:
+            label: Page Settings
+            type: headline
+            numbered: false
+          phone_number:
+            label: Telefonnummer
+            type: tel
+          mail:
+            label: E-Mail
+            type: email
+          address:
+            label: Adresse
+            type: text
+          address_url:
+            label: Link zu Karte
+            type: url
+
+  # sidebar
+  sidebar:
+    width: 1/3
+    sections:
+      # a list of subpages
+      pages:
+        type: pages
+        headline: Text Pages
+        template: page
+        image:
+          back: black
