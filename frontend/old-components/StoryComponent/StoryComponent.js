@@ -21,6 +21,8 @@ const StoryComponent = (props) => {
   //   .filter(section => section.field.name === 'title')
   //   .map(section => section.value)
 
+  console.log(story)
+
   return (
     <article>
       <SplitLayout>

@@ -12,7 +12,7 @@ export type Work = {
   content: any
 }
 
-interface Props {
+type Props = {
   story: Work
 }
 const Story: NextPage<PageProps<Props>> = (props) => {
@@ -40,14 +40,14 @@ export const getStaticProps: GetStaticProps<SiteQueryResult<Props>> = async (
   const slug = ctx.params?.story as string
 
   const result = await queryPageData<Props>({
-    query: `page("work+${slug}")`,
+    query: `page("work/${slug}")`,
     select: {
       story: {
-        query: 'page.children',
+        query: 'page',
         select: {
           title: true,
-          teaserText: true,
-          content: true,
+          teaserText: 'page.teaser_text',
+          content: 'page.main_content.toBlocks',
           image: {
             query: 'page.image',
             select: { src: 'file.id', width: true, height: true },
