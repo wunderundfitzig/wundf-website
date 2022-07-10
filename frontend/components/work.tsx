@@ -1,8 +1,8 @@
 import colors from 'lib/colors'
-import { News } from 'lib/models/news'
 import { FunctionComponent } from 'react'
-import WorkTeaser from './work-teaser'
 import breakpoints from 'lib/breakpoints'
+import { News } from 'pages/work'
+import WorkTeaser from './work-teaser'
 
 interface Props {
   newsList: News[]

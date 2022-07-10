@@ -56,6 +56,8 @@ export async function queryBackend(query: {
   query: string
   select?: Record<string, unknown>
 }): Promise<unknown> {
+  console.log(privateConfig)
+  console.log(publicConfig)
   const result = await fetch(`${publicConfig.backendURL}/api/query`, {
     method: 'POST',
     headers: {

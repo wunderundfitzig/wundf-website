@@ -1,10 +1,18 @@
 import { GetStaticProps, NextPage } from 'next'
 import React from 'react'
-import { News } from 'lib/models/news'
 import Hero from 'components/hero'
 import Work from 'components/work'
 import Clients from 'components/clients'
 import { PageProps, queryPageData, SiteQueryResult } from 'lib/kirby-query'
+
+export type News = {
+  slug: string
+  title: string
+  description: string
+  linkText: string
+  linkURL: string
+  image: { src: string; width: number; height: number }
+}
 
 interface Props {
   news: News[]
@@ -14,7 +22,6 @@ const WorkPage: NextPage<PageProps<Props>> = (props) => {
     <>
       <Hero />
       <Clients />
-
       <Work newsList={props.pageData.news} />
     </>
   )
@@ -42,8 +49,6 @@ export const getStaticProps: GetStaticProps<
       },
     },
   })
-
-  console.log(result)
 
   return {
     props: result,
