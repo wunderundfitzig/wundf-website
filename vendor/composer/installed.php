@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => '__root__',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '5323f3401511f79896c0fba6aaaeceb03f8d398b',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '5323f3401511f79896c0fba6aaaeceb03f8d398b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'getkirby/composer-installer' => array(
+            'pretty_version' => '1.2.1',
+            'version' => '1.2.1.0',
+            'reference' => 'c98ece30bfba45be7ce457e1102d1b169d922f3d',
+            'type' => 'composer-plugin',
+            'install_path' => __DIR__ . '/../getkirby/composer-installer',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'getkirby/kql' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => '8870cb23118e26801141ddfb17af98229f06f05b',
+            'type' => 'kirby-plugin',
+            'install_path' => __DIR__ . '/../../site/plugins/kql',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

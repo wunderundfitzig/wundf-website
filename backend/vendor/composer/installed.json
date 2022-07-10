@@ -261,6 +261,63 @@
             "install-path": "../getkirby/composer-installer"
         },
         {
+            "name": "getkirby/kql",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getkirby/kql.git",
+                "reference": "8870cb23118e26801141ddfb17af98229f06f05b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getkirby/kql/zipball/8870cb23118e26801141ddfb17af98229f06f05b",
+                "reference": "8870cb23118e26801141ddfb17af98229f06f05b",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/composer-installer": "^1.2.0"
+            },
+            "time": "2021-02-12T10:33:03+00:00",
+            "type": "kirby-plugin",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Kirby\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bastian Allgeier",
+                    "email": "bastian@getkirby.com"
+                }
+            ],
+            "description": "Kirby Query Language",
+            "homepage": "https://getkirby.com",
+            "keywords": [
+                "api",
+                "cms",
+                "json",
+                "kirby",
+                "query"
+            ],
+            "support": {
+                "issues": "https://github.com/getkirby/kql/issues",
+                "source": "https://github.com/getkirby/kql/tree/1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://getkirby.com/buy",
+                    "type": "custom"
+                }
+            ],
+            "install-path": "../../site/plugins/kql"
+        },
+        {
             "name": "laminas/laminas-escaper",
             "version": "2.9.0",
             "version_normalized": "2.9.0.0",
