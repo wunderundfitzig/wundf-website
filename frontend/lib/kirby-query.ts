@@ -24,8 +24,6 @@ const siteInfoSelect = {
 
 const metaFieldsSelect = {
   title: true,
-  seotitle: 'page.seotitle.or(page.title)',
-  seodescription: true,
 }
 
 export type MetaFields = {
@@ -56,8 +54,6 @@ export async function queryBackend(query: {
   query: string
   select?: Record<string, unknown>
 }): Promise<unknown> {
-  console.log(privateConfig)
-  console.log(publicConfig)
   const result = await fetch(`${publicConfig.backendURL}/api/query`, {
     method: 'POST',
     headers: {

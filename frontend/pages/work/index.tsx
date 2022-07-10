@@ -39,8 +39,8 @@ export const getStaticProps: GetStaticProps<
           title: true,
           slug: true,
           description: true,
-          linkText: true,
-          linkURL: true,
+          linkText: 'page.link_text',
+          linkURL: 'page.link_url',
           image: {
             query: 'page.image',
             select: { src: 'file.id', width: true, height: true },
