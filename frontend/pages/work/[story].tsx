@@ -1,29 +1,30 @@
 import React from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import ErrorPage from 'next/error'
-import { Work, workValidator } from '../../lib/models/work'
-import { fetchFromBackend, FetchResult } from '../../lib/apiHelpers'
-import StoryComponent from '../../old-components/StoryComponent/StoryComponent'
+import { PageProps, queryPageData, SiteQueryResult } from 'lib/kirby-query'
 import Navigation from 'components/navigation'
+import WorkStory from 'components/work-story'
 
-interface Props {
-  slug: string
-  storyResult: FetchResult<Work>
+export type Work = {
+  title: string
+  teaserText: string
+  image: { src: string; width: string; height: string }
+  content: any
 }
-const Story: NextPage<Props> = (props) => {
-  const { slug, storyResult } = props
-  if (storyResult.error !== null) {
-    return <ErrorPage statusCode={500} title={storyResult.error} />
-  }
+
+type Props = {
+  story: Work
+}
+const Story: NextPage<PageProps<Props>> = (props) => {
+  const { story } = props.pageData
+
   return (
     <>
       <Head>
-        <title>wunder & fitzig | {slug}</title>
+        <title>wunder & fitzig | {story.title}</title>
       </Head>
       <Navigation />
-
-      <StoryComponent story={storyResult.data} />
+      <WorkStory story={story} />
     </>
   )
 }
@@ -32,10 +33,33 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths: [], fallback: 'blocking' }
 }
 
-export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
+export const getStaticProps: GetStaticProps<SiteQueryResult<Props>> = async (
+  ctx
+) => {
   const slug = ctx.params?.story as string
-  const storyResult = await fetchFromBackend(`/work/${slug}`, workValidator)
-  return { props: { slug, storyResult }, revalidate: 1 }
+
+  const result = await queryPageData<Props>({
+    query: `page("work/${slug}")`,
+    select: {
+      story: {
+        query: 'page',
+        select: {
+          title: true,
+          teaserText: 'page.teaser_text',
+          content: 'page.main_content.toBlocks',
+          image: {
+            query: 'page.image',
+            select: { src: 'file.id', width: true, height: true },
+          },
+        },
+      },
+    },
+  })
+
+  return {
+    props: result,
+    revalidate: 1,
+  }
 }
 
 export default Story

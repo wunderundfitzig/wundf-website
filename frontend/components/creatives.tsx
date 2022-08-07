@@ -3,11 +3,12 @@ import Image from 'next/image'
 import { useSectionIndexObserver } from 'lib/useSectionIndexObserver'
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
-import { Creative } from 'lib/models/creative'
 import Markdown from 'components/markdown'
+import { Creative } from 'pages/skills'
+import { publicConfig } from 'lib/config/public-config'
 
 interface Props {
-  creatives: Array<Creative>
+  creatives: Creative[]
 }
 
 const Creatives: FunctionComponent<Props> = (props) => {
@@ -20,7 +21,7 @@ const Creatives: FunctionComponent<Props> = (props) => {
         <Fragment key={idx}>
           <div className={`image ${currentSectionIndex === idx && 'active'}`}>
             <Image
-              src={person.image}
+              src={`${publicConfig.backendURL}/${person.image.src}`}
               layout='fill'
               objectFit='cover'
               objectPosition='center'

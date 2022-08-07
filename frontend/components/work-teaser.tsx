@@ -1,8 +1,9 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
-import { News } from 'lib/models/news'
 import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
+import { publicConfig } from 'lib/config/public-config'
+import { News } from 'pages/work'
 
 interface Props {
   news: News
@@ -24,7 +25,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
 
       <div className='image'>
         <Image
-          src={props.news.image}
+          src={`${publicConfig.backendURL}/${props.news.image.src}`}
           layout='fill'
           objectFit='cover'
           objectPosition='50% 50%'

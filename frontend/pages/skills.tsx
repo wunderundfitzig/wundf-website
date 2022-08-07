@@ -1,30 +1,48 @@
 import { GetStaticProps, NextPage } from 'next'
-import ErrorPage from 'next/error'
-import { fetchFromBackend, FetchResult } from 'lib/apiHelpers'
-import { Creative, creativesList } from 'lib/models/creative'
 import Hero from 'components/hero'
 import Creatives from 'components/creatives'
+import { PageProps, queryPageData, SiteQueryResult } from 'lib/kirby-query'
+
+export type Creative = {
+  title: string
+  image: { src: string; width: number; height: number }
+  text: string
+}
 
 interface Props {
-  creativesResult: FetchResult<Creative[]>
+  creatives: Creative[]
 }
-const SkillsPage: NextPage<Props> = (props) => {
-  if (props.creativesResult.error !== null) {
-    return <ErrorPage statusCode={500} title={props.creativesResult.error} />
-  }
-
+const SkillsPage: NextPage<PageProps<Props>> = (props) => {
   return (
     <>
       <Hero />
-      <Creatives creatives={props.creativesResult.data} />
+      <Creatives creatives={props.pageData.creatives} />
     </>
   )
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const creativesResult = await fetchFromBackend('/creatives', creativesList)
+export const getStaticProps: GetStaticProps<
+  SiteQueryResult<Props>
+> = async () => {
+  const result = await queryPageData<Props>({
+    query: 'page("creatives")',
+    select: {
+      creatives: {
+        query: 'page.children',
+        select: {
+          title: true,
+          text: 'page.markdown_text',
+          image: {
+            query: 'page.image',
+            select: { src: 'file.id', width: true, height: true },
+          },
+        },
+      },
+    },
+  })
+
   return {
-    props: { creativesResult },
+    props: result,
     revalidate: 1,
   }
 }

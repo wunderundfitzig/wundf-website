@@ -1,21 +1,14 @@
-import React, { FunctionComponent } from 'react'
-import { GetStaticProps } from 'next'
+import React from 'react'
+import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import ErrorPage from 'next/error'
-import { fetchFromBackend, FetchResult } from '../lib/apiHelpers'
-import { TextPage, textPage } from 'lib/models/text-page'
+import { PageProps, queryPageData, SiteQueryResult } from 'lib/kirby-query'
 import Markdown from 'components/markdown'
 import Navigation from 'components/navigation'
 
 interface Props {
-  textPageResult: FetchResult<TextPage>
+  content: string
 }
-const Privacy: FunctionComponent<Props> = (props) => {
-  if (props.textPageResult.error !== null) {
-    return <ErrorPage statusCode={500} title={props.textPageResult.error} />
-  }
-  const { content } = props.textPageResult.data
-
+const Privacy: NextPage<PageProps<Props>> = (props) => {
   return (
     <>
       <Head>
@@ -24,7 +17,7 @@ const Privacy: FunctionComponent<Props> = (props) => {
       <Navigation />
 
       <div className='text-block'>
-        <Markdown>{content}</Markdown>
+        <Markdown>{props.pageData.content}</Markdown>
       </div>
       <style jsx>{`
         .text-block {
@@ -37,9 +30,20 @@ const Privacy: FunctionComponent<Props> = (props) => {
   )
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const textPageResult = await fetchFromBackend('/privacy', textPage)
-  return { props: { textPageResult }, revalidate: 1 }
+export const getStaticProps: GetStaticProps<
+  SiteQueryResult<Props>
+> = async () => {
+  const result = await queryPageData<Props>({
+    query: 'page("privacy")',
+    select: {
+      content: 'page.content.markdown_content',
+    },
+  })
+
+  return {
+    props: result,
+    revalidate: 1,
+  }
 }
 
 export default Privacy
