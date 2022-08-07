@@ -1,6 +1,7 @@
 import { Fragment, FunctionComponent } from 'react'
 import Image from 'next/image'
 import { publicConfig } from 'lib/config/public-config'
+import colors from 'lib/colors'
 
 type HeadingBlock = {
   type: 'heading'
@@ -46,7 +47,7 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
                   src={`${publicConfig.backendURL}/${block.content.image}`}
                   alt={block.content.alt ?? undefined}
                   width={100}
-                  height={100 * block.content.ratio}
+                  height={100 / block.content.ratio}
                   layout='responsive'
                 />
                 <figcaption>{block.content.caption}</figcaption>
@@ -57,6 +58,10 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
       <style jsx>{`
         figure {
           margin: 2em 0;
+        }
+
+        figure :global(img) {
+          background-color: ${colors.brownGrey};
         }
 
         figcaption {

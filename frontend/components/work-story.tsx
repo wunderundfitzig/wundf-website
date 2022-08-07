@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Work } from '../pages/work/[story]'
 import { publicConfig } from 'lib/config/public-config'
 import KirbyBlocks from './kirby-blocks'
+import colors from 'lib/colors'
 
 type Props = {
   story: Work
@@ -43,6 +44,7 @@ const WorkStory: FunctionComponent<Props> = (props) => {
           position: relative;
           width: 100%;
           height: 100%;
+          background-color: ${colors.brownGrey};
         }
 
         header {
