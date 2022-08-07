@@ -50,14 +50,16 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
                   height={100 / block.content.ratio}
                   layout='responsive'
                 />
-                <figcaption>{block.content.caption}</figcaption>
+                <figcaption
+                  dangerouslySetInnerHTML={{ __html: block.content.caption }}
+                />
               </figure>
             )
         }
       })}
       <style jsx>{`
         figure {
-          margin: 2em 0;
+          margin: 2em -2em;
         }
 
         figure :global(img) {

@@ -4,6 +4,7 @@ import { Work } from '../pages/work/[story]'
 import { publicConfig } from 'lib/config/public-config'
 import KirbyBlocks from './kirby-blocks'
 import colors from 'lib/colors'
+import breakpoints from 'lib/breakpoints'
 
 type Props = {
   story: Work
@@ -30,11 +31,12 @@ const WorkStory: FunctionComponent<Props> = (props) => {
         .work-story {
           display: grid;
           grid-template-areas:
-            'title   image   '
-            'content content';
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: 100vh auto;
-          grid-gap: 4em 0;
+            'image'
+            'title'
+            'content';
+          grid-template-columns: 1fr;
+          grid-template-rows: 50vh minmax(50vh, auto) auto;
+          grid-gap: 0;
           justify-items: center;
           align-items: center;
         }
@@ -50,19 +52,53 @@ const WorkStory: FunctionComponent<Props> = (props) => {
         header {
           grid-area: title;
           text-align: right;
-          padding: 5em 3em 8em 5em;
+          padding: 1em 2em 3em 5em;
           justify-self: end;
         }
 
         h1 {
-          font-size: 2em;
+          font-size: 1.7em;
         }
 
         .content {
           grid-area: content;
           max-width: 800px;
           width: 100%;
+          padding: 0 2em;
           margin-bottom: 4em;
+          overflow: hidden;
+        }
+
+        @media (min-width: ${breakpoints.m.min}px) {
+          .work-story {
+            grid-template-areas:
+              'title   image   '
+              'content content';
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 100vh auto;
+            grid-gap: 4em 0;
+            justify-items: center;
+            align-items: center;
+          }
+
+          header {
+            padding: 0 2em 2em 2em;
+            min-width: 320px;
+          }
+
+          .content {
+            padding: 0 3em;
+          }
+        }
+
+        @media (min-width: ${breakpoints.l.min}px) {
+          header {
+            padding: 0 3em 2em 5em;
+          }
+
+          h1 {
+            font-size: 2em;
+          }
         }
       `}</style>
     </article>
