@@ -1,10 +1,13 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent, ReactNode } from 'react'
 
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
 import Footer from './footer'
 
-const Layout: FunctionComponent = (props) => {
+type Props = {
+  children: ReactNode
+}
+const Layout: FunctionComponent<Props> = (props) => {
   return (
     <>
       {props.children}

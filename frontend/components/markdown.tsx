@@ -8,7 +8,7 @@ interface Props {
 const Markdown: FunctionComponent<Props> = (props) => (
   <div
     className={props.className}
-    dangerouslySetInnerHTML={{ __html: marked.parseInline(props.children) }}
+    dangerouslySetInnerHTML={{ __html: marked.parseInline(props.children, {}) }}
   />
 )
 

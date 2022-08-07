@@ -32,15 +32,15 @@
     "lodash": "^4.17.20",
     "marked": "^4.0.12",
     "next": "^12.2.4",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sharp": "^0.30.7"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.167",
     "@types/marked": "^4.0.2",
     "@types/node": "^16.11.47",
-    "@types/react": "^17.0.0",
+    "@types/react": "^18.0.16",
     "@types/styled-jsx": "^2.2.8",
     "@typescript-eslint/eslint-plugin": "^4.11.0",
     "@typescript-eslint/parser": "^4.11.0",
