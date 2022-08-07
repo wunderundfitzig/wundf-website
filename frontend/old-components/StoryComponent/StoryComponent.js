@@ -21,7 +21,7 @@ const StoryComponent = (props) => {
   //   .filter(section => section.field.name === 'title')
   //   .map(section => section.value)
 
-  console.log(story)
+  console.dir(story, { depth: 10 })
 
   return (
     <article>

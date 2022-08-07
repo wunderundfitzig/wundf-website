@@ -1,9 +1,9 @@
 import React from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import StoryComponent from '../../old-components/StoryComponent/StoryComponent'
-import Navigation from 'components/navigation'
 import { PageProps, queryPageData, SiteQueryResult } from 'lib/kirby-query'
+import Navigation from 'components/navigation'
+import WorkStory from 'components/work-story'
 
 export type Work = {
   title: string
@@ -24,8 +24,7 @@ const Story: NextPage<PageProps<Props>> = (props) => {
         <title>wunder & fitzig | {story.title}</title>
       </Head>
       <Navigation />
-
-      <StoryComponent story={story} />
+      <WorkStory story={story} />
     </>
   )
 }
