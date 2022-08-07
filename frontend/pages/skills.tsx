@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps<
         query: 'page.children',
         select: {
           title: true,
-          text: true,
+          text: 'page.markdown_text',
           image: {
             query: 'page.image',
             select: { src: 'file.id', width: true, height: true },
