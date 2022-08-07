@@ -35,11 +35,6 @@ const Hero: FunctionComponent = () => {
           justify-content: space-between;
         }
 
-        @media (min-width: ${breakpoints.l.min}px) {
-          .hero {
-            grid-template-columns: 400px 80px;
-          }
-        }
         .slogan {
           grid-area: slogan;
           font-size: 40px;
@@ -51,7 +46,14 @@ const Hero: FunctionComponent = () => {
         @media (min-width: ${breakpoints.l.min}px) {
           .hero {
             padding: 1.5em 1.5em 1em;
+            grid-template-columns: 400px 80px;
           }
+
+          .hero :global(.wundf-logo) {
+            position: sticky;
+            top: 1.5em;
+          }
+
           .slogan {
             font-size: 55px;
           }
