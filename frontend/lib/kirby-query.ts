@@ -15,11 +15,6 @@ const siteInfoSelect = {
   address: true,
   mapsUrl: true,
   phoneNumber: true,
-  infoMail: true,
-  jobMail: true,
-  linkedinUrl: true,
-  xingUrl: true,
-  instagramUrl: true,
 }
 
 const metaFieldsSelect = {
@@ -28,8 +23,6 @@ const metaFieldsSelect = {
 
 export type MetaFields = {
   title: string
-  seotitle: string
-  seodescription: string
 }
 
 export type SiteInfo = {
