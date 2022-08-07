@@ -1,8 +1,8 @@
 import React from 'react'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import ReactMarkdown from 'react-markdown'
 import { PageProps, queryPageData, SiteQueryResult } from 'lib/kirby-query'
-import Markdown from 'components/markdown'
 import Navigation from 'components/navigation'
 
 interface Props {
@@ -17,7 +17,7 @@ const Privacy: NextPage<PageProps<Props>> = (props) => {
       <Navigation />
 
       <div className='text-block'>
-        <Markdown>{props.pageData.content}</Markdown>
+        <ReactMarkdown>{props.pageData.content}</ReactMarkdown>
       </div>
       <style jsx>{`
         .text-block {

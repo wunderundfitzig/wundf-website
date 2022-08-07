@@ -1,11 +1,12 @@
 import React, { Fragment, FunctionComponent } from 'react'
 import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
+
 import { useSectionIndexObserver } from 'lib/useSectionIndexObserver'
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
-import Markdown from 'components/markdown'
-import { Creative } from 'pages/skills'
 import { publicConfig } from 'lib/config/public-config'
+import { Creative } from 'pages/skills'
 
 interface Props {
   creatives: Creative[]
@@ -34,7 +35,7 @@ const Creatives: FunctionComponent<Props> = (props) => {
             }}
           >
             <h2>{person.title}</h2>
-            <Markdown>{person.text}</Markdown>
+            <ReactMarkdown>{person.text}</ReactMarkdown>
           </div>
         </Fragment>
       ))}
