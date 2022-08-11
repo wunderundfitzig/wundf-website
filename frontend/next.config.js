@@ -5,6 +5,9 @@ module.exports = {
   images: {
     domains: ['cms.wunderundfitzig.de'],
   },
+  experimental: {
+    scrollRestoration: true,
+  },
   async redirects() {
     return [
       {
