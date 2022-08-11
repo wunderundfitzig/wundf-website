@@ -3,29 +3,40 @@ import Image from 'next/image'
 import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
 import { publicConfig } from 'lib/config/public-config'
-import { News } from 'pages/work'
+import { News, StoryLink } from 'pages/work'
+import Link from 'next/link'
 
 interface Props {
-  news: News
+  news: News | StoryLink
   gridArea?: string
   featured?: boolean
 }
 const WorkTeaser: FunctionComponent<Props> = (props) => {
+  const image =
+    props.news.type === 'news'
+      ? props.news.image
+      : props.news.image ?? props.news.storyImage
+  const imageUrl = `${publicConfig.backendURL}/${image.src}`
+
   return (
     <article className={`work-teaser ${props.featured && 'featured'}`}>
       <div className='text'>
         <h2>{props.news.title}</h2>
         {props.featured && <p>{props.news.description}</p>}
-        {props.news.linkText && (
+        {props.news.type === 'news' ? (
           <a href={props.news.linkURL} target='_blank' rel='noreferrer'>
             {props.news.linkText}
           </a>
+        ) : (
+          <Link href={`/work/${props.news.storySlug}`}>
+            {props.news.linkText}
+          </Link>
         )}
       </div>
 
       <div className='image'>
         <Image
-          src={`${publicConfig.backendURL}/${props.news.image.src}`}
+          src={imageUrl}
           layout='fill'
           objectFit='cover'
           objectPosition='50% 50%'

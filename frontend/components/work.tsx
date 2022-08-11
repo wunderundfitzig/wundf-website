@@ -1,11 +1,11 @@
 import colors from 'lib/colors'
 import { FunctionComponent } from 'react'
 import breakpoints from 'lib/breakpoints'
-import { News } from 'pages/work'
+import { News, StoryLink } from 'pages/work'
 import WorkTeaser from './work-teaser'
 
 interface Props {
-  newsList: News[]
+  newsList: (News | StoryLink)[]
 }
 const Work: FunctionComponent<Props> = (props) => {
   return (

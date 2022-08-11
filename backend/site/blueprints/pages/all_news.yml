@@ -5,9 +5,12 @@ options:
   duplicate: false
   changeTitle: false
   delete: false
+  preview: "{{ site.previewUrl }}/work"
 
 sections:
   pages:
     type: pages
     headline: News
-    template: news
+    template:
+      - news
+      - story-link

@@ -1,0 +1,30 @@
+title: Story link
+preset: page
+pages: false
+
+options:
+  preview: false
+  changeSlug: false
+
+fields:
+  description:
+    label: Description
+    type: textarea
+    buttons: false
+
+  link_text:
+    label: Link Text
+    type: text
+
+  story:
+    label: Linked Story
+    type: pages
+    multiple: false
+    required: true
+    query: site.find('work')
+
+  news_image:
+    label: Image
+    type: files
+    multiple: false
+    template: image

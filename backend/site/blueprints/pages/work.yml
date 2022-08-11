@@ -5,6 +5,7 @@ options:
   duplicate: false
   changeTitle: false
   delete: false
+  preview: false
 
 sections:
   drafts:
