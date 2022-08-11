@@ -11,4 +11,6 @@ sections:
   pages:
     type: pages
     headline: News
-    template: news
+    template:
+      - news
+      - story-link
