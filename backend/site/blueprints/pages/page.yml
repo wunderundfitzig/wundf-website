@@ -2,6 +2,9 @@ title: Textseite
 preset: page
 pages: false
 
+options:
+  preview: "{{ site.previewUrl }}/{{ page.slug }}"
+
 fields:
   markdown_content:
     label: Content

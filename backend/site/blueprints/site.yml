@@ -2,6 +2,9 @@ title: Start Panel
 unlisted: true
 update: false
 
+options:
+  preview: https://wunderundfitzig.de
+
 columns:
   main:
     width: 2/3
