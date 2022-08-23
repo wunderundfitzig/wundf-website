@@ -101,9 +101,8 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
         .story-button {
           color: ${colors.darkBlue};
           border: 1px solid ${colors.blueGrey};
-          display: block;
           text-align: center;
-          width: 100%;
+          display: inline-block;
           margin: 1em auto 0;
           padding: 0.4em 0.7em;
           border-radius: 2px;
@@ -160,6 +159,11 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             box-shadow: none;
             color: white;
             -moz-osx-font-smoothing: grayscale;
+          }
+
+          .story-button {
+            display: block;
+            width: 100%;
           }
 
           .featured .story-button {
