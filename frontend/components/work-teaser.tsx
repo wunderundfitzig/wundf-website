@@ -31,22 +31,18 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
       ? props.news.image
       : props.news.image ?? props.news.storyImage
   const imageUrl = `${publicConfig.backendURL}/${image.src}`
+  const showDescription =
+    props.news.size === 'featured' || props.news.size === 'medium'
   const { href, target, linkText } = getLinkProps(props.news)
 
-  const isMedium = false
-
   return (
-    <article
-      className={`work-teaser ${props.news.featured && 'featured'} ${
-        props.news.type === 'story-link' && 'story-link'
-      } ${isMedium && 'medium'}`}
-    >
+    <article className={`work-teaser ${props.news.size} ${props.news.type}`}>
       <div className='text'>
         <header>
           <p className='category'>{props.news.category}</p>
           <h2>{props.news.title}</h2>
         </header>
-        {(props.news.featured || isMedium) && <p>{props.news.description}</p>}
+        {showDescription && <p>{props.news.description}</p>}
         <Link href={href}>
           <a className='link' target={target} rel='noreferrer'>
             {linkText}
@@ -161,7 +157,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             grid-template-columns: 1fr 1fr;
             grid-column-gap: 2em;
             grid-template-areas: 'image text';
-            align-items: center;
+            align-items: start;
           }
 
           .medium .image,
@@ -170,6 +166,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             margin: 0;
           }
 
+          .medium .category,
           .featured .category {
             color: ${colors.beige};
           }
@@ -180,6 +177,8 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             margin: 0;
             padding: 0;
             background-color: transparent;
+            color: white;
+            -moz-osx-font-smoothing: grayscale;
           }
 
           .featured .text {
@@ -188,7 +187,6 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             padding: 0;
             margin: 0;
             background-color: transparent;
-            box-shadow: none;
             color: white;
             -moz-osx-font-smoothing: grayscale;
           }
@@ -198,6 +196,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             width: 100%;
           }
 
+          .medium.story-link .link,
           .featured.story-link .link {
             width: auto;
             display: inline-block;
@@ -206,7 +205,8 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             text-decoration: none;
           }
 
-          .featured a {
+          .medium .link,
+          .featured .link {
             color: ${colors.beige};
             -moz-osx-font-smoothing: grayscale;
             text-decoration: underline;
