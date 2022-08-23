@@ -6,9 +6,24 @@ import { publicConfig } from 'lib/config/public-config'
 import { News, StoryLink } from 'pages/work'
 import Link from 'next/link'
 
-interface Props {
+function getLinkProps(
   news: News | StoryLink
-  gridArea?: string
+): { href: string; linkText: string; target?: string } {
+  if (news.type === 'news') {
+    return {
+      href: news.linkURL,
+      linkText: `+ ${news.linkText}`,
+      target: '_blank',
+    }
+  }
+  return {
+    href: `/work/${news.storySlug}`,
+    linkText: news.linkText,
+  }
+}
+
+type Props = {
+  news: News | StoryLink
 }
 const WorkTeaser: FunctionComponent<Props> = (props) => {
   const image =
@@ -16,6 +31,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
       ? props.news.image
       : props.news.image ?? props.news.storyImage
   const imageUrl = `${publicConfig.backendURL}/${image.src}`
+  const { href, target, linkText } = getLinkProps(props.news)
 
   return (
     <article
@@ -29,29 +45,26 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           <h2>{props.news.title}</h2>
         </header>
         {props.news.featured && <p>{props.news.description}</p>}
-        {props.news.type === 'news' ? (
-          <a href={props.news.linkURL} target='_blank' rel='noreferrer'>
-            + {props.news.linkText}
+        <Link href={href}>
+          <a className='link' target={target} rel='noreferrer'>
+            {linkText}
           </a>
-        ) : (
-          <Link href={`/work/${props.news.storySlug}`}>
-            <a className='story-button'>{props.news.linkText}</a>
-          </Link>
-        )}
+        </Link>
       </div>
 
-      <div className='image'>
-        <Image
-          src={imageUrl}
-          layout='fill'
-          objectFit='cover'
-          objectPosition='50% 50%'
-        />
-      </div>
+      <Link href={href}>
+        <a className='image' target={target} rel='noreferrer'>
+          <Image
+            src={imageUrl}
+            layout='fill'
+            objectFit='cover'
+            objectPosition='50% 50%'
+          />
+        </a>
+      </Link>
 
       <style jsx>{`
         .work-teaser {
-          grid-area: ${props.gridArea ? props.gridArea : ''};
           display: grid;
           grid-template-areas: 'main';
           align-items: end;
@@ -98,7 +111,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           background-color: ${colors.brownGrey};
         }
 
-        .story-button {
+        .story-link .link {
           color: ${colors.darkBlue};
           border: 1px solid ${colors.blueGrey};
           text-align: center;
@@ -109,7 +122,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           font-size: 0.8em;
         }
 
-        a {
+        .link {
           font-size: 0.9em;
         }
 
@@ -161,12 +174,12 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             -moz-osx-font-smoothing: grayscale;
           }
 
-          .story-button {
+          .story-link .link {
             display: block;
             width: 100%;
           }
 
-          .featured .story-button {
+          .featured.story-link .link {
             width: auto;
             display: inline-block;
             background-color: ${colors.beige};
