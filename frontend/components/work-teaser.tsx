@@ -18,7 +18,11 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
   const imageUrl = `${publicConfig.backendURL}/${image.src}`
 
   return (
-    <article className={`work-teaser ${props.news.featured && 'featured'}`}>
+    <article
+      className={`work-teaser ${props.news.featured && 'featured'} ${
+        props.news.type === 'story-link' && 'story-link'
+      }`}
+    >
       <div className='text'>
         <header>
           <p className='category'>{props.news.category}</p>
@@ -27,11 +31,11 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
         {props.news.featured && <p>{props.news.description}</p>}
         {props.news.type === 'news' ? (
           <a href={props.news.linkURL} target='_blank' rel='noreferrer'>
-            {props.news.linkText}
+            + {props.news.linkText}
           </a>
         ) : (
           <Link href={`/work/${props.news.storySlug}`}>
-            <a>{props.news.linkText}</a>
+            <a className='story-button'>{props.news.linkText}</a>
           </Link>
         )}
       </div>
@@ -72,7 +76,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
         .text {
           grid-area: main;
           background-color: ${colors.beige};
-          padding: 1em 1em 2em 1em;
+          padding: 1em 1em 1.5em 1em;
           width: calc(100% - 3em);
           margin: 10em 0 0;
           overflow: hidden;
@@ -92,6 +96,22 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           width: 100%;
           z-index: -1;
           background-color: ${colors.brownGrey};
+        }
+
+        .story-button {
+          color: ${colors.darkBlue};
+          border: 1px solid ${colors.blueGrey};
+          display: block;
+          text-align: center;
+          width: 100%;
+          margin: 1em auto 0;
+          padding: 0.4em 0.7em;
+          border-radius: 2px;
+          font-size: 0.8em;
+        }
+
+        a {
+          font-size: 0.9em;
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
@@ -140,6 +160,14 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             box-shadow: none;
             color: white;
             -moz-osx-font-smoothing: grayscale;
+          }
+
+          .featured .story-button {
+            width: auto;
+            display: inline-block;
+            background-color: ${colors.beige};
+            color: ${colors.darkBlue};
+            text-decoration: none;
           }
 
           .featured a {
