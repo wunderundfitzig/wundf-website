@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps<SiteQueryResult<Props>> = async (
           teaserText: 'page.teaser_text',
           content: 'page.main_content.toBlocks',
           image: {
-            query: 'page.image',
+            query: 'page.cover.toFile',
             select: { src: 'file.id', width: true, height: true },
           },
         },

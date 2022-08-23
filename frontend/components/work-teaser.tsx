@@ -96,6 +96,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
         h2 {
           font-size: 1.2em;
           margin: 0em 0 0.5em;
+          overflow-wrap: break-word;
         }
 
         .image {

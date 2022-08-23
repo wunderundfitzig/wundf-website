@@ -90,7 +90,7 @@ export const getStaticProps: GetStaticProps<
             select: { src: 'file.id', width: true, height: true },
           },
           storyImage: {
-            query: 'page.story.toPage.image',
+            query: 'page.story.toPage.cover.toFile',
             select: { src: 'file.id', width: true, height: true },
           },
         },
