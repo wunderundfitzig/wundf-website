@@ -156,8 +156,10 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             grid-column: span 2;
             grid-template-columns: 1fr 1fr;
             grid-column-gap: 2em;
-            grid-template-areas: 'image text';
-            align-items: start;
+            grid-template-areas:
+              'image text'
+              'button button';
+            align-content: start;
           }
 
           .medium .image,
@@ -174,6 +176,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           .medium .text {
             grid-area: text;
             width: 100%;
+            align-self: center;
             margin: 0;
             padding: 0;
             background-color: transparent;
