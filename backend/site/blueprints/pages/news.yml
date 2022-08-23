@@ -7,10 +7,24 @@ options:
   changeSlug: false
 
 fields:
+  featured:
+    label: Featured
+    type: toggle
+    text:
+      - small box
+      - featured
+
+  category:
+    label: Category
+    type: text
+    maxlength: 50
+
   description:
     label: Description
     type: textarea
     buttons: false
+    when:
+      featured: true
 
   link_text:
     label: Link Text
