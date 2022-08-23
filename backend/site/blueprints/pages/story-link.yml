@@ -2,6 +2,9 @@ title: Story link
 preset: page
 pages: false
 
+image:
+  query: page.story.toPage.cover.toFile
+
 options:
   preview: false
   changeSlug: false
