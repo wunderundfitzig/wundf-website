@@ -27,6 +27,7 @@ const Work: FunctionComponent<Props> = (props) => {
           justify-content: center;
           grid-row-gap: 2em;
           grid-column-gap: 4em;
+          grid-auto-flow: dense;
           background-color: ${colors.beige};
         }
 

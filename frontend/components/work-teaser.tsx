@@ -33,18 +33,20 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
   const imageUrl = `${publicConfig.backendURL}/${image.src}`
   const { href, target, linkText } = getLinkProps(props.news)
 
+  const isMedium = false
+
   return (
     <article
       className={`work-teaser ${props.news.featured && 'featured'} ${
         props.news.type === 'story-link' && 'story-link'
-      }`}
+      } ${isMedium && 'medium'}`}
     >
       <div className='text'>
         <header>
           <p className='category'>{props.news.category}</p>
           <h2>{props.news.title}</h2>
         </header>
-        {props.news.featured && <p>{props.news.description}</p>}
+        {(props.news.featured || isMedium) && <p>{props.news.description}</p>}
         <Link href={href}>
           <a className='link' target={target} rel='noreferrer'>
             {linkText}
@@ -149,11 +151,20 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
 
           .featured.work-teaser {
             grid-template-columns: 1fr 1fr;
-            grid-column-gap: 1em;
+            grid-column-gap: 2em;
             grid-template-areas: 'image text';
             align-items: start;
           }
 
+          .medium.work-teaser {
+            grid-column: span 2;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 2em;
+            grid-template-areas: 'image text';
+            align-items: center;
+          }
+
+          .medium .image,
           .featured .image {
             grid-area: image;
             margin: 0;
@@ -161,6 +172,14 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
 
           .featured .category {
             color: ${colors.beige};
+          }
+
+          .medium .text {
+            grid-area: text;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
           }
 
           .featured .text {
