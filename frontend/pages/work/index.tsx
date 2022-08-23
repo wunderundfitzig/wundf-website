@@ -9,6 +9,8 @@ export type News = {
   type: 'news'
   slug: string
   title: string
+  category: string
+  featured: boolean
   order: number
   description: string
   linkText: string
@@ -19,6 +21,8 @@ export type StoryLink = {
   type: 'story-link'
   slug: string
   title: string
+  category: string
+  featured: boolean
   order: number
   description: string
   linkText: string
@@ -32,9 +36,10 @@ interface Props {
   stories: StoryLink[]
 }
 const WorkPage: NextPage<PageProps<Props>> = (props) => {
-  const newsList = [...props.pageData.news, ...props.pageData.stories].sort(
-    (a, b) => a.order - b.order
-  )
+  const newsList = [...props.pageData.news, ...props.pageData.stories]
+    .sort((a, b) => a.order - b.order)
+    // @ts-expect-error: Kiry returns booleans as strings so fix this here
+    .map((news) => ({ ...news, featured: news.featured === 'true' }))
 
   return (
     <>
@@ -56,6 +61,8 @@ export const getStaticProps: GetStaticProps<
         select: {
           type: 'page.intendedTemplate',
           title: true,
+          category: true,
+          featured: true,
           slug: true,
           order: 'page.indexOf',
           description: true,
@@ -72,6 +79,8 @@ export const getStaticProps: GetStaticProps<
         select: {
           type: 'page.intendedTemplate',
           title: true,
+          category: true,
+          featured: true,
           slug: true,
           order: 'page.indexOf',
           description: true,

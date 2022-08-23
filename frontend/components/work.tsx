@@ -11,13 +11,8 @@ const Work: FunctionComponent<Props> = (props) => {
   return (
     <section>
       <div className='work-articles'>
-        {props.newsList.map((news, idx) => (
-          <WorkTeaser
-            key={news.slug}
-            news={news}
-            gridArea={idx === 0 ? 'featured' : undefined}
-            featured={idx === 0}
-          />
+        {props.newsList.map((news) => (
+          <WorkTeaser key={news.slug} news={news} />
         ))}
       </div>
       <style jsx>{`
@@ -26,10 +21,9 @@ const Work: FunctionComponent<Props> = (props) => {
           list-style: none;
           margin: 0;
           padding: 0;
-          padding-bottom: 2em;
+          padding-bottom: 4em;
           display: grid;
           grid-template-columns: 1fr;
-          grid-template-areas: 'featured';
           justify-content: center;
           grid-row-gap: 2em;
           grid-column-gap: 4em;
@@ -69,7 +63,7 @@ const Work: FunctionComponent<Props> = (props) => {
             grid-row-gap: 4em;
             padding-left: 0;
             padding-right: 0;
-            padding-bottom: 2em;
+            padding-bottom: 6em;
           }
         }
       `}</style>

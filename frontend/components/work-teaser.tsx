@@ -9,7 +9,6 @@ import Link from 'next/link'
 interface Props {
   news: News | StoryLink
   gridArea?: string
-  featured?: boolean
 }
 const WorkTeaser: FunctionComponent<Props> = (props) => {
   const image =
@@ -19,17 +18,20 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
   const imageUrl = `${publicConfig.backendURL}/${image.src}`
 
   return (
-    <article className={`work-teaser ${props.featured && 'featured'}`}>
+    <article className={`work-teaser ${props.news.featured && 'featured'}`}>
       <div className='text'>
-        <h2>{props.news.title}</h2>
-        {props.featured && <p>{props.news.description}</p>}
+        <header>
+          <p className='category'>{props.news.category}</p>
+          <h2>{props.news.title}</h2>
+        </header>
+        {props.news.featured && <p>{props.news.description}</p>}
         {props.news.type === 'news' ? (
           <a href={props.news.linkURL} target='_blank' rel='noreferrer'>
             {props.news.linkText}
           </a>
         ) : (
           <Link href={`/work/${props.news.storySlug}`}>
-            {props.news.linkText}
+            <a>{props.news.linkText}</a>
           </Link>
         )}
       </div>
@@ -53,6 +55,18 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           height: 100%;
           position: relative;
           z-index: 0;
+        }
+
+        .featured.work-teaser {
+          grid-column: 1 / -1;
+        }
+
+        .category {
+          margin: 0 0 0.5em;
+          font-size: 0.65em;
+          text-transform: uppercase;
+          color: ${colors.brownGrey};
+          font-weight: bold;
         }
 
         .text {
@@ -81,24 +95,11 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
-          .featured.work-teaser {
+          .featured.work-teaser:first-child {
             padding-top: 2em;
             padding-bottom: 3em;
           }
 
-           {
-            /* .featured.work-teaser::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 100vw;
-            height: 100%;
-            transform: translateX(-50%);
-            background-color: ${colors.blueGrey};
-            z-index: -1;
-          } */
-          }
           .text {
             justify-self: center;
             width: calc(100% - 2em);
@@ -126,6 +127,10 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             margin: 0;
           }
 
+          .featured .category {
+            color: ${colors.beige};
+          }
+
           .featured .text {
             grid-area: text;
             width: 100%;
@@ -138,7 +143,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           }
 
           .featured a {
-            color: white;
+            color: ${colors.beige};
             -moz-osx-font-smoothing: grayscale;
             text-decoration: underline;
           }
@@ -157,6 +162,9 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: 'image text text';
             align-items: center;
+          }
+
+          .featured.work-teaser:first-child {
             padding-top: 2em;
             padding-bottom: 2em;
           }
