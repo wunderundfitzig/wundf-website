@@ -1,17 +1,17 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
-import { Work } from '../pages/stories/[story]'
+import { StoryContent } from '../pages/stories/[story]'
 import { publicConfig } from 'lib/config/public-config'
 import KirbyBlocks from './kirby-blocks'
 import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
 
 type Props = {
-  story: Work
+  story: StoryContent
 }
-const WorkStory: FunctionComponent<Props> = (props) => {
+const Story: FunctionComponent<Props> = (props) => {
   return (
-    <article className='work-story'>
+    <article className='story'>
       <div className='image'>
         <Image
           src={`${publicConfig.backendURL}/${props.story.image.src}`}
@@ -28,7 +28,7 @@ const WorkStory: FunctionComponent<Props> = (props) => {
         <KirbyBlocks blocks={props.story.content} />
       </section>
       <style jsx>{`
-        .work-story {
+        .story {
           display: grid;
           grid-template-areas:
             'image'
@@ -70,7 +70,7 @@ const WorkStory: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
-          .work-story {
+          .story {
             grid-template-areas:
               'title   image   '
               'content content';
@@ -105,4 +105,4 @@ const WorkStory: FunctionComponent<Props> = (props) => {
   )
 }
 
-export default WorkStory
+export default Story

@@ -25,7 +25,7 @@ function getLinkProps(
 type Props = {
   news: News | StoryLink
 }
-const WorkTeaser: FunctionComponent<Props> = (props) => {
+const Teaser: FunctionComponent<Props> = (props) => {
   const image =
     props.news.type === 'news'
       ? props.news.image
@@ -36,7 +36,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
   const { href, target, linkText } = getLinkProps(props.news)
 
   return (
-    <article className={`work-teaser ${props.news.size} ${props.news.type}`}>
+    <article className={`teaser ${props.news.size} ${props.news.type}`}>
       <div className='text'>
         <header>
           <p className='category'>{props.news.category}</p>
@@ -62,7 +62,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
       </Link>
 
       <style jsx>{`
-        .work-teaser {
+        .teaser {
           display: grid;
           grid-template-areas: 'main';
           align-items: end;
@@ -72,7 +72,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           z-index: 0;
         }
 
-        .featured.work-teaser {
+        .featured.teaser {
           grid-column: 1 / -1;
         }
 
@@ -126,7 +126,7 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
-          .featured.work-teaser:first-child {
+          .featured.teaser:first-child {
             padding-top: 2em;
             padding-bottom: 3em;
           }
@@ -146,14 +146,14 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
             width: calc(100% - 1em);
           }
 
-          .featured.work-teaser {
+          .featured.teaser {
             grid-template-columns: 1fr 1fr;
             grid-column-gap: 2em;
             grid-template-areas: 'image text';
             align-items: start;
           }
 
-          .medium.work-teaser {
+          .medium.teaser {
             grid-column: span 2;
             grid-template-columns: 1fr 1fr;
             grid-column-gap: 2em;
@@ -220,19 +220,19 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
           .text {
             width: calc(100% - 2em);
           }
-          .featured.work-teaser {
+          .featured.teaser {
             grid-column-gap: 2em;
           }
         }
 
         @media (min-width: ${breakpoints.xl.min}px) {
-          .featured.work-teaser {
+          .featured.teaser {
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: 'image text text';
             align-items: center;
           }
 
-          .featured.work-teaser:first-child {
+          .featured.teaser:first-child {
             padding-top: 2em;
             padding-bottom: 2em;
           }
@@ -254,4 +254,4 @@ const WorkTeaser: FunctionComponent<Props> = (props) => {
   )
 }
 
-export default WorkTeaser
+export default Teaser

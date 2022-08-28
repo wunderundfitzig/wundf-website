@@ -2,7 +2,7 @@ import colors from 'lib/colors'
 import { FunctionComponent } from 'react'
 import breakpoints from 'lib/breakpoints'
 import { News, StoryLink } from 'pages/index'
-import WorkTeaser from './work-teaser'
+import WorkTeaser from './teaser'
 
 interface Props {
   newsList: (News | StoryLink)[]

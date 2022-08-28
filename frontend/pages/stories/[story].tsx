@@ -3,9 +3,9 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { PageProps, queryPageData, SiteQueryResult } from 'lib/kirby-query'
 import Navigation from 'components/navigation'
-import WorkStory from 'components/work-story'
+import WorkStory from 'components/story'
 
-export type Work = {
+export type StoryContent = {
   title: string
   teaserText: string
   image: { src: string; width: string; height: string }
@@ -13,7 +13,7 @@ export type Work = {
 }
 
 type Props = {
-  story: Work
+  story: StoryContent
 }
 const Story: NextPage<PageProps<Props>> = (props) => {
   const { story } = props.pageData
