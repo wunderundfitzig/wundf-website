@@ -7,8 +7,8 @@ import Stories from 'components/stories'
 export type StoryInfo = {
   slug: string
   title: string
-  teaserText: string
-  image: { src: string; width: string; height: string }
+  description: string
+  image: { src: string; width: number; height: number }
 }
 
 type Props = {
@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps<
         select: {
           title: true,
           slug: true,
-          teaserText: 'page.teaser_text',
+          description: 'page.teaser_text',
           image: {
             query: 'page.cover.toFile',
             select: { src: 'file.id', width: true, height: true },

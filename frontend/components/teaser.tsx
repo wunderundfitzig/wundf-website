@@ -25,16 +25,22 @@ const Teaser: FunctionComponent<Props> = (props) => {
   return (
     <article className={`teaser ${props.size} ${props.type}`}>
       <div className='text'>
-        <header>
-          <p className='category'>{props.category}</p>
-          <h2>{props.title}</h2>
-        </header>
-        {showDescription && <p>{props.description}</p>}
         <Link href={props.link.href}>
-          <a className='link' target={props.link.target} rel='noreferrer'>
-            {props.link.text}
+          <a target={props.link.target} rel='noreferrer'>
+            <header>
+              <p className='category'>{props.category}</p>
+              <h2>{props.title}</h2>
+            </header>
+            {showDescription && <p>{props.description}</p>}
           </a>
         </Link>
+        {props.type === 'news' && (
+          <Link href={props.link.href}>
+            <a className='link' target={props.link.target} rel='noreferrer'>
+              {props.link.text}
+            </a>
+          </Link>
+        )}
       </div>
 
       <Link href={props.link.href}>
@@ -86,6 +92,10 @@ const Teaser: FunctionComponent<Props> = (props) => {
           overflow-wrap: break-word;
         }
 
+        a {
+          color: inherit;
+        }
+
         .image {
           grid-area: main;
           align-self: start;
@@ -110,6 +120,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
 
         .link {
           font-size: 0.9em;
+          color: ${colors.blue};
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
