@@ -1,19 +1,25 @@
 import React, { FunctionComponent } from 'react'
-import NavigationItem, { Route } from 'components/navigation-item'
+import NavigationItem from 'components/navigation-item'
 import breakpoints from 'lib/breakpoints'
 
-const routes: Route[] = [
-  { href: '/work', label: 'work' },
-  { href: '/skills', label: 'skills' },
-]
+const routes = [
+  { href: '/', name: 'work', label: 'work' },
+  { href: '/skills', name: 'skills', label: 'skills' },
+] as const
 
-const Navigation: FunctionComponent = () => {
+type Props = {
+  activeRouteName?: 'work' | 'skills'
+}
+const Navigation: FunctionComponent<Props> = (props) => {
   return (
     <nav id='main' className='navigation'>
       <ul>
         {routes.map((route) => (
           <li key={route.href}>
-            <NavigationItem route={route} />
+            <NavigationItem
+              route={route}
+              isActive={props.activeRouteName === route.name}
+            />
           </li>
         ))}
       </ul>

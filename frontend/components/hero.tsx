@@ -5,7 +5,10 @@ import Contact from 'components/contact'
 import Navigation from 'components/navigation'
 import breakpoints from 'lib/breakpoints'
 
-const Hero: FunctionComponent = () => {
+type Props = {
+  activeRouteName: 'work' | 'skills'
+}
+const Hero: FunctionComponent<Props> = (props) => {
   return (
     <>
       <section className='hero'>
@@ -19,7 +22,7 @@ const Hero: FunctionComponent = () => {
         <WundFLogo gridArea='logo' />
         <Contact gridArea='contact' />
       </section>
-      <Navigation />
+      <Navigation activeRouteName={props.activeRouteName} />
 
       <style jsx>{`
         .hero {

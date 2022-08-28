@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
-import { Work } from '../pages/work/[story]'
+import { Work } from '../pages/stories/[story]'
 import { publicConfig } from 'lib/config/public-config'
 import KirbyBlocks from './kirby-blocks'
 import colors from 'lib/colors'

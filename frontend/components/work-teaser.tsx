@@ -3,7 +3,7 @@ import Image from 'next/image'
 import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
 import { publicConfig } from 'lib/config/public-config'
-import { News, StoryLink } from 'pages/work'
+import { News, StoryLink } from 'pages/index'
 import Link from 'next/link'
 
 function getLinkProps(
@@ -17,7 +17,7 @@ function getLinkProps(
     }
   }
   return {
-    href: `/work/${news.storySlug}`,
+    href: `/stories/${news.storySlug}`,
     linkText: news.linkText,
   }
 }

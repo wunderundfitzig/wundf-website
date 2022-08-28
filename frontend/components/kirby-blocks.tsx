@@ -34,15 +34,18 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
         switch (block.type) {
           case 'heading': {
             const Heading = block.content.level
-            return <Heading>{block.content.text}</Heading>
+            return <Heading key={block.id}>{block.content.text}</Heading>
           }
           case 'text':
             return (
-              <div dangerouslySetInnerHTML={{ __html: block.content.text }} />
+              <div
+                key={block.id}
+                dangerouslySetInnerHTML={{ __html: block.content.text }}
+              />
             )
           case 'image':
             return (
-              <figure>
+              <figure key={block.id}>
                 <Image
                   src={`${publicConfig.backendURL}/${block.content.image}`}
                   alt={block.content.alt ?? undefined}

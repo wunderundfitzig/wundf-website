@@ -42,7 +42,7 @@ const WorkPage: NextPage<PageProps<Props>> = (props) => {
 
   return (
     <>
-      <Hero />
+      <Hero activeRouteName='work' />
       <Clients />
       <Work newsList={newsList} />
     </>

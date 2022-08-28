@@ -1,25 +1,24 @@
 import React, { FunctionComponent } from 'react'
 import Link from 'next/link'
 import colors from 'lib/colors'
-import { useRouter } from 'next/dist/client/router'
 import breakpoints from 'lib/breakpoints'
 
-export interface Route {
+type Route = {
   href: string
   label: string
 }
 
-interface Props {
+type Props = {
   route: Route
+  isActive: boolean
 }
 const NavigationItem: FunctionComponent<Props> = (props) => {
-  const router = useRouter()
-  const isActive = router.pathname.startsWith(props.route.href)
-
   return (
     <>
       <Link href={props.route.href} scroll={false}>
-        <a className={isActive ? 'active' : undefined}>{props.route.label}</a>
+        <a className={props.isActive ? 'active' : undefined}>
+          {props.route.label}
+        </a>
       </Link>
       <style jsx>{`
         @keyframes scaleY {

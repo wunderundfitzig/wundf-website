@@ -21,9 +21,9 @@ const Story: NextPage<PageProps<Props>> = (props) => {
   return (
     <>
       <Head>
-        <title>wunder & fitzig | {story.title}</title>
+        <title>{story.title} | wunder & fitzig</title>
       </Head>
-      <Navigation />
+      <Navigation activeRouteName='work' />
       <WorkStory story={story} />
     </>
   )

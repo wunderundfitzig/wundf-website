@@ -15,7 +15,7 @@ interface Props {
 const SkillsPage: NextPage<PageProps<Props>> = (props) => {
   return (
     <>
-      <Hero />
+      <Hero activeRouteName='skills' />
       <Creatives creatives={props.pageData.creatives} />
     </>
   )
