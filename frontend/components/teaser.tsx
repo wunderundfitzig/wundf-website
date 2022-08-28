@@ -1,57 +1,44 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
 import { publicConfig } from 'lib/config/public-config'
-import { News, StoryLink } from 'pages/index'
-import Link from 'next/link'
-
-function getLinkProps(
-  news: News | StoryLink
-): { href: string; linkText: string; target?: string } {
-  if (news.type === 'news') {
-    return {
-      href: news.linkURL,
-      linkText: `+ ${news.linkText}`,
-      target: '_blank',
-    }
-  }
-  return {
-    href: `/stories/${news.storySlug}`,
-    linkText: news.linkText,
-  }
-}
 
 type Props = {
-  news: News | StoryLink
+  size: 'small' | 'medium' | 'featured'
+  type: 'news' | 'story-link' | 'story'
+  title: string
+  category: string
+  description: string
+  image: { src: string; width: number; height: number }
+  link: {
+    text: string
+    href: string
+    target?: string
+  }
 }
 const Teaser: FunctionComponent<Props> = (props) => {
-  const image =
-    props.news.type === 'news'
-      ? props.news.image
-      : props.news.image ?? props.news.storyImage
-  const imageUrl = `${publicConfig.backendURL}/${image.src}`
-  const showDescription =
-    props.news.size === 'featured' || props.news.size === 'medium'
-  const { href, target, linkText } = getLinkProps(props.news)
+  const imageUrl = `${publicConfig.backendURL}/${props.image.src}`
+  const showDescription = props.size === 'featured' || props.size === 'medium'
 
   return (
-    <article className={`teaser ${props.news.size} ${props.news.type}`}>
+    <article className={`teaser ${props.size} ${props.type}`}>
       <div className='text'>
         <header>
-          <p className='category'>{props.news.category}</p>
-          <h2>{props.news.title}</h2>
+          <p className='category'>{props.category}</p>
+          <h2>{props.title}</h2>
         </header>
-        {showDescription && <p>{props.news.description}</p>}
-        <Link href={href}>
-          <a className='link' target={target} rel='noreferrer'>
-            {linkText}
+        {showDescription && <p>{props.description}</p>}
+        <Link href={props.link.href}>
+          <a className='link' target={props.link.target} rel='noreferrer'>
+            {props.link.text}
           </a>
         </Link>
       </div>
 
-      <Link href={href}>
-        <a className='image' target={target} rel='noreferrer'>
+      <Link href={props.link.href}>
+        <a className='image' target={props.link.target} rel='noreferrer'>
           <Image
             src={imageUrl}
             layout='fill'

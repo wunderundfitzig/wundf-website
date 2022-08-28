@@ -2,7 +2,30 @@ import colors from 'lib/colors'
 import { FunctionComponent } from 'react'
 import breakpoints from 'lib/breakpoints'
 import { News, StoryLink } from 'pages/index'
-import WorkTeaser from './teaser'
+import Teaser from './teaser'
+
+function getLink(
+  news: News | StoryLink
+): { href: string; text: string; target?: string } {
+  if (news.type === 'news') {
+    return {
+      href: news.linkURL,
+      text: `+ ${news.linkText}`,
+      target: '_blank',
+    }
+  }
+  return {
+    href: `/stories/${news.storySlug}`,
+    text: news.linkText,
+  }
+}
+
+function getImage(
+  news: News | StoryLink
+): { src: string; width: number; height: number } {
+  if (news.type === 'news') return news.image
+  return news.image ?? news.storyImage
+}
 
 interface Props {
   newsList: (News | StoryLink)[]
@@ -12,7 +35,12 @@ const Work: FunctionComponent<Props> = (props) => {
     <section>
       <div className='work-articles'>
         {props.newsList.map((news) => (
-          <WorkTeaser key={news.slug} news={news} />
+          <Teaser
+            {...news}
+            key={news.slug}
+            image={getImage(news)}
+            link={getLink(news)}
+          />
         ))}
       </div>
       <style jsx>{`
