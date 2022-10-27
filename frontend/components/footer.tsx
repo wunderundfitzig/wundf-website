@@ -26,9 +26,7 @@ const Footer: FunctionComponent = () => (
     >
       Instagram
     </a>
-    <Link href='/privacy'>
-      <a>Datenschutz / Impressum</a>
-    </Link>
+    <Link href='/privacy'>Datenschutz / Impressum</Link>
     <style jsx>
       {`
         .footer {

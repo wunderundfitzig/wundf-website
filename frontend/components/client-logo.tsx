@@ -14,12 +14,17 @@ const ClientLogo: FunctionComponent<ClientLogoProps> = (props) => {
   return (
     <>
       <a href={props.url} target='_blank' rel='noopener noreferrer'>
-        <Image layout='intrinsic' {...rest} />
+        <Image {...rest} />
       </a>
       <style jsx>{`
         a {
           width: ${20 * relativeSize}px;
           justify-self: ${props.align};
+        }
+
+        a :global(img) {
+          width: 100%;
+          height: auto;
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {

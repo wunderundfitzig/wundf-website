@@ -25,33 +25,37 @@ const Teaser: FunctionComponent<Props> = (props) => {
   return (
     <article className={`teaser ${props.size} ${props.type}`}>
       <div className='text'>
-        <Link href={props.link.href}>
-          <a target={props.link.target} rel='noreferrer'>
-            <header>
-              <p className='category'>{props.category}</p>
-              <h2>{props.title}</h2>
-            </header>
-            {showDescription && <p>{props.description}</p>}
-          </a>
+        <Link
+          className='plain-link'
+          href={props.link.href}
+          target={props.link.target}
+          rel='noreferrer'
+        >
+          <header>
+            <p className='category'>{props.category}</p>
+            <h2>{props.title}</h2>
+          </header>
+          {showDescription && <p>{props.description}</p>}
         </Link>
         {props.type === 'news' && (
-          <Link href={props.link.href}>
-            <a className='link' target={props.link.target} rel='noreferrer'>
-              {props.link.text}
-            </a>
+          <Link
+            className='link'
+            href={props.link.href}
+            target={props.link.target}
+            rel='noreferrer'
+          >
+            {props.link.text}
           </Link>
         )}
       </div>
 
-      <Link href={props.link.href}>
-        <a className='image' target={props.link.target} rel='noreferrer'>
-          <Image
-            src={imageUrl}
-            layout='fill'
-            objectFit='cover'
-            objectPosition='50% 50%'
-          />
-        </a>
+      <Link
+        className='image-link'
+        href={props.link.href}
+        target={props.link.target}
+        rel='noreferrer'
+      >
+        <Image className='image' alt='' fill src={imageUrl} />
       </Link>
 
       <style jsx>{`
@@ -92,11 +96,11 @@ const Teaser: FunctionComponent<Props> = (props) => {
           overflow-wrap: break-word;
         }
 
-        a {
+        .teaser :global(.plain-link) {
           color: inherit;
         }
 
-        .image {
+        .teaser :global(.image-link) {
           grid-area: main;
           align-self: start;
           position: relative;
@@ -107,7 +111,12 @@ const Teaser: FunctionComponent<Props> = (props) => {
           background-color: ${colors.brownGrey};
         }
 
-        .story-link .link {
+        .teaser :global(.image-link .image) {
+          object-fit: cover;
+          object-position: 50% 50%;
+        }
+
+        .story-link :global(.link) {
           color: ${colors.darkBlue};
           border: 1px solid ${colors.blueGrey};
           text-align: center;
@@ -118,7 +127,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
           font-size: 0.8em;
         }
 
-        .link {
+        .teaser :global(.link) {
           font-size: 0.9em;
           color: ${colors.blue};
         }
@@ -161,8 +170,8 @@ const Teaser: FunctionComponent<Props> = (props) => {
             align-content: start;
           }
 
-          .medium .image,
-          .featured .image {
+          .medium :global(.image-link),
+          .featured :global(.image-link) {
             grid-area: image;
             margin: 0;
           }
@@ -193,13 +202,13 @@ const Teaser: FunctionComponent<Props> = (props) => {
             -moz-osx-font-smoothing: grayscale;
           }
 
-          .story-link .link {
+          .story-link :global(.link) {
             display: block;
             width: 100%;
           }
 
-          .medium.story-link .link,
-          .featured.story-link .link {
+          .medium.story-link :global(.link),
+          .featured.story-link :global(.link) {
             width: auto;
             display: inline-block;
             background-color: ${colors.beige};
@@ -207,8 +216,8 @@ const Teaser: FunctionComponent<Props> = (props) => {
             text-decoration: none;
           }
 
-          .medium .link,
-          .featured .link {
+          .medium :global(.link),
+          .featured :global(.link) {
             color: ${colors.beige};
             -moz-osx-font-smoothing: grayscale;
             text-decoration: underline;

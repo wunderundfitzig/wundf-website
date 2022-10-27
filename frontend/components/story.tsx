@@ -12,12 +12,12 @@ type Props = {
 const Story: FunctionComponent<Props> = (props) => {
   return (
     <article className='story'>
-      <div className='image'>
+      <div className='image-wrapper'>
         <Image
+          fill
+          alt=''
+          className='image'
           src={`${publicConfig.backendURL}/${props.story.image.src}`}
-          layout='fill'
-          objectFit='cover'
-          objectPosition='50% 50%'
         />
       </div>
       <header>
@@ -41,12 +41,17 @@ const Story: FunctionComponent<Props> = (props) => {
           align-items: center;
         }
 
-        .image {
+        .image-wrapper {
           grid-area: image;
           position: relative;
           width: 100%;
           height: 100%;
           background-color: ${colors.brownGrey};
+        }
+
+        .image {
+          object-fit: cover;
+          object-position: 50% 50%;
         }
 
         header {

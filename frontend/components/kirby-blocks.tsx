@@ -48,10 +48,9 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
               <figure key={block.id}>
                 <Image
                   src={`${publicConfig.backendURL}/${block.content.image}`}
-                  alt={block.content.alt ?? undefined}
-                  width={100}
-                  height={100 / block.content.ratio}
-                  layout='responsive'
+                  alt={block.content.alt ?? ''}
+                  width={2000}
+                  height={2000 / block.content.ratio}
                 />
                 <figcaption
                   dangerouslySetInnerHTML={{ __html: block.content.caption }}
@@ -66,6 +65,8 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
         }
 
         figure :global(img) {
+          width: 100%;
+          height: auto;
           background-color: ${colors.brownGrey};
         }
 

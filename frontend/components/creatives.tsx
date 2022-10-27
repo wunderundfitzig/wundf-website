@@ -20,12 +20,16 @@ const Creatives: FunctionComponent<Props> = (props) => {
     <section className='creatives'>
       {creatives.map((person, idx) => (
         <Fragment key={idx}>
-          <div className={`image ${currentSectionIndex === idx && 'active'}`}>
+          <div
+            className={`image-wrapper ${
+              currentSectionIndex === idx && 'active'
+            }`}
+          >
             <Image
+              fill
+              alt=''
+              className='image'
               src={`${publicConfig.backendURL}/${person.image.src}`}
-              layout='fill'
-              objectFit='cover'
-              objectPosition='center'
             />
           </div>
           <div
@@ -52,7 +56,7 @@ const Creatives: FunctionComponent<Props> = (props) => {
           z-index: -1;
         }
 
-        .image {
+        .image-wrapper {
           grid-area: images;
           margin: 0;
           position: sticky;
@@ -66,8 +70,13 @@ const Creatives: FunctionComponent<Props> = (props) => {
           box-shadow: 0 1.4em 5px 0 ${colors.orange};
         }
 
-        .image.active {
+        .image-wrapper.active {
           opacity: 1;
+        }
+
+        .image {
+          object-fit: cover;
+          object-position: center;
         }
 
         .content {
@@ -81,7 +90,8 @@ const Creatives: FunctionComponent<Props> = (props) => {
             grid-template-rows: auto;
             grid-template-areas: 'images' '.';
           }
-          .image {
+
+          .image-wrapper {
             position: sticky;
             top: 0;
             height: 100vh;
@@ -104,7 +114,8 @@ const Creatives: FunctionComponent<Props> = (props) => {
           .creatives {
             grid-template-columns: calc(50% + 50px) 1fr;
           }
-          .image {
+
+          .image-wrapper {
             position: sticky;
             top: 0;
             height: 100vh;
