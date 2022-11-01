@@ -6,6 +6,7 @@ module.exports = {
     domains: ['cms.wunderundfitzig.de'],
   },
   experimental: {
+    appDir: true,
     scrollRestoration: true,
     appDir: true,
   },

@@ -11,38 +11,6 @@ export const getBasicAuthHeader = (
   }
 }
 
-const siteInfoSelect = {
-  address: true,
-  mapsUrl: true,
-  phoneNumber: true,
-}
-
-const metaFieldsSelect = {
-  title: true,
-}
-
-export type MetaFields = {
-  title: string
-}
-
-export type SiteInfo = {
-  address: string
-  mapsUrl: string
-  phoneNumber: string
-  infoMail: string
-  jobMail: string
-  linkedinUrl: string
-  xingUrl: string
-  instagramUrl: string
-}
-
-export type SiteQueryResult<PageQueryResult> = {
-  siteInfo: SiteInfo
-  pageData: MetaFields & PageQueryResult
-}
-
-export type PageProps<PageData> = SiteQueryResult<PageData>
-
 export async function queryBackend(query: {
   query: string
   select?: Record<string, unknown>
@@ -66,23 +34,33 @@ export async function queryBackend(query: {
   return json.result
 }
 
-export async function queryPageData<PageQueryResult>(pageQuery: {
-  query: string
-  select?: Record<string, unknown>
-}): Promise<SiteQueryResult<PageQueryResult>> {
-  const siteQuery = {
+export type SiteInfo = {
+  address: string
+  mapsUrl: string
+  phoneNumber: string
+  // infoMail: string
+  // jobMail: string
+  // linkedinUrl: string
+  // xingUrl: string
+  // instagramUrl: string
+}
+export async function querySiteInfo(): Promise<SiteInfo> {
+  return queryBackend({
     query: 'site',
     select: {
-      ...siteInfoSelect,
-      pageData: {
-        query: pageQuery.query,
-        select: { ...metaFieldsSelect, ...(pageQuery.select ?? {}) },
-      },
+      address: true,
+      mapsUrl: true,
+      phoneNumber: true,
     },
-  }
-  const result = await queryBackend(siteQuery)
-  const { pageData, ...siteInfo } = result as SiteInfo & {
-    pageData: PageQueryResult & MetaFields
-  }
-  return { pageData, siteInfo }
+  }) as Promise<SiteInfo>
+}
+
+export async function queryPageData<T>(pageQuery: {
+  query: string
+  select?: Record<string, unknown>
+}): Promise<{ title: string } & T> {
+  return queryBackend({
+    query: pageQuery.query,
+    select: { title: true, ...(pageQuery.select ?? {}) },
+  }) as Promise<{ title: string } & T>
 }

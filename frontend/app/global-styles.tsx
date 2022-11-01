@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+'use client'
 
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
