@@ -1,4 +1,3 @@
-'use client'
 import React, { FunctionComponent } from 'react'
 import Link from 'next/link'
 import { darkGrey } from 'lib/colors'
@@ -49,7 +48,7 @@ const Footer: FunctionComponent = () => (
           white-space: nowrap;
         }
 
-        a::before {
+        .footer :global(a::before) {
           content: '+ ';
         }
       `}

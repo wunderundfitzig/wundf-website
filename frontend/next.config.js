@@ -7,6 +7,7 @@ module.exports = {
   },
   experimental: {
     scrollRestoration: true,
+    appDir: true,
   },
   async redirects() {
     return [

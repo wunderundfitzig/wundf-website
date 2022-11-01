@@ -1,3 +1,5 @@
+'use client'
+
 import React, { FunctionComponent } from 'react'
 import Link from 'next/link'
 import css from 'styled-jsx/css'
