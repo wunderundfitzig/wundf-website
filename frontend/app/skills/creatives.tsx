@@ -8,7 +8,8 @@ import { useSectionIndexObserver } from 'lib/useSectionIndexObserver'
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
 import { publicConfig } from 'lib/config/public-config'
-import { Creative } from 'app/skills/page'
+
+import { Creative } from './page'
 
 interface Props {
   creatives: Creative[]
@@ -41,7 +42,7 @@ const Creatives: FunctionComponent<Props> = (props) => {
             }}
           >
             <h2>{person.title}</h2>
-            <ReactMarkdown>{person.text}</ReactMarkdown>
+            <ReactMarkdown>{person.text}</ReactMarkdown>{' '}
           </div>
         </Fragment>
       ))}
@@ -76,7 +77,7 @@ const Creatives: FunctionComponent<Props> = (props) => {
           opacity: 1;
         }
 
-        .image {
+        .image-wrapper :global(.image) {
           object-fit: cover;
           object-position: center;
         }

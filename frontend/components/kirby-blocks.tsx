@@ -1,4 +1,6 @@
-import { Fragment, FunctionComponent } from 'react'
+'use client'
+
+import { FunctionComponent } from 'react'
 import Image from 'next/image'
 import { publicConfig } from 'lib/config/public-config'
 import colors from 'lib/colors'
@@ -47,6 +49,7 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
             return (
               <figure key={block.id}>
                 <Image
+                  className='image'
                   src={`${publicConfig.backendURL}/${block.content.image}`}
                   alt={block.content.alt ?? ''}
                   width={2000}
@@ -64,7 +67,7 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
           margin: 2em -2em;
         }
 
-        figure :global(img) {
+        figure :global(.image) {
           width: 100%;
           height: auto;
           background-color: ${colors.brownGrey};

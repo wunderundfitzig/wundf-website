@@ -1,10 +1,11 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
-import { StoryContent } from '../pages/stories/[story]'
 import { publicConfig } from 'lib/config/public-config'
-import KirbyBlocks from './kirby-blocks'
 import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
+
+import KirbyBlocks from 'components/kirby-blocks'
+import { StoryContent } from './page'
 
 type Props = {
   story: StoryContent
@@ -49,7 +50,7 @@ const Story: FunctionComponent<Props> = (props) => {
           background-color: ${colors.brownGrey};
         }
 
-        .image {
+        .image-wrapper :global(.image) {
           object-fit: cover;
           object-position: 50% 50%;
         }

@@ -1,3 +1,5 @@
+'use client'
+
 import React, { FunctionComponent } from 'react'
 
 import WundFLogo from 'components/wundf-logo'

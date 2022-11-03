@@ -1,13 +1,15 @@
+'use client'
+
 import React, { FunctionComponent } from 'react'
 import colors from 'lib/colors'
 
-import ClientLogo from 'components/client-logo'
-import rbbSVG from 'components/client-logos/rbb.svg'
-import heinrichboellSVG from 'components/client-logos/heinrichboell.svg'
-import asertoSVG from 'components/client-logos/aserto.svg'
-import johanniterSVG from 'components/client-logos/johanniter.svg'
-import emsSVG from 'components/client-logos/ems.svg'
-import dcbPNG from 'components/client-logos/dcb.png'
+import ClientLogo from './client-logo'
+import rbbSVG from './client-logos/rbb.svg'
+import heinrichboellSVG from './client-logos/heinrichboell.svg'
+import asertoSVG from './client-logos/aserto.svg'
+import johanniterSVG from './client-logos/johanniter.svg'
+import emsSVG from './client-logos/ems.svg'
+import dcbPNG from './client-logos/dcb.png'
 
 const clients = [
   {

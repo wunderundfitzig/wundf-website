@@ -1,3 +1,5 @@
+'use client'
+
 import React, { FunctionComponent } from 'react'
 import Link from 'next/link'
 import { darkGrey } from 'lib/colors'

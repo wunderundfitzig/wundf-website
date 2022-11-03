@@ -1,5 +1,5 @@
 import React from 'react'
-import Head from 'next/head'
+// import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
 import { queryPageData } from 'lib/kirby-query'
 import Navigation from 'components/navigation'

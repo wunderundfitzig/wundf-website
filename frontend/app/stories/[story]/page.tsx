@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import { queryPageData } from 'lib/kirby-query'
 import Navigation from 'components/navigation'
-import WorkStory from 'components/story'
+import WorkStory from './story'
 
 export type StoryContent = {
   title: string
@@ -15,7 +15,6 @@ type PageData = {
   story: StoryContent
 }
 const Story = async ({ params }: { params: { story: string } }) => {
-  console.log(params)
   const { story } = await queryPageData<PageData>({
     query: `page("work/${params.story}")`,
     select: {

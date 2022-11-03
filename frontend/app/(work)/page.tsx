@@ -1,8 +1,9 @@
 import React from 'react'
-import Hero from 'components/hero'
-import Work from 'components/work'
-import Clients from 'components/clients'
 import { queryPageData } from 'lib/kirby-query'
+
+import Hero from 'components/hero'
+import Work from './work'
+import Clients from './clients'
 
 export type News = {
   type: 'news'
@@ -30,7 +31,7 @@ export type StoryLink = {
   storyImage: { src: string; width: number; height: number }
 }
 
-interface PageData {
+type PageData = {
   news: News[]
   stories: StoryLink[]
 }

@@ -1,12 +1,17 @@
-import colors from 'lib/colors'
+'use client'
+
 import { FunctionComponent } from 'react'
 import breakpoints from 'lib/breakpoints'
-import { News, StoryLink } from 'pages/index'
-import Teaser from './teaser'
+import colors from 'lib/colors'
 
-function getLink(
-  news: News | StoryLink
-): { href: string; text: string; target?: string } {
+import Teaser from 'components/teaser'
+import { News, StoryLink } from './page'
+
+function getLink(news: News | StoryLink): {
+  href: string
+  text: string
+  target?: string
+} {
   if (news.type === 'news') {
     return {
       href: news.linkURL,
@@ -20,9 +25,11 @@ function getLink(
   }
 }
 
-function getImage(
-  news: News | StoryLink
-): { src: string; width: number; height: number } {
+function getImage(news: News | StoryLink): {
+  src: string
+  width: number
+  height: number
+} {
   if (news.type === 'news') return news.image
   return news.image ?? news.storyImage
 }

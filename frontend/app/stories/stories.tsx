@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react'
-import { StoryInfo } from 'pages/stories'
-import Teaser from './teaser'
+import Teaser from 'components/teaser'
 import colors from 'lib/colors'
+import { StoryInfo } from './page'
 
 interface Props {
   stories: StoryInfo[]
