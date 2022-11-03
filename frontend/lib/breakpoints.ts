@@ -4,4 +4,5 @@ export const m = { min: 550, max: 799 }
 export const l = { min: 800, max: 1023 }
 export const xl = { min: 1024 }
 
-export default { s, sm, m, l, xl }
+const allBreakpoints = { s, sm, m, l, xl }
+export default allBreakpoints

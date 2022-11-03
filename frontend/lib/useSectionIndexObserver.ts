@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { throttle } from 'lodash'
 
 function getSectionIndexFrom(sectionArray: Array<any>) {
@@ -17,22 +17,20 @@ export function useSectionIndexObserver() {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0)
   const sectionRefs = useRef<Array<any>>([])
 
-  const scrollHandler = useRef(
-    throttle(() => {
+  useEffect(() => {
+    const scrollHandler = throttle(() => {
       // if (window.innerWidth < breakpoints.m.min) return
 
       const sectionIndex = getSectionIndexFrom(sectionRefs.current)
       setCurrentSectionIndex(sectionIndex)
     }, 100)
-  )
 
-  useEffect(() => {
-    scrollHandler.current()
-    window.addEventListener('scroll', scrollHandler.current)
+    scrollHandler()
+    window.addEventListener('scroll', scrollHandler)
     return () => {
-      window.removeEventListener('scroll', scrollHandler.current)
+      window.removeEventListener('scroll', scrollHandler)
     }
-  })
+  }, [])
 
   return { sectionRefs, currentSectionIndex }
 }

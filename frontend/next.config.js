@@ -1,4 +1,9 @@
-module.exports = {
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+module.exports = withBundleAnalyzer({
+  reactStrictMode: true,
   publicRuntimeConfig: {
     backendURL: process.env.BACKEND_URL,
   },
@@ -24,4 +29,4 @@ module.exports = {
       },
     ]
   },
-}
+})

@@ -10,7 +10,7 @@ export const red = '#9f223c'
 // export const magenta = '#e5007c'
 export const orange = '#FF5151'
 
-export default {
+const allColors = {
   black,
   beige,
   darkGrey,
@@ -22,3 +22,5 @@ export default {
   red,
   orange,
 }
+
+export default allColors

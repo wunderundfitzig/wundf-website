@@ -8,7 +8,7 @@
     "build": "next build",
     "export": "npm run build && next export -o ../html",
     "start": "NODE_ENV=production next start",
-    "lint": "eslint . --ext .ts,.tsx"
+    "lint": "next lint"
   },
   "husky": {
     "hooks": {
@@ -36,9 +36,12 @@
     "sharp": "^0.31.1"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.0.1",
     "@types/lodash": "^4.14.186",
     "@types/node": "^16.18.2",
     "@types/react": "^18.0.24",
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.1",
     "husky": "^4.2.3",
     "prettier": "^2.7.1",
     "pretty-quick": "^3.1.3",
