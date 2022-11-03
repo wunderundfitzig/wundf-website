@@ -1,7 +1,6 @@
-import { GetStaticProps, NextPage } from 'next'
 import Hero from 'components/hero'
 import Creatives from 'components/creatives'
-import { PageProps, queryPageData, SiteQueryResult } from 'lib/kirby-query'
+import { queryPageData } from 'lib/kirby-query'
 
 export type Creative = {
   title: string
@@ -9,22 +8,12 @@ export type Creative = {
   text: string
 }
 
-interface Props {
+interface PageData {
   creatives: Creative[]
 }
-const SkillsPage: NextPage<PageProps<Props>> = (props) => {
-  return (
-    <>
-      <Hero activeRouteName='skills' />
-      <Creatives creatives={props.pageData.creatives} />
-    </>
-  )
-}
 
-export const getStaticProps: GetStaticProps<
-  SiteQueryResult<Props>
-> = async () => {
-  const result = await queryPageData<Props>({
+const SkillsPage = async () => {
+  const pageData = await queryPageData<PageData>({
     query: 'page("creatives")',
     select: {
       creatives: {
@@ -41,10 +30,12 @@ export const getStaticProps: GetStaticProps<
     },
   })
 
-  return {
-    props: result,
-    revalidate: 1,
-  }
+  return (
+    <>
+      <Hero activeRouteName='skills' />
+      <Creatives creatives={pageData.creatives} />
+    </>
+  )
 }
 
 export default SkillsPage

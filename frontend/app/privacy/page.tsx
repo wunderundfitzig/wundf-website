@@ -5,7 +5,7 @@ import { queryPageData } from 'lib/kirby-query'
 import Navigation from 'components/navigation'
 
 const Privacy = async () => {
-  const queryResult = await queryPageData<{ content: string }>({
+  const pageData = await queryPageData<{ content: string }>({
     query: 'page("privacy")',
     select: {
       content: 'page.content.markdown_content',
@@ -14,13 +14,13 @@ const Privacy = async () => {
 
   return (
     <>
-      <Head>
-        <title>wunder & fitzig | Datenschutz | Impressum</title>
-      </Head>
+      {/* <Head>
+        <title>{'wunder & fitzig | Datenschutz | Impressum'}</title>
+      </Head> */}
       <Navigation />
 
       <div className='text-block'>
-        <ReactMarkdown>{queryResult.content}</ReactMarkdown>
+        <ReactMarkdown>{pageData.content}</ReactMarkdown>
       </div>
       <style jsx>{`
         .text-block {

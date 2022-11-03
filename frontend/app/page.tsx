@@ -1,9 +1,8 @@
-import { GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import Hero from 'components/hero'
 import Work from 'components/work'
 import Clients from 'components/clients'
-import { PageProps, queryPageData, SiteQueryResult } from 'lib/kirby-query'
+import { queryPageData } from 'lib/kirby-query'
 
 export type News = {
   type: 'news'
@@ -31,28 +30,12 @@ export type StoryLink = {
   storyImage: { src: string; width: number; height: number }
 }
 
-interface Props {
+interface PageData {
   news: News[]
   stories: StoryLink[]
 }
-const WorkPage: NextPage<PageProps<Props>> = (props) => {
-  const newsList = [...props.pageData.news, ...props.pageData.stories].sort(
-    (a, b) => a.order - b.order
-  )
-
-  return (
-    <>
-      <Hero activeRouteName='work' />
-      <Clients />
-      <Work newsList={newsList} />
-    </>
-  )
-}
-
-export const getStaticProps: GetStaticProps<
-  SiteQueryResult<Props>
-> = async () => {
-  const result = await queryPageData<Props>({
+const WorkPage = async () => {
+  const pageData = await queryPageData<PageData>({
     query: 'page("news")',
     select: {
       news: {
@@ -97,11 +80,17 @@ export const getStaticProps: GetStaticProps<
       },
     },
   })
+  const newsList = [...pageData.news, ...pageData.stories].sort(
+    (a, b) => a.order - b.order
+  )
 
-  return {
-    props: result,
-    revalidate: 1,
-  }
+  return (
+    <>
+      <Hero activeRouteName='work' />
+      <Clients />
+      <Work newsList={newsList} />
+    </>
+  )
 }
 
 export default WorkPage

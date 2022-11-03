@@ -1,3 +1,5 @@
+'use client'
+
 import React, { Fragment, FunctionComponent } from 'react'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
@@ -6,7 +8,7 @@ import { useSectionIndexObserver } from 'lib/useSectionIndexObserver'
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
 import { publicConfig } from 'lib/config/public-config'
-import { Creative } from 'pages/skills'
+import { Creative } from 'app/skills/page'
 
 interface Props {
   creatives: Creative[]

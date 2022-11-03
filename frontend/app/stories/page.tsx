@@ -1,6 +1,5 @@
 import React from 'react'
-import { GetStaticProps, NextPage } from 'next'
-import { PageProps, queryPageData, SiteQueryResult } from 'lib/kirby-query'
+import { queryPageData } from 'lib/kirby-query'
 import Navigation from 'components/navigation'
 import Stories from 'components/stories'
 
@@ -11,24 +10,11 @@ export type StoryInfo = {
   image: { src: string; width: number; height: number }
 }
 
-type Props = {
+type PageData = {
   stories: StoryInfo[]
 }
-const StoriesPage: NextPage<PageProps<Props>> = (props) => {
-  const { stories } = props.pageData
-
-  return (
-    <>
-      <Navigation activeRouteName='work' />
-      <Stories stories={stories} />
-    </>
-  )
-}
-
-export const getStaticProps: GetStaticProps<
-  SiteQueryResult<Props>
-> = async () => {
-  const result = await queryPageData<Props>({
+const StoriesPage = async () => {
+  const { stories } = await queryPageData<PageData>({
     query: `page("work")`,
     select: {
       stories: {
@@ -46,10 +32,12 @@ export const getStaticProps: GetStaticProps<
     },
   })
 
-  return {
-    props: result,
-    revalidate: 1,
-  }
+  return (
+    <>
+      <Navigation activeRouteName='work' />
+      <Stories stories={stories} />
+    </>
+  )
 }
 
 export default StoriesPage
