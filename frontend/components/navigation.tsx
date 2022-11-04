@@ -1,3 +1,5 @@
+'use client'
+
 import React, { FunctionComponent } from 'react'
 import NavigationItem from 'components/navigation-item'
 import breakpoints from 'lib/breakpoints'
