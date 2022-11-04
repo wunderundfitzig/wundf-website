@@ -1,4 +1,5 @@
 import { getErrorString, isFailure, object, string } from 'fefe'
+
 const validateConfig = object({
   backendUser: string(),
   backendPassword: string(),

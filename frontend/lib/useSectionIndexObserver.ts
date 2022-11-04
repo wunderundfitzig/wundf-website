@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
-import { throttle } from 'lodash'
+import { useState, useEffect, useRef } from 'react'
+import throttle from 'lodash/throttle'
 
 function getSectionIndexFrom(sectionArray: Array<any>) {
   const newSectionIndex = sectionArray
