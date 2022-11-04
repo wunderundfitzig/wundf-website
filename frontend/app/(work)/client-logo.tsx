@@ -12,17 +12,30 @@ type ClientLogoProps = {
   align: 'left' | 'right' | 'center'
 }
 const ClientLogo: FunctionComponent<ClientLogoProps> = (props) => {
-  const { relativeSize, ...rest } = props
+  const { relativeSize, align, ...rest } = props
   return (
     <>
-      <a href={props.url} target='_blank' rel='noopener noreferrer'>
+      <a
+        href={props.url}
+        className={align}
+        target='_blank'
+        rel='noopener noreferrer'
+      >
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image {...rest} />
       </a>
       <style jsx>{`
         a {
           width: ${20 * relativeSize}px;
-          justify-self: ${props.align};
+        }
+        a.left {
+          justify-self: left;
+        }
+        a.center {
+          justify-self: center;
+        }
+        a.right {
+          justify-self: right;
         }
 
         a :global(img) {

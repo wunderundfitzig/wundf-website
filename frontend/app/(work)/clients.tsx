@@ -50,10 +50,7 @@ const clients = [
   },
 ]
 
-interface Props {
-  gridArea?: string
-}
-const Clients: FunctionComponent<Props> = (props) => {
+const Clients: FunctionComponent = () => {
   return (
     <div className='clients'>
       <div className='client-logos'>
@@ -70,7 +67,6 @@ const Clients: FunctionComponent<Props> = (props) => {
       </div>
       <style jsx>{`
         .clients {
-          grid-area: ${props.gridArea};
           background-color: ${colors.orange};
           padding: 3.2em 0 2.5em;
         }
@@ -86,18 +82,6 @@ const Clients: FunctionComponent<Props> = (props) => {
           grid-template-rows: min-content min-content;
           justify-content: space-between;
           grid-gap: 1em;
-        }
-
-        a {
-          width: 100%;
-          text-align: left;
-        }
-
-        a:nth-child(3n - 1) {
-          text-align: center;
-        }
-        a:nth-child(3n) {
-          text-align: right;
         }
 
         @media (min-width: 650px) {
