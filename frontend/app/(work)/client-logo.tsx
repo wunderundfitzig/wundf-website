@@ -1,3 +1,5 @@
+'use client'
+
 import { FunctionComponent } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import breakpoints from 'lib/breakpoints'
@@ -14,6 +16,7 @@ const ClientLogo: FunctionComponent<ClientLogoProps> = (props) => {
   return (
     <>
       <a href={props.url} target='_blank' rel='noopener noreferrer'>
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image {...rest} />
       </a>
       <style jsx>{`

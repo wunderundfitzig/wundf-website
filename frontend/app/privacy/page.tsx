@@ -1,5 +1,4 @@
 import React from 'react'
-// import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
 import { queryPageData } from 'lib/kirby-query'
 import Navigation from 'components/navigation'
@@ -14,9 +13,6 @@ const Privacy = async () => {
 
   return (
     <>
-      {/* <Head>
-        <title>{'wunder & fitzig | Datenschutz | Impressum'}</title>
-      </Head> */}
       <Navigation />
 
       <div className='text-block'>

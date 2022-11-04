@@ -1,37 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
-import { queryPageData } from 'lib/kirby-query'
 import Navigation from 'components/navigation'
 import WorkStory from './story'
+import { fetchStory } from './fetch-story'
 
-export type StoryContent = {
-  title: string
-  teaserText: string
-  image: { src: string; width: string; height: string }
-  content: any
-}
-
-type PageData = {
-  story: StoryContent
-}
 const Story = async ({ params }: { params: { story: string } }) => {
-  const { story } = await queryPageData<PageData>({
-    query: `page("work/${params.story}")`,
-    select: {
-      story: {
-        query: 'page',
-        select: {
-          title: true,
-          teaserText: 'page.teaser_text',
-          content: 'page.main_content.toBlocks',
-          image: {
-            query: 'page.cover.toFile',
-            select: { src: 'file.id', width: true, height: true },
-          },
-        },
-      },
-    },
-  })
+  const story = await fetchStory(params.story)
 
   return (
     <>
