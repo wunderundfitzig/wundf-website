@@ -5,7 +5,7 @@ import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
 
 import KirbyBlocks from 'components/kirby-blocks'
-import { StoryContent } from './page'
+import { StoryContent } from './fetch-story'
 
 type Props = {
   story: StoryContent
