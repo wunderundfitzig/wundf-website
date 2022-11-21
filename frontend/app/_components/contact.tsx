@@ -1,5 +1,5 @@
-import breakpoints from 'app/(lib)/breakpoints'
-import colors from 'app/(lib)/colors'
+import breakpoints from 'app/_lib/breakpoints'
+import colors from 'app/_lib/colors'
 import { FunctionComponent } from 'react'
 
 interface Props {

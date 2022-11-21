@@ -2,9 +2,9 @@
 
 import React, { Fragment, FunctionComponent } from 'react'
 
-import { useSectionIndexObserver } from 'app/(lib)/useSectionIndexObserver'
-import breakpoints from 'app/(lib)/breakpoints'
-import colors from 'app/(lib)/colors'
+import { useSectionIndexObserver } from 'app/_lib/useSectionIndexObserver'
+import breakpoints from 'app/_lib/breakpoints'
+import colors from 'app/_lib/colors'
 
 import { ReactElement } from 'react-markdown/lib/react-markdown'
 

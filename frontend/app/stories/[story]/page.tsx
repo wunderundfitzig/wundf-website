@@ -1,8 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
-import Navigation from 'app/(components)/navigation'
-import WorkStory from './(components)/story'
-import { fetchStory } from './(components)/fetch-story'
+import Navigation from 'app/_components/navigation'
+import WorkStory from './_components/story'
+import { fetchStory } from './_components/fetch-story'
 
 const Story = async ({ params }: { params: { story: string } }) => {
   const story = await fetchStory(params.story)

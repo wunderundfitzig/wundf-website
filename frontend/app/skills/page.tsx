@@ -1,6 +1,6 @@
-import { queryPageData } from 'app/(lib)/kirby-query'
-import Hero from 'app/(components)/hero'
-import Creatives from './(components)/creatives'
+import { queryPageData } from 'app/_lib/kirby-query'
+import Hero from 'app/_components/hero'
+import Creatives from './_components/creatives'
 
 export type Creative = {
   title: string

@@ -1,4 +1,4 @@
-import { queryPageData } from 'app/(lib)/kirby-query'
+import { queryPageData } from 'app/_lib/kirby-query'
 
 export type StoryContent = {
   title: string

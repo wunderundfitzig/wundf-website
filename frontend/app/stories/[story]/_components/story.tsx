@@ -2,11 +2,11 @@
 
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
-import { publicConfig } from 'app/(lib)/config/public-config'
-import colors from 'app/(lib)/colors'
-import breakpoints from 'app/(lib)/breakpoints'
+import { publicConfig } from 'app/_lib/config/public-config'
+import colors from 'app/_lib/colors'
+import breakpoints from 'app/_lib/breakpoints'
 
-import KirbyBlocks from 'app/(components)/kirby-blocks'
+import KirbyBlocks from 'app/_components/kirby-blocks'
 import { StoryContent } from './fetch-story'
 
 type Props = {

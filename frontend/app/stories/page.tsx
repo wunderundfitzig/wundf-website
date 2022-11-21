@@ -1,7 +1,7 @@
 import React from 'react'
-import { queryPageData } from 'app/(lib)/kirby-query'
-import Navigation from 'app/(components)/navigation'
-import Stories from './(components)/stories'
+import { queryPageData } from 'app/_lib/kirby-query'
+import Navigation from 'app/_components/navigation'
+import Stories from './_components/stories'
 
 export type StoryInfo = {
   slug: string
