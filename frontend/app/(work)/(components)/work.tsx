@@ -4,8 +4,8 @@ import { FunctionComponent } from 'react'
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
 
-import Teaser from 'components/teaser'
-import { News, StoryLink } from './page'
+import Teaser from 'app/(components)/teaser'
+import { News, StoryLink } from '../page'
 
 function getLink(news: News | StoryLink): {
   href: string

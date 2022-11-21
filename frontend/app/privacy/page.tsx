@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import { queryPageData } from 'lib/kirby-query'
-import Navigation from 'components/navigation'
-import TextBlock from './text-block'
+import Navigation from 'app/(components)/navigation'
+import TextBlock from './(components)/text-block'
 
 const Privacy = async () => {
   const pageData = await queryPageData<{ content: string }>({

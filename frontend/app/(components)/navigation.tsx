@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FunctionComponent } from 'react'
-import NavigationItem from 'components/navigation-item'
+import NavigationItem from 'app/(components)/navigation-item'
 import breakpoints from 'lib/breakpoints'
 
 const routes = [

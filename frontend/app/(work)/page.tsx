@@ -1,9 +1,9 @@
 import React from 'react'
 import { queryPageData } from 'lib/kirby-query'
 
-import Hero from 'components/hero'
-import Work from './work'
-import Clients from './clients'
+import Hero from 'app/(components)/hero'
+import Work from './(components)/work'
+import Clients from './(components)/clients'
 
 export type News = {
   type: 'news'

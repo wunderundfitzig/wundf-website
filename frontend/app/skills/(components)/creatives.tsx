@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown'
 
 import { publicConfig } from 'lib/config/public-config'
 
-import { Creative } from './page'
+import { Creative } from '../page'
 import SectionObserver from './section-observer'
 
 interface Props {
