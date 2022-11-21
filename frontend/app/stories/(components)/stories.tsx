@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react'
 import Teaser from 'app/(components)/teaser'
-import colors from 'lib/colors'
+import colors from 'app/(lib)/colors'
 import { StoryInfo } from '../page'
 
 interface Props {

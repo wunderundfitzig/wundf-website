@@ -1,4 +1,4 @@
-import { queryPageData } from 'lib/kirby-query'
+import { queryPageData } from 'app/(lib)/kirby-query'
 import Hero from 'app/(components)/hero'
 import Creatives from './(components)/creatives'
 

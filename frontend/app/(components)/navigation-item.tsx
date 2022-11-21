@@ -3,8 +3,8 @@
 import React, { FunctionComponent } from 'react'
 import Link from 'next/link'
 import css from 'styled-jsx/css'
-import colors from 'lib/colors'
-import breakpoints from 'lib/breakpoints'
+import colors from 'app/(lib)/colors'
+import breakpoints from 'app/(lib)/breakpoints'
 
 type Route = {
   href: string

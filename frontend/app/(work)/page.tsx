@@ -1,5 +1,5 @@
 import React from 'react'
-import { queryPageData } from 'lib/kirby-query'
+import { queryPageData } from 'app/(lib)/kirby-query'
 
 import Hero from 'app/(components)/hero'
 import Work from './(components)/work'

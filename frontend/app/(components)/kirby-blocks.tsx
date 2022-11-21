@@ -2,8 +2,8 @@
 
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
-import { publicConfig } from 'lib/config/public-config'
-import colors from 'lib/colors'
+import { publicConfig } from 'app/(lib)/config/public-config'
+import colors from 'app/(lib)/colors'
 
 type HeadingBlock = {
   type: 'heading'

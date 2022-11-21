@@ -1,5 +1,5 @@
 import React from 'react'
-import { queryPageData } from 'lib/kirby-query'
+import { queryPageData } from 'app/(lib)/kirby-query'
 import Navigation from 'app/(components)/navigation'
 import Stories from './(components)/stories'
 

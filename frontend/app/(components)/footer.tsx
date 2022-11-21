@@ -2,7 +2,7 @@
 
 import React, { FunctionComponent } from 'react'
 import Link from 'next/link'
-import { darkGrey } from 'lib/colors'
+import { darkGrey } from 'app/(lib)/colors'
 
 // TODO maybe get this link list from the backend
 const Footer: FunctionComponent = () => (

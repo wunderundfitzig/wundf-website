@@ -1,8 +1,8 @@
 'use client'
 
 import { FunctionComponent } from 'react'
-import breakpoints from 'lib/breakpoints'
-import colors from 'lib/colors'
+import breakpoints from 'app/(lib)/breakpoints'
+import colors from 'app/(lib)/colors'
 
 import Teaser from 'app/(components)/teaser'
 import { News, StoryLink } from '../page'

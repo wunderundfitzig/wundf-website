@@ -2,7 +2,7 @@
 
 import React, { FunctionComponent } from 'react'
 import NavigationItem from 'app/(components)/navigation-item'
-import breakpoints from 'lib/breakpoints'
+import breakpoints from 'app/(lib)/breakpoints'
 
 const routes = [
   { href: '/', name: 'work', label: 'work' },

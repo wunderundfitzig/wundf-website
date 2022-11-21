@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 
-import { publicConfig } from 'lib/config/public-config'
+import { publicConfig } from 'app/(lib)/config/public-config'
 
 import { Creative } from '../page'
 import SectionObserver from './section-observer'
