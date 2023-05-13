@@ -25,6 +25,7 @@ export async function queryBackend(query: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(query),
+    next: { revalidate: 10 },
   })
   if (result.status >= 300) {
     console.error(result)
