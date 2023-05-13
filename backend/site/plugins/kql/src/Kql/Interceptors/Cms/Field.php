@@ -6,47 +6,38 @@ use Kirby\Kql\Interceptors\Interceptor;
 
 class Field extends Interceptor
 {
-	public const CLASS_ALIAS = 'field';
+    const CLASS_ALIAS = 'field';
 
-	public function __call($method, array $args = [])
-	{
-		if ($this->isAllowedMethod($method) === true) {
-			return $this->object->$method(...$args);
-		}
+    public function __call($method, array $args = [])
+    {
+        if ($this->isAllowedMethod($method) === true) {
+            return $this->object->$method(...$args);
+        }
 
-		// field methods
-		$methods = array_keys($this->object::$methods);
-		$method  = strtolower($method);
+        $methods = array_keys($this->object::$methods);
+        $method  = strtolower($method);
 
-		if (in_array($method, $methods) === true) {
-			return $this->object->$method(...$args);
-		}
+        if (in_array($method, $methods) === true) {
+            return $this->object->$method(...$args);
+        }
 
-		// aliases
-		$aliases = array_keys($this->object::$aliases);
-		$alias   = strtolower($method);
+        $this->forbiddenMethod($method);
+    }
 
-		if (in_array($alias, $aliases) === true) {
-			return $this->object->$method(...$args);
-		}
+    public function allowedMethods(): array
+    {
+        return [
+            'exists',
+            'isEmpty',
+            'isNotEmpty',
+            'key',
+            'or',
+            'value'
+        ];
+    }
 
-		$this->forbiddenMethod($method);
-	}
-
-	public function allowedMethods(): array
-	{
-		return [
-			'exists',
-			'isEmpty',
-			'isNotEmpty',
-			'key',
-			'or',
-			'value'
-		];
-	}
-
-	public function toResponse()
-	{
-		return $this->object->toString();
-	}
+    public function toResponse()
+    {
+        return $this->object->toString();
+    }
 }

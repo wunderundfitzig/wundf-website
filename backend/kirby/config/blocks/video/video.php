@@ -1,9 +1,5 @@
-<?php
-use Kirby\Cms\Html;
-
-/** @var \Kirby\Cms\Block $block */
-?>
-<?php if ($video = Html::video($block->url())): ?>
+<?php /** @var \Kirby\Cms\Block $block */ ?>
+<?php if ($video = video($block->url())): ?>
 <figure>
   <?= $video ?>
   <?php if ($block->caption()->isNotEmpty()): ?>

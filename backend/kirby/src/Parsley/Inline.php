@@ -2,10 +2,8 @@
 
 namespace Kirby\Parsley;
 
-use DOMComment;
 use DOMNode;
 use DOMNodeList;
-use DOMText;
 use Kirby\Toolkit\Html;
 
 /**
@@ -17,130 +15,161 @@ use Kirby\Toolkit\Html;
  * @package   Kirby Parsley
  * @author    Bastian Allgeier <bastian@getkirby.com>,
  * @link      https://getkirby.com
- * @copyright Bastian Allgeier
+ * @copyright Bastian Allgeier GmbH
  * @license   https://getkirby.com/license
  */
 class Inline
 {
-	protected string $html = '';
-	protected array $marks = [];
+    /**
+     * @var string
+     */
+    protected $html = '';
 
-	public function __construct(DOMNode $node, array $marks = [])
-	{
-		$this->createMarkRules($marks);
-		$this->html = trim(static::parseNode($node, $this->marks) ?? '');
-	}
+    /**
+     * @var array
+     */
+    protected $marks = [];
 
-	/**
-	 * Loads all mark rules
-	 */
-	protected function createMarkRules(array $marks): array
-	{
-		foreach ($marks as $mark) {
-			$this->marks[$mark['tag']] = $mark;
-		}
+    /**
+     * @param \DOMNode $node
+     * @param array $marks
+     */
+    public function __construct(DOMNode $node, array $marks = [])
+    {
+        $this->createMarkRules($marks);
+        $this->html = trim(static::parseNode($node, $this->marks));
+    }
 
-		return $this->marks;
-	}
+    /**
+     * Loads all mark rules
+     *
+     * @param array $marks
+     * @return array
+     */
+    protected function createMarkRules(array $marks)
+    {
+        foreach ($marks as $mark) {
+            $this->marks[$mark['tag']] = $mark;
+        }
 
-	/**
-	 * Get all allowed attributes for a DOMNode
-	 * as clean array
-	 */
-	public static function parseAttrs(DOMNode $node, array $marks = []): array
-	{
-		$attrs    = [];
-		$mark     = $marks[$node->tagName];
-		$defaults = $mark['defaults'] ?? [];
+        return $this->marks;
+    }
 
-		foreach ($mark['attrs'] ?? [] as $attr) {
-			if ($node->hasAttribute($attr)) {
-				$attrs[$attr] = $node->getAttribute($attr);
-			} else {
-				$attrs[$attr] = $defaults[$attr] ?? null;
-			}
-		}
+    /**
+     * Get all allowed attributes for a DOMNode
+     * as clean array
+     *
+     * @param DOMNode $node
+     * @param array $marks
+     * @return array
+     */
+    public static function parseAttrs(DOMNode $node, array $marks = []): array
+    {
+        $attrs    = [];
+        $mark     = $marks[$node->tagName];
+        $defaults = $mark['defaults'] ?? [];
 
-		return $attrs;
-	}
+        foreach ($mark['attrs'] ?? [] as $attr) {
+            if ($node->hasAttribute($attr)) {
+                $attrs[$attr] = $node->getAttribute($attr);
+            } else {
+                $attrs[$attr] = $defaults[$attr] ?? null;
+            }
+        }
 
-	/**
-	 * Parses all children and creates clean HTML
-	 * for each of them.
-	 */
-	public static function parseChildren(DOMNodeList $children, array $marks): string
-	{
-		$html = '';
-		foreach ($children as $child) {
-			$html .= static::parseNode($child, $marks);
-		}
-		return $html;
-	}
+        return $attrs;
+    }
 
-	/**
-	 * Go through all child elements and create
-	 * clean inner HTML for them
-	 */
-	public static function parseInnerHtml(DOMNode $node, array $marks = []): string|null
-	{
-		$html = static::parseChildren($node->childNodes, $marks);
+    /**
+     * Parses all children and creates clean HTML
+     * for each of them.
+     *
+     * @param \DOMNodeList $children
+     * @param array $marks
+     * @return string
+     */
+    public static function parseChildren(DOMNodeList $children, array $marks): string
+    {
+        $html = '';
+        foreach ($children as $child) {
+            $html .= static::parseNode($child, $marks);
+        }
+        return $html;
+    }
 
-		// trim the inner HTML for paragraphs
-		if ($node->tagName === 'p') {
-			$html = trim($html);
-		}
+    /**
+     * Go through all child elements and create
+     * clean inner HTML for them
+     *
+     * @param DOMNode $node
+     * @return string|null
+     */
+    public static function parseInnerHtml(DOMNode $node, array $marks = []): ?string
+    {
+        $html = static::parseChildren($node->childNodes, $marks);
 
-		// return null for empty inner HTML
-		if ($html === '') {
-			return null;
-		}
+        // trim the inner HTML for paragraphs
+        if ($node->tagName === 'p') {
+            $html = trim($html);
+        }
 
-		return $html;
-	}
+        // return null for empty inner HTML
+        if ($html === '') {
+            return null;
+        }
 
-	/**
-	 * Converts the given node to clean HTML
-	 */
-	public static function parseNode(DOMNode $node, array $marks = []): string|null
-	{
-		if ($node instanceof DOMText) {
-			return Html::encode($node->textContent);
-		}
+        return $html;
+    }
 
-		// ignore comments
-		if ($node instanceof DOMComment) {
-			return null;
-		}
+    /**
+     * Converts the given node to clean HTML
+     *
+     * @param \DOMNode $node
+     * @param array $marks
+     * @return string|null
+     */
+    public static function parseNode(DOMNode $node, array $marks = []): ?string
+    {
+        if (is_a($node, 'DOMText') === true) {
+            return Html::encode($node->textContent);
+        }
 
-		// unknown marks
-		if (array_key_exists($node->tagName, $marks) === false) {
-			return static::parseChildren($node->childNodes, $marks);
-		}
+        // ignore comments
+        if (is_a($node, 'DOMComment') === true) {
+            return null;
+        }
 
-		// collect all allowed attributes
-		$attrs = static::parseAttrs($node, $marks);
+        // unknown marks
+        if (array_key_exists($node->tagName, $marks) === false) {
+            return static::parseChildren($node->childNodes, $marks);
+        }
 
-		// close self-closing elements
-		if (Html::isVoid($node->tagName) === true) {
-			return '<' . $node->tagName . Html::attr($attrs, null, ' ') . ' />';
-		}
+        // collect all allowed attributes
+        $attrs = static::parseAttrs($node, $marks);
 
-		$innerHtml = static::parseInnerHtml($node, $marks);
+        // close self-closing elements
+        if (Html::isVoid($node->tagName) === true) {
+            return '<' . $node->tagName . attr($attrs, ' ') . ' />';
+        }
 
-		// skip empty paragraphs
-		if ($innerHtml === null && $node->tagName === 'p') {
-			return null;
-		}
+        $innerHtml = static::parseInnerHtml($node, $marks);
 
-		// create the outer html for the element
-		return '<' . $node->tagName . Html::attr($attrs, null, ' ') . '>' . $innerHtml . '</' . $node->tagName . '>';
-	}
+        // skip empty paragraphs
+        if ($innerHtml === null && $node->tagName === 'p') {
+            return null;
+        }
 
-	/**
-	 * Returns the HTML contents of the element
-	 */
-	public function innerHtml(): string
-	{
-		return $this->html;
-	}
+        // create the outer html for the element
+        return '<' . $node->tagName . attr($attrs, ' ') . '>' . $innerHtml . '</' . $node->tagName . '>';
+    }
+
+    /**
+     * Returns the HTML contents of the element
+     *
+     * @return string
+     */
+    public function innerHtml(): string
+    {
+        return $this->html;
+    }
 }

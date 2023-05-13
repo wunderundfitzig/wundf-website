@@ -2,207 +2,188 @@
 
 namespace Kirby\Kql;
 
-use Exception;
 use Kirby\Cms\Collection;
 use Kirby\Toolkit\Str;
 
 class Kql
 {
-	public static function help($object)
-	{
-		return Help::for($object);
-	}
+    public static function help($object)
+    {
+        return Help::for($object);
+    }
 
-	public static function run($input, $model = null)
-	{
-		// string queries
-		if (is_string($input) === true) {
-			$result = static::query($input, $model);
-			return static::render($result);
-		}
+    public static function run($input, $model = null)
+    {
+        // string queries
+        if (is_string($input) === true) {
+            $result = static::query($input, $model);
+            return static::render($result);
+        }
 
-		// multiple queries
-		if (isset($input['queries']) === true) {
-			$result = [];
+        // multiple queries
+        if (isset($input['queries']) === true) {
+            $result = [];
 
-			foreach ($input['queries'] as $name => $query) {
-				$result[$name] = static::run($query);
-			}
+            foreach ($input['queries'] as $name => $query) {
+                $result[$name] = static::run($query);
+            }
 
-			return $result;
-		}
+            return $result;
+        }
 
-		$query   = $input['query'] ?? 'site';
-		$select  = $input['select'] ?? null;
-		$options = [
-			'pagination' => $input['pagination'] ?? null,
-		];
+        $query   = $input['query'] ?? 'site';
+        $select  = $input['select'] ?? null;
+        $options = [
+            'pagination' => $input['pagination'] ?? null,
+        ];
 
-		// check for invalid queries
-		if (is_string($query) === false) {
-			throw new Exception('The query must be a string');
-		}
+        $result = static::query($query, $model);
 
-		$result = static::query($query, $model);
+        return static::select($result, $select, $options);
+    }
 
-		return static::select($result, $select, $options);
-	}
+    public static function fetch($model, $key, $selection)
+    {
+        // simple key/value
+        if ($selection === true) {
+            return static::render($model->$key());
+        }
 
-	public static function fetch($model, $key, $selection)
-	{
-		// simple key/value
-		if ($selection === true) {
-			return static::render($model->$key());
-		}
+        // selection without additional query
+        if (is_array($selection) === true && empty($selection['query']) === true) {
+            return static::select($model->$key(), $selection['select'] ?? null, $selection['options'] ?? []);
+        }
 
-		// selection without additional query
-		if (is_array($selection) === true && empty($selection['query']) === true) {
-			return static::select($model->$key(), $selection['select'] ?? null, $selection['options'] ?? []);
-		}
+        // nested queries
+        return static::run($selection, $model);
+    }
 
-		// nested queries
-		return static::run($selection, $model);
-	}
+    public static function query($query, $model = null)
+    {
+        $kirby = kirby();
+        $site  = $kirby->site();
+        $model = $model ?? $site;
 
-	public static function query(string $query, $model = null)
-	{
-		$kirby = kirby();
-		$site  = $kirby->site();
-		$model = $model ?? $site;
+        $query = new Query($query, [
+            'kirby' => $kirby,
+            'file'  => function ($id) use ($kirby) {
+                return $kirby->file($id);
+            },
+            'page'  => function ($id) use ($site) {
+                return $site->find($id);
+            },
+            'site'  => $site,
+            'user'  => function ($id = null) use ($kirby) {
+                return $kirby->user($id);
+            },
+            $model::CLASS_ALIAS => $model
+        ]);
 
-		$query = new Query($query, [
-			'collection' => function (string $id) use ($kirby) {
-				return $kirby->collection($id);
-			},
-			'file'  => function (string $id) use ($kirby) {
-				return $kirby->file($id);
-			},
-			'kirby' => $kirby,
-			'page'  => function (string $id) use ($site) {
-				return $site->find($id);
-			},
-			'site'  => $site,
-			'user'  => function (string $id = null) use ($kirby) {
-				return $kirby->user($id);
-			},
-			$model::CLASS_ALIAS => $model
-		]);
+        return $query->result();
+    }
 
-		return $query->result();
-	}
+    public static function render($value)
+    {
+        if (is_object($value) === true) {
+            return Interceptor::replace($value)->toResponse();
+        }
 
-	public static function render($value)
-	{
-		if (is_object($value) === true) {
-			$object = Interceptor::replace($value);
+        return $value;
+    }
 
-			if (method_exists($object, 'toResponse') === true) {
-				return $object->toResponse();
-			}
+    public static function select($data, $select, array $options = [])
+    {
+        if ($select === null) {
+            return static::render($data);
+        }
 
-			if (method_exists($object, 'toArray') === true) {
-				return $object->toArray();
-			}
+        if ($select === '?') {
+            return static::help($data);
+        }
 
-			throw new Exception('The object "' . get_class($object) . '" cannot be rendered. Try querying one of its methods instead.');
-		}
+        if (is_a($data, 'Kirby\Cms\Collection') === true) {
+            return static::selectFromCollection($data, $select, $options);
+        }
 
-		return $value;
-	}
+        if (is_object($data) === true) {
+            return static::selectFromObject($data, $select, $options);
+        }
 
-	public static function select($data, $select, array $options = [])
-	{
-		if ($select === null) {
-			return static::render($data);
-		}
+        if (is_array($data) === true) {
+            return static::selectFromArray($data, $select, $options);
+        }
+    }
 
-		if ($select === '?') {
-			return static::help($data);
-		}
+    public static function selectFromArray($array, $select, array $options = [])
+    {
+        $result = [];
 
-		if (is_a($data, 'Kirby\Cms\Collection') === true) {
-			return static::selectFromCollection($data, $select, $options);
-		}
+        foreach ($select as $key => $selection) {
+            if ($selection === false) {
+                continue;
+            }
 
-		if (is_object($data) === true) {
-			return static::selectFromObject($data, $select, $options);
-		}
+            if (is_int($key) === true) {
+                $key       = $selection;
+                $selection = true;
+            }
 
-		if (is_array($data) === true) {
-			return static::selectFromArray($data, $select, $options);
-		}
-	}
+            $result[$key] = $array[$key] ?? null;
+        }
 
-	public static function selectFromArray($array, $select, array $options = [])
-	{
-		$result = [];
+        return $result;
+    }
 
-		foreach ($select as $key => $selection) {
-			if ($selection === false) {
-				continue;
-			}
+    public static function selectFromCollection(Collection $collection, $select, array $options = [])
+    {
+        if ($options['pagination'] ?? false) {
+            $collection = $collection->paginate($options['pagination']);
+        }
 
-			if (is_int($key) === true) {
-				$key       = $selection;
-				$selection = true;
-			}
+        $data = [];
 
-			$result[$key] = $array[$key] ?? null;
-		}
+        foreach ($collection as $model) {
+            $data[] = static::selectFromObject($model, $select);
+        }
 
-		return $result;
-	}
+        if ($pagination = $collection->pagination()) {
+            return [
+                'data' => $data,
+                'pagination' => [
+                    'page'   => $pagination->page(),
+                    'pages'  => $pagination->pages(),
+                    'offset' => $pagination->offset(),
+                    'limit'  => $pagination->limit(),
+                    'total'  => $pagination->total(),
+                ],
+            ];
+        }
 
-	public static function selectFromCollection(Collection $collection, $select, array $options = [])
-	{
-		if ($options['pagination'] ?? false) {
-			$collection = $collection->paginate($options['pagination']);
-		}
+        return $data;
+    }
 
-		$data = [];
+    public static function selectFromObject($object, $select, array $options = [])
+    {
+        $object = Interceptor::replace($object);
+        $result = [];
 
-		foreach ($collection as $model) {
-			$data[] = static::selectFromObject($model, $select);
-		}
+        if (is_string($select) === true) {
+            $select = Str::split($select);
+        }
 
-		if ($pagination = $collection->pagination()) {
-			return [
-				'data' => $data,
-				'pagination' => [
-					'page'   => $pagination->page(),
-					'pages'  => $pagination->pages(),
-					'offset' => $pagination->offset(),
-					'limit'  => $pagination->limit(),
-					'total'  => $pagination->total(),
-				],
-			];
-		}
+        foreach ($select as $key => $selection) {
+            if ($selection === false) {
+                continue;
+            }
 
-		return $data;
-	}
+            if (is_int($key) === true) {
+                $key       = $selection;
+                $selection = true;
+            }
 
-	public static function selectFromObject($object, $select, array $options = [])
-	{
-		$object = Interceptor::replace($object);
-		$result = [];
+            $result[$key] = static::fetch($object, $key, $selection);
+        }
 
-		if (is_string($select) === true) {
-			$select = Str::split($select);
-		}
-
-		foreach ($select as $key => $selection) {
-			if ($selection === false) {
-				continue;
-			}
-
-			if (is_int($key) === true) {
-				$key       = $selection;
-				$selection = true;
-			}
-
-			$result[$key] = static::fetch($object, $key, $selection);
-		}
-
-		return $result;
-	}
+        return $result;
+    }
 }
