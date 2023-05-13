@@ -21,6 +21,7 @@ type Props = {
 const Teaser: FunctionComponent<Props> = (props) => {
   const imageUrl = `${publicConfig.backendURL}/${props.image.src}`
   const showDescription = props.size === 'featured' || props.size === 'medium'
+  console.log(props.link)
 
   return (
     <article className={`teaser ${props.size} ${props.type}`}>
@@ -39,16 +40,14 @@ const Teaser: FunctionComponent<Props> = (props) => {
             <p className='description'>{props.description}</p>
           )}
         </Link>
-        {props.type === 'news' && (
-          <Link
-            className='link'
-            href={props.link.href}
-            target={props.link.target}
-            rel='noreferrer'
-          >
-            {props.link.text}
-          </Link>
-        )}
+        <Link
+          className='link'
+          href={props.link.href}
+          target={props.link.target}
+          rel='noreferrer'
+        >
+          {props.link.text}
+        </Link>
       </div>
 
       <Link
@@ -212,6 +211,8 @@ const Teaser: FunctionComponent<Props> = (props) => {
           .story-link :global(.link) {
             display: block;
             width: 100%;
+            font-size: 0.7em;
+            margin: 0;
           }
 
           .medium.story-link :global(.link),
