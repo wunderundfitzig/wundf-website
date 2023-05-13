@@ -47,6 +47,10 @@ const GlobalStyles = () => {
         margin: 0;
       }
 
+      p {
+        line-height: 1.5;
+      }
+
       @media (min-width: ${breakpoints.sm.min}px) {
         body {
           font-size: 20px;

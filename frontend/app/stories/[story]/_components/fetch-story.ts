@@ -19,7 +19,7 @@ export async function fetchStory(storySlug: string): Promise<StoryContent> {
         select: {
           title: true,
           teaserText: 'page.teaser_text',
-          content: 'page.main_content.toBlocks',
+          content: 'page.main_content.toHeadlessBlocks',
           image: {
             query: 'page.cover.toFile',
             select: { src: 'file.id', width: true, height: true },

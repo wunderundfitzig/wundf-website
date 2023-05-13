@@ -35,7 +35,9 @@ const Teaser: FunctionComponent<Props> = (props) => {
             <p className='category'>{props.category}</p>
             <h2>{props.title}</h2>
           </header>
-          {showDescription && <p>{props.description}</p>}
+          {showDescription && (
+            <p className='description'>{props.description}</p>
+          )}
         </Link>
         {props.type === 'news' && (
           <Link
@@ -74,8 +76,9 @@ const Teaser: FunctionComponent<Props> = (props) => {
         }
 
         .category {
-          margin: 0 0 0.5em;
-          font-size: 0.65em;
+          margin: 0 0 0.3em;
+          font-size: 0.5em;
+          letter-spacing: 0.09em;
           text-transform: uppercase;
           color: ${colors.brownGrey};
           font-weight: bold;
@@ -88,6 +91,10 @@ const Teaser: FunctionComponent<Props> = (props) => {
           width: calc(100% - 3em);
           margin: 10em 0 0;
           overflow: hidden;
+        }
+
+        .description {
+          line-height: 1.4;
         }
 
         h2 {

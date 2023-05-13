@@ -42,6 +42,7 @@ const Story: FunctionComponent<Props> = (props) => {
           grid-gap: 0;
           justify-items: center;
           align-items: center;
+          line-height: 1.5;
         }
 
         .image-wrapper {
