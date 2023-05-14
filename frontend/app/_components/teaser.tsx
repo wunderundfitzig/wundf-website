@@ -1,3 +1,5 @@
+'use client'
+
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -21,7 +23,6 @@ type Props = {
 const Teaser: FunctionComponent<Props> = (props) => {
   const imageUrl = `${publicConfig.backendURL}/${props.image.src}`
   const showDescription = props.size === 'featured' || props.size === 'medium'
-  console.log(props.link)
 
   return (
     <article className={`teaser ${props.size} ${props.type}`}>

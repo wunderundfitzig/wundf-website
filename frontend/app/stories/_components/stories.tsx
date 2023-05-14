@@ -14,9 +14,9 @@ const Stories: FunctionComponent<Props> = (props) => {
         <Teaser
           {...story}
           size='featured'
-          type='story'
+          type='story-link'
           category='story'
-          link={{ href: `/stories/${story.slug}`, text: 'lesen' }}
+          link={{ href: `/stories/${story.slug}`, text: 'Geschichte lesen' }}
           key={story.slug}
         />
       ))}
