@@ -1,10 +1,35 @@
 import { queryPageData } from 'app/_lib/kirby-query'
 
+type HeadingBlock = {
+  type: 'heading'
+  id: string
+  content: {
+    level: 'h2' | 'h3'
+    text: string
+  }
+}
+type TextBlock = {
+  type: 'text'
+  id: string
+  content: { text: string }
+}
+type ImageBlock = {
+  type: 'image'
+  id: string
+  content: {
+    image: { src: string; width: number; height: number }
+    alt: string | null
+    caption: string
+  }
+}
+
+export type Block = HeadingBlock | TextBlock | ImageBlock
+
 export type StoryContent = {
   title: string
   teaserText: string
   image: { src: string; width: string; height: string }
-  content: any
+  content: Block[]
 }
 
 type PageData = {

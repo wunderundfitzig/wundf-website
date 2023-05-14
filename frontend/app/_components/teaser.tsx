@@ -141,8 +141,8 @@ const Teaser: FunctionComponent<Props> = (props) => {
 
         @media (min-width: ${breakpoints.sm.min}px) {
           .featured.teaser:first-child {
-            padding-top: 2em;
-            padding-bottom: 3em;
+            padding-top: 3em;
+            padding-bottom: 2em;
           }
 
           .text {
@@ -249,8 +249,8 @@ const Teaser: FunctionComponent<Props> = (props) => {
           }
 
           .featured.teaser:first-child {
-            padding-top: 2em;
-            padding-bottom: 2em;
+            padding-top: 3em;
+            padding-bottom: 0;
           }
 
           .featured .text {

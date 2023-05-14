@@ -68,7 +68,7 @@ const Clients: FunctionComponent = () => {
       <style jsx>{`
         .clients {
           background-color: ${colors.orange};
-          padding: 3.2em 0 2.5em;
+          padding: 3.2em 0 2em;
         }
 
         .client-logos {

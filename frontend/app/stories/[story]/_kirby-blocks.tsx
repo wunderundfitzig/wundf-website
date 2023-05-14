@@ -4,31 +4,7 @@ import { FunctionComponent } from 'react'
 import Image from 'next/image'
 import { publicConfig } from 'app/_lib/config/public-config'
 import colors from 'app/_lib/colors'
-
-type HeadingBlock = {
-  type: 'heading'
-  id: string
-  content: {
-    level: 'h1' | 'h2' | 'h3'
-    text: string
-  }
-}
-type TextBlock = {
-  type: 'text'
-  id: string
-  content: { text: string }
-}
-type ImageBlock = {
-  type: 'image'
-  id: string
-  content: {
-    image: { src: string; width: number; height: number }
-    alt: string | null
-    caption: string
-  }
-}
-
-type Block = HeadingBlock | TextBlock | ImageBlock
+import { Block } from './_fetch-story'
 
 type Props = {
   blocks: Block[]

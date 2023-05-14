@@ -6,7 +6,7 @@ import { publicConfig } from 'app/_lib/config/public-config'
 import colors from 'app/_lib/colors'
 import breakpoints from 'app/_lib/breakpoints'
 
-import KirbyBlocks from 'app/_components/kirby-blocks'
+import KirbyBlocks from 'app/stories/[story]/_kirby-blocks'
 import { StoryContent } from './_fetch-story'
 
 type Props = {
