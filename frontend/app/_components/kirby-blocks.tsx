@@ -21,7 +21,11 @@ type TextBlock = {
 type ImageBlock = {
   type: 'image'
   id: string
-  content: { image: string; alt: string | null; ratio: number; caption: string }
+  content: {
+    image: { src: string; width: number; height: number }[]
+    alt: string | null
+    caption: string
+  }
 }
 
 type Block = HeadingBlock | TextBlock | ImageBlock
@@ -50,10 +54,10 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
               <figure key={block.id}>
                 <Image
                   className='image'
-                  src={`${publicConfig.backendURL}/${block.content.image}`}
+                  src={`${publicConfig.backendURL}/${block.content.image[0].src}`}
                   alt={block.content.alt ?? ''}
-                  width={2000}
-                  height={2000 / block.content.ratio}
+                  width={block.content.image[0].width}
+                  height={block.content.image[0].height}
                 />
                 <figcaption
                   dangerouslySetInnerHTML={{ __html: block.content.caption }}

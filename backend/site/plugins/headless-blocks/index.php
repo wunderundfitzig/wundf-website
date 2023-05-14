@@ -12,8 +12,8 @@ Kirby::plugin('errnesto/headless-blocks', [
                         if ($file = $model->file($value)) {
                             $value = [
                                 "src" => $file->id(),
-                                "width" => 0,
-                                "height" => 0
+                                "width" => $file->width(),
+                                "height" => $file->height()
                             ];
                         }
                     }

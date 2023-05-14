@@ -13,6 +13,7 @@ type Props = {
   story: StoryContent
 }
 const Story: FunctionComponent<Props> = (props) => {
+  console.log(props.story.content)
   return (
     <article className='story'>
       <div className='image-wrapper'>
