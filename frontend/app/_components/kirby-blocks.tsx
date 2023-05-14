@@ -22,7 +22,7 @@ type ImageBlock = {
   type: 'image'
   id: string
   content: {
-    image: { src: string; width: number; height: number }[]
+    image: { src: string; width: number; height: number }
     alt: string | null
     caption: string
   }
@@ -34,6 +34,7 @@ type Props = {
   blocks: Block[]
 }
 const KirbyBlocks: FunctionComponent<Props> = (props) => {
+  console.log(props.blocks)
   return (
     <>
       {props.blocks.map((block) => {
@@ -54,10 +55,10 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
               <figure key={block.id}>
                 <Image
                   className='image'
-                  src={`${publicConfig.backendURL}/${block.content.image[0].src}`}
+                  src={`${publicConfig.backendURL}/${block.content.image.src}`}
                   alt={block.content.alt ?? ''}
-                  width={block.content.image[0].width}
-                  height={block.content.image[0].height}
+                  width={block.content.image.width}
+                  height={block.content.image.height}
                 />
                 <figcaption
                   dangerouslySetInnerHTML={{ __html: block.content.caption }}

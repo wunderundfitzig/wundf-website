@@ -7,7 +7,7 @@ Kirby::plugin('errnesto/headless-blocks', [
             $blocks = $field->toBlocks()->toArray();
 
             if (class_uses($model, 'Kirby\Cms\HasFiles')) {
-                array_map(function ($block) use ($model) {
+                $blocks = array_map(function ($block) use ($model) {
                     if ($block["type"] == "image") {
                         $imageName = $block["content"]["image"][0];
                         if ($file = $model->file($imageName)) {
