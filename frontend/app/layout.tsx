@@ -12,6 +12,7 @@ const RootLayout = async (props: Props) => {
     <html>
       <head>
         <title>wunder & fitzig</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
       </head>
       <StyledJsxRegistry>
         <body>
