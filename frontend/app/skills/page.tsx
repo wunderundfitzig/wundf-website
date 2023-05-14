@@ -1,11 +1,15 @@
 import { queryPageData } from 'app/_lib/kirby-query'
 import Hero from 'app/_components/hero'
-import Creatives from './_components/creatives'
+import Creatives from './_creatives'
 
 export type Creative = {
   title: string
   image: { src: string; width: number; height: number }
   text: string
+}
+
+export const metadata = {
+  title: 'Skills | wunder & fitzig',
 }
 
 interface PageData {

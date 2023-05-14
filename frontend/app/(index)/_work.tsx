@@ -5,7 +5,7 @@ import breakpoints from 'app/_lib/breakpoints'
 import colors from 'app/_lib/colors'
 
 import Teaser from 'app/_components/teaser'
-import { News, StoryLink } from '../page'
+import { News, StoryLink } from './page'
 
 function getLink(news: News | StoryLink): {
   href: string

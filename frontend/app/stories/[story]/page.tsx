@@ -1,17 +1,24 @@
 import React from 'react'
-import Head from 'next/head'
 import Navigation from 'app/_components/navigation'
-import WorkStory from './_components/story'
-import { fetchStory } from './_components/fetch-story'
+import WorkStory from './_story'
+import { fetchStory } from './_fetch-story'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { story: string }
+}) {
+  const story = await fetchStory(params.story)
+  return {
+    title: `${story.title} | wunder & fitzig`,
+  }
+}
 
 const Story = async ({ params }: { params: { story: string } }) => {
   const story = await fetchStory(params.story)
 
   return (
     <>
-      <Head>
-        <title>{`${story.title} | wunder & fitzig`}</title>
-      </Head>
       <Navigation activeRouteName='work' />
       <WorkStory story={story} />
     </>

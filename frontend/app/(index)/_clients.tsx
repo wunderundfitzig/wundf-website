@@ -3,13 +3,13 @@
 import React, { FunctionComponent } from 'react'
 import colors from 'app/_lib/colors'
 
-import ClientLogo from './client-logo'
-import rbbSVG from './client-logos/rbb.svg'
-import heinrichboellSVG from './client-logos/heinrichboell.svg'
-import asertoSVG from './client-logos/aserto.svg'
-import johanniterSVG from './client-logos/johanniter.svg'
-import emsSVG from './client-logos/ems.svg'
-import dcbPNG from './client-logos/dcb.png'
+import ClientLogo from './_client-logo'
+import rbbSVG from './_client-logos/rbb.svg'
+import heinrichboellSVG from './_client-logos/heinrichboell.svg'
+import asertoSVG from './_client-logos/aserto.svg'
+import johanniterSVG from './_client-logos/johanniter.svg'
+import emsSVG from './_client-logos/ems.svg'
+import dcbPNG from './_client-logos/dcb.png'
 
 const clients = [
   {

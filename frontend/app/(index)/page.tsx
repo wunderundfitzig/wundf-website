@@ -2,8 +2,8 @@ import React from 'react'
 import { queryPageData } from 'app/_lib/kirby-query'
 
 import Hero from 'app/_components/hero'
-import Work from './_components/work'
-import Clients from './_components/clients'
+import Work from './_work'
+import Clients from './_clients'
 
 export type News = {
   type: 'news'
@@ -29,6 +29,10 @@ export type StoryLink = {
   storySlug: string
   image?: { src: string; width: number; height: number }
   storyImage: { src: string; width: number; height: number }
+}
+
+export const metadata = {
+  title: 'wunder & fitzig',
 }
 
 type PageData = {

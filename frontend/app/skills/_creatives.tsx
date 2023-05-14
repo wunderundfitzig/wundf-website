@@ -4,8 +4,8 @@ import ReactMarkdown from 'react-markdown'
 
 import { publicConfig } from 'app/_lib/config/public-config'
 
-import { Creative } from '../page'
-import SectionObserver from './section-observer'
+import { Creative } from './page'
+import SectionObserver from './_section-observer'
 
 interface Props {
   creatives: Creative[]

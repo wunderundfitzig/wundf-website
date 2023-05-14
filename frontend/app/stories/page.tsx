@@ -1,13 +1,17 @@
 import React from 'react'
 import { queryPageData } from 'app/_lib/kirby-query'
 import Navigation from 'app/_components/navigation'
-import Stories from './_components/stories'
+import Stories from './_stories'
 
 export type StoryInfo = {
   slug: string
   title: string
   description: string
   image: { src: string; width: number; height: number }
+}
+
+export const metadata = {
+  title: 'Stories | wunder & fitzig',
 }
 
 type PageData = {
