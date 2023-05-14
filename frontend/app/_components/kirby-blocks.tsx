@@ -34,7 +34,6 @@ type Props = {
   blocks: Block[]
 }
 const KirbyBlocks: FunctionComponent<Props> = (props) => {
-  console.log(props.blocks)
   return (
     <>
       {props.blocks.map((block) => {

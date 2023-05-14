@@ -10,17 +10,21 @@ Kirby::plugin('errnesto/headless-blocks', [
                 $blocks = array_map(function ($block) use ($model) {
                     if ($block["type"] == "image") {
                         $imageName = $block["content"]["image"][0];
-                        if ($file = $model->file($imageName)) {
+                        $imageFile = $model->file($imageName);
+
+                        if ($imageFile) {
                             $block["content"]["image"] = [
-                                "src" => $file->id(),
-                                "width" => $file->width(),
-                                "height" => $file->height()
+                                "src" => $imageFile->id(),
+                                "width" => $imageFile->width(),
+                                "height" => $imageFile->height()
                             ];
                         }
                     }
+
                     return $block;
                 }, $blocks);
             }
+
             return $blocks;
         }
     ]
