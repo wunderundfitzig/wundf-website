@@ -7,17 +7,19 @@ Kirby::plugin('errnesto/headless-blocks', [
             $blocks = $field->toBlocks()->toArray();
 
             if (class_uses($model, 'Kirby\Cms\HasFiles')) {
-                array_walk_recursive($blocks, function (&$value, $key) use ($model) {
-                    if (is_int($key) && is_string($value)) {
-                        if ($file = $model->file($value)) {
-                            $value = [
+                array_map(function ($block) use ($model) {
+                    if ($block["type"] == "image") {
+                        $imageName = $block["content"]["image"][0];
+                        if ($file = $model->file($imageName)) {
+                            $block["content"] = [
                                 "src" => $file->id(),
                                 "width" => $file->width(),
                                 "height" => $file->height()
                             ];
                         }
                     }
-                });
+                    return $block;
+                }, $blocks);
             }
             return $blocks;
         }
