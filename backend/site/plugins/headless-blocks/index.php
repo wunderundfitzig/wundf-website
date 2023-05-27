@@ -18,6 +18,12 @@ Kirby::plugin('errnesto/headless-blocks', [
                                 "width" => $imageFile->width(),
                                 "height" => $imageFile->height()
                             ];
+                        } else {
+                            $block["content"]["image"] = [
+                                "src" => "",
+                                "width" => 0,
+                                "height" => 0
+                            ];
                         }
                     }
 
