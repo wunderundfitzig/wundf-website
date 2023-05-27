@@ -21,8 +21,8 @@ Kirby::plugin('errnesto/headless-blocks', [
                         } else {
                             $block["content"]["image"] = [
                                 "src" => "",
-                                "width" => 0,
-                                "height" => 0
+                                "width" => "0",
+                                "height" => "0"
                             ];
                         }
                     }
