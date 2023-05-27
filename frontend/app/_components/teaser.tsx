@@ -57,7 +57,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
         target={props.link.target}
         rel='noreferrer'
       >
-        <Image className='image' alt='' fill src={imageUrl} />
+        <Image fill className='image' alt='' src={imageUrl} sizes='300px' />
       </Link>
 
       <style jsx>{`
