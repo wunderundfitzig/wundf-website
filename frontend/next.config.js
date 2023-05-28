@@ -14,6 +14,7 @@ module.exports = withBundleAnalyzer({
   },
   experimental: {
     scrollRestoration: true,
+    appDir: true,
   },
   async redirects() {
     return [
