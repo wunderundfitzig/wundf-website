@@ -4,39 +4,20 @@ import React, { useState } from 'react'
 import { useServerInsertedHTML } from 'next/navigation'
 import { StyleRegistry, createStyleRegistry } from 'styled-jsx'
 
-type ChildProps = { children: JSX.Element }
-
-export function useStyledJsxRegistry() {
-  const [jsxStyleRegistry] = useState(() => createStyleRegistry())
-
-  function styledJsxFlushEffect() {
-    const styles = jsxStyleRegistry.styles()
-    jsxStyleRegistry.flush()
-    return <>{styles}</>
-  }
-
-  function StyledJsxRegistry({ children }: ChildProps) {
-    return <StyleRegistry registry={jsxStyleRegistry}>{children}</StyleRegistry>
-  }
-
-  return [StyledJsxRegistry, styledJsxFlushEffect] as const
-}
-
 export default function StyledJsxRegistry({
   children,
 }: {
-  children: JSX.Element
+  children: React.ReactNode
 }) {
-  const [StyledJsxRegistry, styledJsxFlushEffect] = useStyledJsxRegistry()
+  // Only create stylesheet once with lazy initial state
+  // x-ref: https://reactjs.org/docs/hooks-reference.html#lazy-initial-state
+  const [jsxStyleRegistry] = useState(() => createStyleRegistry())
 
   useServerInsertedHTML(() => {
-    return <>{styledJsxFlushEffect()}</>
+    const styles = jsxStyleRegistry.styles()
+    jsxStyleRegistry.flush()
+    return <>{styles}</>
   })
 
-  // Only include style registry on server side for SSR
-  if (typeof window === 'undefined') {
-    return <StyledJsxRegistry>{children}</StyledJsxRegistry>
-  }
-
-  return children
+  return <StyleRegistry registry={jsxStyleRegistry}>{children}</StyleRegistry>
 }
