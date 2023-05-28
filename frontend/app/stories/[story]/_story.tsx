@@ -21,6 +21,7 @@ const Story: FunctionComponent<Props> = (props) => {
           alt=''
           className='image'
           src={`${publicConfig.backendURL}/${props.story.image.src}`}
+          sizes='(max-width: 550px) 100vw, 50vw'
         />
       </div>
       <header>
