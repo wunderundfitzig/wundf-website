@@ -60,6 +60,6 @@ AddOutputFilterByType DEFLATE application/x-javascript
 <ifModule mod_headers.c>
 <filesMatch "\\.(ico|pdf|jpg|jpeg|png|gif|svg)$">
 # set max-age to 30 days
-Header set Cache-Control "max-age=2592000, immutable"
+Header set Cache-Control "public, max-age=2592000, immutable"
 </filesMatch>
 </ifModule>
