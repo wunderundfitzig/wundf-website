@@ -8,6 +8,7 @@ module.exports = withBundleAnalyzer({
     backendURL: process.env.BACKEND_URL,
   },
   images: {
+    unoptimized: true,
     domains: ['cms.wunderundfitzig.de'],
   },
   experimental: {
