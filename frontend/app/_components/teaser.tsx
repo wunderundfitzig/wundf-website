@@ -57,7 +57,14 @@ const Teaser: FunctionComponent<Props> = (props) => {
         target={props.link.target}
         rel='noreferrer'
       >
-        <Image fill className='image' alt='' src={imageUrl} sizes='300px' />
+        <Image
+          fill
+          priority={props.size === 'featured'}
+          className='image'
+          alt=''
+          src={imageUrl}
+          sizes='300px'
+        />
       </Link>
 
       <style jsx>{`

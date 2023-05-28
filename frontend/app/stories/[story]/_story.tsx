@@ -18,6 +18,7 @@ const Story: FunctionComponent<Props> = (props) => {
       <div className='image-wrapper'>
         <Image
           fill
+          priority
           alt=''
           className='image'
           src={`${publicConfig.backendURL}/${props.story.image.src}`}
