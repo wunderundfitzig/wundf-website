@@ -31,7 +31,7 @@ jobs:
           echo "ENVIRONMENT=production" >> .env
 
       - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v2.2.11
+        uses: easingthemes/ssh-deploy@vv4.1.8
         env:
           SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_SSH_DEPLOY_KEY }}
           ARGS: "-rltgoDzvO --delete --exclude-from=backend/.deployignore"
