@@ -61,7 +61,7 @@ jobs:
           TARGET: "wundf-website"
 
       - name: Restart Server
-        uses: appleboy/ssh-action@0.1.10
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: wfweb.uber.space
           username: wfweb
