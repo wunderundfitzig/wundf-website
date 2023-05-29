@@ -48,7 +48,7 @@ jobs:
           cp next.config.js ./deploy
           cp .env ./deploy
           cp -a node_modules ./deploy
-        # cp -a public ./deploy
+          cp -a public ./deploy
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v4.1.8
