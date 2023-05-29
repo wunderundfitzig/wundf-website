@@ -13,20 +13,13 @@ defaults:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     environment:
       name: uberspace
       url: https:/www.wunderundfitzig.de
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Install Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: "16.x"
-
-      - name: Install npm dependencies
-        run: npm ci
+      - uses: actions/checkout@v3
 
       - name: Set backend user env variables
         run: |
@@ -37,25 +30,13 @@ jobs:
           BACKEND_USER: ${{ secrets.BACKEND_USER }}
           BACKEND_PASSWORD: ${{ secrets.BACKEND_PASSWORD }}
 
-      - name: Run build task
-        run: npm run build
-
-      - name: Create deploy folder
-        run: |
-          mkdir deploy
-          cp -a .next ./deploy
-          cp package.json ./deploy
-          cp next.config.js ./deploy
-          cp .env ./deploy
-          cp -a node_modules ./deploy
-          cp -a public ./deploy
-
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.2.11
         env:
           SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_SSH_DEPLOY_KEY }}
           ARGS: "-rltgoDzvO --delete"
-          SOURCE: "frontend/deploy/"
+          SOURCE: "frontend/"
+          EXCLUDE: ".vscode, .env.local.example, .eslintrc.json, .gitignore, .prettierignore, .prettierrc, README.md"
           REMOTE_HOST: wfweb.uber.space
           REMOTE_USER: wfweb
           TARGET: "wundf-website"
@@ -66,4 +47,7 @@ jobs:
           host: wfweb.uber.space
           username: wfweb
           key: ${{ secrets.PRIVATE_SSH_DEPLOY_KEY }}
-          script: supervisorctl restart wundf-website
+          script: |
+            npm ci
+            npm run build
+            supervisorctl restart wundf-website

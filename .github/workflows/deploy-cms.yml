@@ -17,12 +17,7 @@ jobs:
       url: https://cms.wunderundfitzig.de
 
     steps:
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.9.1
-        with:
-          access_token: ${{ github.token }}
-
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # - uses: php-actions/composer@v6
       #   with:
@@ -30,13 +25,10 @@ jobs:
       #     dev: no
       #     args: --working-dir backend
 
-      # - name: Create .env file
-      #   working-directory: backend
-      #   run: |
-      #     echo "INSTAGRAM_CLIENT_SECRET=${INSTAGRAM_CLIENT_SECRET}" >> .env
-      #     echo "ENVIRONMENT=production" >> .env
-      #   env:
-      #     INSTAGRAM_CLIENT_SECRET: ${{secrets.INSTAGRAM_CLIENT_SECRET}}
+      - name: Create .env file
+        working-directory: backend
+        run: |
+          echo "ENVIRONMENT=production" >> .env
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.2.11
