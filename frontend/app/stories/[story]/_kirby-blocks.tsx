@@ -34,6 +34,7 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
                   alt={block.content.alt ?? ''}
                   width={block.content.image.width}
                   height={block.content.image.height}
+                  sizes='(max-width: 800px) 100vw, 760px'
                 />
                 <figcaption
                   dangerouslySetInnerHTML={{ __html: block.content.caption }}
