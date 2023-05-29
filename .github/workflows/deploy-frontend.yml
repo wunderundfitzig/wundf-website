@@ -40,14 +40,8 @@ jobs:
           REMOTE_HOST: wfweb.uber.space
           REMOTE_USER: wfweb
           TARGET: "wundf-website"
-
-      - name: Restart Server
-        uses: appleboy/ssh-action@master
-        with:
-          host: wfweb.uber.space
-          username: wfweb
-          key: ${{ secrets.PRIVATE_SSH_DEPLOY_KEY }}
-          script: |
+          SCRIPT_AFTER: |
+            cd wundf-website
             npm ci
             npm run build
             supervisorctl restart wundf-website
