@@ -2,6 +2,7 @@ import React from 'react'
 import { queryPageData } from 'app/_lib/kirby-query'
 import Navigation from 'app/_components/navigation'
 import Stories from './_stories'
+import { notFound } from 'next/navigation'
 
 export type StoryInfo = {
   slug: string
@@ -18,7 +19,7 @@ type PageData = {
   stories: StoryInfo[]
 }
 const StoriesPage = async () => {
-  const { stories } = await queryPageData<PageData>({
+  const pageData = await queryPageData<PageData>({
     query: `page("work")`,
     select: {
       stories: {
@@ -35,11 +36,12 @@ const StoriesPage = async () => {
       },
     },
   })
+  if (pageData === null) notFound()
 
   return (
     <>
       <Navigation activeRouteName='work' />
-      <Stories stories={stories} />
+      <Stories stories={pageData.stories} />
     </>
   )
 }

@@ -1,5 +1,6 @@
 import { privateConfig } from 'app/_lib/config/private-config'
 import { publicConfig } from 'app/_lib/config/public-config'
+import { notFound } from 'next/navigation'
 
 export const getBasicAuthHeader = (
   user: string,
@@ -14,7 +15,7 @@ export const getBasicAuthHeader = (
 export async function queryBackend(query: {
   query: string
   select?: Record<string, unknown>
-}): Promise<unknown> {
+}): Promise<unknown | null> {
   const result = await fetch(`${publicConfig.backendURL}/api/query`, {
     method: 'POST',
     headers: {
@@ -59,9 +60,9 @@ export async function queryBackend(query: {
 export async function queryPageData<T>(pageQuery: {
   query: string
   select?: Record<string, unknown>
-}): Promise<{ title: string } & T> {
+}): Promise<({ title: string } & T) | null> {
   return queryBackend({
     query: pageQuery.query,
     select: { title: true, ...(pageQuery.select ?? {}) },
-  }) as Promise<{ title: string } & T>
+  }) as Promise<({ title: string } & T) | null>
 }

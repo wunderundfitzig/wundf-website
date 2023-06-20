@@ -1,6 +1,7 @@
 import { queryPageData } from 'app/_lib/kirby-query'
 import Hero from 'app/_components/hero'
 import Creatives from './_creatives'
+import { notFound } from 'next/navigation'
 
 export type Creative = {
   title: string
@@ -33,6 +34,7 @@ const SkillsPage = async () => {
       },
     },
   })
+  if (pageData === null) notFound()
 
   return (
     <>

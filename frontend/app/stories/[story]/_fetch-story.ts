@@ -1,4 +1,5 @@
 import { queryPageData } from 'app/_lib/kirby-query'
+import { notFound } from 'next/navigation'
 
 type HeadingBlock = {
   type: 'heading'
@@ -36,7 +37,7 @@ type PageData = {
   story: StoryContent
 }
 export async function fetchStory(storySlug: string): Promise<StoryContent> {
-  const { story } = await queryPageData<PageData>({
+  const pageData = await queryPageData<PageData>({
     query: `page("work/${storySlug}")`,
     select: {
       story: {
@@ -53,5 +54,7 @@ export async function fetchStory(storySlug: string): Promise<StoryContent> {
       },
     },
   })
-  return story
+  if (pageData === null) notFound()
+
+  return pageData.story
 }

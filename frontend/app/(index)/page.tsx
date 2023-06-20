@@ -1,4 +1,5 @@
 import React from 'react'
+import { notFound } from 'next/navigation'
 import { queryPageData } from 'app/_lib/kirby-query'
 
 import Hero from 'app/_components/hero'
@@ -85,6 +86,8 @@ const WorkPage = async () => {
       },
     },
   })
+  if (pageData === null) notFound()
+
   const newsList = [...pageData.news, ...pageData.stories].sort(
     (a, b) => a.order - b.order
   )
