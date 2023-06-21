@@ -43,7 +43,7 @@ jobs:
       - name: Copy public files to standalone folder
         run: |
           cp -a public ./.next/standalone
-          cp -a .next/static ./.next/standalone
+          cp -a .next/static ./.next/standalone/.next
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v4.1.8
