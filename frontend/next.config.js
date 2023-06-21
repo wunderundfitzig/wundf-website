@@ -3,10 +3,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 module.exports = withBundleAnalyzer({
+  output: 'standalone',
   reactStrictMode: true,
-  publicRuntimeConfig: {
-    backendURL: process.env.BACKEND_URL,
-  },
   images: {
     // unoptimized: true,
     domains: ['cms.wunderundfitzig.de'],
