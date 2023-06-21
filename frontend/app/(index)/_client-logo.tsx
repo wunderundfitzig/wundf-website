@@ -12,15 +12,10 @@ type ClientLogoProps = {
   align: 'left' | 'right' | 'center'
 }
 const ClientLogo: FunctionComponent<ClientLogoProps> = (props) => {
-  const { relativeSize, align, ...rest } = props
+  const { relativeSize, align, url, ...rest } = props
   return (
     <>
-      <a
-        href={props.url}
-        className={align}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
+      <a href={url} className={align} target='_blank' rel='noopener noreferrer'>
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image {...rest} />
       </a>
