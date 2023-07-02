@@ -3,7 +3,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 module.exports = withBundleAnalyzer({
-  hostname: '127.0.0.1',
   output: 'standalone',
   reactStrictMode: true,
   images: {
