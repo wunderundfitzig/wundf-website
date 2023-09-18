@@ -1,6 +1,5 @@
 import { privateConfig } from 'app/_lib/config/private-config'
 import { publicConfig } from 'app/_lib/config/public-config'
-import { notFound } from 'next/navigation'
 
 export const getBasicAuthHeader = (
   user: string,
@@ -26,7 +25,7 @@ export async function queryBackend(query: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(query),
-    // next: { revalidate: 60 },
+    next: { revalidate: 60 },
   })
   if (result.status >= 300) {
     console.error(result)
@@ -35,27 +34,6 @@ export async function queryBackend(query: {
   const json = await result.json()
   return json.result
 }
-
-// export type SiteInfo = {
-//   address: string
-//   mapsUrl: string
-//   phoneNumber: string
-//   // infoMail: string
-//   // jobMail: string
-//   // linkedinUrl: string
-//   // xingUrl: string
-//   // instagramUrl: string
-// }
-// export async function querySiteInfo(): Promise<SiteInfo> {
-//   return queryBackend({
-//     query: 'site',
-//     select: {
-//       address: true,
-//       mapsUrl: true,
-//       phoneNumber: true,
-//     },
-//   }) as Promise<SiteInfo>
-// }
 
 export async function queryPageData<T>(pageQuery: {
   query: string
