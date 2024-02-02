@@ -1,7 +1,7 @@
 {
   "require": {
     "getkirby/cms": "4",
-    "getkirby/kql": "^1.0"
+    "getkirby/kql": "2"
   },
   "config": {
     "optimize-autoloader": true,

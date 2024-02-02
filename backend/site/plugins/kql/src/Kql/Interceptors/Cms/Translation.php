@@ -2,34 +2,34 @@
 
 namespace Kirby\Kql\Interceptors\Cms;
 
-use Kirby\Kql\Interceptors\Interceptor;
+use Kirby\Kql\Interceptor;
 
 class Translation extends Interceptor
 {
-    const CLASS_ALIAS = 'translation';
+	public const CLASS_ALIAS = 'translation';
 
-    protected $toArray = [
-        'code',
-        'data',
-        'direction',
-        'id',
-        'name',
-        'locale',
-        'author'
-    ];
+	protected $toArray = [
+		'code',
+		'data',
+		'direction',
+		'id',
+		'name',
+		'locale',
+		'author'
+	];
 
-    public function allowedMethods(): array
-    {
-        return [
-            'code',
-            'data',
-            'dataWithFallback',
-            'direction',
-            'get',
-            'id',
-            'name',
-            'locale',
-            'author'
-        ];
-    }
+	public function allowedMethods(): array
+	{
+		return [
+			'code',
+			'data',
+			'dataWithFallback',
+			'direction',
+			'get',
+			'id',
+			'name',
+			'locale',
+			'author'
+		];
+	}
 }

@@ -2,23 +2,23 @@
 
 namespace Kirby\Kql\Interceptors\Toolkit;
 
-use Kirby\Kql\Interceptors\Interceptor;
+use Kirby\Kql\Interceptor;
 
 class Obj extends Interceptor
 {
-    const CLASS_ALIAS = 'obj';
+	public const CLASS_ALIAS = 'obj';
 
-    public function allowedMethods(): array
-    {
-        return [
-            'get',
-            'toArray',
-            'toJson',
-        ];
-    }
+	public function allowedMethods(): array
+	{
+		return [
+			'get',
+			'toArray',
+			'toJson',
+		];
+	}
 
-    public function toArray(): array
-    {
-        return $this->object->toArray();
-    }
+	public function toArray(): array
+	{
+		return $this->object->toArray();
+	}
 }

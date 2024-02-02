@@ -1,37 +1,16 @@
 <?php
 
-@include_once __DIR__ . '/vendor/autoload.php';
+namespace Kirby\Kql;
 
-class_alias('Kirby\Kql\Kql', 'Kql');
+use Kirby\Cms\App;
 
-function kql($input, $model = null)
-{
-    return Kql::run($input, $model);
-}
+require_once __DIR__ . '/extensions/autoload.php';
 
-Kirby::plugin('getkirby/kql', [
-    'api' => [
-        'routes' => [
-            [
-                'pattern' => 'query',
-                'method' => 'POST|GET',
-                'action' => function () {
-                    $result = Kql::run([
-                        'query'      => get('query'),
-                        'select'     => get('select'),
-                        'pagination' => [
-                            'page'  => get('page', 1),
-                            'limit' => get('limit', 100)
-                        ]
-                    ]);
+autoload('Kirby\\', __DIR__ . '/src/');
 
-                    return [
-                        'code'   => 200,
-                        'result' => $result,
-                        'status' => 'ok',
-                    ];
-                }
-            ]
-        ]
-    ]
+require_once __DIR__ . '/extensions/aliases.php';
+require_once __DIR__ . '/extensions/helpers.php';
+
+App::plugin('getkirby/kql', [
+	'api' => require_once 'extensions/api.php'
 ]);

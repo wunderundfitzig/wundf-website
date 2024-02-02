@@ -2,32 +2,32 @@
 
 namespace Kirby\Kql\Interceptors\Cms;
 
-use Kirby\Kql\Interceptors\Interceptor;
+use Kirby\Kql\Interceptor;
 
 class Role extends Interceptor
 {
-    const CLASS_ALIAS = 'role';
+	public const CLASS_ALIAS = 'role';
 
-    protected $toArray = [
-        'description',
-        'id',
-        'name',
-        'title',
-    ];
+	protected $toArray = [
+		'description',
+		'id',
+		'name',
+		'title',
+	];
 
-    public function allowedMethods(): array
-    {
-        return [
-            'description',
-            'id',
-            'name',
-            'permissions',
-            'title'
-        ];
-    }
+	public function allowedMethods(): array
+	{
+		return [
+			'description',
+			'id',
+			'name',
+			'permissions',
+			'title'
+		];
+	}
 
-    public function permissions(): array
-    {
-        return $this->object->permissions()->toArray();
-    }
+	public function permissions(): array
+	{
+		return $this->object->permissions()->toArray();
+	}
 }
