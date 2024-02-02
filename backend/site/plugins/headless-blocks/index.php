@@ -2,6 +2,9 @@
 
 Kirby::plugin('errnesto/headless-blocks', [
     'fieldMethods' => [
+        /**
+         * @kql-allowed
+         */
         'toHeadlessBlocks' => function ($field) {
             $model = $field->parent();
             $blocks = $field->toBlocks()->toArray();
