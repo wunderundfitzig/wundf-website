@@ -28,6 +28,8 @@ export async function queryBackend(query: {
     next: { revalidate: 60 },
   })
   if (result.status >= 300) {
+    console.log(privateConfig)
+    console.log(query)
     console.error(result)
     throw new Error(result.statusText)
   }
