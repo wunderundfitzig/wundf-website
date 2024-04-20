@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { publicConfig } from 'lib/config/public-config'
 import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
-import Style from 'components/style'
+import Style, { css } from 'components/style'
 
 import KirbyBlocks from 'app/stories/[story]/_kirby-blocks'
 import { StoryContent } from './_fetch-story'
@@ -32,7 +32,7 @@ const Story: FunctionComponent<Props> = (props) => {
       <section className='content'>
         <KirbyBlocks blocks={props.story.content} />
       </section>
-      <Style>{`
+      <Style>{css`
         .story {
           display: grid;
           grid-template-areas:

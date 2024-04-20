@@ -5,7 +5,7 @@ import Link from 'next/link'
 import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
 import { publicConfig } from 'lib/config/public-config'
-import Style from 'components/style'
+import Style, { css } from 'components/style'
 
 type Props = {
   size: 'small' | 'medium' | 'featured'
@@ -67,7 +67,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
         />
       </Link>
 
-      <Style>{`
+      <Style>{css`
         .teaser {
           display: grid;
           grid-template-areas: 'main';

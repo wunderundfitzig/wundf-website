@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react'
-import NavigationItem from 'components/navigation-item'
+
 import breakpoints from 'lib/breakpoints'
-import Style from './style'
+import NavigationItem from 'components/navigation-item'
+import Style, { css } from 'components/style'
 
 const routes = [
   { href: '/', name: 'work', label: 'work' },
@@ -24,7 +25,7 @@ const Navigation: FunctionComponent<Props> = (props) => {
           </li>
         ))}
       </ul>
-      <Style>{`
+      <Style>{css`
         .navigation {
           position: relative;
           z-index: 10;

@@ -1,11 +1,12 @@
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
-import Style from './style'
+import Style, { css } from 'components/style'
 
 export default async function GlobalStyles() {
   return (
     <Style>
-      {`@font-face {
+      {css`
+        @font-face {
           font-family: 'ETBembo';
           src: url('/fonts/et-book-roman-old-style-figures-webfont.woff2')
               format('woff2'),

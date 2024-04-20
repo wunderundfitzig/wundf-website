@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 
 import Link from 'next/link'
 import { darkGrey } from 'lib/colors'
-import Style from 'components/style'
+import Style, { css } from 'components/style'
 
 // TODO maybe get this link list from the backend
 const Footer: FunctionComponent = () => (
@@ -30,7 +30,7 @@ const Footer: FunctionComponent = () => (
     </a>
     <Link href='/privacy'>Datenschutz / Impressum</Link>
     <Style>
-      {`
+      {css`
         .footer {
           display: flex;
           flex-flow: wrap;

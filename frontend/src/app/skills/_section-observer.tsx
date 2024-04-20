@@ -6,7 +6,7 @@ import { useSectionIndexObserver } from 'lib/useSectionIndexObserver'
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
 
-import Style from 'components/style'
+import Style, { css } from 'components/style'
 
 interface Props {
   children: { image: ReactElement; content: ReactElement }[]
@@ -36,7 +36,7 @@ const SectionObserver: FunctionComponent<Props> = (props) => {
           </div>
         </Fragment>
       ))}
-      <Style>{`
+      <Style>{css`
         .section-observer {
           display: grid;
           grid-template-rows: 40vh 1fr;

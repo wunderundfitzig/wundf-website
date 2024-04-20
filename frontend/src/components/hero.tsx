@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react'
 
+import breakpoints from 'lib/breakpoints'
 import WundFLogo from 'components/wundf-logo'
 import Contact from 'components/contact'
 import Navigation from 'components/navigation'
-import breakpoints from 'lib/breakpoints'
-import Style from './style'
+import Style, { css } from 'components/style'
 
 type Props = {
   activeRouteName: 'work' | 'skills'
@@ -25,7 +25,7 @@ const Hero: FunctionComponent<Props> = (props) => {
       </section>
       <Navigation activeRouteName={props.activeRouteName} />
 
-      <Style>{`
+      <Style>{css`
         .hero {
           max-width: 1030px;
           margin: 0 auto;
