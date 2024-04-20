@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import { queryPageData } from 'app/_lib/kirby-query'
-import Navigation from 'app/_components/navigation'
+import { queryPageData } from 'src/lib/kirby-query'
+import Navigation from 'src/components/navigation'
 import TextBlock from './_text-block'
 import { notFound } from 'next/navigation'
 

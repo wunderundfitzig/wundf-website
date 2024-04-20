@@ -1,5 +1,5 @@
-import { queryPageData } from 'app/_lib/kirby-query'
-import Hero from 'app/_components/hero'
+import { queryPageData } from 'src/lib/kirby-query'
+import Hero from 'src/components/hero'
 import Creatives from './_creatives'
 import { notFound } from 'next/navigation'
 

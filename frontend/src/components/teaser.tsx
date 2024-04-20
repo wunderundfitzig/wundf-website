@@ -3,9 +3,9 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import colors from 'app/_lib/colors'
-import breakpoints from 'app/_lib/breakpoints'
-import { publicConfig } from 'app/_lib/config/public-config'
+import colors from 'src/lib/colors'
+import breakpoints from 'src/lib/breakpoints'
+import { publicConfig } from 'src/lib/config/public-config'
 
 type Props = {
   size: 'small' | 'medium' | 'featured'

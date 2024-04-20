@@ -1,5 +1,5 @@
 import React from 'react'
-import Navigation from 'app/_components/navigation'
+import Navigation from 'src/components/navigation'
 import WorkStory from './_story'
 import { fetchStory } from './_fetch-story'
 

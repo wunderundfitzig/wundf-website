@@ -1,8 +1,8 @@
 'use client'
 
 import { FunctionComponent } from 'react'
-import Teaser from 'app/_components/teaser'
-import colors from 'app/_lib/colors'
+import Teaser from 'src/components/teaser'
+import colors from 'src/lib/colors'
 import { StoryInfo } from './page'
 
 interface Props {

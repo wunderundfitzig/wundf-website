@@ -2,7 +2,7 @@
 
 import { FunctionComponent } from 'react'
 import Image, { StaticImageData } from 'next/image'
-import breakpoints from 'app/_lib/breakpoints'
+import breakpoints from 'src/lib/breakpoints'
 
 type ClientLogoProps = {
   src: StaticImageData

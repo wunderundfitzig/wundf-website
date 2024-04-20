@@ -1,6 +1,6 @@
 import React from 'react'
-import { queryPageData } from 'app/_lib/kirby-query'
-import Navigation from 'app/_components/navigation'
+import { queryPageData } from 'src/lib/kirby-query'
+import Navigation from 'src/components/navigation'
 import Stories from './_stories'
 import { notFound } from 'next/navigation'
 

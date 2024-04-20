@@ -2,8 +2,8 @@
 
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
-import { publicConfig } from 'app/_lib/config/public-config'
-import colors from 'app/_lib/colors'
+import { publicConfig } from 'src/lib/config/public-config'
+import colors from 'src/lib/colors'
 import { Block } from './_fetch-story'
 
 type Props = {

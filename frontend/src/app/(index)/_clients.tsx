@@ -1,7 +1,7 @@
 'use client'
 
 import React, { FunctionComponent } from 'react'
-import colors from 'app/_lib/colors'
+import colors from 'src/lib/colors'
 
 import ClientLogo from './_client-logo'
 import rbbSVG from './_client-logos/rbb.svg'

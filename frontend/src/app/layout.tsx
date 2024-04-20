@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 
-import Footer from './_components/footer'
-import GlobalStyles from './_components/global-styles'
-import StyledJsxRegistry from './_components/registry'
+import Footer from '../components/footer'
+import GlobalStyles from '../components/global-styles'
+import StyledJsxRegistry from '../components/registry'
 
 type Props = {
   children: ReactNode

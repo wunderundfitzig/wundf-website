@@ -1,10 +1,10 @@
 'use client'
 
 import { FunctionComponent } from 'react'
-import breakpoints from 'app/_lib/breakpoints'
-import colors from 'app/_lib/colors'
+import breakpoints from 'src/lib/breakpoints'
+import colors from 'src/lib/colors'
 
-import Teaser from 'app/_components/teaser'
+import Teaser from 'src/components/teaser'
 import { News, StoryLink } from './page'
 
 function getLink(news: News | StoryLink): {

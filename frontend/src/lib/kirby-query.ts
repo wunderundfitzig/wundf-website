@@ -1,5 +1,5 @@
-import { privateConfig } from 'app/_lib/config/private-config'
-import { publicConfig } from 'app/_lib/config/public-config'
+import { privateConfig } from 'src/lib/config/private-config'
+import { publicConfig } from 'src/lib/config/public-config'
 
 export const getBasicAuthHeader = (
   user: string,

@@ -2,10 +2,10 @@
 
 import React, { FunctionComponent } from 'react'
 
-import WundFLogo from 'app/_components/wundf-logo'
-import Contact from 'app/_components/contact'
-import Navigation from 'app/_components/navigation'
-import breakpoints from 'app/_lib/breakpoints'
+import WundFLogo from 'src/components/wundf-logo'
+import Contact from 'src/components/contact'
+import Navigation from 'src/components/navigation'
+import breakpoints from 'src/lib/breakpoints'
 
 type Props = {
   activeRouteName: 'work' | 'skills'

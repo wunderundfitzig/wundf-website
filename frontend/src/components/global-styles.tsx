@@ -1,7 +1,7 @@
 'use client'
 
-import breakpoints from 'app/_lib/breakpoints'
-import colors from 'app/_lib/colors'
+import breakpoints from 'src/lib/breakpoints'
+import colors from 'src/lib/colors'
 
 const GlobalStyles = () => {
   return (
