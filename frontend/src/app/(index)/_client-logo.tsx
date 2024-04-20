@@ -1,8 +1,13 @@
-'use client'
-
 import { FunctionComponent } from 'react'
 import Image, { StaticImageData } from 'next/image'
-import breakpoints from 'src/lib/breakpoints'
+import breakpoints from 'lib/breakpoints'
+import Style from 'components/style'
+
+declare module 'react' {
+  interface CSSProperties {
+    [key: `--${string}`]: string | number
+  }
+}
 
 type ClientLogoProps = {
   src: StaticImageData
@@ -15,53 +20,59 @@ const ClientLogo: FunctionComponent<ClientLogoProps> = (props) => {
   const { relativeSize, align, url, ...rest } = props
   return (
     <>
-      <a href={url} className={align} target='_blank' rel='noopener noreferrer'>
+      <a
+        href={url}
+        className={`client-logo ${align}`}
+        target='_blank'
+        rel='noopener noreferrer'
+        style={{ '--relative-size': props.relativeSize }}
+      >
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image {...rest} />
       </a>
-      <style jsx>{`
-        a {
-          width: ${20 * relativeSize}px;
+      <Style>{`
+        .client-logo {
+          width: calc(20px * var(--relative-size));
         }
-        a.left {
+        .client-logo.left {
           justify-self: left;
         }
-        a.center {
+        .client-logo.center {
           justify-self: center;
         }
-        a.right {
+        .client-logo.right {
           justify-self: right;
         }
 
-        a :global(img) {
+        .client-logo img {
           width: 100%;
           height: auto;
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
-          a {
-            width: ${25 * relativeSize}px;
+          .client-logo {
+            width: calc(25px * var(--relative-size));
           }
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
-          a {
-            width: ${28 * relativeSize}px;
+          .client-logo {
+            width: calc(28px * var(--relative-size));
           }
         }
 
         @media (min-width: ${breakpoints.l.min}px) {
-          a {
-            width: ${30 * relativeSize}px;
+          .client-logo {
+            width: calc(30px * var(--relative-size));
           }
         }
 
         @media (min-width: ${breakpoints.xl.min}px) {
-          a {
-            width: ${34 * relativeSize}px;
+          .client-logo {
+            width: calc(34px * var(--relative-size));
           }
         }
-      `}</style>
+      `}</Style>
     </>
   )
 }

@@ -1,5 +1,5 @@
-import breakpoints from 'src/lib/breakpoints'
-import colors from 'src/lib/colors'
+import breakpoints from 'lib/breakpoints'
+import colors from 'lib/colors'
 import { FunctionComponent } from 'react'
 
 interface Props {
@@ -10,7 +10,7 @@ const Contact: FunctionComponent<Props> = (props) => {
     <div className='contact'>
       <a href='mailto:info@wundf.net'>info@wundf.net</a> |{' '}
       <span>+49 (0) 30 644 72 444</span>
-      <style jsx>{`
+      <style>{`
         .contact {
           grid-area: ${props.gridArea};
           font-size: 0.85em;

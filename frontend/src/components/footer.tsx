@@ -1,8 +1,8 @@
-'use client'
-
 import React, { FunctionComponent } from 'react'
+
 import Link from 'next/link'
-import { darkGrey } from 'src/lib/colors'
+import { darkGrey } from 'lib/colors'
+import Style from 'components/style'
 
 // TODO maybe get this link list from the backend
 const Footer: FunctionComponent = () => (
@@ -29,7 +29,7 @@ const Footer: FunctionComponent = () => (
       Instagram
     </a>
     <Link href='/privacy'>Datenschutz / Impressum</Link>
-    <style jsx>
+    <Style>
       {`
         .footer {
           display: flex;
@@ -43,18 +43,18 @@ const Footer: FunctionComponent = () => (
           z-index: 1;
         }
 
-        .footer :global(a) {
+        .footer a {
           display: block;
           color: white;
           margin: 0 10px 5px;
           white-space: nowrap;
         }
 
-        .footer :global(a::before) {
+        .footer a::before {
           content: '+ ';
         }
       `}
-    </style>
+    </Style>
   </div>
 )
 export default Footer

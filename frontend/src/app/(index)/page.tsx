@@ -1,8 +1,7 @@
-import React from 'react'
 import { notFound } from 'next/navigation'
-import { queryPageData } from 'src/lib/kirby-query'
+import { queryPageData } from 'lib/kirby-query'
 
-import Hero from 'src/components/hero'
+import Hero from 'components/hero'
 import Work from './_work'
 import Clients from './_clients'
 

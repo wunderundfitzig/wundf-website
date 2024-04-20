@@ -1,4 +1,4 @@
-import { queryPageData } from 'src/lib/kirby-query'
+import { queryPageData } from 'lib/kirby-query'
 import { notFound } from 'next/navigation'
 
 type HeadingBlock = {

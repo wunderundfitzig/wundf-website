@@ -1,11 +1,11 @@
-'use client'
-
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import colors from 'src/lib/colors'
-import breakpoints from 'src/lib/breakpoints'
-import { publicConfig } from 'src/lib/config/public-config'
+
+import colors from 'lib/colors'
+import breakpoints from 'lib/breakpoints'
+import { publicConfig } from 'lib/config/public-config'
+import Style from 'components/style'
 
 type Props = {
   size: 'small' | 'medium' | 'featured'
@@ -67,7 +67,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
         />
       </Link>
 
-      <style jsx>{`
+      <Style>{`
         .teaser {
           display: grid;
           grid-template-areas: 'main';
@@ -82,7 +82,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
           grid-column: 1 / -1;
         }
 
-        .category {
+        .teaser .category {
           margin: 0 0 0.3em;
           font-size: 0.5em;
           letter-spacing: 0.09em;
@@ -91,7 +91,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
           font-weight: bold;
         }
 
-        .text {
+        .teaser .text {
           grid-area: main;
           background-color: ${colors.beige};
           padding: 1em 1em 1.5em 1em;
@@ -100,21 +100,21 @@ const Teaser: FunctionComponent<Props> = (props) => {
           overflow: hidden;
         }
 
-        .description {
+        .teaser .description {
           line-height: 1.4;
         }
 
-        h2 {
+        .teaser h2 {
           font-size: 1.2em;
           margin: 0em 0 0.5em;
           overflow-wrap: break-word;
         }
 
-        .teaser :global(.plain-link) {
+        .teaser .plain-link {
           color: inherit;
         }
 
-        .teaser :global(.image-link) {
+        .teaser .image-link {
           grid-area: main;
           align-self: start;
           position: relative;
@@ -125,12 +125,12 @@ const Teaser: FunctionComponent<Props> = (props) => {
           background-color: ${colors.brownGrey};
         }
 
-        .teaser :global(.image-link .image) {
+        .teaser .image-link .image {
           object-fit: cover;
           object-position: 50% 50%;
         }
 
-        .story-link :global(.link) {
+        .story-link.teaser .link {
           color: ${colors.darkBlue};
           border: 1px solid ${colors.blueGrey};
           text-align: center;
@@ -141,7 +141,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
           font-size: 0.8em;
         }
 
-        .teaser :global(.link) {
+        .teaser .link {
           font-size: 0.9em;
           color: ${colors.blue};
         }
@@ -152,18 +152,18 @@ const Teaser: FunctionComponent<Props> = (props) => {
             padding-bottom: 2em;
           }
 
-          .text {
+          .teaser .text {
             justify-self: center;
             width: calc(100% - 2em);
           }
 
-          p {
+          .teaser p {
             font-size: 0.9em;
           }
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
-          .text {
+          .teaser .text {
             width: calc(100% - 1em);
           }
 
@@ -184,18 +184,18 @@ const Teaser: FunctionComponent<Props> = (props) => {
             align-content: start;
           }
 
-          .medium :global(.image-link),
-          .featured :global(.image-link) {
+          .medium.teaser .image-link,
+          .featured.teaser .image-link {
             grid-area: image;
             margin: 0;
           }
 
-          .medium .category,
-          .featured .category {
+          .medium.teaser .category,
+          .featured.teaser .category {
             color: ${colors.beige};
           }
 
-          .medium .text {
+          .medium.teaser .text {
             grid-area: text;
             width: 100%;
             align-self: center;
@@ -206,7 +206,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
             -moz-osx-font-smoothing: grayscale;
           }
 
-          .featured .text {
+          .featured.teaser .text {
             grid-area: text;
             width: 100%;
             padding: 0;
@@ -216,15 +216,15 @@ const Teaser: FunctionComponent<Props> = (props) => {
             -moz-osx-font-smoothing: grayscale;
           }
 
-          .story-link :global(.link) {
+          .story-link.teaser .link {
             display: block;
             width: 100%;
             font-size: 0.7em;
             margin: 0;
           }
 
-          .medium.story-link :global(.link),
-          .featured.story-link :global(.link) {
+          .medium.story-link.teaser .link,
+          .featured.story-link.teaser .link {
             width: auto;
             display: inline-block;
             background-color: ${colors.beige};
@@ -232,15 +232,15 @@ const Teaser: FunctionComponent<Props> = (props) => {
             text-decoration: none;
           }
 
-          .medium :global(.link),
-          .featured :global(.link) {
+          .medium.teaser .link,
+          .featured.teaser .link {
             color: ${colors.beige};
             -moz-osx-font-smoothing: grayscale;
             text-decoration: underline;
           }
         }
         @media (min-width: ${breakpoints.l.min}px) {
-          .text {
+          .teaser .text {
             width: calc(100% - 2em);
           }
           .featured.teaser {
@@ -260,19 +260,19 @@ const Teaser: FunctionComponent<Props> = (props) => {
             padding-bottom: 0;
           }
 
-          .featured .text {
+          .featured.teaser .text {
             margin-bottom: 1em;
           }
 
-          p {
+          .teaser p {
             font-size: 0.95em;
           }
 
-          .featured h2 {
+          .featured.teaser h2 {
             font-size: 1.6em;
           }
         }
-      `}</style>
+      `}</Style>
     </article>
   )
 }

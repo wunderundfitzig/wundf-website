@@ -1,11 +1,10 @@
-'use client'
-
 import { FunctionComponent } from 'react'
-import breakpoints from 'src/lib/breakpoints'
-import colors from 'src/lib/colors'
+import breakpoints from 'lib/breakpoints'
+import colors from 'lib/colors'
 
-import Teaser from 'src/components/teaser'
+import Teaser from 'components/teaser'
 import { News, StoryLink } from './page'
+import Style from 'components/style'
 
 function getLink(news: News | StoryLink): {
   href: string
@@ -50,7 +49,7 @@ const Work: FunctionComponent<Props> = (props) => {
           />
         ))}
       </div>
-      <style jsx>{`
+      <Style>{`
         .work-articles {
           position: relative;
           list-style: none;
@@ -102,7 +101,7 @@ const Work: FunctionComponent<Props> = (props) => {
             padding-bottom: 6em;
           }
         }
-      `}</style>
+      `}</Style>
     </section>
   )
 }

@@ -1,8 +1,7 @@
-'use client'
-
 import React, { FunctionComponent } from 'react'
-import NavigationItem from 'src/components/navigation-item'
-import breakpoints from 'src/lib/breakpoints'
+import NavigationItem from 'components/navigation-item'
+import breakpoints from 'lib/breakpoints'
+import Style from './style'
 
 const routes = [
   { href: '/', name: 'work', label: 'work' },
@@ -25,7 +24,7 @@ const Navigation: FunctionComponent<Props> = (props) => {
           </li>
         ))}
       </ul>
-      <style jsx>{`
+      <Style>{`
         .navigation {
           position: relative;
           z-index: 10;
@@ -34,7 +33,7 @@ const Navigation: FunctionComponent<Props> = (props) => {
           margin: 0 auto;
         }
 
-        ul {
+        .navigation ul {
           list-style: none;
           margin: 0;
           padding: 0;
@@ -45,17 +44,17 @@ const Navigation: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
-          ul {
+          .navigation ul {
             margin: 0 1em;
           }
         }
 
         @media (min-width: ${breakpoints.xl.min}px) {
-          ul {
+          .navigation ul {
             margin: 0 auto;
           }
         }
-      `}</style>
+      `}</Style>
     </nav>
   )
 }

@@ -1,8 +1,9 @@
-'use client'
-
 import { FunctionComponent } from 'react'
-import Teaser from 'src/components/teaser'
-import colors from 'src/lib/colors'
+
+import colors from 'lib/colors'
+import Teaser from 'components/teaser'
+import Style from 'components/style'
+
 import { StoryInfo } from './page'
 
 interface Props {
@@ -22,7 +23,7 @@ const Stories: FunctionComponent<Props> = (props) => {
           key={story.slug}
         />
       ))}
-      <style jsx>{`
+      <Style>{`
         .stories {
           display: grid;
           grid-template-columns: minmax(auto, 900px);
@@ -37,7 +38,7 @@ const Stories: FunctionComponent<Props> = (props) => {
           color: white;
           margin: 2em 0 0;
         }
-      `}</style>
+      `}</Style>
     </section>
   )
 }

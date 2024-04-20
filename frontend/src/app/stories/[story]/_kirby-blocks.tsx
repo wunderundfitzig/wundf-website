@@ -1,9 +1,10 @@
-'use client'
-
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
-import { publicConfig } from 'src/lib/config/public-config'
-import colors from 'src/lib/colors'
+
+import { publicConfig } from 'lib/config/public-config'
+import colors from 'lib/colors'
+import Style from 'components/style'
+
 import { Block } from './_fetch-story'
 
 type Props = {
@@ -16,18 +17,23 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
         switch (block.type) {
           case 'heading': {
             const Heading = block.content.level
-            return <Heading key={block.id}>{block.content.text}</Heading>
+            return (
+              <Heading className='kirby-block' key={block.id}>
+                {block.content.text}
+              </Heading>
+            )
           }
           case 'text':
             return (
               <div
+                className='kirby-block'
                 key={block.id}
                 dangerouslySetInnerHTML={{ __html: block.content.text }}
               />
             )
           case 'image':
             return (
-              <figure key={block.id}>
+              <figure className='kirby-block' key={block.id}>
                 <Image
                   className='image'
                   src={`${publicConfig.backendURL}/${block.content.image.src}`}
@@ -43,23 +49,23 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
             )
         }
       })}
-      <style jsx>{`
-        figure {
+      <Style>{`
+        figure.kirby-block {
           margin: 2em -2em;
         }
 
-        figure :global(.image) {
+        figure.kirby-block .image {
           width: 100%;
           height: auto;
           background-color: ${colors.brownGrey};
         }
 
-        figcaption {
+        .kirby-block.figcaption {
           text-align: center;
           padding: 1em;
           font-style: italic;
         }
-      `}</style>
+      `}</Style>
     </>
   )
 }

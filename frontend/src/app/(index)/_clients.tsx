@@ -1,7 +1,5 @@
-'use client'
-
 import React, { FunctionComponent } from 'react'
-import colors from 'src/lib/colors'
+import colors from 'lib/colors'
 
 import ClientLogo from './_client-logo'
 import rbbSVG from './_client-logos/rbb.svg'
@@ -10,6 +8,7 @@ import asertoSVG from './_client-logos/aserto.svg'
 import johanniterSVG from './_client-logos/johanniter.svg'
 import emsSVG from './_client-logos/ems.svg'
 import dcbPNG from './_client-logos/dcb.png'
+import Style from 'components/style'
 
 const clients = [
   {
@@ -65,13 +64,13 @@ const Clients: FunctionComponent = () => {
           />
         ))}
       </div>
-      <style jsx>{`
+      <Style>{`
         .clients {
           background-color: ${colors.orange};
           padding: 3.2em 0 2em;
         }
 
-        .client-logos {
+        .clients .client-logos {
           width: 100%;
           max-width: 1030px;
           padding: 0 1.5em 1em;
@@ -85,12 +84,12 @@ const Clients: FunctionComponent = () => {
         }
 
         @media (min-width: 650px) {
-          .client-logos {
+          .clients .client-logos {
             grid-template-columns: repeat(6, min-content);
             grid-template-rows: min-content;
           }
         }
-      `}</style>
+      `}</Style>
     </div>
   )
 }

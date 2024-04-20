@@ -1,27 +1,22 @@
 import { ReactNode } from 'react'
-
 import Footer from '../components/footer'
 import GlobalStyles from '../components/global-styles'
-import StyledJsxRegistry from '../components/registry'
 
 type Props = {
   children: ReactNode
 }
-const RootLayout = async (props: Props) => {
+export default async function RootLayout(props: Props) {
   return (
     <html>
       <head>
         <title>wunder & fitzig</title>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <GlobalStyles />
       </head>
-      <StyledJsxRegistry>
-        <body>
-          {props.children}
-          <Footer />
-          <GlobalStyles />
-        </body>
-      </StyledJsxRegistry>
+      <body>
+        {props.children}
+        <Footer />
+      </body>
     </html>
   )
 }
-export default RootLayout

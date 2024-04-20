@@ -1,11 +1,10 @@
-'use client'
-
 import React, { FunctionComponent } from 'react'
 
-import WundFLogo from 'src/components/wundf-logo'
-import Contact from 'src/components/contact'
-import Navigation from 'src/components/navigation'
-import breakpoints from 'src/lib/breakpoints'
+import WundFLogo from 'components/wundf-logo'
+import Contact from 'components/contact'
+import Navigation from 'components/navigation'
+import breakpoints from 'lib/breakpoints'
+import Style from './style'
 
 type Props = {
   activeRouteName: 'work' | 'skills'
@@ -26,7 +25,7 @@ const Hero: FunctionComponent<Props> = (props) => {
       </section>
       <Navigation activeRouteName={props.activeRouteName} />
 
-      <style jsx>{`
+      <Style>{`
         .hero {
           max-width: 1030px;
           margin: 0 auto;
@@ -40,7 +39,7 @@ const Hero: FunctionComponent<Props> = (props) => {
           justify-content: space-between;
         }
 
-        .slogan {
+        .hero .slogan {
           grid-area: slogan;
           font-size: 40px;
           margin: 1em 0 0.5em;
@@ -54,16 +53,16 @@ const Hero: FunctionComponent<Props> = (props) => {
             grid-template-columns: 400px 80px;
           }
 
-          .hero :global(.wundf-logo) {
+          .hero .wundf-logo {
             position: sticky;
             top: 1.5em;
           }
 
-          .slogan {
+          .hero .slogan {
             font-size: 55px;
           }
         }
-      `}</style>
+      `}</Style>
     </>
   )
 }

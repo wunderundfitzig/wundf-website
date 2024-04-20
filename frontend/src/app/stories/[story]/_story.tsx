@@ -1,12 +1,12 @@
-'use client'
-
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
-import { publicConfig } from 'src/lib/config/public-config'
-import colors from 'src/lib/colors'
-import breakpoints from 'src/lib/breakpoints'
 
-import KirbyBlocks from 'src/app/stories/[story]/_kirby-blocks'
+import { publicConfig } from 'lib/config/public-config'
+import colors from 'lib/colors'
+import breakpoints from 'lib/breakpoints'
+import Style from 'components/style'
+
+import KirbyBlocks from 'app/stories/[story]/_kirby-blocks'
 import { StoryContent } from './_fetch-story'
 
 type Props = {
@@ -32,7 +32,7 @@ const Story: FunctionComponent<Props> = (props) => {
       <section className='content'>
         <KirbyBlocks blocks={props.story.content} />
       </section>
-      <style jsx>{`
+      <Style>{`
         .story {
           display: grid;
           grid-template-areas:
@@ -47,7 +47,7 @@ const Story: FunctionComponent<Props> = (props) => {
           line-height: 1.5;
         }
 
-        .image-wrapper {
+        .story .image-wrapper {
           grid-area: image;
           position: relative;
           width: 100%;
@@ -55,23 +55,23 @@ const Story: FunctionComponent<Props> = (props) => {
           background-color: ${colors.brownGrey};
         }
 
-        .image-wrapper :global(.image) {
+        .story .image-wrapper .image {
           object-fit: cover;
           object-position: 50% 50%;
         }
 
-        header {
+        .story header {
           grid-area: title;
           text-align: right;
           padding: 1em 2em 3em 5em;
           justify-self: end;
         }
 
-        h1 {
+        .story h1 {
           font-size: 1.7em;
         }
 
-        .content {
+        .story .content {
           grid-area: content;
           max-width: 800px;
           width: 100%;
@@ -92,26 +92,26 @@ const Story: FunctionComponent<Props> = (props) => {
             align-items: center;
           }
 
-          header {
+          .story header {
             padding: 0 2em 2em 2em;
             min-width: 320px;
           }
 
-          .content {
+          .story .content {
             padding: 0 3em;
           }
         }
 
         @media (min-width: ${breakpoints.l.min}px) {
-          header {
+          .story header {
             padding: 0 3em 2em 5em;
           }
 
-          h1 {
+          .story h1 {
             font-size: 2em;
           }
         }
-      `}</style>
+      `}</Style>
     </article>
   )
 }
