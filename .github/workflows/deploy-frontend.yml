@@ -28,7 +28,7 @@ jobs:
       - name: Cache nextjs build folder
         uses: actions/cache@v4
         with:
-          path: .next/cache
+          path: frontend/.next/cache
           key: next-cache-${{ hashFiles('frontend/package-lock.json') }}
           restore-keys: |
             next-cache-${{ hashFiles('frontend/package-lock.json') }}
