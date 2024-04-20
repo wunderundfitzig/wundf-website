@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react'
 
 import colors from 'lib/colors'
 import Teaser from 'components/teaser'
-import Style from 'components/style'
+import Style, { css } from 'components/style'
 
 import { StoryInfo } from './page'
 
@@ -23,7 +23,7 @@ const Stories: FunctionComponent<Props> = (props) => {
           key={story.slug}
         />
       ))}
-      <Style>{`
+      <Style>{css`
         .stories {
           display: grid;
           grid-template-columns: minmax(auto, 900px);

@@ -4,7 +4,7 @@ import colors from 'lib/colors'
 
 import Teaser from 'components/teaser'
 import { News, StoryLink } from './page'
-import Style from 'components/style'
+import Style, { css } from 'components/style'
 
 function getLink(news: News | StoryLink): {
   href: string
@@ -49,7 +49,7 @@ const Work: FunctionComponent<Props> = (props) => {
           />
         ))}
       </div>
-      <Style>{`
+      <Style>{css`
         .work-articles {
           position: relative;
           list-style: none;

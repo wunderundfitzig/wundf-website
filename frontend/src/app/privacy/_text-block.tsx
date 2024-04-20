@@ -1,12 +1,12 @@
 import { FunctionComponent, ReactElement } from 'react'
-import Style from 'components/style'
+import Style, { css } from 'components/style'
 
 type Props = { children: ReactElement }
 const TextBlock: FunctionComponent<Props> = (props) => {
   return (
     <div className='text-block'>
       {props.children}
-      <Style>{`
+      <Style>{css`
         .text-block {
           max-width: 900px;
           padding: 0 30px;

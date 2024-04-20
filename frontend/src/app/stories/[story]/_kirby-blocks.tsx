@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 import { publicConfig } from 'lib/config/public-config'
 import colors from 'lib/colors'
-import Style from 'components/style'
+import Style, { css } from 'components/style'
 
 import { Block } from './_fetch-story'
 
@@ -49,7 +49,7 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
             )
         }
       })}
-      <Style>{`
+      <Style>{css`
         figure.kirby-block {
           margin: 2em -2em;
         }

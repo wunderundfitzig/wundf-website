@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import breakpoints from 'lib/breakpoints'
-import Style from 'components/style'
+import Style, { css } from 'components/style'
 
 declare module 'react' {
   interface CSSProperties {
@@ -30,7 +30,7 @@ const ClientLogo: FunctionComponent<ClientLogoProps> = (props) => {
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image {...rest} />
       </a>
-      <Style>{`
+      <Style>{css`
         .client-logo {
           width: calc(20px * var(--relative-size));
         }

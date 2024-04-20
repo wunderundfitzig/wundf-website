@@ -8,7 +8,7 @@ import asertoSVG from './_client-logos/aserto.svg'
 import johanniterSVG from './_client-logos/johanniter.svg'
 import emsSVG from './_client-logos/ems.svg'
 import dcbPNG from './_client-logos/dcb.png'
-import Style from 'components/style'
+import Style, { css } from 'components/style'
 
 const clients = [
   {
@@ -64,7 +64,7 @@ const Clients: FunctionComponent = () => {
           />
         ))}
       </div>
-      <Style>{`
+      <Style>{css`
         .clients {
           background-color: ${colors.orange};
           padding: 3.2em 0 2em;
