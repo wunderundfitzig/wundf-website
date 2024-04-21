@@ -41,14 +41,16 @@ const Teaser: FunctionComponent<Props> = (props) => {
             <p className='description'>{props.description}</p>
           )}
         </Link>
-        <Link
-          className='link'
-          href={props.link.href}
-          target={props.link.target}
-          rel='noreferrer'
-        >
-          {props.link.text}
-        </Link>
+        {props.type === 'news' && (
+          <Link
+            className='link'
+            href={props.link.href}
+            target={props.link.target}
+            rel='noreferrer'
+          >
+            {props.link.text}
+          </Link>
+        )}
       </div>
 
       <Link
