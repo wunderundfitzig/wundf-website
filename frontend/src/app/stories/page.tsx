@@ -1,8 +1,9 @@
 import React from 'react'
-import { queryPageData } from 'lib/kirby-query'
+import { notFound } from 'next/navigation'
+
 import Navigation from 'components/navigation'
 import Stories from './_stories'
-import { notFound } from 'next/navigation'
+import { fetchStories } from './_fetch-stories'
 
 export type StoryInfo = {
   slug: string
@@ -15,27 +16,8 @@ export const metadata = {
   title: 'Stories | wunder & fitzig',
 }
 
-type PageData = {
-  stories: StoryInfo[]
-}
 const StoriesPage = async () => {
-  const pageData = await queryPageData<PageData>({
-    query: `page("work")`,
-    select: {
-      stories: {
-        query: 'page.children',
-        select: {
-          title: true,
-          slug: true,
-          description: 'page.teaser_text',
-          image: {
-            query: 'page.cover.toFile',
-            select: { src: 'file.id', width: true, height: true },
-          },
-        },
-      },
-    },
-  })
+  const pageData = await fetchStories()
   if (pageData === null) notFound()
 
   return (
