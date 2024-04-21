@@ -2,6 +2,7 @@ import { queryPageData } from 'lib/kirby-query'
 import Hero from 'components/hero'
 import Creatives from './_creatives'
 import { notFound } from 'next/navigation'
+import { Metadata } from 'next'
 
 export type Creative = {
   title: string
@@ -9,8 +10,10 @@ export type Creative = {
   text: string
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Skills | wunder & fitzig',
+  description:
+    'wunder & fitzig sind Martina Springmann und Manuel Reich. Zusammen gestalten wir seit 2011 digitale und analoge Produkte.',
 }
 
 interface PageData {

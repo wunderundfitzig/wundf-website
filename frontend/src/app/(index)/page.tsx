@@ -4,6 +4,7 @@ import { queryPageData } from 'lib/kirby-query'
 import Hero from 'components/hero'
 import Work from './_work'
 import Clients from './_clients'
+import { Metadata } from 'next'
 
 export type News = {
   type: 'news'
@@ -31,8 +32,10 @@ export type StoryLink = {
   storyImage: { src: string; width: number; height: number }
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'wunder & fitzig',
+  description:
+    'Wir gestalten Nutzererlebnisse. | info@wundf.net | +49 (0) 30 644 72 444',
 }
 
 type PageData = {
