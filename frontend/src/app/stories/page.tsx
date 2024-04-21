@@ -16,6 +16,8 @@ export const metadata = {
   title: 'Stories | wunder & fitzig',
 }
 
+export const revalidate = 10
+
 const StoriesPage = async () => {
   const pageData = await fetchStories()
   if (pageData === null) notFound()
