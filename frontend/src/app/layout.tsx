@@ -7,7 +7,7 @@ type Props = {
 }
 export default async function RootLayout(props: Props) {
   return (
-    <html>
+    <html lang='de'>
       <head>
         <title>wunder & fitzig</title>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
