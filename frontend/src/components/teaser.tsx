@@ -105,7 +105,8 @@ const Teaser: FunctionComponent<Props> = (props) => {
         }
 
         .teaser h2 {
-          font-size: 1.2em;
+          font-size: 1em;
+          line-height: 1.3;
           margin: 0em 0 0.5em;
           overflow-wrap: break-word;
         }
@@ -269,7 +270,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
           }
 
           .featured.teaser h2 {
-            font-size: 1.6em;
+            font-size: 1.5em;
           }
         }
       `}</Style>
