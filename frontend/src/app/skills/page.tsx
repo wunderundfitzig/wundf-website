@@ -16,8 +16,6 @@ export const metadata: Metadata = {
     'wunder & fitzig sind Martina Springmann und Manuel Reich. Zusammen gestalten wir seit 2011 digitale und analoge Produkte.',
 }
 
-export const revalidate = 10
-
 interface PageData {
   creatives: Creative[]
 }

@@ -38,8 +38,6 @@ export const metadata: Metadata = {
     'Wir gestalten Nutzererlebnisse. | info@wundf.net | +49 (0) 30 644 72 444',
 }
 
-export const revalidate = 10
-
 type PageData = {
   news: News[]
   stories: StoryLink[]

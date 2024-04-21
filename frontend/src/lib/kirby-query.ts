@@ -25,7 +25,7 @@ export async function queryBackend(query: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(query),
-    next: { revalidate: 60 },
+    next: { revalidate: 10 },
   })
   if (result.status >= 300) {
     const resultText = await result.json()

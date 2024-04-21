@@ -23,8 +23,6 @@ export async function generateStaticParams(): Promise<Props['params'][]> {
   }))
 }
 
-export const revalidate = 10
-
 const Story = async ({ params }: Props) => {
   const story = await fetchStory(params.story)
 
