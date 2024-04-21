@@ -9,6 +9,8 @@ export const metadata = {
   title: 'Datenschutz / Impressum | wunder & fitzig',
 }
 
+export const revalidate = 10
+
 const Privacy = async () => {
   const pageData = await queryPageData<{ content: string }>({
     query: 'page("privacy")',
