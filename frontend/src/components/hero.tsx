@@ -16,9 +16,7 @@ const Hero: FunctionComponent<Props> = (props) => {
         <h2 className='slogan' lang='de-DE'>
           Wir <br />
           gestalten <br />
-          Nutzer
-          <wbr />
-          erlebnisse.
+          Nutzer&shy;erlebnisse.
         </h2>
         <WundFLogo gridArea='logo' />
         <Contact gridArea='contact' />
@@ -43,7 +41,7 @@ const Hero: FunctionComponent<Props> = (props) => {
           grid-area: slogan;
           font-size: 40px;
           margin: 1em 0 0.5em;
-          overflow-wrap: break-word;
+          hyphens: manual;
           width: 100%;
         }
 
