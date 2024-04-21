@@ -17,15 +17,6 @@ export default async function GlobalStyles() {
         }
 
         @font-face {
-          font-family: 'ETBemboLineFigures';
-          src: url('/fonts/et-book-roman-line-figures-webfont.woff2')
-              format('woff2'),
-            url('/fonts/et-book-roman-line-figures-webfont.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-        }
-
-        @font-face {
           font-family: 'ETBembo';
           src: url('/fonts/et-book-semi-bold-old-style-figures-webfont.woff2')
               format('woff2'),
