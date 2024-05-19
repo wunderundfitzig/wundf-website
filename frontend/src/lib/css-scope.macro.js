@@ -26,10 +26,7 @@ function cssScopes({ references, state, babel }) {
     if (referencePath.parentPath.type === 'CallExpression') {
       const args = referencePath.parentPath.node.arguments
       const newBlock = t.memberExpression(
-        t.arrayExpression([
-          t.stringLiteral(cssScope),
-          ...args.map((arg) => arg),
-        ]),
+        t.arrayExpression([t.stringLiteral(cssScope), ...args]),
         t.identifier('join(" ")')
       )
       referencePath.parentPath.replaceWith(
