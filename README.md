@@ -2,8 +2,8 @@
 
 ## kirby backend
 
-See (README)[backend/README.md]
+See [README](backend/README.md)
 
 ## nextjs frontend
 
-See (README)[frontend/README.md]
+See [README](frontend/README.md)
