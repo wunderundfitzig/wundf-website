@@ -17,6 +17,7 @@ module.exports = withBundleAnalyzer({
   },
   experimental: {
     scrollRestoration: true,
+    swcPlugins: [['eszett/swc', {}]],
   },
   logging: {
     fetches: {
