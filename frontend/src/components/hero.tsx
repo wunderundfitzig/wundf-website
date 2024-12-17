@@ -24,7 +24,7 @@ const Hero: FunctionComponent<Props> = (props) => {
       </section>
       <Navigation activeRouteName={props.activeRouteName} />
 
-      <style href={eszett}>{css`
+      <style href={eszett} precedence='eszett'>{css`
         .${eszett} {
           &.hero {
             max-width: 1030px;
