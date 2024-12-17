@@ -4,18 +4,20 @@ import WorkStory from './_story'
 import { fetchStory } from './_fetch-story'
 import { fetchStories } from '../_fetch-stories'
 
+type Params = { story: string }
 type Props = {
-  params: { story: string }
+  params: Promise<Params>
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata(props: Props) {
+  const params = await props.params
   const story = await fetchStory(params.story)
   return {
     title: `${story.title} | wunder & fitzig`,
   }
 }
 
-export async function generateStaticParams(): Promise<Props['params'][]> {
+export async function generateStaticParams(): Promise<Params[]> {
   const stories = await fetchStories()
 
   return stories.stories.map((story) => ({
@@ -23,7 +25,8 @@ export async function generateStaticParams(): Promise<Props['params'][]> {
   }))
 }
 
-const Story = async ({ params }: Props) => {
+export default async function Story(props: Props) {
+  const params = await props.params
   const story = await fetchStory(params.story)
 
   return (
@@ -33,5 +36,3 @@ const Story = async ({ params }: Props) => {
     </>
   )
 }
-
-export default Story
