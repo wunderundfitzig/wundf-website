@@ -1,10 +1,10 @@
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
-import Style, { css } from 'components/style'
+import { css } from 'components/style'
 
 export default async function GlobalStyles() {
   return (
-    <Style>
+    <style>
       {css`
         @font-face {
           font-family: 'ETBembo';
@@ -53,6 +53,6 @@ export default async function GlobalStyles() {
           text-decoration: none;
         }
       `}
-    </Style>
+    </style>
   )
 }

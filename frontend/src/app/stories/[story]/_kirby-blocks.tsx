@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
+import eszett, { sz } from 'eszett'
 
 import { publicConfig } from 'lib/config/public-config'
 import colors from 'lib/colors'
@@ -35,7 +36,7 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
             return (
               <figure className='kirby-block' key={block.id}>
                 <Image
-                  className='image'
+                  className={sz`image`}
                   src={`${publicConfig.backendURL}/${block.content.image.src}`}
                   alt={block.content.alt ?? ''}
                   width={block.content.image.width}
@@ -49,18 +50,18 @@ const KirbyBlocks: FunctionComponent<Props> = (props) => {
             )
         }
       })}
-      <Style>{css`
-        figure.kirby-block {
+      <Style eszett={eszett}>{css`
+        figure&.kirby-block {
           margin: 2em -2em;
         }
 
-        figure.kirby-block .image {
+        figure&.kirby-block &.image {
           width: 100%;
           height: auto;
           background-color: ${colors.brownGrey};
         }
 
-        .kirby-block.figcaption {
+        &.kirby-block.figcaption {
           text-align: center;
           padding: 1em;
           font-style: italic;

@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import eszett, { sz } from 'eszett'
 
 import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
@@ -28,7 +29,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
     <article className={`teaser ${props.size} ${props.type}`}>
       <div className='text'>
         <Link
-          className='plain-link'
+          className={sz`plain-link`}
           href={props.link.href}
           target={props.link.target}
           rel='noreferrer'
@@ -43,7 +44,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
         </Link>
         {props.type === 'news' && (
           <Link
-            className='link'
+            className={sz`link`}
             href={props.link.href}
             target={props.link.target}
             rel='noreferrer'
@@ -54,7 +55,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
       </div>
 
       <Link
-        className='image-link'
+        className={sz`image-link`}
         href={props.link.href}
         target={props.link.target}
         rel='noreferrer'
@@ -62,15 +63,15 @@ const Teaser: FunctionComponent<Props> = (props) => {
         <Image
           fill
           priority={props.size === 'featured'}
-          className='image'
+          className={sz`image`}
           alt=''
           src={imageUrl}
           sizes='300px'
         />
       </Link>
 
-      <Style>{css`
-        .teaser {
+      <Style eszett={eszett}>{css`
+        &.teaser {
           display: grid;
           grid-template-areas: 'main';
           align-items: end;
@@ -80,11 +81,11 @@ const Teaser: FunctionComponent<Props> = (props) => {
           z-index: 0;
         }
 
-        .featured.teaser {
+        &.featured.teaser {
           grid-column: 1 / -1;
         }
 
-        .teaser .category {
+        &.teaser &.category {
           margin: 0 0 0.3em;
           font-size: 0.5em;
           letter-spacing: 0.09em;
@@ -93,7 +94,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
           font-weight: bold;
         }
 
-        .teaser .text {
+        &.teaser &.text {
           grid-area: main;
           background-color: ${colors.beige};
           padding: 1em 1em 1.5em 1em;
@@ -102,22 +103,22 @@ const Teaser: FunctionComponent<Props> = (props) => {
           overflow: hidden;
         }
 
-        .teaser .description {
+        &.teaser &.description {
           line-height: 1.4;
         }
 
-        .teaser h2 {
+        &.teaser h2& {
           font-size: 1em;
           line-height: 1.3;
           margin: 0em 0 0.5em;
           overflow-wrap: break-word;
         }
 
-        .teaser .plain-link {
+        &.teaser &.plain-link {
           color: inherit;
         }
 
-        .teaser .image-link {
+        &.teaser &.image-link {
           grid-area: main;
           align-self: start;
           position: relative;
@@ -128,12 +129,12 @@ const Teaser: FunctionComponent<Props> = (props) => {
           background-color: ${colors.brownGrey};
         }
 
-        .teaser .image-link .image {
+        &.teaser &.image-link &.image {
           object-fit: cover;
           object-position: 50% 50%;
         }
 
-        .story-link.teaser .link {
+        &.story-link.teaser &.link {
           color: ${colors.darkBlue};
           border: 1px solid ${colors.blueGrey};
           text-align: center;
@@ -144,40 +145,40 @@ const Teaser: FunctionComponent<Props> = (props) => {
           font-size: 0.8em;
         }
 
-        .teaser .link {
+        &.teaser &.link {
           font-size: 0.9em;
           color: ${colors.blue};
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
-          .featured.teaser:first-child {
+          &.featured.teaser:first-child {
             padding-top: 3em;
             padding-bottom: 2em;
           }
 
-          .teaser .text {
+          &.teaser &.text {
             justify-self: center;
             width: calc(100% - 2em);
           }
 
-          .teaser p {
+          &.teaser p& {
             font-size: 0.9em;
           }
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
-          .teaser .text {
+          &.teaser &.text {
             width: calc(100% - 1em);
           }
 
-          .featured.teaser {
+          &.featured.teaser {
             grid-template-columns: 1fr 1fr;
             grid-column-gap: 2em;
             grid-template-areas: 'image text';
             align-items: start;
           }
 
-          .medium.teaser {
+          &.medium.teaser {
             grid-column: span 2;
             grid-template-columns: 1fr 1fr;
             grid-column-gap: 2em;
@@ -187,18 +188,18 @@ const Teaser: FunctionComponent<Props> = (props) => {
             align-content: start;
           }
 
-          .medium.teaser .image-link,
-          .featured.teaser .image-link {
+          &.medium.teaser &.image-link,
+          &.featured.teaser &.image-link {
             grid-area: image;
             margin: 0;
           }
 
-          .medium.teaser .category,
-          .featured.teaser .category {
+          &.medium.teaser &.category,
+          &.featured.teaser &.category {
             color: ${colors.beige};
           }
 
-          .medium.teaser .text {
+          &.medium.teaser &.text {
             grid-area: text;
             width: 100%;
             align-self: center;
@@ -209,7 +210,7 @@ const Teaser: FunctionComponent<Props> = (props) => {
             -moz-osx-font-smoothing: grayscale;
           }
 
-          .featured.teaser .text {
+          &.featured.teaser &.text {
             grid-area: text;
             width: 100%;
             padding: 0;
@@ -219,15 +220,15 @@ const Teaser: FunctionComponent<Props> = (props) => {
             -moz-osx-font-smoothing: grayscale;
           }
 
-          .story-link.teaser .link {
+          &.story-link.teaser &.link {
             display: block;
             width: 100%;
             font-size: 0.7em;
             margin: 0;
           }
 
-          .medium.story-link.teaser .link,
-          .featured.story-link.teaser .link {
+          &.medium.story-link.teaser &.link,
+          &.featured.story-link.teaser &.link {
             width: auto;
             display: inline-block;
             background-color: ${colors.beige};
@@ -235,43 +236,43 @@ const Teaser: FunctionComponent<Props> = (props) => {
             text-decoration: none;
           }
 
-          .medium.teaser .link,
-          .featured.teaser .link {
+          &.medium.teaser &.link,
+          &.featured.teaser &.link {
             color: ${colors.beige};
             -moz-osx-font-smoothing: grayscale;
             text-decoration: underline;
           }
         }
         @media (min-width: ${breakpoints.l.min}px) {
-          .teaser .text {
+          &.teaser &.text {
             width: calc(100% - 2em);
           }
-          .featured.teaser {
+          &.featured.teaser {
             grid-column-gap: 2em;
           }
         }
 
         @media (min-width: ${breakpoints.xl.min}px) {
-          .featured.teaser {
+          &.featured.teaser {
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: 'image text text';
             align-items: center;
           }
 
-          .featured.teaser:first-child {
+          &.featured.teaser:first-child {
             padding-top: 3em;
             padding-bottom: 0;
           }
 
-          .featured.teaser .text {
+          &.featured.teaser &.text {
             margin-bottom: 1em;
           }
 
-          .teaser p {
+          &.teaser p& {
             font-size: 0.95em;
           }
 
-          .featured.teaser h2 {
+          &.featured.teaser h2& {
             font-size: 1.5em;
           }
         }

@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import colors from 'lib/colors'
+import eszett from 'eszett'
 
 import ClientLogo from './_client-logo'
 import rbbSVG from './_client-logos/rbb.svg'
@@ -64,13 +65,13 @@ const Clients: FunctionComponent = () => {
           />
         ))}
       </div>
-      <Style>{css`
-        .clients {
+      <Style eszett={eszett}>{css`
+        &.clients {
           background-color: ${colors.orange};
           padding: 3.2em 0 2em;
         }
 
-        .clients .client-logos {
+        &.clients &.client-logos {
           width: 100%;
           max-width: 1030px;
           padding: 0 1.5em 1em;
@@ -84,7 +85,7 @@ const Clients: FunctionComponent = () => {
         }
 
         @media (min-width: 650px) {
-          .clients .client-logos {
+          &.clients &.client-logos {
             grid-template-columns: repeat(6, min-content);
             grid-template-rows: min-content;
           }

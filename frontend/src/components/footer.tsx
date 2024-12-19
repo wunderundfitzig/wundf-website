@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react'
+import eszett from 'eszett'
 
 import Link from 'next/link'
 import { darkGrey } from 'lib/colors'
@@ -28,10 +29,12 @@ const Footer: FunctionComponent = () => (
     >
       Instagram
     </a>
-    <Link href='/privacy'>Datenschutz / Impressum</Link>
-    <Style>
+    <Link className={eszett} href='/privacy'>
+      Datenschutz / Impressum
+    </Link>
+    <Style eszett={eszett}>
       {css`
-        .footer {
+        &.footer {
           display: flex;
           flex-flow: wrap;
           justify-content: center;
@@ -43,14 +46,14 @@ const Footer: FunctionComponent = () => (
           z-index: 1;
         }
 
-        .footer a {
+        &.footer a& {
           display: block;
           color: white;
           margin: 0 10px 5px;
           white-space: nowrap;
         }
 
-        .footer a::before {
+        &.footer a&::before {
           content: '+ ';
         }
       `}

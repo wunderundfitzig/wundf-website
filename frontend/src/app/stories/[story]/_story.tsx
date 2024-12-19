@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react'
 import Image from 'next/image'
+import eszett, { sz } from 'eszett'
 
 import { publicConfig } from 'lib/config/public-config'
 import colors from 'lib/colors'
@@ -20,7 +21,7 @@ const Story: FunctionComponent<Props> = (props) => {
           fill
           priority
           alt=''
-          className='image'
+          className={sz`image`}
           src={`${publicConfig.backendURL}/${props.story.image.src}`}
           sizes='(max-width: 550px) 100vw, 50vw'
         />
@@ -32,8 +33,8 @@ const Story: FunctionComponent<Props> = (props) => {
       <section className='content'>
         <KirbyBlocks blocks={props.story.content} />
       </section>
-      <Style>{css`
-        .story {
+      <Style eszett={eszett}>{css`
+        &.story {
           display: grid;
           grid-template-areas:
             'image'
@@ -47,7 +48,7 @@ const Story: FunctionComponent<Props> = (props) => {
           line-height: 1.5;
         }
 
-        .story .image-wrapper {
+        &.story &.image-wrapper {
           grid-area: image;
           position: relative;
           width: 100%;
@@ -55,23 +56,23 @@ const Story: FunctionComponent<Props> = (props) => {
           background-color: ${colors.brownGrey};
         }
 
-        .story .image-wrapper .image {
+        &.story &.image-wrapper &.image {
           object-fit: cover;
           object-position: 50% 50%;
         }
 
-        .story header {
+        &.story header& {
           grid-area: title;
           text-align: right;
           padding: 1em 2em 3em 5em;
           justify-self: end;
         }
 
-        .story h1 {
+        &.story h1& {
           font-size: 1.7em;
         }
 
-        .story .content {
+        &.story &.content {
           grid-area: content;
           max-width: 800px;
           width: 100%;
@@ -81,7 +82,7 @@ const Story: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
-          .story {
+          &.story {
             grid-template-areas:
               'title   image   '
               'content content';
@@ -92,22 +93,22 @@ const Story: FunctionComponent<Props> = (props) => {
             align-items: center;
           }
 
-          .story header {
+          &.story header& {
             padding: 0 2em 2em 2em;
             min-width: 320px;
           }
 
-          .story .content {
+          &.story &.content {
             padding: 0 3em;
           }
         }
 
         @media (min-width: ${breakpoints.l.min}px) {
-          .story header {
+          &.story header& {
             padding: 0 3em 2em 5em;
           }
 
-          .story h1 {
+          &.story h1& {
             font-size: 2em;
           }
         }
