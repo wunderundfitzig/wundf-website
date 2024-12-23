@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import Link from 'next/link'
+import eszett, { sz } from 'eszett'
+
 import colors from 'lib/colors'
 import breakpoints from 'lib/breakpoints'
 import Style, { css } from 'components/style'
@@ -17,13 +19,14 @@ const NavigationItem: FunctionComponent<Props> = (props) => {
   return (
     <>
       <Link
-        className={`navigation-item ${props.isActive ? 'active' : ''}`}
+        // @ts-ignore
+        className={sz`navigation-item ${props.isActive ? 'active' : ''}`}
         href={props.route.href}
         scroll={false}
       >
         {props.route.label}
       </Link>
-      <Style>
+      <Style eszett={eszett}>
         {css`
           @keyframes scaleY {
             from {
@@ -34,7 +37,7 @@ const NavigationItem: FunctionComponent<Props> = (props) => {
             }
           }
 
-          .navigation-item {
+          &.navigation-item {
             color: ${colors.orange};
             position: relative;
             display: block;
@@ -46,7 +49,7 @@ const NavigationItem: FunctionComponent<Props> = (props) => {
             cursor: pointer;
           }
 
-          .navigation-item.active::after {
+          &.navigation-item.active::after {
             content: ' ';
             position: absolute;
             margin-left: -12px;
@@ -62,13 +65,13 @@ const NavigationItem: FunctionComponent<Props> = (props) => {
           }
 
           @media (min-width: ${breakpoints.l.min}px) {
-            .navigation-item {
+            &.navigation-item {
               font-size: 1.3em;
             }
           }
 
           @media (min-width: ${breakpoints.xl.min}px) {
-            .navigation-item {
+            &.navigation-item {
               font-size: 1.3em;
             }
           }

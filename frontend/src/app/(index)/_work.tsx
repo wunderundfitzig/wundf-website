@@ -1,4 +1,6 @@
 import { FunctionComponent } from 'react'
+import eszett from 'eszett'
+
 import breakpoints from 'lib/breakpoints'
 import colors from 'lib/colors'
 
@@ -49,8 +51,8 @@ const Work: FunctionComponent<Props> = (props) => {
           />
         ))}
       </div>
-      <Style>{css`
-        .work-articles {
+      <Style eszett={eszett}>{css`
+        &.work-articles {
           position: relative;
           list-style: none;
           margin: 0;
@@ -66,7 +68,7 @@ const Work: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
-          .work-articles {
+          &.work-articles {
             grid-template-columns: minmax(0, 300px);
             grid-row-gap: 3em;
             background-color: ${colors.blueGrey};
@@ -74,7 +76,7 @@ const Work: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
-          .work-articles {
+          &.work-articles {
             grid-template-columns: repeat(2, minmax(0, 300px));
             grid-template-areas: 'featured featured';
             grid-column-gap: 1em;
@@ -85,13 +87,13 @@ const Work: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.l.min}px) {
-          .work-articles {
+          &.work-articles {
             grid-gap: 2em;
           }
         }
 
         @media (min-width: ${breakpoints.xl.min}px) {
-          .work-articles {
+          &.work-articles {
             grid-template-columns: repeat(3, minmax(0, 300px));
             grid-template-areas: 'featured featured featured';
             grid-column-gap: 2em;

@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react'
+import eszett from 'eszett'
 
 import breakpoints from 'lib/breakpoints'
 import WundFLogo from 'components/wundf-logo'
@@ -23,8 +24,8 @@ const Hero: FunctionComponent<Props> = (props) => {
       </section>
       <Navigation activeRouteName={props.activeRouteName} />
 
-      <Style>{css`
-        .hero {
+      <Style eszett={eszett}>{css`
+        &.hero {
           max-width: 1030px;
           margin: 0 auto;
           padding: 1.5em 1.5em 2em;
@@ -37,7 +38,7 @@ const Hero: FunctionComponent<Props> = (props) => {
           justify-content: space-between;
         }
 
-        .hero .slogan {
+        &.slogan {
           grid-area: slogan;
           font-size: 40px;
           margin: 1em 0 0.5em;
@@ -46,17 +47,17 @@ const Hero: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.l.min}px) {
-          .hero {
+          &.hero {
             padding: 1.5em 1.5em 1em;
             grid-template-columns: 400px 80px;
           }
 
-          .hero .wundf-logo {
+          & .wundf-logo {
             position: sticky;
             top: 1.5em;
           }
 
-          .hero .slogan {
+          &.slogan {
             font-size: 55px;
           }
         }

@@ -1,5 +1,7 @@
 import { FunctionComponent } from 'react'
 import Image, { StaticImageData } from 'next/image'
+import eszett from 'eszett'
+
 import breakpoints from 'lib/breakpoints'
 import Style, { css } from 'components/style'
 
@@ -28,47 +30,47 @@ const ClientLogo: FunctionComponent<ClientLogoProps> = (props) => {
         style={{ '--relative-size': props.relativeSize }}
       >
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
-        <Image {...rest} />
+        <Image {...rest} className={eszett} />
       </a>
-      <Style>{css`
-        .client-logo {
+      <Style eszett={eszett}>{css`
+        &.client-logo {
           width: calc(20px * var(--relative-size));
         }
-        .client-logo.left {
+        &.client-logo.left {
           justify-self: left;
         }
-        .client-logo.center {
+        &.client-logo.center {
           justify-self: center;
         }
-        .client-logo.right {
+        &.client-logo.right {
           justify-self: right;
         }
 
-        .client-logo img {
+        &.client-logo img& {
           width: 100%;
           height: auto;
         }
 
         @media (min-width: ${breakpoints.sm.min}px) {
-          .client-logo {
+          &.client-logo {
             width: calc(25px * var(--relative-size));
           }
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
-          .client-logo {
+          &.client-logo {
             width: calc(28px * var(--relative-size));
           }
         }
 
         @media (min-width: ${breakpoints.l.min}px) {
-          .client-logo {
+          &.client-logo {
             width: calc(30px * var(--relative-size));
           }
         }
 
         @media (min-width: ${breakpoints.xl.min}px) {
-          .client-logo {
+          &.client-logo {
             width: calc(34px * var(--relative-size));
           }
         }

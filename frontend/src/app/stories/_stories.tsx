@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react'
+import eszett from 'eszett'
 
 import colors from 'lib/colors'
 import Teaser from 'components/teaser'
@@ -23,8 +24,8 @@ const Stories: FunctionComponent<Props> = (props) => {
           key={story.slug}
         />
       ))}
-      <Style>{css`
-        .stories {
+      <Style eszett={eszett}>{css`
+        &.stories {
           display: grid;
           grid-template-columns: minmax(auto, 900px);
           justify-content: center;
@@ -34,7 +35,7 @@ const Stories: FunctionComponent<Props> = (props) => {
           background-color: ${colors.darkBlue};
         }
 
-        h2 {
+        h2& {
           color: white;
           margin: 2em 0 0;
         }

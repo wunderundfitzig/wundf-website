@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react'
+import eszett from 'eszett'
 
 import breakpoints from 'lib/breakpoints'
 import NavigationItem from 'components/navigation-item'
@@ -25,8 +26,8 @@ const Navigation: FunctionComponent<Props> = (props) => {
           </li>
         ))}
       </ul>
-      <Style>{css`
-        .navigation {
+      <Style eszett={eszett}>{css`
+        &.navigation {
           position: relative;
           z-index: 10;
           padding: 1em 1.5em 0;
@@ -34,7 +35,7 @@ const Navigation: FunctionComponent<Props> = (props) => {
           margin: 0 auto;
         }
 
-        .navigation ul {
+        &.navigation ul& {
           list-style: none;
           margin: 0;
           padding: 0;
@@ -45,13 +46,13 @@ const Navigation: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
-          .navigation ul {
+          &.navigation ul& {
             margin: 0 1em;
           }
         }
 
         @media (min-width: ${breakpoints.xl.min}px) {
-          .navigation ul {
+          &.navigation ul& {
             margin: 0 auto;
           }
         }

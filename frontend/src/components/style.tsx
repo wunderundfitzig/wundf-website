@@ -1,8 +1,13 @@
 type Props = {
+  eszett: string
   children: string
 }
 export default function Style(props: Props) {
-  return <style dangerouslySetInnerHTML={{ __html: props.children }} />
+  return (
+    <style href={props.eszett} precedence='eszett'>
+      {`.${props.eszett} { ${props.children} }`}
+    </style>
+  )
 }
 
 // this is a template literal noop so we can syntax highlight css strings

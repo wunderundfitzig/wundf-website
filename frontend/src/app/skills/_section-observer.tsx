@@ -1,6 +1,7 @@
 'use client'
 
 import { Fragment, FunctionComponent, ReactElement } from 'react'
+import eszett from 'eszett'
 
 import { useSectionIndexObserver } from 'lib/useSectionIndexObserver'
 import breakpoints from 'lib/breakpoints'
@@ -36,8 +37,8 @@ const SectionObserver: FunctionComponent<Props> = (props) => {
           </div>
         </Fragment>
       ))}
-      <Style>{css`
-        .section-observer {
+      <Style eszett={eszett}>{css`
+        &.section-observer {
           display: grid;
           grid-template-rows: 40vh 1fr;
           grid-template-areas: 'images' '.';
@@ -49,7 +50,7 @@ const SectionObserver: FunctionComponent<Props> = (props) => {
           z-index: -1;
         }
 
-        .section-observer .image-wrapper {
+        &.section-observer &.image-wrapper {
           grid-area: images;
           margin: 0;
           position: sticky;
@@ -63,28 +64,28 @@ const SectionObserver: FunctionComponent<Props> = (props) => {
           box-shadow: 0 1.4em 5px 0 ${colors.orange};
         }
 
-        .section-observer .image-wrapper.active {
+        &.section-observer &.image-wrapper.active {
           opacity: 1;
         }
 
-        .section-observer .image-wrapper .image {
+        &.section-observer &.image-wrapper .image {
           object-fit: cover;
           object-position: center;
         }
 
-        .section-observer .content {
+        &.section-observer &.content {
           position: relative;
           padding: 20px 25px;
         }
 
         @media (min-width: ${breakpoints.m.min}px) {
-          .section-observer {
+          &.section-observer {
             grid-template-columns: calc(50%) 1fr;
             grid-template-rows: auto;
             grid-template-areas: 'images' '.';
           }
 
-          .section-observer .image-wrapper {
+          &.section-observer &.image-wrapper {
             position: sticky;
             top: 0;
             height: 100vh;
@@ -94,7 +95,7 @@ const SectionObserver: FunctionComponent<Props> = (props) => {
             opacity: 0;
           }
 
-          .section-observer .content {
+          &.section-observer &.content {
             grid-column: 2 / 3;
             margin: 2em 0;
             padding: 30px 40px 20px 1.8em;
@@ -104,11 +105,11 @@ const SectionObserver: FunctionComponent<Props> = (props) => {
         }
 
         @media (min-width: ${breakpoints.l.min}px) {
-          .section-observer {
+          &.section-observer {
             grid-template-columns: calc(50% + 50px) 1fr;
           }
 
-          .section-observer .image-wrapper {
+          &.section-observer &.image-wrapper {
             position: sticky;
             top: 0;
             height: 100vh;
@@ -118,7 +119,7 @@ const SectionObserver: FunctionComponent<Props> = (props) => {
             opacity: 0;
           }
 
-          .section-observer .content {
+          &.section-observer &.content {
             grid-column: 2 / 3;
             margin: 2em 0;
             padding: 30px 40px 20px 2em;
