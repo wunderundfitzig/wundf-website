@@ -68,7 +68,7 @@ const SectionObserver: FunctionComponent<Props> = (props) => {
           opacity: 1;
         }
 
-        &.section-observer &.image-wrapper &.image {
+        &.section-observer &.image-wrapper .image {
           object-fit: cover;
           object-position: center;
         }
