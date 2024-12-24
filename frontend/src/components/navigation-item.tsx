@@ -26,17 +26,18 @@ const NavigationItem: FunctionComponent<Props> = (props) => {
       >
         {props.route.label}
       </Link>
+      <style href={`${eszett}-keyframes`} precedence='eszett'>{css`
+        @keyframes scaleY {
+          from {
+            transform: scaleY(0);
+          }
+          to {
+            transform: scaleY(1);
+          }
+        }
+      `}</style>
       <Style eszett={eszett}>
         {css`
-          @keyframes scaleY {
-            from {
-              transform: scaleY(0);
-            }
-            to {
-              transform: scaleY(1);
-            }
-          }
-
           &.navigation-item {
             color: ${colors.orange};
             position: relative;
